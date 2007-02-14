@@ -11,6 +11,7 @@ setup(name='eea.mediacentre',
                    'Intended Audience :: Developers'],
       packages=find_packages('src'),
       package_dir={'': 'src'},
+      namespace_packages = ['eea'],
       include_package_data=True,
       zip_safe=False,
       )

@@ -1,6 +1,4 @@
 from zope.testing import doctest
-from zope.testing.doctestunit import DocFileSuite, DocTestSuite
-from Testing.ZopeTestCase.zopedoctest import ZopeDocFileSuite
 import unittest
 from eea.mediacentre.mediacentre import MediaCentre
 from zope.component import provideUtility
@@ -11,7 +9,7 @@ def setUp(test):
 def test_suite():
 
     return unittest.TestSuite((
-        DocFileSuite('../README.txt',
+        doctest.DocFileSuite('../README.txt',
                      setUp=setUp, #tearDown=tearDown,
                      optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,
                      ),
