@@ -4,7 +4,7 @@
  
   <browser:page
       for="*"
-      name="rdfrepository.html"
+      name="mediacentre.html"
       class=".statistics.Info"
       template="statistics.pt"
       permission="zope2.View"
