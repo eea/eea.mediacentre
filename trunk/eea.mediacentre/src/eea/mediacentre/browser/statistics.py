@@ -1,29 +1,21 @@
 from Products.Five import BrowserView
 from zope.component import getUtility
-from eea.rdfrepository.interfaces import IRDFRepository
+from eea.mediacentre.interfaces import IMediaCentre
 
 class Info(BrowserView):
     def __init__(self, context, request):
         super(Info, self).__init__(context, request)
-        self.rdfrepository = getUtility(IRDFRepository)
+        self.mediacentre = getUtility(IMediaCentre)
 
-    def getRDFStats(self):
-        """ Returns a list of feed dictionaries. """
+    def getMediaStats(self):
         result = []
-        query = {}
 
-        theme = self.request.get('theme', None)
-        if theme:
-            query = { 'title': theme,
-                      'subject': theme }
-
-        rdfrepository = getUtility(IRDFRepository)
-        data = rdfrepository.getFeedData(query)
-
-        for feed in data:
-            result.append({ 'url': feed['link'] })
+        types = self.mediacentre.getMediaTypes()
+        for mediatype in types:
+            data = self.mediacentre.getMediaByType(mediatype)
+            result.append({ 'type': mediatype, 'count': len(data) })
 
         return result
 
     def getPluginNames(self):
-        return self.rdfrepository.getPluginNames()
+        return self.mediacentre.getPluginNames()
