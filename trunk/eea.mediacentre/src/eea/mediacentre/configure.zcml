@@ -1,7 +1,25 @@
 <configure xmlns="http://namespaces.zope.org/zope">
  
+  <class class="Products.ATContentTypes.content.file.ATFile">
+      <implements interface=".interfaces.IPossibleMediaFile" />
+  </class>
+
+  <adapter
+      for=".interfaces.IPossibleMediaFile"
+      provides="zope.app.annotation.interfaces.IAnnotations"
+      factory="zope.app.annotation.attribute.AttributeAnnotations"
+      />
+
+  <adapter factory=".mediatypes.MediaTypesAdapter" />
+
   <utility factory=".mediacentre.MediaCentre" />
 
+  <utility
+      component=".mediatypes.MediaTypesVocabularyFactory"
+      name="Media types"
+      />
+
   <include package=".browser" />
+  <include package=".plugins" />
 
 </configure>

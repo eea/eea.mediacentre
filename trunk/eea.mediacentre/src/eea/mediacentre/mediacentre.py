@@ -5,12 +5,12 @@ from zope.component import getAllUtilitiesRegisteredFor
 class MediaCentre(object):
     implements(IMediaCentre)
 
-    def getMedia(self):
+    def getMedia(self, media_type=None, size=None):
         result = []
         plugins = self._getPlugins()
 
         for plugin in plugins:
-            mediaobjects = plugin.getMedia()
+            mediaobjects = plugin.getMedia(media_type, size)
             result.extend(mediaobjects)
 
         return result

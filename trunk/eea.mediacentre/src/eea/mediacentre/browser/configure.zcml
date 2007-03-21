@@ -3,11 +3,34 @@
            xmlns:five="http://namespaces.zope.org/five">
  
   <browser:page
+      for="..interfaces.IPossibleMediaFile"
+      name="mediatype_edit.html"
+      class=".mediatypes.MediaTypesEditForm"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
       for="*"
       name="mediacentre.html"
       class=".statistics.Info"
       template="statistics.pt"
       permission="zope2.View"
+      />
+
+  <browser:menuItem
+      for="eea.mediacentre.interfaces.IPossibleMediaFile"
+      menu="object"
+      title="Media type"
+      action="mediatype_edit.html"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      for="*"
+      name="media_videos"
+      class=".portlets.videos.VideosPortlet"
+      allowed_interface=".interfaces.IMediaPortlet"
+      permission="zope.Public"
       />
 
 </configure>
