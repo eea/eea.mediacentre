@@ -1,0 +1,24 @@
+A media file can be one of several types, e.g. interview and map. This can be
+specified on any file object using an adapter.
+
+  >>> from zope.app.folder.folder import Folder
+  >>> from eea.mediacentre.interfaces import IMediaType
+  >>> from eea.mediacentre.mediatypes import MEDIA_TYPES
+  >>> from eea.mediacentre.interfaces import IInterview, IMap
+  >>> folder = Folder()
+  >>> media = IMediaType(folder)
+  >>> media.media_type = 'interview'
+  >>> IInterview.providedBy(folder)
+  True
+
+If we decide to change type of the object to a map, it should only be a map
+and not an interview.
+
+  >>> media.media_type = 'map'
+  >>> IInterview.providedBy(folder)
+  False
+  >>> IMap.providedBy(folder)
+  True
+  >>> media.media_type = None
+  >>> IMap.providedBy(folder)
+  False
