@@ -19,3 +19,9 @@ class MediaPortlet(BasePortlet):
             return view.widgets['media_player']
         else:
             return None
+
+    def item_to_short_dict(self, item):
+        return item
+
+    def item_to_full_dict(self, item):
+        return item

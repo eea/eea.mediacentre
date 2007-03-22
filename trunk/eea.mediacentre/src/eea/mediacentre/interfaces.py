@@ -55,7 +55,7 @@ class IPossibleMediaFile(Interface):
 class IInterview(Interface):
     """ Marker interface for interviews. """
 
-class IMap(Interface):
+class IInteractiveMap(Interface):
     """ Marker interface for maps. """
 
 class IVideo(Interface):

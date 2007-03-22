@@ -7,16 +7,17 @@ from zope.interface import directlyProvides
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
 
-from eea.mediacentre.interfaces import IInterview, IMap, IVideo, IMindStretcher
+from eea.mediacentre.interfaces import IInterview, IInteractiveMap, IVideo
+from eea.mediacentre.interfaces import IMindStretcher
 from eea.mediacentre.interfaces import IMediaType, IPossibleMediaFile
 
 KEY = 'eea.mediacentre.mediafile'
 
 MEDIA_TYPES = {
     'interview': { 'title': 'Interview', 'interface': IInterview },
-    'map': { 'title': 'Map', 'interface': IMap },
+    'interactivemap': { 'title': 'Interactive Map', 'interface': IInteractiveMap },
     'video': { 'title': 'Video', 'interface': IVideo },
-    'stretcher': { 'title': 'Mind Stretcher', 'interface': IMindStretcher },
+    'mindstretcher': { 'title': 'Mind Stretcher', 'interface': IMindStretcher },
     }
 
 class MediaTypesAdapter(object):

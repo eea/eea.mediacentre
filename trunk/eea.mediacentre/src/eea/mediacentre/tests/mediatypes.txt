@@ -4,7 +4,7 @@ specified on any file object using an adapter.
   >>> from zope.app.folder.folder import Folder
   >>> from eea.mediacentre.interfaces import IMediaType
   >>> from eea.mediacentre.mediatypes import MEDIA_TYPES
-  >>> from eea.mediacentre.interfaces import IInterview, IMap
+  >>> from eea.mediacentre.interfaces import IInterview, IInteractiveMap
   >>> folder = Folder()
   >>> media = IMediaType(folder)
   >>> media.media_type = 'interview'
@@ -17,8 +17,8 @@ and not an interview.
   >>> media.media_type = 'map'
   >>> IInterview.providedBy(folder)
   False
-  >>> IMap.providedBy(folder)
+  >>> IInteractiveMap.providedBy(folder)
   True
   >>> media.media_type = None
-  >>> IMap.providedBy(folder)
+  >>> IInteractiveMap.providedBy(folder)
   False

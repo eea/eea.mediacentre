@@ -33,4 +33,28 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="media_mindstretcher"
+      class=".portlets.mindstretcher.MindStretcherPortlet"
+      allowed_interface=".interfaces.IMediaPortlet"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="media_imaps"
+      class=".portlets.imaps.InteractiveMapsPortlet"
+      allowed_interface=".interfaces.IMediaPortlet"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="media_interviews"
+      class=".portlets.interviews.InterviewsPortlet"
+      allowed_interface=".interfaces.IMediaPortlet"
+      permission="zope.Public"
+      />
+
 </configure>
