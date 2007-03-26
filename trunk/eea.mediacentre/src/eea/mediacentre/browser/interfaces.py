@@ -14,3 +14,11 @@ class IMediaPortlet(IPortlet):
 
     def media_player():
         """ Returns the media player for the media file. """
+
+class INavigationPortlet(Interface):
+
+    def mediacentre():
+        pass
+
+    def media_types():
+        pass

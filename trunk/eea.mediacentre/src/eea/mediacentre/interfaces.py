@@ -63,3 +63,6 @@ class IVideo(Interface):
 
 class IMindStretcher(Interface):
     """ Marker interface for mind stretchers. """
+
+class IThemeVideoProvider(Interface):
+    """ Marker interface for video folder. """

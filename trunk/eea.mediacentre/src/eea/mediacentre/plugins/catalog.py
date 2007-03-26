@@ -42,8 +42,9 @@ class CatalogPlugin(object):
 
     def getMediaTypes(self):
         types = []
-        for id, (title, iface) in MEDIA_TYPES.items():
-            types.append({ 'id': id, 'title': title, 'interface': iface })
+        for id, type_dict in MEDIA_TYPES.items():
+            types.append({ 'id': id, 'title': type_dict['title'],
+                           'interface': type_dict['interface'] })
 
         return types
 

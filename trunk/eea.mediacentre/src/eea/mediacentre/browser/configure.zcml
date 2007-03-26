@@ -57,4 +57,19 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="media_navigation"
+      class=".portlets.navigation.NavigationPortlet"
+      allowed_interface=".interfaces.INavigationPortlet"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="video_provider"
+      class="p4a.video.browser.video.VideoPageView"
+      permission="zope2.View"
+      />
+
 </configure>
