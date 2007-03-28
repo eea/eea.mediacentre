@@ -67,8 +67,17 @@
 
   <browser:page
       for="*"
+      name="media_type_proxy"
+      class=".proxy.MediaTypeProxy"
+      allowed_attributes="video_items"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
       name="video_provider"
-      class="p4a.video.browser.video.VideoPageView"
+      class="p4a.video.browser.video.VideoContainerView"
+      allowed_attributes="video_items"
       permission="zope2.View"
       />
 

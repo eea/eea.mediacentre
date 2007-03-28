@@ -12,6 +12,11 @@
 
   <adapter factory=".mediatypes.MediaTypesAdapter" />
 
+  <adapter factory=".providers.ThemeVideoProvider" />
+  <adapter factory=".providers.ThemeInterviewProvider" />
+  <adapter factory=".providers.ThemeInteractiveMapProvider" />
+  <adapter factory=".providers.ThemeMindStretcherProvider" />
+
   <utility factory=".mediacentre.MediaCentre" />
 
   <utility

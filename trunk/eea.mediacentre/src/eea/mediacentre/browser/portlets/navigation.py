@@ -10,19 +10,30 @@ class NavigationPortlet(utils.BrowserView):
     def mediacentre(self):
         context = utils.context(self)
         themecentre = getThemeCentre(context)
-        media = { 'title': 'Multimedia',
-                  'url': themecentre.absolute_url() + '/mediacentre_view' }
+
+        if not themecentre:
+            return None
+
+        if themecentre:
+            media = { 'title': 'Multimedia',
+                      'url': themecentre.absolute_url() + '/multimedia' }
         return media
 
     def media_types(self):
         context = utils.context(self)
+        themecentre = getThemeCentre(context)
+
+        if not themecentre:
+            return []
+
         mediacentre = getUtility(IMediaCentre)
         types = mediacentre.getMediaTypes()
 
         result = []
-        for type in types:
-            data = { 'title': type['title'] + 's',
-                     'url': context.absolute_url() + '/' + type['id'],
+        for media_type, type_info in types.items():
+            data = { 'title': type_info['title'] + 's',
+                     'url': themecentre.absolute_url() + '/multimedia/' +
+                         media_type,
                      'icon_url': "media_nav_icon.gif" }
             result.append(data)
 

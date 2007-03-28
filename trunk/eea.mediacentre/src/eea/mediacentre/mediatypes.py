@@ -10,14 +10,29 @@ from persistent.list import PersistentList
 from eea.mediacentre.interfaces import IInterview, IInteractiveMap, IVideo
 from eea.mediacentre.interfaces import IMindStretcher
 from eea.mediacentre.interfaces import IMediaType, IPossibleMediaFile
+from eea.mediacentre.interfaces import IThemeVideoProvider
+from eea.mediacentre.interfaces import IThemeInterviewProvider
+from eea.mediacentre.interfaces import IThemeInteractiveMapProvider
+from eea.mediacentre.interfaces import IThemeMindStretcherProvider
 
 KEY = 'eea.mediacentre.mediafile'
 
 MEDIA_TYPES = {
-    'interview': { 'title': 'Interview', 'interface': IInterview },
-    'interactivemap': { 'title': 'Interactive Map', 'interface': IInteractiveMap },
-    'video': { 'title': 'Video', 'interface': IVideo },
-    'mindstretcher': { 'title': 'Mind Stretcher', 'interface': IMindStretcher },
+    'interview': { 'title': 'Interview',
+        'interface': IInterview,
+        'provider': IThemeInterviewProvider },
+
+    'interactivemap': { 'title': 'Interactive Map',
+        'interface': IInteractiveMap,
+        'provider': IThemeInteractiveMapProvider  },
+
+    'video': { 'title': 'Video',
+        'interface': IVideo,
+        'provider': IThemeVideoProvider },
+
+    'mindstretcher': { 'title': 'Mind Stretcher',
+        'interface': IMindStretcher,
+        'provider': IThemeMindStretcherProvider },
     }
 
 class MediaTypesAdapter(object):

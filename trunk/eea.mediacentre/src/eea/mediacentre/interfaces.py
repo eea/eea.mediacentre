@@ -55,14 +55,23 @@ class IPossibleMediaFile(Interface):
 class IInterview(Interface):
     """ Marker interface for interviews. """
 
+class IThemeInterviewProvider(Interface):
+    """ Marker interface for video folder. """
+
 class IInteractiveMap(Interface):
     """ Marker interface for maps. """
+
+class IThemeInteractiveMapProvider(Interface):
+    """ Marker interface for video folder. """
 
 class IVideo(Interface):
     """ Marker interface for videos. """
 
+class IThemeVideoProvider(Interface):
+    """ Marker interface for video folder. """
+
 class IMindStretcher(Interface):
     """ Marker interface for mind stretchers. """
 
-class IThemeVideoProvider(Interface):
+class IThemeMindStretcherProvider(Interface):
     """ Marker interface for video folder. """
