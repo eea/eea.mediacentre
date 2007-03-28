@@ -11,9 +11,9 @@ class Info(BrowserView):
         result = []
 
         types = self.mediacentre.getMediaTypes()
-        for mediatype in types.keys():
+        for mediatype, type_info in types.items():
             data = self.mediacentre.getMediaByType(mediatype)
-            result.append({ 'type': mediatype, 'count': len(data) })
+            result.append({ 'type': type_info['title'], 'count': len(data) })
 
         return result
 

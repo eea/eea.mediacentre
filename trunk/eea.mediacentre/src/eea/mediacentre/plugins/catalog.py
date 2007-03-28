@@ -41,9 +41,12 @@ class CatalogPlugin(object):
 
     def getMediaByType(self, mediatype, search=None):
         site = getSite()
-        portal_type = self.mapping[mediatype]
         catalog = getToolByName(site, 'portal_catalog')
-        result = catalog.searchResults(portal_type=portal_type)
+        types = self.getMediaTypes()
+        iface = types[mediatype]['interface']
+
+        query = { 'object_provides': interfaceToName(site, iface) }
+        result = catalog.searchResults(query)
         return result
 
     def getMediaTypes(self):
