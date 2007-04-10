@@ -4,6 +4,10 @@
       <implements interface=".interfaces.IPossibleMediaFile" />
   </class>
 
+  <class class="Products.ATContentTypes.content.image.ATImage">
+      <implements interface=".interfaces.IPossibleMediaFile" />
+  </class>
+
   <adapter
       for=".interfaces.IPossibleMediaFile"
       provides="zope.app.annotation.interfaces.IAnnotations"
@@ -16,6 +20,7 @@
   <adapter factory=".providers.ThemeInterviewProvider" />
   <adapter factory=".providers.ThemeInteractiveMapProvider" />
   <adapter factory=".providers.ThemeMindStretcherProvider" />
+  <adapter factory=".providers.ThemeImageProvider" />
 
   <utility factory=".mediacentre.MediaCentre" />
 

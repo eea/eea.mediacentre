@@ -56,13 +56,13 @@ class IInterview(Interface):
     """ Marker interface for interviews. """
 
 class IThemeInterviewProvider(Interface):
-    """ Marker interface for video folder. """
+    """ Marker interface for interview folder. """
 
 class IInteractiveMap(Interface):
     """ Marker interface for maps. """
 
 class IThemeInteractiveMapProvider(Interface):
-    """ Marker interface for video folder. """
+    """ Marker interface for map folder. """
 
 class IVideo(Interface):
     """ Marker interface for videos. """
@@ -74,4 +74,10 @@ class IMindStretcher(Interface):
     """ Marker interface for mind stretchers. """
 
 class IThemeMindStretcherProvider(Interface):
-    """ Marker interface for video folder. """
+    """ Marker interface for mind stretcher folder. """
+
+class IImage(Interface):
+    """ Marker interface for images. """
+
+class IThemeImageProvider(Interface):
+    """ Marker interface for image folder. """

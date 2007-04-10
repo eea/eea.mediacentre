@@ -8,12 +8,13 @@ from persistent.dict import PersistentDict
 from persistent.list import PersistentList
 
 from eea.mediacentre.interfaces import IInterview, IInteractiveMap, IVideo
-from eea.mediacentre.interfaces import IMindStretcher
+from eea.mediacentre.interfaces import IMindStretcher, IImage
 from eea.mediacentre.interfaces import IMediaType, IPossibleMediaFile
 from eea.mediacentre.interfaces import IThemeVideoProvider
 from eea.mediacentre.interfaces import IThemeInterviewProvider
 from eea.mediacentre.interfaces import IThemeInteractiveMapProvider
 from eea.mediacentre.interfaces import IThemeMindStretcherProvider
+from eea.mediacentre.interfaces import IThemeImageProvider
 
 KEY = 'eea.mediacentre.mediafile'
 
@@ -33,6 +34,11 @@ MEDIA_TYPES = {
     'mindstretcher': { 'title': 'Mind Stretcher',
         'interface': IMindStretcher,
         'provider': IThemeMindStretcherProvider },
+
+    'image': { 'title': 'Image',
+        'interface': IImage,
+        'provider': IThemeImageProvider },
+
     }
 
 class MediaTypesAdapter(object):
