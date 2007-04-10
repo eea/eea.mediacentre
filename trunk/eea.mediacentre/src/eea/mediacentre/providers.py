@@ -3,6 +3,7 @@ from eea.mediacentre.interfaces import IThemeInterviewProvider
 from eea.mediacentre.interfaces import IThemeInteractiveMapProvider
 from eea.mediacentre.interfaces import IThemeMindStretcherProvider
 from eea.mediacentre.interfaces import IThemeImageProvider
+from eea.mediacentre.interfaces import IThemeAnimationProvider
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 from eea.themecentre.themecentre import getTheme
 from p4a.video.interfaces import IVideoProvider, IVideo
@@ -54,3 +55,8 @@ class ThemeImageProvider(BaseMediaProvider):
     adapts(IThemeImageProvider)
 
     media_type = 'image'
+
+class ThemeAnimationProvider(BaseMediaProvider):
+    adapts(IThemeAnimationProvider)
+
+    media_type = 'animation'

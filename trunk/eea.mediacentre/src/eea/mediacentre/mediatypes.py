@@ -8,13 +8,14 @@ from persistent.dict import PersistentDict
 from persistent.list import PersistentList
 
 from eea.mediacentre.interfaces import IInterview, IInteractiveMap, IVideo
-from eea.mediacentre.interfaces import IMindStretcher, IImage
+from eea.mediacentre.interfaces import IMindStretcher, IImage, IAnimation
 from eea.mediacentre.interfaces import IMediaType, IPossibleMediaFile
 from eea.mediacentre.interfaces import IThemeVideoProvider
 from eea.mediacentre.interfaces import IThemeInterviewProvider
 from eea.mediacentre.interfaces import IThemeInteractiveMapProvider
 from eea.mediacentre.interfaces import IThemeMindStretcherProvider
 from eea.mediacentre.interfaces import IThemeImageProvider
+from eea.mediacentre.interfaces import IThemeAnimationProvider
 
 KEY = 'eea.mediacentre.mediafile'
 
@@ -39,6 +40,9 @@ MEDIA_TYPES = {
         'interface': IImage,
         'provider': IThemeImageProvider },
 
+    'animation': { 'title': 'Animation',
+        'interface': IAnimation,
+        'provider': IThemeAnimationProvider },
     }
 
 class MediaTypesAdapter(object):

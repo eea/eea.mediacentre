@@ -21,6 +21,7 @@
   <adapter factory=".providers.ThemeInteractiveMapProvider" />
   <adapter factory=".providers.ThemeMindStretcherProvider" />
   <adapter factory=".providers.ThemeImageProvider" />
+  <adapter factory=".providers.ThemeAnimationProvider" />
 
   <utility factory=".mediacentre.MediaCentre" />
 

@@ -81,3 +81,9 @@ class IImage(Interface):
 
 class IThemeImageProvider(Interface):
     """ Marker interface for image folder. """
+
+class IAnimation(Interface):
+    """ Marker interface for animations. """
+
+class IThemeAnimationProvider(Interface):
+    """ Marker interface for animation folder. """
