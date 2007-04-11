@@ -52,37 +52,40 @@ class IMediaType(Interface):
 class IPossibleMediaFile(Interface):
     """ Markter interface for files that are not yet media files. """
 
-class IInterview(Interface):
+class IMultimedia(Interface):
+    """ Marker interface for multimedia. """
+
+class IInterview(IMultimedia):
     """ Marker interface for interviews. """
 
 class IThemeInterviewProvider(Interface):
     """ Marker interface for interview folder. """
 
-class IInteractiveMap(Interface):
+class IInteractiveMap(IMultimedia):
     """ Marker interface for maps. """
 
 class IThemeInteractiveMapProvider(Interface):
     """ Marker interface for map folder. """
 
-class IVideo(Interface):
+class IVideo(IMultimedia):
     """ Marker interface for videos. """
 
 class IThemeVideoProvider(Interface):
     """ Marker interface for video folder. """
 
-class IMindStretcher(Interface):
+class IMindStretcher(IMultimedia):
     """ Marker interface for mind stretchers. """
 
 class IThemeMindStretcherProvider(Interface):
     """ Marker interface for mind stretcher folder. """
 
-class IImage(Interface):
+class IImage(IMultimedia):
     """ Marker interface for images. """
 
 class IThemeImageProvider(Interface):
     """ Marker interface for image folder. """
 
-class IAnimation(Interface):
+class IAnimation(IMultimedia):
     """ Marker interface for animations. """
 
 class IThemeAnimationProvider(Interface):
