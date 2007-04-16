@@ -22,27 +22,33 @@ KEY = 'eea.mediacentre.mediafile'
 MEDIA_TYPES = {
     'interview': { 'title': 'Interview',
         'interface': IInterview,
-        'provider': IThemeInterviewProvider },
+        'provider': IThemeInterviewProvider,
+        'template': 'interviews' },
 
     'interactivemap': { 'title': 'Interactive Map',
         'interface': IInteractiveMap,
-        'provider': IThemeInteractiveMapProvider  },
+        'provider': IThemeInteractiveMapProvider,
+        'template': 'interactivemaps'},
 
     'video': { 'title': 'Video',
         'interface': IVideo,
-        'provider': IThemeVideoProvider },
+        'provider': IThemeVideoProvider,
+        'template': 'videos' },
 
     'mindstretcher': { 'title': 'Mind Stretcher',
         'interface': IMindStretcher,
-        'provider': IThemeMindStretcherProvider },
+        'provider': IThemeMindStretcherProvider,
+        'template': 'mindstretchers', },
 
     'image': { 'title': 'Image',
         'interface': IImage,
-        'provider': IThemeImageProvider },
+        'provider': IThemeImageProvider,
+        'template': 'images' },
 
     'animation': { 'title': 'Animation',
         'interface': IAnimation,
-        'provider': IThemeAnimationProvider },
+        'provider': IThemeAnimationProvider,
+        'template': 'animations' },
     }
 
 class MediaTypesAdapter(object):

@@ -33,7 +33,7 @@ class NavigationPortlet(utils.BrowserView):
         for media_type, type_info in types.items():
             data = { 'title': type_info['title'] + 's',
                      'url': themecentre.absolute_url() + '/multimedia/' +
-                         media_type,
+                         type_info['template'],
                      'icon_url': "media_nav_icon.gif" }
             result.append(data)
 
