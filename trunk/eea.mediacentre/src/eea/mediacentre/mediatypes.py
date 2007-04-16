@@ -28,7 +28,7 @@ MEDIA_TYPES = {
     'interactivemap': { 'title': 'Interactive Map',
         'interface': IInteractiveMap,
         'provider': IThemeInteractiveMapProvider,
-        'template': 'interactivemaps'},
+        'template': 'interactivemaps' },
 
     'video': { 'title': 'Video',
         'interface': IVideo,

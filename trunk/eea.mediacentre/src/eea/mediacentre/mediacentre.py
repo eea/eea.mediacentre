@@ -22,16 +22,6 @@ class MediaCentre(object):
 
         return result
 
-    def getMediaByType(self, mediatype, search=None):
-        result = []
-        plugins = self._getPlugins()
-
-        for plugin in plugins:
-            mediaobjects = plugin.getMediaByType(mediatype, search)
-            result.extend(mediaobjects)
-
-        return result
-
     def getMediaTypes(self):
         mediatypes = {}
         plugins = self._getPlugins()

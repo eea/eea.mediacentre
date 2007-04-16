@@ -23,9 +23,8 @@ automatically be used by the media centre.
 
   >>> class DummyPlugin1(object):
   ...     implements(IMediaCentrePlugin)
-  ...     def getMediaTypes(self): return ['video']
-  ...     def getMedia(self): return [None, None]
-  ...     def getMediaByType(self, mediatype, search=None):
+  ...     def getMediaTypes(self): return {'video': {}}
+  ...     def getMedia(self, media_type=None, size=None, search={}):
   ...         return [None, None]
   >>> provideUtility(DummyPlugin1())
 
@@ -33,8 +32,8 @@ Now we can ask the Media Centre if there are any video files. The Media
 Centre will know that a plugin has been registered.
 
   >>> mediacentre.getMediaTypes()
-  ['video']
-  >>> allvideos = mediacentre.getMediaByType('video')
+  {'video': {}}
+  >>> allvideos = mediacentre.getMedia('video')
   >>> len(allvideos)
   2
 
@@ -42,9 +41,8 @@ Let's register one more dummy plugin.
 
   >>> class DummyPlugin2(object):
   ...     implements(IMediaCentrePlugin)
-  ...     def getMediaTypes(self): return ['map']
-  ...     def getMedia(self): return [None, None, None]
-  ...     def getMediaByType(self, mediatype, search=None):
+  ...     def getMediaTypes(self): return {'map': {}}
+  ...     def getMedia(self, media_type=None, size=None, search={}):
   ...         return [None, None, None]
   >>> provideUtility(DummyPlugin2())
 

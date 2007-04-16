@@ -6,6 +6,7 @@ specified on any file object using an adapter.
   >>> from eea.mediacentre.mediatypes import MEDIA_TYPES
   >>> from eea.mediacentre.interfaces import IInterview, IInteractiveMap
   >>> folder = Folder()
+  >>> folder.reindexObject = lambda: None
   >>> media = IMediaType(folder)
   >>> media.media_type = 'interview'
   >>> IInterview.providedBy(folder)
@@ -14,7 +15,7 @@ specified on any file object using an adapter.
 If we decide to change type of the object to a map, it should only be a map
 and not an interview.
 
-  >>> media.media_type = 'map'
+  >>> media.media_type = 'interactivemap'
   >>> IInterview.providedBy(folder)
   False
   >>> IInteractiveMap.providedBy(folder)

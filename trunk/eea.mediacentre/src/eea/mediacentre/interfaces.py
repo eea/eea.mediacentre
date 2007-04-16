@@ -5,12 +5,12 @@ class IMediaCentre(Interface):
     """ This is the main media centre interface. This utility relies on
         plugins (providing IMediaCentrePlugin) to provide media files. """
 
-    def getMedia():
-        """ Returns all existing media. """
-
-    def getMediaByType(mediatype, search):
-        """ Returns media of type 'mediatype'. 'search' is a dictionary
-            with contraints of what media should be returned. """
+    def getMedia(mediatype, size, search):
+        """ Returns multimedia files that satisfies the criterias.
+            If mediatype is specified only that certain type is returned.
+            size is the number of files that should be returned.
+            search is a dictionary with contraints of what media should
+            be returned. These constraints can be plugin specific. """
 
     def getMediaTypes():
         """ Returns what media types are available, for instance
@@ -28,11 +28,11 @@ class IMediaCentrePlugin(Interface):
     name = Attribute("The name of the plugin")
 
     def getMedia():
-        """ Returns all existing media. """
-
-    def getMediaByType(mediatype, search):
-        """ Returns media of type 'mediatype'. 'search' is a dictionary
-            with contraints of what media should be returned. """
+        """ Returns multimedia files that satisfies the criterias.
+            If mediatype is specified only that certain type is returned.
+            size is the number of files that should be returned.
+            search is a dictionary with contraints of what media should
+            be returned. These constraints can be plugin specific. """
 
     def getMediaTypes():
         """ Returns what media types are available, for instance
