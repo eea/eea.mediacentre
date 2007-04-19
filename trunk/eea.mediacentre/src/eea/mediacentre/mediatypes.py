@@ -43,7 +43,7 @@ MEDIA_TYPES = {
     'image': { 'title': 'Image',
         'interface': IImage,
         'provider': IThemeImageProvider,
-        'template': 'images' },
+        'template': 'pictures' },
 
     'animation': { 'title': 'Animation',
         'interface': IAnimation,
