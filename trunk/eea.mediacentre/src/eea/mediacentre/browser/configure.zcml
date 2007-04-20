@@ -74,6 +74,14 @@
       />
 
   <browser:page
+      for="eea.mediacentre.interfaces.IThemeMindStretcherProvider"
+      name="video_provider"
+      class="eea.mediacentre.browser.swf.ContainerView"
+      allowed_attributes="video_items"
+      permission="zope2.View"
+      />
+
+  <browser:page
       for="*"
       name="video_provider"
       class="p4a.video.browser.video.VideoContainerView"

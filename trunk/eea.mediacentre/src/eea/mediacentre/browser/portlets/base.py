@@ -10,11 +10,11 @@ class MediaPortlet(BasePortlet):
     implements(IMediaPortlet)
 
     def media_player(self):
+        """ Returns an html snippet for showing a video.
+            This works for the formats that p4avideo supports. """
         context = utils.context(self)
         if self.items:
             media_file = self.items[0]['object']
-            # file_view is a p4a view that contains the media player widget
-            #adapter = getMultiAdapter((media_file, self.request), name='file_view')
             view = VideoPageView(media_file, self.request)
             view.update()
             return view.widgets['media_player']

@@ -22,6 +22,7 @@
   <adapter factory=".providers.ThemeMindStretcherProvider" />
   <adapter factory=".providers.ThemeImageProvider" />
   <adapter factory=".providers.ThemeAnimationProvider" />
+  <adapter factory=".swf.SWFAdapter" />
 
   <utility factory=".mediacentre.MediaCentre" />
 

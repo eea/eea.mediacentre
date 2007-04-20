@@ -13,7 +13,7 @@ class CatalogPlugin(object):
         site = getSite()
         search = self._getValidData(searchfor)
         catalog = getToolByName(site, 'portal_catalog')
-        query = { 'portal_type': 'File' ,
+        query = { 'portal_type': ['File', 'FlashFile'],
                   'sort_on': 'Date',
                   'sort_order': 'reverse',
                   'review_state': 'published' }
