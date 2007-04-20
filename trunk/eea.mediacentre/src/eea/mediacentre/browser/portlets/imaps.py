@@ -4,8 +4,10 @@ from eea.mediacentre.browser.portlets.base import MediaPortlet
 
 class InteractiveMapsPortlet(MediaPortlet):
 
+    media_type = 'interactivemap'
+
     def items(self):
         mediacentre = getUtility(IMediaCentre)
-        files = mediacentre.getMedia('interactivemap', 1)
+        files = mediacentre.getMedia(self.media_type, 1)
         self.items = files
         return files

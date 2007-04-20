@@ -4,9 +4,11 @@ from eea.mediacentre.browser.portlets.base import MediaPortlet
 
 class VideosPortlet(MediaPortlet):
 
+    media_type = 'video'
+
     def items(self):
         mediacentre = getUtility(IMediaCentre)
-        files = mediacentre.getMedia('video', 1)
+        files = mediacentre.getMedia(self.media_type, 1)
         self.items = files
         return files
 

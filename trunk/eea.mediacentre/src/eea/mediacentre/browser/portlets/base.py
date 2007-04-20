@@ -1,9 +1,10 @@
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, getUtility
 from zope.interface import implements
 from eea.themecentre.browser.portlets.catalog import BasePortlet
 from eea.mediacentre.browser.interfaces import IMediaPortlet
 from Products.CMFPlone import utils
 from p4a.video.browser.video import VideoPageView
+from eea.mediacentre.interfaces import IMediaCentre
 
 class MediaPortlet(BasePortlet):
     implements(IMediaPortlet)
@@ -25,3 +26,11 @@ class MediaPortlet(BasePortlet):
 
     def item_to_full_dict(self, item):
         return item
+
+    def all_link(self):
+        mediacentre = getUtility(IMediaCentre)
+        media_types = mediacentre.getMediaTypes()
+        template = media_types[self.media_type]['template']
+
+        context = utils.context(self)
+        return context.absolute_url() + '/' + template

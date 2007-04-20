@@ -4,9 +4,11 @@ from eea.mediacentre.browser.portlets.base import MediaPortlet
 
 class MindStretcherPortlet(MediaPortlet):
 
+    media_type = 'mindstretcher'
+
     def items(self):
         mediacentre = getUtility(IMediaCentre)
-        files = mediacentre.getMedia('mindstretcher', 1)
+        files = mediacentre.getMedia(self.media_type, 1)
         self.items = files
         return files
 
