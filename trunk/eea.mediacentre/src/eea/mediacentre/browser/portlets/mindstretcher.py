@@ -14,6 +14,7 @@ class MindStretcherPortlet(MediaPortlet):
         if self.items:
             media_file = IVideo(self.items[0]['object'])
             widget = MediaPlayerWidget(media_file)
+            widget.use_height_only = True
             return widget()
         else:
             return None

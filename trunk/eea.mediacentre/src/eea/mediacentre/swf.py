@@ -44,6 +44,7 @@ class MediaPlayerWidget(object):
 
     def __init__(self, context):
         self.context = context
+        self.use_height_only = False
 
     def __call__(self):
         media_file = self.context
@@ -52,14 +53,18 @@ class MediaPlayerWidget(object):
         bgcolor = media_file.context.getBgcolor()
         url = media_file.context.absolute_url() + '/download'
 
+        if self.use_height_only:
+            width_str = 'width="100%"'
+        else:
+            width_str = 'width="%d"' % width
+
         return """
-        <div style="width: %(width)s; height: %(height)s" class="flashmovie">
+        <div class="flashmovie">
             <embed type="application/x-shockwave-flash"
-                   width="%(width)s" height="%(height)s"
-                   wmode="opaque" bgcolor="%(bgcolor)s"
-                   quality="high" src="%(url)s" />
+                   %(width)s height="%(height)s"
+                   wmode="opaque" quality="high"
+                   src="%(url)s" />
         </div>
-        """ % { 'width': width,
-                'height': height,
-                'url': url,
-                'bgcolor': bgcolor }
+        """ % { 'height': height,
+                'width': width_str,
+                'url': url }

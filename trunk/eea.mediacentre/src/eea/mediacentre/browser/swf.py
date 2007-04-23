@@ -1,5 +1,5 @@
 from p4a.video.interfaces import IVideoProvider
-from p4a.common.formatting import fancy_time_amount
+from p4a.common.formatting import fancy_data_size
 from eea.mediacentre.swf import MediaPlayerWidget
 
 class ContainerView(object):
@@ -22,7 +22,7 @@ class ContainerView(object):
                  'url': aFile.absolute_url(),
                  'description': x.context.Description(),
                  'icon': aFile.getIcon(),
-                 'size': fancy_time_amount(aFile.get_size()),
+                 'size': fancy_data_size(aFile.get_size()),
                  'widget': MediaPlayerWidget(x)(),
                  })
 
