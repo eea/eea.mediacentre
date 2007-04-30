@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 from zope.app.annotation.interfaces import IAnnotations
 from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary

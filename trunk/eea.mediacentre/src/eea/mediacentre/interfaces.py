@@ -1,5 +1,5 @@
 from zope.interface import Interface, Attribute
-from zope.schema import Choice
+from zope.schema import Choice, List
 
 class IMediaCentre(Interface):
     """ This is the main media centre interface. This utility relies on
@@ -42,12 +42,18 @@ class IMediaType(Interface):
     """ A file object can be one of several types, including interviews,
         maps, videos. This interface is the API to ask about this type. """
 
-    types = Choice(
-        title = u"Media type",
-        description = u"Media type of this file",
+    types = List(
+        title = u"Media types",
+        description = u"List of media types that this media file can tagged "
+                       "with.",
         required = False,
-        vocabulary = """Media types""",
+
+        value_type=Choice(
+            title = u"Media type",
+            description = u"Media type of this file",
+            vocabulary = """Media types""",
         )
+    )
 
 class IPossibleMediaFile(Interface):
     """ Markter interface for files that are not yet media files. """
