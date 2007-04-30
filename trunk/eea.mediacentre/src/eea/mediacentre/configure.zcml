@@ -16,13 +16,25 @@
 
   <adapter factory=".mediatypes.MediaTypesAdapter" />
 
-  <adapter factory=".providers.ThemeVideoProvider" />
-  <adapter factory=".providers.ThemeInterviewProvider" />
-  <adapter factory=".providers.ThemeInteractiveMapProvider" />
-  <adapter factory=".providers.ThemeMindStretcherProvider" />
-  <adapter factory=".providers.ThemeImageProvider" />
-  <adapter factory=".providers.ThemeAnimationProvider" />
   <adapter factory=".swf.SWFAdapter" />
+  <adapter
+      name="application/x-shockwave-flash"
+      factory=".swf.MediaPlayer"
+      />
+  <adapter
+      for="p4a.video.interfaces.IVideoEnhanced"
+      provides=".interfaces.IMediaDisplayInfo"
+      factory=".media.P4AVideoDisplayInfoAdapter"
+      name="video/x-flv"
+      />
+  <adapter
+      for="Products.EEAContentTypes.content.FlashFile.FlashFile"
+      provides=".interfaces.IMediaDisplayInfo"
+      factory=".swf.SWFDisplay"
+      name="application/x-shockwave-flash"
+      />
+
+  <adapter for="*" factory=".media.MediaProvider" />
 
   <utility factory=".mediacentre.MediaCentre" />
 

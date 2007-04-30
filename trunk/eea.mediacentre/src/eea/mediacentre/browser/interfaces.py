@@ -12,6 +12,9 @@ class IMediaPortlet(IPortlet):
     def full_items():
         pass
 
+    def items():
+        pass
+
     def media_player():
         """ Returns the media player for the media file. """
 

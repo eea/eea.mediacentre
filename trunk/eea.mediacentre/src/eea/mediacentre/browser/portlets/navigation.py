@@ -30,10 +30,10 @@ class NavigationPortlet(utils.BrowserView):
         types = mediacentre.getMediaTypes()
 
         result = []
-        for media_type, type_info in types.items():
+        for id, type_info in types.items():
             data = { 'title': type_info['title'] + 's',
                      'url': themecentre.absolute_url() + '/multimedia/' +
-                         type_info['template'],
+                         id + 's',
                      'icon_url': "media_nav_icon.gif" }
             result.append(data)
 

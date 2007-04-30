@@ -25,34 +25,11 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <!-- provides data for the media portlet template -->
   <browser:page
       for="*"
-      name="media_videos"
-      class=".portlets.videos.VideosPortlet"
-      allowed_interface=".interfaces.IMediaPortlet"
-      permission="zope.Public"
-      />
-
-  <browser:page
-      for="*"
-      name="media_mindstretcher"
-      class=".portlets.mindstretcher.MindStretcherPortlet"
-      allowed_interface=".interfaces.IMediaPortlet"
-      permission="zope.Public"
-      />
-
-  <browser:page
-      for="*"
-      name="media_imaps"
-      class=".portlets.imaps.InteractiveMapsPortlet"
-      allowed_interface=".interfaces.IMediaPortlet"
-      permission="zope.Public"
-      />
-
-  <browser:page
-      for="*"
-      name="media_interviews"
-      class=".portlets.interviews.InterviewsPortlet"
+      name="media_portlet"
+      class=".portlets.base.MediaPortlet"
       allowed_interface=".interfaces.IMediaPortlet"
       permission="zope.Public"
       />
@@ -67,25 +44,9 @@
 
   <browser:page
       for="*"
-      name="media_type_proxy"
-      class=".proxy.MediaTypeProxy"
-      allowed_attributes="video_items"
-      permission="zope2.View"
-      />
-
-  <browser:page
-      for="eea.mediacentre.interfaces.IThemeMindStretcherProvider"
-      name="video_provider"
-      class="eea.mediacentre.browser.swf.ContainerView"
-      allowed_attributes="video_items"
-      permission="zope2.View"
-      />
-
-  <browser:page
-      for="*"
-      name="video_provider"
-      class="p4a.video.browser.video.VideoContainerView"
-      allowed_attributes="video_items"
+      name="media_provider"
+      class=".provider.MediaContainerView"
+      allowed_attributes="media_items"
       permission="zope2.View"
       />
 

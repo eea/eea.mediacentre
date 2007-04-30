@@ -3,6 +3,9 @@ from zope.component import adapts
 from zope.interface import implements
 from p4a.video.interfaces import IVideo
 from p4a.common.formatting import fancy_time_amount
+from p4a.video.interfaces import IMediaPlayer
+from p4a.common.formatting import fancy_data_size
+from eea.mediacentre.interfaces import IMediaDisplayInfo
 
 class SWFAdapter(object):
     implements(IVideo)
@@ -28,30 +31,52 @@ class SWFAdapter(object):
         return self.context.getHeight()
 
     @property
-    def duration(self):
-        return 0
-
-    @property
-    def video_image(self):
-        return None
-
-    @property
     def video_type(self):
         return 'SWF'
 
+class SWFDisplay(SWFAdapter):
+    implements(IMediaDisplayInfo)
 
-class MediaPlayerWidget(object):
+    def __call__(self):
+        info = {}
+        info['width'] = self.width
+        info['height'] = self.height
+        info['title'] = self.title
+        info['description'] = self.context.Description()
+        info['video_type'] = self.video_type
+        info['size'] = fancy_data_size(self.context.get_size())
+        info['icon'] = self.context.getIcon()
+        info['url'] = self.context.absolute_url()
+
+        return info
+
+
+class MediaPlayer(object):
+    implements(IMediaPlayer)
+    adapts(object)
 
     def __init__(self, context):
         self.context = context
         self.use_height_only = False
 
-    def __call__(self):
-        media_file = self.context
+    def __call__(self, download_url, image_url):
+        media_file = IVideo(self.context)
         width = media_file.width
         height = media_file.height
-        bgcolor = media_file.context.getBgcolor()
-        url = media_file.context.absolute_url() + '/download'
+        url = self.context.absolute_url() + '/download'
+
+        width = int(float(media_file.width))
+        height = int(float(media_file.height))
+
+        # videos shown as "related multimedia" should only show
+        # as 180x135
+        if width > self.max_width or height > self.max_height:
+            width_diff = float(max(width - 180, 0))/width
+            height_diff = float(max(height - 135, 0))/height
+            diff = max(width_diff, height_diff)
+            if diff > 0:
+                width = width * (1-diff)
+                height = height * (1-diff)
 
         if self.use_height_only:
             width_str = 'width="100%"'

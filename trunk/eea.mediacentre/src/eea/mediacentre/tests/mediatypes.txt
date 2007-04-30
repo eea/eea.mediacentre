@@ -3,23 +3,11 @@ specified on any file object using an adapter.
 
   >>> from zope.app.folder.folder import Folder
   >>> from eea.mediacentre.interfaces import IMediaType
-  >>> from eea.mediacentre.mediatypes import MEDIA_TYPES
-  >>> from eea.mediacentre.interfaces import IInterview, IInteractiveMap
   >>> folder = Folder()
   >>> folder.reindexObject = lambda: None
   >>> media = IMediaType(folder)
-  >>> media.media_type = 'interview'
-  >>> IInterview.providedBy(folder)
-  True
+  >>> media.types = ['interview', 'video']
 
-If we decide to change type of the object to a map, it should only be a map
-and not an interview.
+If one decides to make a file non-multimedia-aware the type can be emptied.
 
-  >>> media.media_type = 'interactivemap'
-  >>> IInterview.providedBy(folder)
-  False
-  >>> IInteractiveMap.providedBy(folder)
-  True
-  >>> media.media_type = None
-  >>> IInteractiveMap.providedBy(folder)
-  False
+  >>> media.types = []

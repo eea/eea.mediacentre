@@ -42,51 +42,22 @@ class IMediaType(Interface):
     """ A file object can be one of several types, including interviews,
         maps, videos. This interface is the API to ask about this type. """
 
-    media_type = Choice(
-            title = u"Media type",
-            description = u"Media type of this file",
-            required = False,
-            vocabulary = """Media types""",
-            )
+    types = Choice(
+        title = u"Media type",
+        description = u"Media type of this file",
+        required = False,
+        vocabulary = """Media types""",
+        )
 
 class IPossibleMediaFile(Interface):
     """ Markter interface for files that are not yet media files. """
 
-class IMultimedia(Interface):
-    """ Marker interface for multimedia. """
+class IMediaProvider(Interface):
+    media_type = Attribute("The type of media for this object")
 
-class IInterview(IMultimedia):
-    """ Marker interface for interviews. """
+    def media_items():
+        """ Returns a list of media objects this provider finds available. """
 
-class IThemeInterviewProvider(Interface):
-    """ Marker interface for interview folder. """
-
-class IInteractiveMap(IMultimedia):
-    """ Marker interface for maps. """
-
-class IThemeInteractiveMapProvider(Interface):
-    """ Marker interface for map folder. """
-
-class IVideo(IMultimedia):
-    """ Marker interface for videos. """
-
-class IThemeVideoProvider(Interface):
-    """ Marker interface for video folder. """
-
-class IMindStretcher(IMultimedia):
-    """ Marker interface for mind stretchers. """
-
-class IThemeMindStretcherProvider(Interface):
-    """ Marker interface for mind stretcher folder. """
-
-class IImage(IMultimedia):
-    """ Marker interface for images. """
-
-class IThemeImageProvider(Interface):
-    """ Marker interface for image folder. """
-
-class IAnimation(IMultimedia):
-    """ Marker interface for animations. """
-
-class IThemeAnimationProvider(Interface):
-    """ Marker interface for animation folder. """
+class IMediaDisplayInfo(Interface):
+    def __call__():
+        """ Returns a dict of useful information for the ui. """

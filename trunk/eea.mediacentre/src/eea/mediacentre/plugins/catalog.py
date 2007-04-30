@@ -1,9 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
 from zope.app.component.hooks import getSite
-from zope.app.component.interface import interfaceToName
 from eea.mediacentre.plugins.interfaces import ICatalogPlugin
-from eea.mediacentre.mediatypes import MEDIA_TYPES
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 
 class CatalogPlugin(object):
@@ -23,8 +21,7 @@ class CatalogPlugin(object):
             query['getThemes'] = search['theme']
 
         if media_type:
-            iface = MEDIA_TYPES[media_type]['interface']
-            query['object_provides'] = interfaceToName(site, iface)
+            query['media_types'] = media_type
 
         result = []
         brains = catalog.searchResults(query)
@@ -40,7 +37,14 @@ class CatalogPlugin(object):
             return result
 
     def getMediaTypes(self):
-        return MEDIA_TYPES
+        site = getSite()
+        vocab = getToolByName(site, 'portal_vocabularies')
+        multimedia = getattr(vocab, 'multimedia')
+        types = {}
+        for id in multimedia.objectIds():
+            title = getattr(multimedia, id).Title()
+            types[id] = { 'title': title }
+        return types
 
     @property
     def name(self):
