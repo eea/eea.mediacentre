@@ -58,6 +58,8 @@ class MediaPlayer(object):
     def __init__(self, context):
         self.context = context
         self.use_height_only = False
+        self.max_width = 10000
+        self.max_height = 10000
 
     def __call__(self, download_url, image_url):
         media_file = IVideo(self.context)
