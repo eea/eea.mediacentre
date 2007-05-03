@@ -67,8 +67,8 @@ class MediaPlayer(object):
         height = media_file.height
         url = self.context.absolute_url() + '/download'
 
-        width = int(float(media_file.width))
-        height = int(float(media_file.height))
+        width = int(float(str(media_file.width))) or self.max_width
+        height = int(float(str(media_file.height))) or self.max_height
 
         # videos shown as "related multimedia" should only show
         # as 180x135
