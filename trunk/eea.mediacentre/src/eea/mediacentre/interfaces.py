@@ -67,3 +67,10 @@ class IMediaProvider(Interface):
 class IMediaDisplayInfo(Interface):
     def __call__():
         """ Returns a dict of useful information for the ui. """
+
+class IMultimedia(Interface): pass
+class IInterview(IMultimedia): pass
+class IVideo(IMultimedia): pass
+class IInteractiveMap(IMultimedia): pass
+class IAnimation(IMultimedia): pass
+class IMindStretcher(IMultimedia): pass
