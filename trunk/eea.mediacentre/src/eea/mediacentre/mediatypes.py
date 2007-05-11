@@ -21,7 +21,7 @@ class MediaTypesAdapter(object):
         annotations = IAnnotations(context)
         mapping = annotations.get(KEY)
         if mapping is None:
-            mediafile =  { 'types': None }
+            mediafile =  { 'types': [] }
             mapping = annotations[KEY] = PersistentDict(mediafile)
         self.mapping = mapping
 
