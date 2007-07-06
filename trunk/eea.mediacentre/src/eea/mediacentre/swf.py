@@ -34,6 +34,10 @@ class SWFAdapter(object):
     def video_type(self):
         return 'SWF'
 
+    @property
+    def video_image(self):
+        return None
+
 class SWFDisplay(SWFAdapter):
     implements(IMediaDisplayInfo)
 
