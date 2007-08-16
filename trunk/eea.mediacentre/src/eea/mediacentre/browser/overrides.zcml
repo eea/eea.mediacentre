@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/browser"
+    i18n_domain="Plone4Artists">
+
+  <page
+      name="popup-play.html"
+      for="p4a.video.interfaces.IVideoEnhanced"
+      permission="zope2.View"
+      class="p4a.video.browser.video.PopupVideoPageView"
+      template="popup-play.pt"
+      />
+
+</configure>
