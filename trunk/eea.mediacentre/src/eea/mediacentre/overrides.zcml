@@ -1,5 +1,10 @@
-<configure xmlns="http://namespaces.zope.org/browser">
+<configure xmlns="http://namespaces.zope.org/zope">
 
   <include package=".browser" file="overrides.zcml" />
+
+  <adapter
+      factory=".flv_player.FLVVideoPlayer"
+      name="video/x-flv"
+      />
 
 </configure>
