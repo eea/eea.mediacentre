@@ -15,7 +15,6 @@ class FLVVideoPlayer(object):
         self.max_height = 10000
 
     def __call__(self, downloadurl, imageurl):
-        import pdb; pdb.set_trace()
         showUrl = True
         if downloadurl:
             contentobj = self.context.context.context
