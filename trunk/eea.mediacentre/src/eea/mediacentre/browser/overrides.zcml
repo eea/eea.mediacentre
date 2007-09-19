@@ -10,4 +10,11 @@
       template="popup-play.pt"
       />
 
+  <page
+      for="*"
+      name="viewimage"
+      permission="zope2.View"
+      class=".fileimage.ViewImage"
+      />
+
 </configure>

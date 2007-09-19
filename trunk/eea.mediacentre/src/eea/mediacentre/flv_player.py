@@ -44,7 +44,17 @@ class FLVVideoPlayer(object):
                 height = height * (1-diff)
 
         downloadurl = contentobj.absolute_url()
-        playlist = "[ { url: '%s/video-image.jpg'}, " % portal_url
+
+        # the flowplayer we use now only supports jpg and png
+        # and it only works if the image url actually ends with '.jpg'
+        # this needs to be fixed properly in p4a, but for now this works
+        # the p4a 'viewname' view is overridden and strips out this extension
+        if imageurl:
+            imageurl += '.jpg'
+        else:
+            imageurl = portal_url + '/video-image.jpg'
+
+        playlist = "[ { url: '%s'}, " % imageurl
         playlist += "{ url: '%s' } ]" % downloadurl 
         
         return """
