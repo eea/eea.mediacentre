@@ -49,8 +49,9 @@ class FLVVideoPlayer(object):
         # and it only works if the image url actually ends with '.jpg'
         # this needs to be fixed properly in p4a, but for now this works
         # the p4a 'viewname' view is overridden and strips out this extension
-        if imageurl:
-            imageurl += '.jpg'
+        if videoobj.video_image is not None:
+            field = interfaces.IVideo['video_image'].bind(videoobj)
+            imageurl = ImageURLWidget(field, None).url + '.jpg'
         else:
             imageurl = portal_url + '/video-image.jpg'
 
