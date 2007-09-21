@@ -1,11 +1,13 @@
 from zope.component import getAdapter, getUtility
 from zope.interface import implements
 from eea.themecentre.browser.portlets.catalog import BasePortlet
+from eea.themecentre.themecentre import getTheme
 from eea.mediacentre.browser.interfaces import IMediaPortlet
 from Products.CMFPlone import utils
 from p4a.video.interfaces import IMediaPlayer
 from p4a.video.browser.video import VideoPageView
 from eea.mediacentre.interfaces import IMediaCentre
+from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 
 class MediaPortlet(BasePortlet):
     implements(IMediaPortlet)
@@ -38,8 +40,11 @@ class MediaPortlet(BasePortlet):
         return context.absolute_url() + '/' + template
 
     def items(self):
+        context = utils.context(self)
+        theme = getTheme(context)
         mediacentre = getUtility(IMediaCentre)
-        files = mediacentre.getMedia(self.media_type, 1)
+        query= { MEDIA_SEARCH_KEY: {'theme': theme} }
+        files = mediacentre.getMedia(self.media_type, 1, search=query)
         self.items = files
         return files
 
