@@ -59,18 +59,21 @@ class FLVVideoPlayer(object):
         playlist += "{ url: '%s' } ]" % downloadurl 
         
         return """
-        <object width="%(width)s" height="%(height)s" data="%(player)s?streamScript=streamVideo&flvpath=%(downloadurl)s&seekat=0&subtitle=" type="application/x-shockwave-flash">
-            <param value="%(player)s?streamScript=streamVideo&flvpath=%(downloadurl)s&seekat=0&subtitle=" name="movie"/>
-            <param value="high" name="quality"/>
-            <param value="transparent" name="wmode"/>
-            <param value="#ffffff" name="bgcolor"/>
-            <param value="sameDomain" name="allowScriptAccess"/>
-            <div class="flashPlayerNotInstalled">You
-                must have Flash 9 or greater installed
-                to watch this video. <a
-                href="http://www.adobe.com/go/getflashplayer">Get
-                Flash.</a></div>
-        </object>
+        <div class="flowplayer">
+            <div id="video%(videoid)s" class="embeddedvideo">
+                Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
+            </div>
+            <script type="text/javascript">
+              // <![CDATA[
+              var so = new SWFObject("%(player)s?streamScript=streamVideo&flvpath=%(downloadurl)s&seekat=0&subtitle=", "FlowPlayer", "%(width)s", "%(height)s", "9", "#ffffff");
+                  so.addParam("AllowScriptAccess", "always");
+                  so.addParam("wmode", "transparent");
+                  so.addParam("quality", "high");
+                  so.addParam("bgcolor", "#ffffff");
+                  so.write("video%(videoid)s");
+              // ]]>
+            </script>
+        </div>
         """ % {'videoid': contentobj.getId().replace('.','-'),
                'player': player,
                'title': title,

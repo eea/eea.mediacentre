@@ -61,7 +61,7 @@ class FLVVideoPlayer(object):
         return """
         <div class="flowplayer">
             <div id="video%(videoid)s" class="embeddedvideo">
-              Please enable javascript to watch video.
+              Please enable javascript to watch the video.
             </div>
             <script type="text/javascript">
               // <![CDATA[
