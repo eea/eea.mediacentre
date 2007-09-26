@@ -1,0 +1,1 @@
+edwideoplayer https://svn.eionet.europa.eu/repositories/Zope/trunk/EdWideoPlayer/bin
