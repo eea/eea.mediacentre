@@ -64,12 +64,14 @@ class FLVVideoPlayer(object):
               Please enable javascript to watch the video.
             </div>
             <script type="text/javascript">
-              // <![CDATA[
+               function loadflash() {
               var so = new SWFObject("%(player)s?config={ playList: %(playlist)s, scaleSplash: true, initialScale: 'scale', showFullScreenButton: false }", "FlowPlayer", "%(width)s", "%(height)s", "7", "#ffffff");
                  so.addParam("AllowScriptAccess", "always");
                  so.addParam("wmode", "transparent");
                  so.write("video%(videoid)s");
-              // ]]>
+                 return true;
+               }
+               AttachEvent(window, 'load', loadflash, false)
             </script>     
         </div>
 
