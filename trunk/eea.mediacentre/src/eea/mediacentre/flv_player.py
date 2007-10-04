@@ -61,7 +61,7 @@ class FLVVideoPlayer(object):
         return """
         <div class="flowplayer">
             <div id="video%(videoid)s" class="embeddedvideo">
-              Please enable javascript to watch the video.
+                Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
             </div>
             <script type="text/javascript">
                function loadflash() {
