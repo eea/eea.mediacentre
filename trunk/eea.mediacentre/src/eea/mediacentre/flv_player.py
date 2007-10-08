@@ -13,6 +13,8 @@ class FLVVideoPlayer(object):
         # default we want the videos in their original size
         self.max_width = 10000
         self.max_height = 10000
+        self.autoplay = True
+        self.autobuffer = True
 
     def __call__(self, downloadurl, imageurl):
         showUrl = True
@@ -43,6 +45,11 @@ class FLVVideoPlayer(object):
                 width = width * (1-diff)
                 height = height * (1-diff)
 
+        # videos have autoplay and autobuffering turned on by default
+        # the users of this view/flv-player can turn them off if they want
+        autoplay = self.autoplay and 'true' or 'false'
+        autobuffer = self.autobuffer and 'true' or 'false'
+
         downloadurl = contentobj.absolute_url()
 
         # the flowplayer we use now only supports jpg and png
@@ -55,7 +62,12 @@ class FLVVideoPlayer(object):
         else:
             imageurl = portal_url + '/video-image.jpg'
 
-        playlist = "[ { url: '%s'}, " % imageurl
+        # autoplay doesn't work in flowplayer if there is a playlist with an
+        # image at the beginning, so if autoplay we don't use the image
+        if self.autoplay:
+            playlist = "[ "
+        else:
+            playlist = "[ { url: '%s'}, " % imageurl
         playlist += "{ url: '%s' } ]" % downloadurl 
         
         return """
@@ -65,7 +77,7 @@ class FLVVideoPlayer(object):
             </div>
             <script type="text/javascript">
                function loadflash() {
-              var so = new SWFObject("%(player)s?config={ playList: %(playlist)s, scaleSplash: true, initialScale: 'scale', showFullScreenButton: false }", "FlowPlayer", "%(width)s", "%(height)s", "7", "#ffffff");
+              var so = new SWFObject("%(player)s?config={ playList: %(playlist)s, scaleSplash: true, initialScale: 'scale', showFullScreenButton: false, autoPlay: %(autoplay)s, autoBuffering: %(autobuffer)s }", "FlowPlayer", "%(width)s", "%(height)s", "7", "#ffffff");
                  so.addParam("AllowScriptAccess", "always");
                  so.addParam("wmode", "transparent");
                  so.write("video%(videoid)s");
@@ -83,4 +95,6 @@ class FLVVideoPlayer(object):
                'videoUrl': downloadurl + '/view',
                'playlist': playlist,
                'fullscreenUrl': fullscreenUrl,
-               'showUrl': showUrl}
+               'showUrl': showUrl,
+               'autoplay': autoplay,
+               'autobuffer': autobuffer }
