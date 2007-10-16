@@ -18,10 +18,6 @@
 
   <adapter factory=".swf.SWFAdapter" />
   <adapter
-      name="application/x-shockwave-flash"
-      factory=".swf.MediaPlayer"
-      />
-  <adapter
       for="p4a.video.interfaces.IVideoEnhanced"
       provides=".interfaces.IMediaDisplayInfo"
       factory=".media.P4AVideoDisplayInfoAdapter"

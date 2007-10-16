@@ -8,4 +8,9 @@
       name="video/x-flv"
       />
 
+  <adapter
+      name="application/x-shockwave-flash"
+      factory=".swf.MediaPlayer"
+      />
+
 </configure>
