@@ -6,6 +6,7 @@ from p4a.common.formatting import fancy_time_amount
 from p4a.video.interfaces import IMediaPlayer
 from p4a.common.formatting import fancy_data_size
 from eea.mediacentre.interfaces import IMediaDisplayInfo
+from zope.component.exceptions import ComponentLookupError
 
 class SWFAdapter(object):
     implements(IVideo)
@@ -17,6 +18,10 @@ class SWFAdapter(object):
     @property
     def title(self):
         return self.context.Title()
+
+    @property
+    def description(self):
+        return self.context.Description()
 
     @property
     def file(self):
@@ -37,6 +42,14 @@ class SWFAdapter(object):
     @property
     def video_image(self):
         return None
+
+    @property
+    def duration(self):
+        return 0
+
+    @property
+    def video_author(self):
+        return ''
 
 class SWFDisplay(SWFAdapter):
     implements(IMediaDisplayInfo)
@@ -112,3 +125,9 @@ class MediaPlayer(object):
         """ % { 'height': height,
                 'width': width_str,
                 'url': url }
+
+
+class SWFVideoDataAccessor(object):
+
+    def __init__(self, context):
+        raise ComponentLookupError("No swf video data accessor adapter available")

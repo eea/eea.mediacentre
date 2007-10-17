@@ -13,4 +13,13 @@
       factory=".swf.MediaPlayer"
       />
 
+  <!-- We don't want the swf support from p4a as long as we have FlashFile
+       so override this p4a adapter and raise ComponentLookupError -->
+  <adapter
+      for="p4a.video.interfaces.IPossibleVideo"
+      factory=".swf.SWFVideoDataAccessor"
+      provides="p4a.video.interfaces.IVideoDataAccessor"
+      name="application/x-shockwave-flash"
+      />
+
 </configure>
