@@ -126,8 +126,14 @@ class MediaPlayer(object):
                 'width': width_str,
                 'url': url }
 
-
-class SWFVideoDataAccessor(object):
+class MediaActivator(object):
 
     def __init__(self, context):
-        raise ComponentLookupError("No swf video data accessor adapter available")
+        self.context = context
+
+    @property
+    def media_activated(self):
+        # Let's fool the attempt_media_activation event so it already
+        # thinks this file is activated. We don't really want to activate
+        # swf files because they are handled by FlashFile instead of p4a.
+        return True
