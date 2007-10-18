@@ -2,6 +2,9 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
  
+  <!-- make sure CMFonFive is loaded so menu="object" works -->
+  <include package="Products.CMFonFive" />
+
   <browser:page
       for="..interfaces.IPossibleMediaFile"
       name="mediatype_edit.html"
