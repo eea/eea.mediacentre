@@ -1,4 +1,5 @@
-from zope.formlib.form import Fields, EditForm
+from zope.formlib.form import Fields
+from Products.Five.formlib.formbase import EditForm
 from eea.mediacentre.interfaces import IMediaType
 
 class MediaTypesEditForm(EditForm):
