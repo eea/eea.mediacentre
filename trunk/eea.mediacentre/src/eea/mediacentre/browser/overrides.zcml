@@ -17,4 +17,14 @@
       class=".fileimage.ViewImage"
       />
 
+  <!-- p4a creates the template inside the view class, so we must make
+       a subclass and create our own template so we can use our own. -->
+  <page
+      for="*"
+      name="video_listed_single"
+      class=".video.VideoListedSingle"
+      allowed_interface="p4a.video.browser.video.IVideoListedSingle"
+      permission="zope2.View"
+      />
+
 </configure>
