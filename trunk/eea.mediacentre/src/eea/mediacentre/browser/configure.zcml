@@ -58,4 +58,32 @@
       file="edwideoplayer/EdWideoPlayer.swf"
       />
 
+  <!-- when editing a translated file you get the translation form instead
+       of the form with size, width, duration etc. So we need another tab
+       for this -->
+  <browser:page
+      name="video_edit"
+      for="p4a.video.interfaces.IVideoEnhanced"
+      permission="cmf.ModifyPortalContent"
+      class="p4a.video.browser.video.VideoEditForm"
+      />
+
+  <!-- browser view for utility methods -->
+  <browser:page
+      for="p4a.video.interfaces.IVideoEnhanced"
+      name="showEditVideoMetadataTab"
+      class=".video.VideoUtils"
+      attribute="showEditMetadataTab"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:menuItem
+      menu="object"
+      for="p4a.video.interfaces.IVideoEnhanced"
+      title="Edit video metadata"
+      action="${object_url}/video_edit"
+      filter="object/@@showEditVideoMetadataTab"
+      permission="cmf.ModifyPortalContent"
+      />
+
 </configure>
