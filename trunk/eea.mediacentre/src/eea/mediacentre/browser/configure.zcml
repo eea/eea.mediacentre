@@ -74,7 +74,7 @@
       name="showEditVideoMetadataTab"
       class=".video.VideoUtils"
       attribute="showEditMetadataTab"
-      permission="cmf.ModifyPortalContent"
+      permission="zope.Public"
       />
 
   <browser:menuItem

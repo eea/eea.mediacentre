@@ -1,5 +1,6 @@
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
 
 class VideoListedSingle(P4AVideoListedSingle):
     """Video listed single."""
@@ -14,6 +15,10 @@ class VideoUtils(object):
         self.request = request
 
     def showEditMetadataTab(self):
+        mship = getToolByName(self.context, 'portal_membership')
+        if mship.isAnonymousUser():
+            return False
+
         if not self.context.isTranslatable():
             return False
 
