@@ -27,4 +27,14 @@
       permission="zope2.View"
       />
 
+  <!-- we want related multimedia/pages portlets when watching video,
+       so we override video.pt and put the portlets in there. -->
+  <page
+      name="file_view"
+      template="video.pt"
+      for="p4a.video.interfaces.IVideoEnhanced"
+      class="p4a.video.browser.video.VideoPageView"
+      permission="zope2.View"
+      />
+
 </configure>
