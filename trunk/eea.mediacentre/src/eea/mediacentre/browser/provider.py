@@ -4,9 +4,9 @@ from zope.interface import alsoProvides
 from zope.security.proxy import removeSecurityProxy
 from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
 from eea.mediacentre.interfaces import IMediaDisplayInfo
-from p4a.video.interfaces import IMediaPlayer
+from p4a.video.interfaces import IMediaPlayer, IVideo
 
-class MediaContainerView(object):
+class MediaContainerVideos(object):
 
     def __init__(self, context, request):
         self.context = context
@@ -28,3 +28,21 @@ class MediaContainerView(object):
             items.append(info_dict)
 
         return items
+
+class MediaContainerView(object):
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def media_items(self, media_type):
+        provider = IMediaProvider(self.context)
+        provider.media_type = media_type
+
+        videos = []
+        for file in provider.media_items:
+            video = IVideo(file, None)
+            if video is not None:
+                videos.append(video)
+
+        return videos

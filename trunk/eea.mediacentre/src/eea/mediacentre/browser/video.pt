@@ -14,13 +14,9 @@
 </metal:headslot>
 
 <metal:cssslot fill-slot="css_slot">
-	<link rel="stylesheet" href="vPIPBox.css"
-	      tal:attributes="href string:$portal_url/++resource++vPIP/vPIPBox.css"
-	      />
-
-	<link rel="stylesheet" href="video.css"
-	      tal:attributes="href string:$portal_url/++resource++videostyles/video.css"
-	      />
+    <link rel="stylesheet" href="video.css"
+          tal:attributes="href string:$portal_url/++resource++videostyles/video.css"
+        />
 </metal:cssslot>
 
 <div metal:fill-slot="main"
