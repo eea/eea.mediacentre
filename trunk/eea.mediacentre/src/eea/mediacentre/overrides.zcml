@@ -2,7 +2,6 @@
 
   <include package=".browser" file="overrides.zcml" />
 
-  <!-- change to flv_player if you want the original flowplayer -->
   <adapter
       factory=".flv_player.FLVVideoPlayer"
       name="video/x-flv"
