@@ -24,7 +24,7 @@
                 <dt i18n:translate="label_time">Time:</dt>
                 <dd tal:content="video/duration">8:30</dd>
                 <dt class="type-video" i18n:translate="label_type">Type:</dt>
-                <dd class="type-video" i18n:translate="label_video">Video</dd>
+                <dd class="type-video" tal:content="video/media_types">Media type</dd>
               </dl>
               <div class="visualClear"><!-- --></div>
             </div>

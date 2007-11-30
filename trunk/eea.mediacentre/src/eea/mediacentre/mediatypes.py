@@ -44,8 +44,9 @@ class MediaTypesVocabulary(object):
     implements(IVocabularyFactory)
 
     def __call__(self, context):
-        portal_vocab = getToolByName(context.context, 'portal_vocabularies')
-        types = getattr(portal_vocab, 'multimedia').getDisplayList(context.context)
+        obj = getattr(context, 'context', context)
+        portal_vocab = getToolByName(obj, 'portal_vocabularies')
+        types = getattr(portal_vocab, 'multimedia').getDisplayList(obj)
         terms = [SimpleTerm(key, key, value) for key, value in types.items()]
         return SimpleVocabulary(terms)
 
