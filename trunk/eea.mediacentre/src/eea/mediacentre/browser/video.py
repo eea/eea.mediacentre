@@ -1,7 +1,7 @@
 from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.component import getUtility
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
-from p4a.video.interfaces import IVideo
+from p4a.video.interfaces import IVideo, IMediaActivator
 from eea.mediacentre.interfaces import IMediaType
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
@@ -45,3 +45,20 @@ class VideoUtils(object):
 
         current = self.context.getLanguage()
         return current != 'en'
+
+class Activate(object):
+    """ This view activates all FlashFile objects that are not
+        already activated. """
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog.searchResults(portal_type='FlashFile')
+        for brain in brains:
+            obj = brain.getObject()
+            activator = IMediaActivator(obj)
+            if not activator.media_activated:
+                activator.media_activated = True

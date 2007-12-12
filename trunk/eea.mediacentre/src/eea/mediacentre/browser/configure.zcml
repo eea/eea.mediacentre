@@ -81,4 +81,12 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <!-- Activates all FlashFile objects -->
+  <browser:page
+      for="*"
+      name="activateAllVideos"
+      class=".video.Activate"
+      permission="cmf.ManagePortal"
+      />
+
 </configure>

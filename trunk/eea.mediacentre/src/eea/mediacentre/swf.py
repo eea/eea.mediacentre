@@ -7,49 +7,27 @@ from p4a.video.interfaces import IMediaPlayer
 from p4a.common.formatting import fancy_data_size
 from eea.mediacentre.interfaces import IMediaDisplayInfo
 from zope.component.exceptions import ComponentLookupError
+from p4a.plonevideo.atct import _ATCTFileVideo
 
-class SWFAdapter(object):
+class SWFAdapter(_ATCTFileVideo):
     implements(IVideo)
     adapts(FlashFile)
 
-    def __init__(self, context):
-        self.context = context
-
-    @property
-    def title(self):
-        return self.context.Title()
-
-    @property
-    def description(self):
-        return self.context.Description()
-
-    @property
-    def file(self):
-        return self.context.getFile()
-
-    @property
-    def width(self):
+    # we inherit attributes from ATCTFileVideo, but width
+    # and height are still stored in the FlashFile schema
+   
+    def _get_width(self):
         return self.context.getWidth()
+    def _set_width(self, width):
+        self.context.setWidth(width)
+    width = property(_get_width, _set_width)
 
-    @property
-    def height(self):
+    def _get_height(self):
         return self.context.getHeight()
+    def _set_height(self, height):
+        self.context.setHeight(height)
+    height = property(_get_height, _set_height)
 
-    @property
-    def video_type(self):
-        return 'SWF'
-
-    @property
-    def video_image(self):
-        return None
-
-    @property
-    def duration(self):
-        return 0
-
-    @property
-    def video_author(self):
-        return ''
 
 class SWFDisplay(SWFAdapter):
     implements(IMediaDisplayInfo)
@@ -125,15 +103,3 @@ class MediaPlayer(object):
         """ % { 'height': height,
                 'width': width_str,
                 'url': url }
-
-class MediaActivator(object):
-
-    def __init__(self, context):
-        self.context = context
-
-    @property
-    def media_activated(self):
-        # Let's fool the attempt_media_activation event so it already
-        # thinks this file is activated. We don't really want to activate
-        # swf files because they are handled by FlashFile instead of p4a.
-        return True

@@ -17,6 +17,7 @@
   <adapter factory=".mediatypes.MediaTypesAdapter" />
 
   <adapter factory=".swf.SWFAdapter" />
+
   <adapter
       for="p4a.video.interfaces.IVideoEnhanced"
       provides=".interfaces.IMediaDisplayInfo"
@@ -28,13 +29,6 @@
       provides=".interfaces.IMediaDisplayInfo"
       factory=".swf.SWFDisplay"
       name="application/x-shockwave-flash"
-      />
-  <!-- override activate behaviour from p4a, we already have swf
-       support in FlashFile -->
-  <adapter
-      for="Products.EEAContentTypes.content.FlashFile.FlashFile"
-      provides="p4a.video.interfaces.IMediaActivator"
-      factory=".swf.MediaActivator"
       />
 
   <adapter for="*" factory=".media.MediaProvider" />
