@@ -5,8 +5,9 @@
   <!-- make sure CMFonFive is loaded so menu="object" works -->
   <include package="Products.CMFonFive" />
 
+  <!-- for="..interfaces.IPossibleMediaFile" -->
   <browser:page
-      for="..interfaces.IPossibleMediaFile"
+      for="p4a.video.interfaces.IVideoEnhanced"
       name="mediatype_edit.html"
       class=".mediatypes.MediaTypesEditForm"
       permission="cmf.ModifyPortalContent"
@@ -20,8 +21,9 @@
       permission="zope2.View"
       />
 
+  <!--    for="eea.mediacentre.interfaces.IPossibleMediaFile" -->
   <browser:menuItem
-      for="eea.mediacentre.interfaces.IPossibleMediaFile"
+      for="p4a.video.interfaces.IVideoEnhanced"
       menu="object"
       title="Media type"
       action="mediatype_edit.html"
@@ -87,6 +89,33 @@
       name="activateAllVideos"
       class=".video.Activate"
       permission="cmf.ManagePortal"
+      />
+
+  <!-- shows a preview of an object which is meant to be in a listing. -->
+  <browser:page
+      for="*"
+      name="obj_listed_single"
+      class=".single.ListedSingle"
+      allowed_interface=".single.IListedSingle"
+      permission="zope2.View"
+      />
+
+  <!-- shows a preview of an object which is meant to be in a listing. -->
+  <browser:page
+      for="*"
+      name="image_listed_single"
+      class=".single.ImageListedSingle"
+      allowed_interface=".single.IListedSingle"
+      permission="zope2.View"
+      />
+
+  <!-- convenient view for accessing mediatype info -->
+  <browser:page
+      for="*"
+      name="mediatypes"
+      class=".mediatypes.MediaTypes"
+      allowed_attributes="title"
+      permission="zope2.View"
       />
 
 </configure>

@@ -1,20 +1,13 @@
 <configure xmlns="http://namespaces.zope.org/zope">
  
-  <class class="Products.ATContentTypes.content.file.ATFile">
-      <implements interface=".interfaces.IPossibleMediaFile" />
-  </class>
-
-  <class class="Products.ATContentTypes.content.image.ATImage">
-      <implements interface=".interfaces.IPossibleMediaFile" />
-  </class>
-
   <adapter
-      for=".interfaces.IPossibleMediaFile"
+      for="p4a.video.interfaces.IVideoEnhanced"
       provides="zope.app.annotation.interfaces.IAnnotations"
       factory="zope.app.annotation.attribute.AttributeAnnotations"
       />
 
   <adapter factory=".mediatypes.MediaTypesAdapter" />
+  <adapter factory=".mediatypes.MediaTypesImageAdapter" />
 
   <adapter factory=".swf.SWFAdapter" />
 
@@ -39,6 +32,9 @@
       component=".mediatypes.MediaTypesVocabularyFactory"
       name="Media types"
       />
+
+  <subscriber handler=".subtyper.subtype_added" />
+  <subscriber handler=".subtyper.subtype_removed" />
 
   <include package=".browser" />
   <include package=".plugins" />

@@ -17,15 +17,20 @@ class VideoListedSingle(P4AVideoListedSingle):
         if obj is not None:
             vocab = getUtility(IVocabularyFactory, name="Media types")(obj)
 
-            # if obj is an IVideo it's an adapted media file, then we want to use
-            # the adapter's context, otherwise we use obj as it is
+            # if obj is an IVideo it's an adapted media file, then we want to
+            # use the adapter's context, otherwise we use obj as it is
             if IVideo.providedBy(obj):
                 type_ids = IMediaType(obj.context).types
             else:
                 type_ids = IMediaType(obj).types
 
             types = sorted([vocab.getTerm(type_id).title for type_id in type_ids])
-            video['media_types'] = ', '.join(types)
+            if types:
+                video['media_types'] = ', '.join(types)
+            else:
+                video['media_types'] = 'Other'
+
+            video['portal_url'] = self.portal_url
         return video
 
 class VideoUtils(object):

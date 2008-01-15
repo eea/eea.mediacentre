@@ -55,9 +55,6 @@ class IMediaType(Interface):
         )
     )
 
-class IPossibleMediaFile(Interface):
-    """ Markter interface for files that are not yet media files. """
-
 class IMediaProvider(Interface):
     media_type = Attribute("The type of media for this object")
 

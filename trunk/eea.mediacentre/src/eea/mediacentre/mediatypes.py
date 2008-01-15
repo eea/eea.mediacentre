@@ -1,4 +1,5 @@
 from Products.CMFCore.utils import getToolByName
+from Products.ATContentTypes.content.image import ATImage
 from zope.app.annotation.interfaces import IAnnotations
 from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
@@ -8,13 +9,14 @@ from zope.interface import directlyProvides
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
 
-from eea.mediacentre.interfaces import IMediaType, IPossibleMediaFile
+from p4a.video.interfaces import IVideoEnhanced
+from eea.mediacentre.interfaces import IMediaType
 
 KEY = 'eea.mediacentre.mediafile'
 
 class MediaTypesAdapter(object):
     implements(IMediaType)
-    adapts(IPossibleMediaFile)
+    adapts(IVideoEnhanced)
 
     def __init__(self, context):
         self.context = context
@@ -39,6 +41,20 @@ class MediaTypesAdapter(object):
         return property(get, set)
     types = types()
 
+class MediaTypesImageAdapter(object):
+    implements(IMediaType)
+    adapts(ATImage)
+
+    def __init__(self, context):
+        self.context = context
+
+    def types():
+        def get(self):
+            return ['image']
+        def set(self):
+            pass
+        return property(get, set)
+    types = types()
 
 class MediaTypesVocabulary(object):
     implements(IVocabularyFactory)
