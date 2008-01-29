@@ -1,10 +1,17 @@
 from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.component import getUtility
+from zope.formlib.form import FormFields
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from p4a.video.interfaces import IVideo, IMediaActivator
+from p4a.video.browser import video
 from eea.mediacentre.interfaces import IMediaType
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
+
+class VideoEditForm(video.VideoEditForm):
+    """Form for editing video fields.  """
+
+    form_fields = FormFields(IVideo).omit('rich_description', 'urls')
 
 class VideoListedSingle(P4AVideoListedSingle):
     """Video listed single."""

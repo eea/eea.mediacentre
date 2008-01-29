@@ -37,4 +37,13 @@
       permission="zope2.View"
       />
 
+  <!-- there are fields that we don't want in the edit form, so we
+       override the p4a edit form. -->
+  <page
+      name="atct_edit"
+      for="p4a.video.interfaces.IVideoEnhanced"
+      permission="cmf.ModifyPortalContent"
+      class=".video.VideoEditForm"
+      />
+
 </configure>
