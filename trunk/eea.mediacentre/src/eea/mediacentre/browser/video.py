@@ -1,12 +1,40 @@
 from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.component import getUtility
 from zope.formlib.form import FormFields
+from zope.interface import Interface
+from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from p4a.video.interfaces import IVideo, IMediaActivator
 from p4a.video.browser import video
 from eea.mediacentre.interfaces import IMediaType
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
+
+def getMediaTypes(obj):
+   if obj is not None:
+        vocab = getUtility(IVocabularyFactory, name="Media types")(obj)
+
+        # if obj is an IVideo it's an adapted media file, then we want to
+        # use the adapter's context, otherwise we use obj as it is
+        if IVideo.providedBy(obj):
+            type_ids = IMediaType(obj.context).types
+        else:
+            type_ids = IMediaType(obj).types
+
+        types = sorted([vocab.getTerm(type_id).title for type_id in type_ids
+])
+        if types:
+            return ', '.join(types)
+        else:
+            return 'Other'
+
+def getDuration(obj):
+    video = IVideo(obj)
+    if video.duration:
+        duration = int(round(video.duration or 0.0))
+        return fancy_time_amount(duration, show_legend=False)
+    else:
+        return None
 
 class VideoEditForm(video.VideoEditForm):
     """Form for editing video fields.  """
@@ -27,9 +55,13 @@ class VideoListedSingle(P4AVideoListedSingle):
             # if obj is an IVideo it's an adapted media file, then we want to
             # use the adapter's context, otherwise we use obj as it is
             if IVideo.providedBy(obj):
-                type_ids = IMediaType(obj.context).types
+                videoobj = obj.context
+                adapter = obj
             else:
-                type_ids = IMediaType(obj).types
+                videoobj = obj
+                adapter = IVideo(obj)
+
+            type_ids = IMediaType(videoobj).types
 
             types = sorted([vocab.getTerm(type_id).title for type_id in type_ids])
             if types:
@@ -38,7 +70,40 @@ class VideoListedSingle(P4AVideoListedSingle):
                 video['media_types'] = 'Other'
 
             video['portal_url'] = self.portal_url
+            video['published_date'] = videoobj.EffectiveDate()
+            video['duration'] = getDuration(videoobj)
+            video['author'] = adapter.video_author
         return video
+
+class IVideoView(video.IVideoView):
+    def media_types(): pass
+    def duration(): pass
+    def author(): pass
+    def published_date(): pass
+    def width_incl_player(): pass
+
+class VideoView(video.VideoView):
+
+    def __init__(self, context, request):
+        super(VideoView, self).__init__(context, request)
+        self.context = context
+        self.request = request
+        self.video = IVideo(context)
+
+    def media_types(self):
+        return getMediaTypes(self.context)
+
+    def duration(self):
+        return getDuration(self.context)
+
+    def author(self):
+        return self.video.video_author
+
+    def published_date(self):
+        return self.context.EffectiveDate()
+
+    def width_incl_player(self):
+        return self.video.width + 35
 
 class VideoUtils(object):
     """ A browser view for video utility methods. """

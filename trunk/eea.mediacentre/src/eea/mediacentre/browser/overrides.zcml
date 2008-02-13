@@ -46,4 +46,14 @@
       class=".video.VideoEditForm"
       />
 
+  <!-- we want to show some extra fields for videos so we extend
+       this view with a few attributes -->
+  <page
+      name="video_view"
+      class=".video.VideoView"
+      allowed_interface=".video.IVideoView"
+      for="p4a.video.interfaces.IVideoEnhanced"
+      permission="zope2.View"
+      />
+
 </configure>

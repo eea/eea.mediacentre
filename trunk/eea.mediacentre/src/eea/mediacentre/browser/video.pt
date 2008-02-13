@@ -71,6 +71,25 @@
             </div>          
                    
             <div tal:replace="structure view/widgets/media_player"></div>
+
+            <!-- Display metadata about the video -->
+            <div tal:attributes="style string:margin:auto;; width:${video_info/width_incl_player}px">
+              <dl class="media-single-item">
+                <tal:time condition="video_info/duration">
+                    <dt i18n:translate="label_time">Time:</dt>
+                    <dd tal:content="video_info/duration">8:30</dd>
+                </tal:time>
+                <dt class="type-video" i18n:translate="label_type">Media Type:</dt>
+                <dd class="type-video" tal:content="video_info/media_types">Media type</dd>
+                <tal:author condition="video_info/author">
+                    <dt>Author:</dt>
+                    <dd tal:content="video_info/author">Author</dd>
+                </tal:author>
+                <dt>Published:</dt>
+                <dd tal:content="video_info/published_date">Date</dd>
+              </dl>
+              <div>&nbsp;</div>
+            </div>
         </div>
           
         <div class="visualClear">&nbsp;</div>

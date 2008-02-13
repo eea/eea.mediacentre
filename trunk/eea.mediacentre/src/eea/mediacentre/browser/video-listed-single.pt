@@ -21,10 +21,18 @@
                          alt="Video album art" />
                   </a>
                 </dd>
-                <dt i18n:translate="label_time">Time:</dt>
-                <dd tal:content="video/duration">8:30</dd>
-                <dt class="type-video" i18n:translate="label_type">Type:</dt>
+                <tal:time condition="video/duration">
+                    <dt i18n:translate="label_time">Time:</dt>
+                    <dd tal:content="video/duration">8:30</dd>
+                </tal:time>
+                <dt class="type-video" i18n:translate="label_type">Media Type:</dt>
                 <dd class="type-video" tal:content="video/media_types">Media type</dd>
+                <tal:author condition="video/author">
+                    <dt>Author:</dt>
+                    <dd tal:content="video/author">Author</dd>
+                </tal:author>
+                <dt>Published:</dt>
+                <dd tal:content="video/published_date">Date</dd>
               </dl>
               <div class="visualClear"><!-- --></div>
             </div>
