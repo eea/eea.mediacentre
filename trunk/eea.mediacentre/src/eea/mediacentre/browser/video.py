@@ -36,6 +36,12 @@ def getDuration(obj):
     else:
         return None
 
+def getPublishedDate(obj):
+    time = obj.EffectiveDate()
+    tool = getToolByName(obj, 'translation_service')
+    return tool.ulocalized_time(time, None, obj,
+                                domain='plone')
+
 class VideoEditForm(video.VideoEditForm):
     """Form for editing video fields.  """
 
@@ -70,7 +76,7 @@ class VideoListedSingle(P4AVideoListedSingle):
                 video['media_types'] = 'Other'
 
             video['portal_url'] = self.portal_url
-            video['published_date'] = videoobj.EffectiveDate()
+            video['published_date'] = getPublishedDate(videoobj)
             video['duration'] = getDuration(videoobj)
             video['author'] = adapter.video_author
         return video
@@ -100,7 +106,7 @@ class VideoView(video.VideoView):
         return self.video.video_author
 
     def published_date(self):
-        return self.context.EffectiveDate()
+        return getPublishedDate(self.context)
 
     def width_incl_player(self):
         return self.video.width + 35
