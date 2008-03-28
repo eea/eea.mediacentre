@@ -59,12 +59,12 @@
         <div id="objmetadata_pbwidgets_wrapper">
             <div id="playback_widgets">
 
+              <!-- Disable the popup until p4a provides a better one  
               <a tal:condition="video_info/has_media_player" id="popup_play_icon"
                  href="#" title="Play in popup window" class="widget_icon"
                  tal:attributes="href string:javascript:void window.open('${context/absolute_url}/popup-play.html', '', 'width=200, height=45, toolbar=no, location=no, directories=no, status=no, menubar=no')">
               </a>
-              <a href="" id="play_icon" class="widget_icon"
-                  tal:attributes="href string:$context_url/stream.m3u" title="Stream file"></a>
+              -->
               <a href="" id="download_icon" class="widget_icon"
                   tal:attributes="href string:$context_url" title="Download file"></a>
 
