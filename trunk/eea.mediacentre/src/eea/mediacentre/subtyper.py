@@ -9,9 +9,13 @@ from eea.mediacentre.mediatypes import KEY
 def subtype_added(evt):
     """ Adds media type to object and indirectly catalog. """
     obj = evt.object
-    media = IMediaType(obj)
-    if not media.types:
-        media.types = ['other']
+    try:
+        media = IMediaType(obj)
+        if not media.types:
+            media.types = ['other']
+    except TypeError:
+        # an object is subtyped that isn't video enhanced, so we ignore it
+        pass
 
 @adapter(ISubtypeRemovedEvent)
 def subtype_removed(evt):
