@@ -12,4 +12,5 @@
       factory=".swf.MediaPlayer"
       />
 
+  <adapter factory=".syndication.VideoFeedEntryWithDescription" />
 </configure>
