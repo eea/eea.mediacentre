@@ -33,5 +33,6 @@
                            i18n:translate="label_more">More</a>
         </p>
     </div>
+    <div class="visualClear"><!-- &nbsp; --></div>
 </div>
 </metal:block>
