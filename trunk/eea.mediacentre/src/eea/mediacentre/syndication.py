@@ -5,6 +5,7 @@ from zope.component import adapts
 from zope.interface import implements
 
 from Products.basesyndication.interfaces import IFeedEntry
+from Products.CMFCore.utils import getToolByName
 from Products.fatsyndication.adapters import BaseFeedEntry
 
 class VideoFeedEntryWithDescription(VideoFeedEntry):
@@ -23,3 +24,13 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
         else:
             return '<p><img src="%s" /></p><p>%s</p>' % \
                    (image_url, self.context.Description())
+
+    def getWebURL(self):
+        url = self.context.absolute_url()
+        portal_props = getToolByName(self.context, 'portal_properties')
+        site_props = getattr(portal_props, 'site_properties')
+        view_action = getattr(site_props, 'typesUseViewActionInListings', ())
+        if self.context.portal_type in view_action:
+            url += '/view'
+
+        return url  
