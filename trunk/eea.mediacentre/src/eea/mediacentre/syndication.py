@@ -12,6 +12,14 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
     implements(IFeedEntry)
     adapts(IVideoEnhanced)
 
+    def getAuthor(self):
+        video = IVideo(self.context)
+        author = video.video_author
+        if author is None:
+            return ''
+        else:
+            return author
+
     def getBody(self):
         video = IVideo(self.context)
         image_url = None
