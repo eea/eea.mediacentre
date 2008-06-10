@@ -5,8 +5,9 @@ from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from p4a.video.interfaces import IVideo, IMediaActivator
 from p4a.video.browser import video
 from eea.mediacentre.interfaces import IMediaType
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.ZCatalog.CatalogBrains import AbstractCatalogBrain
 
 def getMediaTypes(obj):
    if obj is not None:

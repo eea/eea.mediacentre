@@ -7,7 +7,7 @@ from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 class CatalogPlugin(object):
     implements(ICatalogPlugin)
 
-    def getMedia(self, media_type=None, size=None, searchfor={}):
+    def getMedia(self, media_type=None, size=None, full_objects=True, searchfor={}):
         """ Returns media files as dicts. media_type arg can be e.g.
             video, interview or other. Other means that no type is chosen.
             Returned media can be ATImage, ATFile or FlashFile objects.
@@ -47,8 +47,11 @@ class CatalogPlugin(object):
         for brains in [video_brains, image_brains]:
             for brain in brains:
                 data = { 'title': brain.Title,
-                         'url': brain.getURL(),
-                         'object': brain.getObject() }
+                         'url': brain.getURL() }
+                if full_objects:
+                    data['object'] = brain.getObject()
+                else:
+                    data['object'] = brain
                 result.append(data)
 
         if size:

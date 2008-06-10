@@ -12,12 +12,12 @@ MEDIA_SEARCH_KEY = 'eea.mediacentre.search'
 class MediaCentre(object):
     implements(IMediaCentre)
 
-    def getMedia(self, media_type=None, size=None, search={}):
+    def getMedia(self, media_type=None, size=None, full_objects=True, search={}):
         result = []
         plugins = self._getPlugins()
 
         for plugin in plugins:
-            mediaobjects = plugin.getMedia(media_type, size, search)
+            mediaobjects = plugin.getMedia(media_type, size, full_objects, search)
             result.extend(mediaobjects)
 
         return result

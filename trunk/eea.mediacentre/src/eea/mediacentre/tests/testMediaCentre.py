@@ -1,15 +1,17 @@
-from zope.testing import doctest
 import unittest
 import os
+from Acquisition import aq_base
 from p4a.video.media import MediaActivator
 from p4a.subtyper.engine import Subtyper
 from p4a.video.subtype import VideoDescriptor
 from eea.mediacentre.mediacentre import MediaCentre
 from eea.mediacentre.mediatypes import MediaTypesAdapter
+from eea.mediacentre.interfaces import IMediaProvider, IMediaType
 from eea.mediacentre.subtyper import subtype_added, subtype_removed
 from eea.mediacentre.tests.MediaCentreTestCase import MediaCentreTestCase
 from zope.app.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
+from zope.testing import doctest
 
 def setUp(test):
     provideUtility(MediaCentre())
@@ -44,10 +46,29 @@ class TestMediaCentre(MediaCentreTestCase):
         self.login('manager')
         self.portal.portal_workflow.doActionFor(barsandtones, 'publish')
 
+        self.portal.invokeFactory('File', id='interview')
+        config = self.portal.interview.restrictedTraverse('@@video-config.html')
+        config.media_activated = True
+        interview = aq_base(self.portal.interview)
+        IMediaType(interview).types = ['interview']
+        self.portal.portal_workflow.doActionFor(self.portal.interview, 'publish')
+        self.portal.invokeFactory('Topic', id='topic')
+        crit = self.portal.topic.addCriterion('review_state', 'ATSimpleStringCriterion')
+        crit.setValue('published')
+
+    def testTopicMediaProvider(self):
+        provider = IMediaProvider(self.portal.topic)
+        # we should now get all the published files
+        self.assertEquals(len(provider.media_items), 2)
+        provider.media_type = 'interview'
+        # now we should only get the interview file
+        self.assertEquals(len(provider.media_items), 1)
+
 def test_suite():
     from Testing.ZopeTestCase import FunctionalDocFileSuite
 
     return unittest.TestSuite((
+        unittest.makeSuite(TestMediaCentre),
         doctest.DocFileSuite('../README.txt',
                      setUp=setUp, #tearDown=tearDown,
                      optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,

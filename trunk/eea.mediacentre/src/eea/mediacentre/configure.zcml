@@ -25,6 +25,8 @@
       />
 
   <adapter for="*" factory=".media.MediaProvider" />
+  <adapter for="Products.ATContentTypes.content.topic.ATTopic"
+           factory=".media.TopicMediaProvider" />
 
   <utility factory=".mediacentre.MediaCentre" />
 

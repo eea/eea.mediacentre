@@ -5,7 +5,7 @@ class IMediaCentre(Interface):
     """ This is the main media centre interface. This utility relies on
         plugins (providing IMediaCentrePlugin) to provide media files. """
 
-    def getMedia(mediatype, size, search):
+    def getMedia(mediatype, size, full_objects, search):
         """ Returns multimedia files that satisfies the criterias.
             If mediatype is specified only that certain type is returned.
             size is the number of files that should be returned.

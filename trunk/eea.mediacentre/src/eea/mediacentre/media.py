@@ -1,4 +1,6 @@
 from Products.ATContentTypes.interfaces import IATFile
+from Products.CMFCore.utils import getToolByName
+
 from zope.component import getUtility, adapts, queryAdapter, adapter
 from zope.interface import implements, implementer
 from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
@@ -44,7 +46,8 @@ class MediaProvider(object):
         currentTheme = getTheme(self.context)
         mediacentre = getUtility(IMediaCentre)
         search = { MEDIA_SEARCH_KEY: { 'theme': currentTheme }}
-        files = mediacentre.getMedia(self.media_type, search=search)
+        files = mediacentre.getMedia(self.media_type, full_objects=False,
+                                     search=search)
 
         videos = []
         for media_dict in files:
@@ -54,3 +57,20 @@ class MediaProvider(object):
             #    videos.append(adapted)
 
         return videos
+
+class TopicMediaProvider(object):
+    implements(IMediaProvider)
+
+    def __init__(self, context):
+        self.context = context
+        # this can be changed by someone who wants a specific media type
+        self.media_type = None
+
+    @property
+    def media_items(self):
+        portal_catalog = getToolByName(self.context, 'portal_catalog')
+        query = self.context.buildQuery()
+        if self.media_type:
+            query['media_types'] = self.media_type
+        brains = portal_catalog.searchResults(query)
+        return brains

@@ -24,7 +24,7 @@ automatically be used by the media centre.
   >>> class DummyPlugin1(object):
   ...     implements(IMediaCentrePlugin)
   ...     def getMediaTypes(self): return {'video': {}}
-  ...     def getMedia(self, media_type=None, size=None, search={}):
+  ...     def getMedia(self, media_type=None, size=None, full_objects=False, search={}):
   ...         return [None, None]
   >>> provideUtility(DummyPlugin1())
 
@@ -42,7 +42,7 @@ Let's register one more dummy plugin.
   >>> class DummyPlugin2(object):
   ...     implements(IMediaCentrePlugin)
   ...     def getMediaTypes(self): return {'map': {}}
-  ...     def getMedia(self, media_type=None, size=None, search={}):
+  ...     def getMedia(self, media_type=None, size=None, full_objects=False, search={}):
   ...         return [None, None, None]
   >>> provideUtility(DummyPlugin2())
 
