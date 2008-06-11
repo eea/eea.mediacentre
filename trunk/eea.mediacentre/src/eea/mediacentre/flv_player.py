@@ -1,3 +1,4 @@
+import random
 from zope import interface
 from zope import component
 from p4a.video import interfaces
@@ -68,7 +69,7 @@ class FLVVideoPlayer(object):
             playlist = "[ "
         else:
             playlist = "[ { url: '%s'}, " % imageurl
-        playlist += "{ url: '%s' } ]" % downloadurl 
+        playlist += "{ url: '%s' } ]" % downloadurl
         
         return """
         <div class="flowplayer">
@@ -76,14 +77,14 @@ class FLVVideoPlayer(object):
                 Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
             </div>
             <script type="text/javascript">
-               function loadflash() {
+               function loadflash%(random)s() {
               var so = new SWFObject("%(player)s?config={ playList: %(playlist)s, scaleSplash: true, initialScale: 'scale', showFullScreenButton: false, autoPlay: %(autoplay)s, autoBuffering: %(autobuffer)s }", "FlowPlayer", "%(width)s", "%(height)s", "7", "#ffffff");
                  so.addParam("AllowScriptAccess", "always");
                  so.addParam("wmode", "transparent");
                  so.write("video%(videoid)s");
                  return true;
                }
-               AttachEvent(window, 'load', loadflash, false)
+               AttachEvent(window, 'load', loadflash%(random)s, false)
             </script>     
         </div>
 
@@ -97,4 +98,5 @@ class FLVVideoPlayer(object):
                'fullscreenUrl': fullscreenUrl,
                'showUrl': showUrl,
                'autoplay': autoplay,
-               'autobuffer': autobuffer }
+               'autobuffer': autobuffer,
+               'random': random.randint(1,2000000000) }
