@@ -65,20 +65,39 @@ class FLVVideoPlayer(object):
 
         # autoplay doesn't work in flowplayer if there is a playlist with an
         # image at the beginning, so if autoplay we don't use the image
+        template_to_use = MAIN_VIDEO_TEMPLATE
         if self.autoplay:
             playlist = "[ "
         else:
             playlist = "[ { url: '%s'}, " % imageurl
+            template_to_use = SECONDARY_VIDEA_TEMPLATE
         playlist += "{ url: '%s' } ]" % downloadurl
         
-        return """
+        return template_to_use % {'videoid': contentobj.getId().replace('.','-'),
+            			  'player': player,
+            			  'title': title,
+            			  'width': width,
+            			  'height': height+16,
+            			  'videoUrl': downloadurl + '/view',
+            			  'playlist': playlist,
+            			  'fullscreenUrl': fullscreenUrl,
+            			  'showUrl': showUrl,
+            			  'autoplay': autoplay,
+            			  'autobuffer': autobuffer,
+            			  'random': random.randint(1,2000000000) }
+               
+#
+# Video templates list
+#
+
+MAIN_VIDEO_TEMPLATE = """
         <div class="flowplayer">
             <div id="video%(videoid)s" class="embeddedvideo">
                 Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
             </div>
             <script type="text/javascript">
                function loadflash%(random)s() {
-              var so = new SWFObject("%(player)s?config={ playList: %(playlist)s, scaleSplash: true, initialScale: 'scale', showFullScreenButton: false, autoPlay: %(autoplay)s, autoBuffering: %(autobuffer)s }", "FlowPlayer", "%(width)s", "%(height)s", "7", "#ffffff");
+                 var so = new SWFObject("%(player)s?config={ playList: %(playlist)s, scaleSplash: true, initialScale: 'scale', showFullScreenButton: false, autoPlay: %(autoplay)s, autoBuffering: %(autobuffer)s }", "FlowPlayer%(random)s", "%(width)s", "%(height)s", "7", "#ffffff");
                  so.addParam("AllowScriptAccess", "always");
                  so.addParam("wmode", "transparent");
                  so.write("video%(videoid)s");
@@ -87,16 +106,21 @@ class FLVVideoPlayer(object):
                AttachEvent(window, 'load', loadflash%(random)s, false)
             </script>     
         </div>
+"""
 
-        """ % {'videoid': contentobj.getId().replace('.','-'),
-               'player': player,
-               'title': title,
-               'width': width,
-               'height': height+16,
-               'videoUrl': downloadurl + '/view',
-               'playlist': playlist,
-               'fullscreenUrl': fullscreenUrl,
-               'showUrl': showUrl,
-               'autoplay': autoplay,
-               'autobuffer': autobuffer,
-               'random': random.randint(1,2000000000) }
+SECONDARY_VIDEA_TEMPLATE = """
+        <div class="flowplayer">
+            <div id="video%(videoid)s" class="embeddedvideo">
+                Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
+            </div>
+            <script type="text/javascript">
+               function loadflash%(random)s() {
+                 var so = new SWFObject("%(player)s", "FlowPlayer%(random)s", "%(width)s", "%(height)s", "7", "#ffffff");
+                 so.addVariable("config", "{ playList: %(playlist)s, scaleSplash: true, initialScale: 'scale', showFullScreenButton: false, autoPlay: %(autoplay)s, autoBuffering: %(autobuffer)s }");
+                 so.write("video%(videoid)s");
+                 return true;
+               }
+               AttachEvent(window, 'load', loadflash%(random)s, false)
+            </script>     
+        </div>
+"""
