@@ -70,7 +70,7 @@ class FLVVideoPlayer(object):
             playlist = "[ "
         else:
             playlist = "[ { url: '%s'}, " % imageurl
-            template_to_use = SECONDARY_VIDEA_TEMPLATE
+            template_to_use = SECONDARY_VIDEO_TEMPLATE
         playlist += "{ url: '%s' } ]" % downloadurl
         
         return template_to_use % {'videoid': contentobj.getId().replace('.','-'),
@@ -108,7 +108,7 @@ MAIN_VIDEO_TEMPLATE = """
         </div>
 """
 
-SECONDARY_VIDEA_TEMPLATE = """
+SECONDARY_VIDEO_TEMPLATE = """
         <div class="flowplayer">
             <div id="video%(videoid)s" class="embeddedvideo">
                 Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
