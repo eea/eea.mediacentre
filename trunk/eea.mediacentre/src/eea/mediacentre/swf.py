@@ -1,7 +1,7 @@
 from Products.EEAContentTypes.content.FlashFile import FlashFile
-from zope.component import adapts
-from zope.interface import implements
-from p4a.video.interfaces import IVideo
+from zope.component import adapts, adapter
+from zope.interface import implements, implementer
+from p4a.video.interfaces import IVideo, IVideoEnhanced
 from p4a.common.formatting import fancy_time_amount
 from p4a.video.interfaces import IMediaPlayer
 from p4a.common.formatting import fancy_data_size
@@ -9,10 +9,14 @@ from eea.mediacentre.interfaces import IMediaDisplayInfo
 from zope.component.exceptions import ComponentLookupError
 from p4a.plonevideo.atct import _ATCTFileVideo
 
-class SWFAdapter(_ATCTFileVideo):
-    implements(IVideo)
-    adapts(FlashFile)
+@implementer(IVideo)
+@adapter(FlashFile)
+def SWFAdapter(context):
+    if not IVideoEnhanced.providedBy(context):
+        return None
+    return _SWFAdapter(context)
 
+class _SWFAdapter(_ATCTFileVideo):
     # we inherit attributes from ATCTFileVideo, but width
     # and height are still stored in the FlashFile schema
    
@@ -29,7 +33,7 @@ class SWFAdapter(_ATCTFileVideo):
     height = property(_get_height, _set_height)
 
 
-class SWFDisplay(SWFAdapter):
+class SWFDisplay(_SWFAdapter):
     implements(IMediaDisplayInfo)
 
     def __call__(self):

@@ -1,8 +1,9 @@
 import unittest
 import os
 from Acquisition import aq_base
-from p4a.video.media import MediaActivator
 from p4a.subtyper.engine import Subtyper
+from p4a.video.interfaces import IVideo
+from p4a.video.media import MediaActivator
 from p4a.video.subtype import VideoDescriptor
 from eea.mediacentre.mediacentre import MediaCentre
 from eea.mediacentre.mediatypes import MediaTypesAdapter
@@ -11,6 +12,7 @@ from eea.mediacentre.subtyper import subtype_added, subtype_removed
 from eea.mediacentre.tests.MediaCentreTestCase import MediaCentreTestCase
 from zope.app.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
+from zope.component import queryAdapter
 from zope.testing import doctest
 
 def setUp(test):
@@ -63,6 +65,16 @@ class TestMediaCentre(MediaCentreTestCase):
         provider.media_type = 'interview'
         # now we should only get the interview file
         self.assertEquals(len(provider.media_items), 1)
+
+    def testVideoFlashAdapter(self):
+        """ test that a FlashFile can not be adapted to IVideo before it's
+            marked with the IVideoEnhanced interface. This follows the p4a.video
+            convention on IVideo adapters. """
+        self.portal.invokeFactory('FlashFile', id='flashy')
+        self.assertTrue(queryAdapter(self.portal.flashy, IVideo) is None)
+        config = self.portal.flashy.restrictedTraverse('@@video-config.html')
+        config.media_activated = True
+        self.assertTrue(queryAdapter(self.portal.flashy, IVideo) is not None)
 
 def test_suite():
     from Testing.ZopeTestCase import FunctionalDocFileSuite
