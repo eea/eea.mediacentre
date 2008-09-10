@@ -13,6 +13,7 @@ def setup_mediacentre():
     import p4a.video
     import p4a.plonevideo
     import p4a.subtyper
+    import valentine.linguaflow
     zcml.load_config('meta.zcml', Products.Five)
     zcml.load_config('configure.zcml', Products.FiveSite)
     zcml.load_config('configure.zcml', p4a.z2utils)
@@ -22,19 +23,21 @@ def setup_mediacentre():
     zcml.load_config('meta.zcml', p4a.subtyper)
     zcml.load_config('configure.zcml', p4a.subtyper)
     zcml.load_config('configure.zcml', eea.mediacentre)
+    zcml.load_config('configure.zcml', valentine.linguaflow)
     fiveconfigure.debug_mode = False
 
     PloneTestCase.installProduct('Five')
     PloneTestCase.installProduct('FiveSite')
     PloneTestCase.installProduct('ATVocabularyManager')
-    PloneTestCase.installProduct('EEAPloneAdmin')
     PloneTestCase.installProduct('PloneLanguageTool')
     PloneTestCase.installProduct('LinguaPlone')
     PloneTestCase.installProduct('EEAContentTypes')
+    PloneTestCase.installProduct('valentine.linguaflow')
+    PloneTestCase.installProduct('EEAPloneAdmin')
     PloneTestCase.installProduct('ThemeCentre')
 
-PRODUCTS = ('ATVocabularyManager', 'EEAPloneAdmin', 'PloneLanguageTool', 'LinguaPlone',
-            'EEAContentTypes', 'FiveSite',
+PRODUCTS = ('ATVocabularyManager', 'PloneLanguageTool', 'LinguaPlone',
+            'EEAContentTypes', 'FiveSite', 'valentine.linguaflow', 'EEAPloneAdmin',
             'ThemeCentre')
 
 setup_mediacentre()
