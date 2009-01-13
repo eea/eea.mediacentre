@@ -19,7 +19,7 @@ def SWFAdapter(context):
 class _SWFAdapter(_ATCTFileVideo):
     # we inherit attributes from ATCTFileVideo, but width
     # and height are still stored in the FlashFile schema
-   
+
     def _get_width(self):
         return self.context.getWidth()
     def _set_width(self, width):
@@ -65,10 +65,10 @@ class MediaPlayer(object):
         # File portal types. The video is found differently
         if getattr(self.context, 'portal_type', '') == 'FlashFile':
             media_file = IVideo(self.context)
-            url = self.context.absolute_url() + '/download'
+            url = self.context.absolute_url() + '/getFile'
         else:
             media_file  = IVideo(self.context.context.context)
-            url = self.context.context.context.absolute_url() + '/download'
+            url = self.context.context.context.absolute_url() + '/getFile'
 
         width = media_file.width
         height = media_file.height
