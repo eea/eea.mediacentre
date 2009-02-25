@@ -60,7 +60,7 @@ class MediaPlayer(object):
         self.max_width = 10000
         self.max_height = 10000
 
-    def __call__(self, download_url, image_url):
+    def __call__(self, download_url, image_url, width=None, height=None):
         # we have shockwave flash support both in FlashFile and
         # File portal types. The video is found differently
         if getattr(self.context, 'portal_type', '') == 'FlashFile':
