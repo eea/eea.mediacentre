@@ -1,0 +1,27 @@
+from zope.interface import Interface
+from eea.themecentre.browser.interfaces import IPortlet
+
+class IMediaPortlet(IPortlet):
+
+    def all_link():
+        pass
+
+    def short_items():
+        pass
+
+    def full_items():
+        pass
+
+    def items():
+        pass
+
+    def media_player():
+        """ Returns the media player for the media file. """
+
+class INavigationPortlet(Interface):
+
+    def mediacentre():
+        pass
+
+    def media_types():
+        pass
