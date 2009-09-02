@@ -1,0 +1,29 @@
+These are functional tests for multimedia.
+
+  >>> from Products.Five.testbrowser import Browser
+
+RDF portlets in a multilingual folder
+====================================
+
+A swedish themecentre, an english feed folder, a swedish RSSFeedRecipe
+and an english RSSFeedRecipe are already set up for us.
+
+  >>> browser = Browser()
+  >>> browser.handleErrors = False
+  >>> browser.open('http://nohost/plone/login_form')
+  >>> browser.getControl('Login Name').value = 'manager'
+  >>> browser.getControl('Password').value = 'secret'
+  >>> browser.getControl('Log in').click()
+
+Make a basic test and make sure the view tab loads successfully.
+
+  >>> dummy=browser.open('http://nohost/plone/barsandtones/view')
+
+Open the edit tab and make sure it loads successfully. Also check
+that the rich_description field uses kupu.
+
+  >>> browser.open('http://nohost/plone/barsandtones/edit')
+  >>> 'rich_description' in browser.contents
+  True
+  >>> 'kupu-editor-body' in browser.contents
+  True
