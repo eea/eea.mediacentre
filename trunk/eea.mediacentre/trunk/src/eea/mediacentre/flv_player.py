@@ -2,18 +2,8 @@ from zope import interface
 from zope import component
 from p4a.video import interfaces
 from Products.CMFCore import utils as cmfutils
+import simplejson
 
-def generate_config(**kw):
-    text = 'config : {'
-    for key, value in kw.items():
-        if value is not None and value is not 'false' and value is not 'true':
-            text += "%s: '%s', " % (key, value)
-        else:
-            text += "%s: %s, " % (key, value)            
-    if text.endswith(', '):
-        text = text[:-2]
-    text += ' }'
-    return text
 
 class FLVVideoPlayer(object):
     interface.implements(interfaces.IMediaPlayer)
@@ -36,17 +26,21 @@ class FLVVideoPlayer(object):
         downloadurl = contentobj.absolute_url()
         videoid = 'video' + contentobj.getId().replace('.','')
 
-        config = generate_config(videoFile=downloadurl,
-                                 autoPlay=True,
-                                 autoBuffering=True,
-                                 useNativeFullScreen='true',
-                                 initialScale='fit') 
+        # See flowPlayer.js for available options
+        config = {
+            'videoFile': downloadurl,
+            'autoPlay': True,
+            'loop': False,
+            'autoBuffering': True,
+            'useNativeFullScreen': True,
+            'initialScale': 'fit',
+        }
+        config = simplejson.dumps(config)
 
-        template_to_use = MAIN_VIDEO_TEMPLATE
-        return template_to_use % {'videoid': videoid,
-                                  'player': player,
-                                  'title': contentobj.title,
-                                  'config': config}
+        return MAIN_VIDEO_TEMPLATE % {'videoid': videoid,
+                                      'player': player,
+                                      'title': contentobj.title,
+                                      'config': config}
 
         
 MAIN_VIDEO_TEMPLATE = """
@@ -61,7 +55,7 @@ MAIN_VIDEO_TEMPLATE = """
                     src:'%(player)s'
                   },
                   { 
-                    %(config)s
+                    config:%(config)s
                   } 
                 );
             });
