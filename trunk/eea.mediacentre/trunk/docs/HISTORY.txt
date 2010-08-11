@@ -1,0 +1,11 @@
+Changelog
+=========
+
+0.2 - (unreleased)
+------------------
+
+ * New fancybox based video popup [thuliper, #3040]
+ * Fixed bug where videos were looping [thuliper, #2664]
+
+0.1 - (unreleased)
+------------------
