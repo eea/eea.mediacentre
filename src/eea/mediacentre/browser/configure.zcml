@@ -118,4 +118,12 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      name="video_popup_view"
+      template="video_popup_view.pt"
+      for="p4a.video.interfaces.IVideoEnhanced"
+      class="p4a.video.browser.video.VideoPageView"
+      permission="zope2.View"
+      />
+
 </configure>
