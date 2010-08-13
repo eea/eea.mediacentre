@@ -35,6 +35,10 @@ $(document).ready(function() {
             self.parent.tb_remove();
         }
     };
+
+    $("#vids-slider a").click(function() {
+        $('body').html('<img id="ajax-loader" src="/++resource++faceted_images/ajax-loader.gif" />');
+    });
 });
 
 jQuery.fn.extend({
