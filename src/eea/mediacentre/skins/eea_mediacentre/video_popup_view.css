@@ -134,7 +134,6 @@ body.video_popup_view #vid-title {
     display: none;
 }
 
-
 body.video_popup_view #ajax-loader {
     position: absolute;
     left: 287px;

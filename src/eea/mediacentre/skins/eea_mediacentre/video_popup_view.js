@@ -17,24 +17,13 @@ $(document).ready(function() {
     if(caption.length > captionMaxLength) {
         caption = caption.substring(0, captionMaxLength) + "...";
     }
-    $("#TB_ajaxWindowTitle", parent.document).text(caption);
+    $("h1").text(caption);
 
     $("#tabs").tabs();
     $(".portlet img").reflect();
 
     $("#docs-slider").slidersetup();
     $("#vids-slider").slidersetup();
-
-    document.onkeyup = function(e){ 	
-        if (e == null) { // ie
-            keycode = event.keyCode;
-        } else { // mozilla
-            keycode = e.which;
-        }
-        if(keycode == 27){ // close
-            self.parent.tb_remove();
-        }
-    };
 
     $("#vids-slider a").click(function() {
         $('body').html('<img id="ajax-loader" src="/++resource++faceted_images/ajax-loader.gif" />');
