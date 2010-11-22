@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     function prepareVideoLinkURLs() {
         $('.video-fancybox').each(function() {
-            var regex = /(\/$|\/view\/?$)/;
+            var regex = /(\/$|\/view\/?$|\/video_popup_view\/?$)/;
             var href = $(this).attr('href');
             href = href.replace(regex, ''); // remove any trailing '/view' or '/'
             href = href + "/video_popup_view";
