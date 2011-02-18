@@ -1,0 +1,13 @@
+Changelog
+=========
+
+0.2 - (2011-02-18)
+------------------
+ * Change: update egg structure [ichimdav #2931]
+ * New fancybox based video popup [thuliper, #3040]
+ * Fixed bug where videos were looping [thuliper, #2664]
+ * video_popup_view was appended even if it shouldn't, now it replaces any existing view_popup_view string. [vincisas]
+
+0.1 - (2009)
+------------------
+
