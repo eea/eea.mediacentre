@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2 - (2011-02-18)
+0.2-dev - (unreleased)
 ------------------
  * Change: update egg structure [ichimdav #2931]
  * New fancybox based video popup [thuliper, #3040]
