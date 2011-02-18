@@ -55,11 +55,11 @@ jQuery.fn.extend({
 
     sliderPos: function() {
         var spos = this.css("left");
-        if (spos == undefined) {
+        if (spos === undefined) {
             return 0;
         }
         var pos = spos.substring(0, spos.length - 2);
-        return parseInt(pos);
+        return parseInt(pos, 10);
     },
 
     slide: function(px) {
