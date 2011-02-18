@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 name = 'eea.mediacentre'
 path = name.split('.') + ['version.txt']
-version = open(os.path.join(*path)).read().strip()
+version = open(os.path.join("src/",*path)).read().strip()
 
 setup(name='eea.mediacentre',
         version=version,
