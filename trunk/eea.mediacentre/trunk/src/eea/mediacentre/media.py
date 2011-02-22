@@ -1,21 +1,19 @@
-from Products.ATContentTypes.interfaces import IATFile
 from Products.CMFCore.utils import getToolByName
-
-from zope.component import getUtility, adapts, queryAdapter, adapter
-from zope.interface import implements, implementer
 from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
-from eea.mediacentre.interfaces import IMediaDisplayInfo
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 from eea.themecentre.themecentre import getTheme
-from p4a.video.interfaces import IVideoProvider, IVideo, IVideoEnhanced
-from p4a.plonevideo.atct import _ATCTFileVideo
 from p4a.common.formatting import fancy_time_amount, fancy_data_size
+from p4a.plonevideo.atct import _ATCTFileVideo
+from p4a.video.interfaces import IVideoEnhanced
+from zope.component import getUtility
+from zope.interface import implements
 
 
 def P4AVideoDisplayInfoAdapter(context):
     if not IVideoEnhanced.providedBy(context):
         return None
     return P4AVideoDisplayInfo(context)
+
 
 class P4AVideoDisplayInfo(_ATCTFileVideo):
 
@@ -32,6 +30,7 @@ class P4AVideoDisplayInfo(_ATCTFileVideo):
         info['icon'] = self.context.getIcon()
         info['url'] = self.context.absolute_url()
         return info
+
 
 class MediaProvider(object):
     implements(IMediaProvider)
@@ -57,6 +56,7 @@ class MediaProvider(object):
             #    videos.append(adapted)
 
         return videos
+
 
 class TopicMediaProvider(object):
     implements(IMediaProvider)

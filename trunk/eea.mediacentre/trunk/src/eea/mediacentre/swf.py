@@ -1,13 +1,12 @@
 from Products.EEAContentTypes.content.FlashFile import FlashFile
+from eea.mediacentre.interfaces import IMediaDisplayInfo
+from p4a.common.formatting import fancy_data_size
+from p4a.plonevideo.atct import _ATCTFileVideo
+from p4a.video.interfaces import IMediaPlayer
+from p4a.video.interfaces import IVideo, IVideoEnhanced
 from zope.component import adapts, adapter
 from zope.interface import implements, implementer
-from p4a.video.interfaces import IVideo, IVideoEnhanced
-from p4a.common.formatting import fancy_time_amount
-from p4a.video.interfaces import IMediaPlayer
-from p4a.common.formatting import fancy_data_size
-from eea.mediacentre.interfaces import IMediaDisplayInfo
-from zope.component.exceptions import ComponentLookupError
-from p4a.plonevideo.atct import _ATCTFileVideo
+
 
 @implementer(IVideo)
 @adapter(FlashFile)
@@ -15,6 +14,7 @@ def SWFAdapter(context):
     if not IVideoEnhanced.providedBy(context):
         return None
     return _SWFAdapter(context)
+
 
 class _SWFAdapter(_ATCTFileVideo):
     # we inherit attributes from ATCTFileVideo, but width
