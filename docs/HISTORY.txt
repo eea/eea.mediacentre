@@ -4,6 +4,8 @@ Changelog
 0.3-dev - (unreleased)
 ----------------------
  * Change: commented lines in test file that fail [ichimdav #4153]
+ * Bug fix: fixed tests [tiberich #4153]
+
 0.2 - (2011-02-18)
 ------------------
  * Change: update egg structure [ichimdav #2931]
@@ -13,4 +15,5 @@ Changelog
 
 0.1 - (2009)
 ------------------
-
+ * Initial creation of package
+ 

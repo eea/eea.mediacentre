@@ -30,6 +30,7 @@ def setUp2(test):
 class TestMediaCentre(MediaCentreTestCase):
 
     def afterSetUp(self):
+        #self.portal.portal_catalog.addIndex("media_types", "KeywordIndex")
         self.setRoles(['Manager'])
         self.portal.invokeFactory('File', id='barsandtones')
         self.portal.invokeFactory('Document', id='barsandtones2')
@@ -54,26 +55,32 @@ class TestMediaCentre(MediaCentreTestCase):
         interview = aq_base(self.portal.interview)
         IMediaType(interview).types = ['interview']
         self.portal.portal_workflow.doActionFor(self.portal.interview, 'publish')
+
         self.portal.invokeFactory('Topic', id='topic')
         crit = self.portal.topic.addCriterion('review_state', 'ATSimpleStringCriterion')
         crit.setValue('published')
 
     def testTopicMediaProvider(self):
+        self.portal.interview.reindexObject()   #fixes test
         provider = IMediaProvider(self.portal.topic)
         # we should now get all the published files
         self.assertEquals(len(provider.media_items), 2)
         provider.media_type = 'interview'
         # now we should only get the interview file
-        self.assertEquals(len(provider.media_items), 0)
+        self.assertEquals(len(provider.media_items), 1)
 
     def testVideoFlashAdapter(self):
         """ test that a FlashFile can not be adapted to IVideo before it's
             marked with the IVideoEnhanced interface. This follows the p4a.video
             convention on IVideo adapters. """
+
         self.portal.invokeFactory('FlashFile', id='flashy')
+
+        #NOTE: FlashFile now directly provides IVideoEnhanced, disabling test
         #self.assertTrue(queryAdapter(self.portal.flashy, IVideo) is None)
-        config = self.portal.flashy.restrictedTraverse('@@video-config.html')
-        config.media_activated = True
+        #config = self.portal.flashy.restrictedTraverse('@@video-config.html')
+        #config.media_activated = True
+
         self.assertTrue(queryAdapter(self.portal.flashy, IVideo) is not None)
 
 def test_suite():
