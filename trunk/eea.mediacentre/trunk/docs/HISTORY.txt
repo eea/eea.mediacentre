@@ -1,6 +1,9 @@
 Changelog
 =========
 
+0.4-dev - (unreleased)
+----------------------
+
 0.3 - (2011-03-01)
 ------------------
  * Bug fix: fixed tests [tiberich #4153]
