@@ -9,7 +9,7 @@ setup(name='eea.mediacentre',
         url='http://svn.eionet.europa.eu/projects/'
         'Zope/browser/trunk/eea.mediacentre',
         description='Media Centre utility and API',
-        author='Tim Terlegard, European Environment Agency',
+        author='Tim Terlegard, Antonio De Marinis (EEA), European Environment Agency (EEA)',
         author_email='webadmin@eea.europa.eu',
         license='GPL',
         long_description=open("README.txt").read() + "\n" +
