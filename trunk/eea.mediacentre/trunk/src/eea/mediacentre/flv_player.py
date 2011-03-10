@@ -22,7 +22,7 @@ class FLVVideoPlayer(object):
         portal_url = portal_tool.getPortalObject().absolute_url()
         player = portal_url + "/++resource++flowplayer/FlowPlayerLight.swf"
         
-        videoobj = interfaces.IVideo(contentobj)
+        #videoobj = interfaces.IVideo(contentobj)
         downloadurl = contentobj.absolute_url()
         videoid = 'video' + contentobj.getId().replace('.','')
 

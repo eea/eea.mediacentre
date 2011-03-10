@@ -37,9 +37,9 @@ class TestMediaCentre(MediaCentreTestCase):
         self.portal.barsandtones2.setText('Cow')
         barsandtones = self.portal.barsandtones
         path = os.path.join(os.path.dirname(__file__), 'barsandtones.flv')
-        file = open(path, 'r')
-        barsandtones.setFile(file)
-        file.close()
+        afile = open(path, 'r')
+        barsandtones.setFile(afile)
+        afile.close()
         f = barsandtones.getPrimaryField().getAccessor(barsandtones)()
         f.setContentType('video/x-flv')
         config = barsandtones.restrictedTraverse('@@video-config.html')

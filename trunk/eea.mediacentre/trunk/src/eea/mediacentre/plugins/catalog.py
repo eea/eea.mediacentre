@@ -7,12 +7,13 @@ from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 class CatalogPlugin(object):
     implements(ICatalogPlugin)
 
-    def getMedia(self, media_type=None, size=None, full_objects=True, searchfor={}):
+    def getMedia(self, media_type=None, size=None, full_objects=True, searchfor=None):
         """ Returns media files as dicts. media_type arg can be e.g.
             video, interview or other. Other means that no type is chosen.
             Returned media can be ATImage, ATFile or FlashFile objects.
         """
-
+        if searchfor is None:
+            searchfor = {}
         site = getSite()
         search = self._getValidData(searchfor)
         catalog = getToolByName(site, 'portal_catalog')
@@ -64,9 +65,9 @@ class CatalogPlugin(object):
         vocab = getToolByName(site, 'portal_vocabularies')
         multimedia = getattr(vocab, 'multimedia')
         types = {}
-        for id in multimedia.objectIds():
-            title = getattr(multimedia, id).Title()
-            types[id] = { 'title': title }
+        for mid in multimedia.objectIds():
+            title = getattr(multimedia, mid).Title()
+            types[mid] = { 'title': title }
         return types
 
     @property

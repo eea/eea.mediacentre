@@ -16,7 +16,7 @@ class ContainerView(object):
 
         for x in provider.video_items:
             aFile = x.context
-            field = aFile.getFile()
+            #field = aFile.getFile()
             items.append( \
                 {'title': x.title,
                  'url': aFile.absolute_url(),
