@@ -1,9 +1,10 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:five="http://namespaces.zope.org/five">
+           xmlns:five="http://namespaces.zope.org/five"
+           i18n_domain="eea.mediacentre">
 
   <five:registerPackage package="." />
   <include file="profiles.zcml" />
- 
+
   <adapter
       for="p4a.video.interfaces.IVideoEnhanced"
       provides="zope.app.annotation.interfaces.IAnnotations"

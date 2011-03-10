@@ -1,7 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
-           xmlns:five="http://namespaces.zope.org/five">
- 
+           xmlns:five="http://namespaces.zope.org/five"
+           i18n_domain="eea.mediacentre">
+
   <!-- make sure CMFonFive is loaded so menu="object" works -->
   <include package="Products.CMFonFive" />
 
