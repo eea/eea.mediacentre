@@ -1,8 +1,8 @@
 from Products.CMFPlone import utils
-from Products.CMFCore.utils import getToolByName
+#from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
 from eea.mediacentre.interfaces import IMediaCentre
-from eea.mediacentre.browser.portlets.base import MediaPortlet
+#from eea.mediacentre.browser.portlets.base import MediaPortlet
 from eea.themecentre.themecentre import getThemeCentre
 
 class NavigationPortlet(utils.BrowserView):
@@ -30,10 +30,10 @@ class NavigationPortlet(utils.BrowserView):
         types = mediacentre.getMediaTypes()
 
         result = []
-        for id, type_info in types.items():
+        for tid, type_info in types.items():
             data = { 'title': type_info['title'] + 's',
                      'url': themecentre.absolute_url() + '/multimedia/' +
-                         id + 's',
+                         tid + 's',
                      'icon_url': "media_nav_icon.gif" }
             result.append(data)
 

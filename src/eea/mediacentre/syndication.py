@@ -6,7 +6,7 @@ from zope.interface import implements
 
 from Products.basesyndication.interfaces import IFeedEntry
 from Products.CMFCore.utils import getToolByName
-from Products.fatsyndication.adapters import BaseFeedEntry
+#from Products.fatsyndication.adapters import BaseFeedEntry
 
 class VideoFeedEntryWithDescription(VideoFeedEntry):
     implements(IFeedEntry)

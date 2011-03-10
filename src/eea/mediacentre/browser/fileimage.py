@@ -1,5 +1,5 @@
 from p4a.fileimage.browser import ViewImage as P4AViewImage
-from p4a.fileimage import utils
+#from p4a.fileimage import utils
 
 class ViewImage(P4AViewImage):
     """A view for streaming image content. This overrides the

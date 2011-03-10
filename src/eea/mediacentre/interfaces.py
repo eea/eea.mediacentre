@@ -5,18 +5,18 @@ class IMediaCentre(Interface):
     """ This is the main media centre interface. This utility relies on
         plugins (providing IMediaCentrePlugin) to provide media files. """
 
-    def getMedia(mediatype, size, full_objects, search):
+    def getMedia(mediatype, size, full_objects, search): #pylint: disable-msg = E0213
         """ Returns multimedia files that satisfies the criterias.
             If mediatype is specified only that certain type is returned.
             size is the number of files that should be returned.
             search is a dictionary with contraints of what media should
             be returned. These constraints can be plugin specific. """
 
-    def getMediaTypes():
+    def getMediaTypes(): #pylint: disable-msg = E0211
         """ Returns what media types are available, for instance
             interviews, maps and videos. """
 
-    def getPluginNames():
+    def getPluginNames(): #pylint: disable-msg = E0211
         """ Returns all plugins that media centre uses. """
 
 class IMediaCentrePlugin(Interface):
@@ -27,14 +27,14 @@ class IMediaCentrePlugin(Interface):
 
     name = Attribute("The name of the plugin")
 
-    def getMedia():
+    def getMedia(): #pylint: disable-msg = E0211
         """ Returns multimedia files that satisfies the criterias.
             If mediatype is specified only that certain type is returned.
             size is the number of files that should be returned.
             search is a dictionary with contraints of what media should
             be returned. These constraints can be plugin specific. """
 
-    def getMediaTypes():
+    def getMediaTypes(): #pylint: disable-msg = E0211
         """ Returns what media types are available, for instance
             interviews, maps and videos. """
 
@@ -58,11 +58,11 @@ class IMediaType(Interface):
 class IMediaProvider(Interface):
     media_type = Attribute("The type of media for this object")
 
-    def media_items():
+    def media_items(): #pylint: disable-msg = E0211
         """ Returns a list of media objects this provider finds available. """
 
 class IMediaDisplayInfo(Interface):
-    def __call__():
+    def __call__(): #pylint: disable-msg = E0211
         """ Returns a dict of useful information for the ui. """
 
 class IMultimedia(Interface): pass

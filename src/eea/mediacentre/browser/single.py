@@ -4,7 +4,7 @@ from zope.interface import Interface
 from p4a.video.interfaces import IVideo
 
 class IListedSingle(Interface):
-    def single(obj=None, pos=None):
+    def single(obj=None, pos=None): #pylint: disable-msg = E0213
         pass
 
 class ListedSingle(object):

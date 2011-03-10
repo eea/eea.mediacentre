@@ -1,10 +1,10 @@
-from Products.CMFPlone import utils
-from zope.component import getMultiAdapter, getUtility, queryAdapter
-from zope.interface import alsoProvides
-from zope.security.proxy import removeSecurityProxy
-from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
+#from Products.CMFPlone import utils
+from zope.component import queryAdapter #, getUtility, getMultiAdapter,
+#from zope.interface import alsoProvides
+#from zope.security.proxy import removeSecurityProxy
+from eea.mediacentre.interfaces import IMediaProvider #, IMediaCentre
 from eea.mediacentre.interfaces import IMediaDisplayInfo
-from p4a.video.interfaces import IMediaPlayer, IVideo
+from p4a.video.interfaces import IMediaPlayer #, IVideo
 
 class MediaContainerVideos(object):
 
@@ -20,10 +20,10 @@ class MediaContainerVideos(object):
         provider.media_type = media_type
 
         items = []
-        for file in provider.media_items:
-            mime_type = file.get_content_type()
-            media_info = queryAdapter(file, IMediaDisplayInfo, mime_type)
-            widget = queryAdapter(file, IMediaPlayer, mime_type)
+        for mfile in provider.media_items:
+            mime_type = mfile.get_content_type()
+            media_info = queryAdapter(mfile, IMediaDisplayInfo, mime_type)
+            widget = queryAdapter(mfile, IMediaPlayer, mime_type)
 
             info_dict = media_info()
             if widget:
@@ -43,9 +43,9 @@ class MediaContainerView(object):
         provider.media_type = media_type
 
         videos = []
-        for file in provider.media_items:
+        for mfile in provider.media_items:
             #video = IVideo(file, None)
             #if video is not None:
-            videos.append(file)
+            videos.append(mfile)
 
         return videos

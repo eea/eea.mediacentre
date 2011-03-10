@@ -3,14 +3,14 @@ from zope.component import getUtility
 from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from p4a.video.interfaces import IVideo, IMediaActivator
-from p4a.video.browser import video
+from p4a.video.browser import video as vid
 from eea.mediacentre.interfaces import IMediaType
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.ZCatalog.CatalogBrains import AbstractCatalogBrain
+#from Products.ZCatalog.CatalogBrains import AbstractCatalogBrain
 
 def getMediaTypes(obj):
-   if obj is not None:
+    if obj is not None:
         vocab = getUtility(IVocabularyFactory, name="Media types")(obj)
 
         # if obj is an IVideo it's an adapted media file, then we want to
@@ -41,7 +41,7 @@ def getPublishedDate(obj):
     return tool.ulocalized_time(time, None, obj,
                                 domain='plone')
 
-class VideoEditForm(video.VideoEditForm):
+class VideoEditForm(vid.VideoEditForm):
     """Form for editing video fields.  """
 
     def __init__(self, context, request):
@@ -83,14 +83,19 @@ class VideoListedSingle(P4AVideoListedSingle):
             video['author'] = adapter.video_author
         return video
 
-class IVideoView(video.IVideoView):
-    def media_types(): pass
-    def duration(): pass
-    def author(): pass
-    def published_date(): pass
-    def width_incl_player(): pass
+class IVideoView(vid.IVideoView):
+    def media_types(): #pylint: disable-msg = E0211
+        pass
+    def duration(): #pylint: disable-msg = E0211 
+        pass
+    def author():  #pylint: disable-msg = E0211
+        pass
+    def published_date(): #pylint: disable-msg = E0211 
+        pass
+    def width_incl_player(): #pylint: disable-msg = E0211 
+        pass
 
-class VideoView(video.VideoView):
+class VideoView(vid.VideoView):
 
     def __init__(self, context, request):
         super(VideoView, self).__init__(context, request)

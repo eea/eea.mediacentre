@@ -3,6 +3,8 @@ Changelog
 
 0.4-dev - (unreleased)
 ----------------------
+ * Cleanup: of pyflakes compiler warnings [ichimdav #4141]
+ * Cleanup: of pylint violations [ichimdav #4140]
 
 0.3 - (2011-03-01)
 ------------------
