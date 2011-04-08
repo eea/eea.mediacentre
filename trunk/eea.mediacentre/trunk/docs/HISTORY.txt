@@ -1,6 +1,9 @@
 Changelog
 =========
 
+0.5-dev - (unreleased)
+----------------------
+
 0.4 - (2011-04-08)
 ------------------
  * Bug fix: Added translation domain to ZCML files [voineali #4139]
