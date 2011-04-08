@@ -1,0 +1,55 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="eea.mediacentre">
+
+    <five:registerPackage package="." />
+
+    <include file="profiles.zcml" />
+
+    <adapter
+        for="p4a.video.interfaces.IVideoEnhanced"
+        provides="zope.app.annotation.interfaces.IAnnotations"
+        factory="zope.app.annotation.attribute.AttributeAnnotations"
+        />
+
+    <adapter
+        name="eeacontentypes.video"
+        for="p4a.video.interfaces.IVideoEnhanced"
+        factory=".media.SchemaExtender" />
+
+    <adapter factory=".mediatypes.MediaTypesAdapter" />
+    <adapter factory=".mediatypes.MediaTypesImageAdapter" />
+
+    <adapter factory=".swf.SWFAdapter" />
+
+    <adapter
+        for="p4a.video.interfaces.IVideoEnhanced"
+        provides=".interfaces.IMediaDisplayInfo"
+        factory=".media.P4AVideoDisplayInfoAdapter"
+        name="video/x-flv"
+        />
+    <adapter
+        for="Products.EEAContentTypes.content.FlashFile.FlashFile"
+        provides=".interfaces.IMediaDisplayInfo"
+        factory=".swf.SWFDisplay"
+        name="application/x-shockwave-flash"
+        />
+
+    <adapter for="*" factory=".media.MediaProvider" />
+    <adapter for="Products.ATContentTypes.content.topic.ATTopic"
+        factory=".media.TopicMediaProvider" />
+
+    <utility factory=".mediacentre.MediaCentre" />
+
+    <utility
+        component=".mediatypes.MediaTypesVocabularyFactory"
+        name="Media types"
+        />
+
+    <subscriber handler=".subtyper.subtype_added" />
+    <subscriber handler=".subtyper.subtype_removed" />
+
+    <include package=".browser" />
+    <include package=".plugins" />
+
+</configure>
