@@ -1,12 +1,22 @@
-from zope.app.schema.vocabulary import IVocabularyFactory
-from zope.component import getUtility
-from p4a.common.formatting import fancy_time_amount
-from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
-from p4a.video.interfaces import IVideo, IMediaActivator
-from p4a.video.browser import video as vid
-from eea.mediacentre.interfaces import IMediaType
+from Products.Archetypes.interfaces import ISchema
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from eea.dataservice.widgets.ManagementPlanWidget import FormlibManagementPlanWidget
+from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
+from eea.mediacentre.interfaces import IMediaType
+from p4a.common import at
+from p4a.common.formatting import fancy_time_amount
+from p4a.video.browser import video as vid
+from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
+from p4a.video.interfaces import IVideo, IMediaActivator
+from p4a.video.interfaces import IVideoEnhanced
+from zope.app.schema.vocabulary import IVocabularyFactory
+from zope.component import adapts
+from zope.component import getUtility
+from zope.formlib.form import FormFields
+from zope.interface import Interface, implements
+
+
 #from Products.ZCatalog.CatalogBrains import AbstractCatalogBrain
 
 def getMediaTypes(obj):
@@ -41,13 +51,58 @@ def getPublishedDate(obj):
     return tool.ulocalized_time(time, None, obj,
                                 domain='plone')
 
+
+class IManagementPlanCodeEdit(Interface):
+    """Interface for edit forms that edit management plan code"""
+
+    management_plan = ManagementPlanCode(
+            title=u"Management plan", 
+            description=u"The management plan year and code", 
+            years_vocabulary='Temporal coverage'
+            )
+
+
+class ManagementPlanCodeEdit(object):
+    """Edit adapter for management plan code"""
+
+    implements(IManagementPlanCodeEdit)
+    adapts(IVideoEnhanced)
+
+    def __init__(self, context):
+        self.context = context
+
+    def management_plan():
+
+        def get(self):
+            schema = ISchema(self.context)
+            field = schema['eeaManagementPlan']
+            accessor = field.getAccessor(self.context)
+            return accessor()
+
+        def set(self, value):
+            schema = ISchema(self.context)
+            field = schema['eeaManagementPlan']
+            mutator = field.getMutator(self.context)
+            mutator(value)
+
+        return property(get, set)
+
+    management_plan = management_plan()
+
+
 class VideoEditForm(vid.VideoEditForm):
     """Form for editing video fields.  """
+
+    form_fields = FormFields(IVideo, IManagementPlanCodeEdit)
+    form_fields = form_fields.omit('urls')
+    form_fields['rich_description'].custom_widget = at.RichTextEditWidget
+    form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
         self.form_fields = self.form_fields.omit('urls')
+
 
 class VideoListedSingle(P4AVideoListedSingle):
     """Video listed single."""
@@ -83,6 +138,7 @@ class VideoListedSingle(P4AVideoListedSingle):
             video['author'] = adapter.video_author
         return video
 
+
 class IVideoView(vid.IVideoView):
     def media_types(): #pylint: disable-msg = E0211
         pass
@@ -94,6 +150,7 @@ class IVideoView(vid.IVideoView):
         pass
     def width_incl_player(): #pylint: disable-msg = E0211 
         pass
+
 
 class VideoView(vid.VideoView):
 

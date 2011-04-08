@@ -1,18 +1,19 @@
-from Products.CMFCore.utils import getToolByName
 from Products.ATContentTypes.content.image import ATImage
-from zope.app.annotation.interfaces import IAnnotations
-from zope.app.schema.vocabulary import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
-from zope.component import adapts
-from zope.interface import implements #, alsoProvides, directlyProvidedBy
-#from zope.interface import directlyProvides
+from Products.CMFCore.utils import getToolByName
+from eea.mediacentre.interfaces import IMediaType
+from p4a.video.interfaces import IVideoEnhanced
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
+from zope.app.annotation.interfaces import IAnnotations
+from zope.app.schema.vocabulary import IVocabularyFactory
+from zope.component import adapts
+from zope.interface import implements #, alsoProvides, directlyProvidedBy
+from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
-from p4a.video.interfaces import IVideoEnhanced
-from eea.mediacentre.interfaces import IMediaType
+#from zope.interface import directlyProvides
 
 KEY = 'eea.mediacentre.mediafile'
+
 
 class MediaTypesAdapter(object):
     implements(IMediaType)
@@ -41,6 +42,7 @@ class MediaTypesAdapter(object):
     #return property(get, set)
     types = property(gett, sett)
 
+
 class MediaTypesImageAdapter(object):
     implements(IMediaType)
     adapts(ATImage)
@@ -56,6 +58,7 @@ class MediaTypesImageAdapter(object):
     #return property(get, set)
     types = property(gett, sett)
 
+
 class MediaTypesVocabulary(object):
     implements(IVocabularyFactory)
 
@@ -65,6 +68,5 @@ class MediaTypesVocabulary(object):
         types = getattr(portal_vocab, 'multimedia').getDisplayList(obj)
         terms = [SimpleTerm(key, key, value) for key, value in types.items()]
         return SimpleVocabulary(terms)
-
 
 MediaTypesVocabularyFactory = MediaTypesVocabulary()
