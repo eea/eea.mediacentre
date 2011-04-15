@@ -6,6 +6,14 @@
   <!-- make sure CMFonFive is loaded so menu="object" works -->
   <include package="Products.CMFonFive" />
 
+
+  <!-- resourceDirectory containing images for video navigation from thickbox -->
+  <browser:resourceDirectory 
+      name="video-slider-images" 
+      directory="images"
+      permission="zope.Public" 
+      /> 
+
   <!-- for="..interfaces.IPossibleMediaFile" -->
   <browser:page
       for="p4a.video.interfaces.IVideoEnhanced"

@@ -3,6 +3,7 @@ Changelog
 
 0.5-dev - (unreleased)
 ----------------------
+ * Bug fix: brought images that were in thickbox product for video popup [ichimdav #4266]
 
 0.4 - (2011-04-08)
 ------------------
