@@ -4,6 +4,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from eea.dataservice.widgets.ManagementPlanWidget import FormlibManagementPlanWidget
 from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
 from eea.mediacentre.interfaces import IMediaType
+from eea.geotags.widget.location import GeotagSingleField, GeotagMultiField
 from p4a.common import at
 from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser import video as vid
@@ -16,6 +17,9 @@ from zope.component import getUtility
 from zope.formlib.form import FormFields
 from zope.interface import Interface, implements
 
+
+from eea.geotags.widget.location import FormlibGeotagWidget
+from Products.EEAContentTypes.subtypes import IGeotagSingleEdit, IGeotagMultiEdit
 
 #from Products.ZCatalog.CatalogBrains import AbstractCatalogBrain
 
@@ -93,11 +97,14 @@ class ManagementPlanCodeEdit(object):
 class VideoEditForm(vid.VideoEditForm):
     """Form for editing video fields.  """
 
-    form_fields = FormFields(IVideo, IManagementPlanCodeEdit)
+    form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagSingleEdit)
+#    form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagMultiEdit)
+    
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
     form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
-
+    form_fields['geotag'].custom_widget = FormlibGeotagWidget
+    
     def __init__(self, context, request):
         self.context = context
         self.request = request
