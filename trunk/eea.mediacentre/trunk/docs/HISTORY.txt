@@ -1,8 +1,11 @@
 Changelog
 =========
 
-0.5-dev - (unreleased)
+0.6-dev - (unreleased)
 ----------------------
+
+0.5 - (2011-04-19)
+------------------
  * Feature: added location field to the video edit form [szabozo0 #4260]
  * Bug fix: brought images that were in thickbox product for video popup [ichimdav #4266]
 
