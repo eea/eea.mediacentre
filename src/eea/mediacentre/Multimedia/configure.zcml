@@ -38,4 +38,9 @@
     file="js/jquery.easing.1.3.js"
     />
 
+  <browser:resource
+    name="jquery.jcoverflip.js"
+    file="js/jquery.jcoverflip.js"
+    />
+
 </configure>
