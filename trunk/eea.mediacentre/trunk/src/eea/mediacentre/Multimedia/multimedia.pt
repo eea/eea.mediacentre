@@ -62,8 +62,75 @@
 	#sliders{
 	    overflow:hidden;
 	}
+	
+	
+	
+      .ui-jcoverflip {
+        position: relative;
+      }
+      
+      .ui-jcoverflip--item {
+        position: absolute;
+        display: block;
+      }
+      
+      /* Basic sample CSS */
+      #flip {
+        height: 200px;
+        margin-bottom: 50px;
+      }
+      
+      #flip .ui-jcoverflip--title {
+        position: absolute;
+        bottom: -30px;
+        width: 100%;
+        text-align: center;
+        color: #555;
+      }
+      
+      #flip img {
+        display: block;
+        border: 0;
+        outline: none;
+      }
+      
+      #flip a {
+        outline: none;
+      }
+      
+      
+      #wrapper {
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .ui-jcoverflip--item {
+        cursor: pointer;
+      }
+      
+      
+      
+      
+      ul,
+      ul li {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style-type: none;
+      }
+      
+      #scrollbar {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        
+      }
+	
+	
 </style>
 <script src="++resource++jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="++resource++jquery.jcoverflip.js" type="text/javascript"></script>
 <script>
     jQuery.fn.delay = function(time,func){
 	return this.each(function(){
@@ -78,15 +145,61 @@
 	    $("#top-widgets").animate({top:"0px"},{queue:false, duration:1000, easing:'easeInOutBack'});
 	    $("#bottom-widgets").animate({top:"320px"},{queue:false, duration:1000, easing:'easeInOutBack'});
 	});
+
 	
+        jQuery( '#flip' ).jcoverflip({
+          current: 2,
+          beforeCss: function( el, container, offset ){
+            return [
+              $.jcoverflip.animationElement( el, { left: ( container.width( )/2 - 210 - 110*offset + 20*offset )+'px', bottom: '20px' }, { } ),
+              $.jcoverflip.animationElement( el.find( 'img' ), { width: Math.max(10,100-20*offset*offset) + 'px' }, {} )
+            ];
+          },
+          afterCss: function( el, container, offset ){
+            return [
+              $.jcoverflip.animationElement( el, { left: ( container.width( )/2 + 110 + 110*offset )+'px', bottom: '20px' }, { } ),
+              $.jcoverflip.animationElement( el.find( 'img' ), { width: Math.max(10,100-20*offset*offset) + 'px' }, {} )
+            ];
+          },
+          currentCss: function( el, container ){
+            return [
+              $.jcoverflip.animationElement( el, { left: ( container.width( )/2 - 100 )+'px', bottom: 0 }, { } ),
+              $.jcoverflip.animationElement( el.find( 'img' ), { width: '200px' }, { } )
+            ];
+          },
+          change: function(event, ui){
+            jQuery('#scrollbar').slider('value', ui.to*25);
+          }
+        });
+        
+        jQuery('#scrollbar').slider({
+          value: 50,
+          stop: function(event, ui) {
+            if(event.originalEvent) {
+              var newVal = Math.round(ui.value/25);
+              jQuery( '#flip' ).jcoverflip( 'current', newVal );
+              jQuery('#scrollbar').slider('value', newVal*25);
+            }
+          }
+        });
     }); 
 </script>
 <div id="multimedia-widgets">
     <div id="title"><b>EEA Multimedia</b> </div>
     <div id="sliders">
 	<div id="top-widgets">
-    	    <div id="multimedia-cowerflow" class="multimedia-widget left-widget"></div>
-	    <div id="multimedia-categories" class="multimedia-widget"></div>
+    	    <div id="multimedia-cowerflow" class="multimedia-widget left-widget" style="background-color:#FFFFFF">
+    		<div id="wrapper">    
+    		    <ul id="flip">      
+			<li tal:repeat="video view/videos">
+			    <img tal:attributes="src string:${video/url}/image_thumb"/>
+			</li>
+    		    </ul>    
+    		    <div id="scrollbar"></div>    
+    		</div>
+    	    </div>
+	    <div id="multimedia-categories" class="multimedia-widget">
+	    </div>
 	</div>
 	<div id="bottom-widgets">
     	    <div id="multimedia-tags" class="multimedia-widget left-widget"></div>
@@ -94,7 +207,6 @@
 	</div>
     </div>
 </div> 
-
 
 </div>
 </body>
