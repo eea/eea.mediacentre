@@ -191,7 +191,7 @@
     	    <div id="multimedia-cowerflow" class="multimedia-widget left-widget" style="background-color:#FFFFFF">
     		<div id="wrapper">    
     		    <ul id="flip">      
-			<li tal:repeat="video view/videos">
+			<li tal:repeat="video view/videos" tal:attributes="title string:${video/title}">
 			    <img tal:attributes="src string:${video/url}/image_thumb"/>
 			</li>
     		    </ul>    
