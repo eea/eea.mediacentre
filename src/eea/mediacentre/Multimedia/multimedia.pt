@@ -37,6 +37,10 @@
 	    display:block;
 	    float:left;
 	}
+	.empty-widget {
+	    background-color:#555555;
+	    opacity:0.4;	
+	}
 	#top-widgets {
 	    top:-500px;
 	    position:absolute;	
@@ -51,19 +55,19 @@
 	    margin-right:20px;
 	}
 	#title{
-	    font-size:30px;
+	    margin-top:100px;
+	    font-size:5em;
 	    text-align:center;
 	}
 	#multimedia-widgets{
-	    height:640px;
+//	    height:640px;
+	    height:250px;
 	    position:relative;
 	    overflow:hidden;
 	}
 	#sliders{
 	    overflow:hidden;
 	}
-	
-	
 	
       .ui-jcoverflip {
         position: relative;
@@ -109,9 +113,6 @@
         cursor: pointer;
       }
       
-      
-      
-      
       ul,
       ul li {
         margin: 0;
@@ -145,11 +146,14 @@
 	    $("#visual-portal-wrapper").animate({width:"100%"},{queue:false, duration:1000, easing:'easeOutCirc'});
 	});
 	$(this).delay(3000,function(){  
+ 	    $("#multimedia-widgets").animate({height:"640px"},{queue:false, duration:500, easing:'easeOutCirc'});
+	});
+
+	$(this).delay(3500,function(){  
 	    $("#top-widgets").animate({top:"0px"},{queue:false, duration:1000, easing:'easeInOutBack'});
 	    $("#bottom-widgets").animate({top:"320px"},{queue:false, duration:1000, easing:'easeInOutBack'});
 	});
 
-	
         jQuery( '#flip' ).jcoverflip({
           current: 2,
           beforeCss: function( el, container, offset ){
@@ -201,12 +205,12 @@
     		    <div id="scrollbar"></div>    
     		</div>
     	    </div>
-	    <div id="multimedia-categories" class="multimedia-widget">
+	    <div id="multimedia-categories" class="multimedia-widget empty-widget">
 	    </div>
 	</div>
 	<div id="bottom-widgets">
-    	    <div id="multimedia-tags" class="multimedia-widget left-widget"></div>
-	    <div id="multimedia-map" class="multimedia-widget"></div>
+    	    <div id="multimedia-tags" class="multimedia-widget left-widget empty-widget"></div>
+	    <div id="multimedia-map" class="multimedia-widget empty-widget"></div>
 	</div>
     </div>
 </div> 
