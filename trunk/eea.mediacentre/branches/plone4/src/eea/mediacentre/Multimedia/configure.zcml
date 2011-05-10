@@ -1,46 +1,28 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
-           xmlns:five="http://namespaces.zope.org/five"
-           i18n_domain="eea.mediacentre">
+           i18n_domain="eea">
 
-  <!-- make sure CMFonFive is loaded so menu="object" works -->
-  <include package="Products.CMFonFive" />
+  <browser:resourceDirectory name="multimedia-background"
+                             directory="images"
+                             permission="zope.Public" />
 
+  <browser:resourceDirectory name="js"
+                             directory="js"
+                             permission="zope.Public" />
 
-  
-  <browser:page
-      name="Multimedia.html"
-      template="multimedia.pt"
-      for="*"
-      class=".multimedia.Multimedia"
-      permission="zope2.View"
-      />
+  <browser:resource name="eea.background.jpg"
+                    file="images/background.jpg" />
 
-  <browser:resourceDirectory 
-      name="multimedia-background" 
-      directory="images"
-      permission="zope.Public" 
-      /> 
-  
-  <browser:resource
-    name="eea.background.jpg"
-    file="images/background.jpg"
-    />
+  <browser:resource name="jquery.easing.1.3.js"
+                    file="js/jquery.easing.1.3.js" />
 
-  <browser:resourceDirectory 
-      name="js" 
-      directory="js"
-      permission="zope.Public" 
-      /> 
+  <browser:resource name="jquery.jcoverflip.js"
+                    file="js/jquery.jcoverflip.js" />
 
-  <browser:resource
-    name="jquery.easing.1.3.js"
-    file="js/jquery.easing.1.3.js"
-    />
-
-  <browser:resource
-    name="jquery.jcoverflip.js"
-    file="js/jquery.jcoverflip.js"
-    />
+  <browser:page name="Multimedia.html"
+                template="multimedia.pt"
+                for="*"
+                class=".multimedia.Multimedia"
+                permission="zope2.View" />
 
 </configure>
