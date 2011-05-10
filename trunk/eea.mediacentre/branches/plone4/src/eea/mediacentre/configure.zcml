@@ -6,8 +6,8 @@
 
     <adapter
         for="p4a.video.interfaces.IVideoEnhanced"
-        provides="zope.app.annotation.interfaces.IAnnotations"
-        factory="zope.app.annotation.attribute.AttributeAnnotations"
+        provides="zope.annotation.interfaces.IAnnotations"
+        factory="zope.annotation.attribute.AttributeAnnotations"
         />
 
     <adapter

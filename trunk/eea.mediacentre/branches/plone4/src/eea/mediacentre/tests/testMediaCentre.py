@@ -10,7 +10,7 @@ from eea.mediacentre.mediatypes import MediaTypesAdapter
 from eea.mediacentre.interfaces import IMediaProvider, IMediaType
 from eea.mediacentre.subtyper import subtype_added, subtype_removed
 from eea.mediacentre.tests.MediaCentreTestCase import MediaCentreTestCase
-from zope.app.annotation.attribute import AttributeAnnotations
+from zope.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
 from zope.component import queryAdapter
 from zope.testing import doctest

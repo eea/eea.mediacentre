@@ -4,7 +4,7 @@ from eea.mediacentre.interfaces import IMediaType
 from p4a.video.interfaces import IVideoEnhanced
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
-from zope.app.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAnnotations
 from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.component import adapts
 from zope.interface import implements #, alsoProvides, directlyProvidedBy

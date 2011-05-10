@@ -1,8 +1,11 @@
 Changelog
 =========
+[Alexandru Ghica - alec.ghica at eaudeweb.ro]
+[Sasha Vincic - Valentine Web Systems]
 
-0.6-dev - (unreleased)
+4.0-dev - (unreleased)
 ----------------------
+ * Feature: Plone 4.0.4 compatible release [ghicaale #4259]
 
 0.5 - (2011-04-19)
 ------------------

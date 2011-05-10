@@ -1,5 +1,5 @@
 from eea.mediacentre.interfaces import IMediaType
-from zope.app.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAnnotations
 from zope.component import adapter
 from p4a.subtyper.interfaces import ISubtypeAddedEvent, ISubtypeRemovedEvent
 
