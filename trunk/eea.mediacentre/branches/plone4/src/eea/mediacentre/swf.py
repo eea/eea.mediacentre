@@ -19,22 +19,37 @@ from zope.interface import implements, implementer
 #    return _SWFAdapter(context)
 
 class _SWFAdapter(_ATCTFileVideo):
-    # we inherit attributes from ATCTFileVideo, but width
-    # and height are still stored in the FlashFile schema
+    """ We inherit attributes from ATCTFileVideo, but width
+        and height are still stored in the FlashFile schema
+    """
 
     def _get_width(self):
+        """ Get width
+        """
         return self.context.getWidth()
+
     def _set_width(self, width):
+        """ Set width
+        """
         self.context.setWidth(width)
+
     width = property(_get_width, _set_width)
 
     def _get_height(self):
+        """ Get height
+        """
         return self.context.getHeight()
+
     def _set_height(self, height):
+        """ Set height
+        """
         self.context.setHeight(height)
+
     height = property(_get_height, _set_height)
 
 class SWFDisplay(_SWFAdapter):
+    """ SWF Display
+    """
     implements(IMediaDisplayInfo)
 
     def __call__(self):
@@ -51,6 +66,8 @@ class SWFDisplay(_SWFAdapter):
         return info
 
 class MediaPlayer(object):
+    """ Media Player
+    """
     implements(IMediaPlayer)
     adapts(object)
 

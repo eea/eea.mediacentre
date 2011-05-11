@@ -1,12 +1,13 @@
+""" File image
+"""
 from p4a.fileimage.browser import ViewImage as P4AViewImage
-#from p4a.fileimage import utils
 
 class ViewImage(P4AViewImage):
-    """A view for streaming image content. This overrides the
-       p4a.fileimage.browser.ViewImage view because of flowplayer.
-       image urls must end with .jpg or .png, otherwise flowplayer
-       doesn't figure out what type of image it is, so we add the
-       extension to the url and remove it here.
+    """ A view for streaming image content. This overrides the
+        p4a.fileimage.browser.ViewImage view because of flowplayer.
+        image urls must end with .jpg or .png, otherwise flowplayer
+        doesn't figure out what type of image it is, so we add the
+        extension to the url and remove it here.
     """
 
     def __call__(self):

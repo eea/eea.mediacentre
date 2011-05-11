@@ -1,18 +1,22 @@
+""" Syndication
+"""
 from p4a.fileimage.image._widget import ImageURLWidget
 from p4a.plonevideo.syndication import VideoFeedEntry
 from p4a.video.interfaces import IVideoEnhanced, IVideo
 from zope.component import adapts
 from zope.interface import implements
-
 from Products.basesyndication.interfaces import IFeedEntry
 from Products.CMFCore.utils import getToolByName
-#from Products.fatsyndication.adapters import BaseFeedEntry
 
 class VideoFeedEntryWithDescription(VideoFeedEntry):
+    """ Video Feed Entry With Description
+    """
     implements(IFeedEntry)
     adapts(IVideoEnhanced)
 
     def getAuthor(self):
+        """ Get author
+        """
         video = IVideo(self.context)
         author = video.video_author
         if author is None:
@@ -21,6 +25,8 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
             return author
 
     def getBody(self):
+        """ Get body
+        """
         video = IVideo(self.context)
         image_url = None
         if video.video_image is not None:
@@ -34,6 +40,8 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
                    (image_url, self.context.Description())
 
     def getWebURL(self):
+        """ Get Web URL
+        """
         url = self.context.absolute_url()
         portal_props = getToolByName(self.context, 'portal_properties')
         site_props = getattr(portal_props, 'site_properties')
@@ -41,4 +49,4 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
         if self.context.portal_type in view_action:
             url += '/view'
 
-        return url  
+        return url

@@ -1,20 +1,29 @@
+""" Single
+"""
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import getMultiAdapter
 from zope.interface import Interface
 from p4a.video.interfaces import IVideo
 
 class IListedSingle(Interface):
+    """ Listed Single
+    """
     def single(obj=None, pos=None): #pylint: disable-msg = E0213
+        """ Single
+        """
         pass
 
 class ListedSingle(object):
-    """listed single."""
+    """ Listed single.
+    """
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
 
     def single(self, obj, pos=None, relevance=None):
+        """ Single
+        """
         video = IVideo(obj, None)
         if video:
             view = getMultiAdapter((self.context, self.request),
@@ -30,6 +39,8 @@ class ListedSingle(object):
 
 
 class ImageListedSingle(object):
+    """ Image Listed Single
+    """
 
     template = ViewPageTemplateFile('image-listed-single.pt')
 
@@ -38,6 +49,8 @@ class ImageListedSingle(object):
         self.request = request
 
     def single(self, obj=None, pos=None):
+        """ Single
+        """
         image = {
             'title': obj.Title(),
             'description': obj.Description(),

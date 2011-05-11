@@ -7,8 +7,12 @@ from eea.mediacentre.interfaces import IMediaCentre
 from eea.themecentre.themecentre import getThemeCentre
 
 class NavigationPortlet(BrowserView):
+    """ Navigation Portlet
+    """
 
     def mediacentre(self):
+        """ Mediacentre
+        """
         context = self.context()
         themecentre = getThemeCentre(context)
 
@@ -21,6 +25,8 @@ class NavigationPortlet(BrowserView):
         return media
 
     def media_types(self):
+        """ Media types
+        """
         context = self.context()
         themecentre = getThemeCentre(context)
 

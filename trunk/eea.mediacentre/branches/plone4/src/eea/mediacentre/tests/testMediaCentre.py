@@ -1,3 +1,5 @@
+""" Test media centre
+"""
 import unittest
 import os
 from Acquisition import aq_base
@@ -14,11 +16,16 @@ from zope.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
 from zope.component import queryAdapter
 from zope.testing import doctest
+from Testing.ZopeTestCase import FunctionalDocFileSuite
 
 def setUp(test):
+    """ Setup
+    """
     provideUtility(MediaCentre())
 
 def setUp2(test):
+    """ Setup 2
+    """
     provideAdapter(AttributeAnnotations)
     provideAdapter(MediaTypesAdapter)
     provideAdapter(MediaActivator)
@@ -28,9 +35,11 @@ def setUp2(test):
     provideHandler(subtype_removed)
 
 class TestMediaCentre(MediaCentreTestCase):
-
+    """ Test Media Centre
+    """
     def afterSetUp(self):
-        #self.portal.portal_catalog.addIndex("media_types", "KeywordIndex")
+        """ After setup
+        """
         self.setRoles(['Manager'])
         self.portal.invokeFactory('File', id='barsandtones')
         self.portal.invokeFactory('Document', id='barsandtones2')
@@ -61,6 +70,8 @@ class TestMediaCentre(MediaCentreTestCase):
         crit.setValue('published')
 
     def testTopicMediaProvider(self):
+        """ Test Topic Media Provider
+        """
         self.portal.interview.reindexObject()   #fixes test
         provider = IMediaProvider(self.portal.topic)
         # we should now get all the published files
@@ -70,9 +81,10 @@ class TestMediaCentre(MediaCentreTestCase):
         self.assertEquals(len(provider.media_items), 1)
 
     def testVideoFlashAdapter(self):
-        """ test that a FlashFile can not be adapted to IVideo before it's
+        """ Test that a FlashFile can not be adapted to IVideo before it's
             marked with the IVideoEnhanced interface. This follows the p4a.video
-            convention on IVideo adapters. """
+            convention on IVideo adapters.
+        """
 
         self.portal.invokeFactory('FlashFile', id='flashy')
 
@@ -84,8 +96,8 @@ class TestMediaCentre(MediaCentreTestCase):
         self.assertTrue(queryAdapter(self.portal.flashy, IVideo) is not None)
 
 def test_suite():
-    from Testing.ZopeTestCase import FunctionalDocFileSuite
-
+    """ Test suite
+    """
     return unittest.TestSuite((
         unittest.makeSuite(TestMediaCentre),
         doctest.DocFileSuite('../README.txt',
@@ -101,6 +113,3 @@ def test_suite():
                      optionflags=doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE,
                      package = 'eea.mediacentre.tests'),
         ))
-
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')

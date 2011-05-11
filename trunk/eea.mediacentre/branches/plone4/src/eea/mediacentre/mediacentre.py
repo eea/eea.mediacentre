@@ -1,18 +1,19 @@
-#from Products.CMFPlone import utils
-#from Products.Five.traversable import FiveTraversable
+""" Media Centre
+"""
 from eea.mediacentre.interfaces import IMediaCentre, IMediaCentrePlugin
-#from eea.themecentre.interfaces import IThemeCentre
-#from zope.app.traversing.interfaces import ITraverser
 from zope.interface import implements
-from zope.component import getAllUtilitiesRegisteredFor #, adapts
-#from zope.publisher.interfaces import IPublishTraverse
+from zope.component import getAllUtilitiesRegisteredFor
 
 MEDIA_SEARCH_KEY = 'eea.mediacentre.search'
 
 class MediaCentre(object):
+    """ Media Centre
+    """
     implements(IMediaCentre)
 
     def getMedia(self, media_type=None, size=None, full_objects=True, search=None):
+        """ Get Media
+        """
         if search is None:
             search = {}
         result = []
@@ -25,6 +26,8 @@ class MediaCentre(object):
         return result
 
     def getMediaTypes(self):
+        """ Get Media Types
+        """
         mediatypes = {}
         plugins = self._getPlugins()
 
@@ -34,9 +37,13 @@ class MediaCentre(object):
         return mediatypes
 
     def getPluginNames(self):
+        """ Get Plugin Names
+        """
         plugins = self._getPlugins()
         return [plugin.name for plugin in plugins]
 
     def _getPlugins(self):
+        """ Get Plugins
+        """
         plugins = getAllUtilitiesRegisteredFor(IMediaCentrePlugin)
         return plugins

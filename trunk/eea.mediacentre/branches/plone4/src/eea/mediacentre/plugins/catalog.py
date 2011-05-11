@@ -1,3 +1,5 @@
+""" Catalog
+"""
 from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
 from zope.app.component.hooks import getSite
@@ -5,6 +7,8 @@ from eea.mediacentre.plugins.interfaces import ICatalogPlugin
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 
 class CatalogPlugin(object):
+    """ Catalog Plugin
+    """
     implements(ICatalogPlugin)
 
     def getMedia(self, media_type=None, size=None, full_objects=True, searchfor=None):
@@ -61,6 +65,8 @@ class CatalogPlugin(object):
             return result
 
     def getMediaTypes(self):
+        """ Get Media Types
+        """
         site = getSite()
         vocab = getToolByName(site, 'portal_vocabularies')
         multimedia = getattr(vocab, 'multimedia')
@@ -72,7 +78,11 @@ class CatalogPlugin(object):
 
     @property
     def name(self):
+        """ Name
+        """
         return 'Catalog Plugin'
 
     def _getValidData(self, searchfor):
+        """ Get Valid Data
+        """
         return searchfor.get(MEDIA_SEARCH_KEY, None)

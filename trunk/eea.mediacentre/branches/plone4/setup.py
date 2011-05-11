@@ -34,9 +34,20 @@ setup(name=name,
 
             #TODO: fix me, plone4
             #"eea.dataservice",
-            #"p4a.plonevideo",
             #"Products.EEAContentTypes",
+            #"eea.themecentre",
             #"eea.geotags",
+            #"p4a.video",
+            #"p4a.plonevideo",
+            #"p4a.common",
+            #"p4a.subtyper",
+            #"p4a.fileimage",
+
+            #TODO: plone4, dependencies from tests
+            #"Products.EEAPloneAdmin",
+            #"Products.ATVocabularyManager",
+            #"Products.LinguaPlone",
+            #"valentine.linguaflow",
             ],
         entry_points="""
         # -*- Entry points: -*-

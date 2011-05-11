@@ -1,13 +1,15 @@
+""" Subtyper
+"""
 from eea.mediacentre.interfaces import IMediaType
 from zope.annotation.interfaces import IAnnotations
 from zope.component import adapter
 from p4a.subtyper.interfaces import ISubtypeAddedEvent, ISubtypeRemovedEvent
-
 from eea.mediacentre.mediatypes import KEY
 
 @adapter(ISubtypeAddedEvent)
 def subtype_added(evt):
-    """ Adds media type to object and indirectly catalog. """
+    """ Adds media type to object and indirectly catalog.
+    """
     obj = evt.object
     try:
         media = IMediaType(obj)
@@ -19,7 +21,8 @@ def subtype_added(evt):
 
 @adapter(ISubtypeRemovedEvent)
 def subtype_removed(evt):
-    """ Removes media type from object and indirectly catalog. """
+    """ Removes media type from object and indirectly catalog.
+    """
     obj = evt.object
     anno = IAnnotations(obj)
     if anno.has_key(KEY):

@@ -1,9 +1,11 @@
+""" SWF
+"""
 from p4a.video.interfaces import IVideoProvider
 from p4a.common.formatting import fancy_data_size
 from eea.mediacentre.swf import MediaPlayerWidget
 
 class ContainerView(object):
-    """View for mind stretchers.
+    """ View for mind stretchers.
     """
 
     def __init__(self, context, request):
@@ -11,6 +13,8 @@ class ContainerView(object):
         self.request = request
 
     def video_items(self):
+        """ Video items
+        """
         provider = IVideoProvider(self.context)
         items = []
 

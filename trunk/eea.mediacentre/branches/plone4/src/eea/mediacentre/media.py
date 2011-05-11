@@ -19,13 +19,15 @@ from eea.themecentre.themecentre import getTheme
 #from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanWidget
 
 def P4AVideoDisplayInfoAdapter(context):
+    """ P4A Video Display Info Adapter
+    """
     if not IVideoEnhanced.providedBy(context):
         return None
     return P4AVideoDisplayInfo(context)
 
-
 class P4AVideoDisplayInfo(_ATCTFileVideo):
-
+    """ P4A Video Display Info
+    """
     def __call__(self):
         info = {}
         info['title'] = self.title
@@ -42,6 +44,8 @@ class P4AVideoDisplayInfo(_ATCTFileVideo):
 
 
 class MediaProvider(object):
+    """ Media Provider
+    """
     implements(IMediaProvider)
 
     def __init__(self, context):
@@ -51,6 +55,8 @@ class MediaProvider(object):
 
     @property
     def media_items(self):
+        """ Media items
+        """
         currentTheme = getTheme(self.context)
         mediacentre = getUtility(IMediaCentre)
         search = { MEDIA_SEARCH_KEY: { 'theme': currentTheme }}
@@ -65,6 +71,8 @@ class MediaProvider(object):
 
 
 class TopicMediaProvider(object):
+    """ Topic Media Provider
+    """
     implements(IMediaProvider)
 
     def __init__(self, context):
@@ -74,6 +82,8 @@ class TopicMediaProvider(object):
 
     @property
     def media_items(self):
+        """ Media items
+        """
         portal_catalog = getToolByName(self.context, 'portal_catalog')
         query = self.context.buildQuery()
         if self.media_type:
@@ -84,9 +94,12 @@ class TopicMediaProvider(object):
 #TODO: fix me, plone4
 #class ExtensionManagementPlanfield(ExtensionField, ManagementPlanField):
 class ExtensionManagementPlanfield(ExtensionField):
-    """ derivative of blobfield for extending schemas """
+    """ Derivative of blobfield for extending schemas
+    """
 
 class SchemaExtender(object):
+    """ Schema Extender
+    """
     implements(ISchemaExtender)
 
     fields = [
@@ -116,4 +129,6 @@ class SchemaExtender(object):
         self.context = context
 
     def getFields(self):
+        """ Get fields
+        """
         return self.fields

@@ -1,12 +1,13 @@
-#from Products.CMFPlone import utils
-from zope.component import queryAdapter #, getUtility, getMultiAdapter,
-#from zope.interface import alsoProvides
-#from zope.security.proxy import removeSecurityProxy
-from eea.mediacentre.interfaces import IMediaProvider #, IMediaCentre
+""" Provider
+"""
+from zope.component import queryAdapter
+from eea.mediacentre.interfaces import IMediaProvider
 from eea.mediacentre.interfaces import IMediaDisplayInfo
-from p4a.video.interfaces import IMediaPlayer #, IVideo
+from p4a.video.interfaces import IMediaPlayer
 
 class MediaContainerVideos(object):
+    """ Media Container Videos
+    """
 
     def __init__(self, context, request):
         self.context = context
@@ -14,7 +15,8 @@ class MediaContainerVideos(object):
 
     def media_items(self, media_type):
         """ Returns dicts of all media items available.
-            media_type arg is a string, e.g. 'video' """
+            media_type arg is a string, e.g. 'video'
+        """
 
         provider = IMediaProvider(self.context)
         provider.media_type = media_type
@@ -33,19 +35,21 @@ class MediaContainerVideos(object):
         return items
 
 class MediaContainerView(object):
+    """ Media Container View
+    """
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
 
     def media_items(self, media_type=None):
+        """ Media items
+        """
         provider = IMediaProvider(self.context)
         provider.media_type = media_type
 
         videos = []
         for mfile in provider.media_items:
-            #video = IVideo(file, None)
-            #if video is not None:
             videos.append(mfile)
 
         return videos
