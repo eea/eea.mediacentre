@@ -19,12 +19,13 @@
                 template="statistics.pt"
                 permission="zope2.View" />
 
+  <!-- #TODO: fix me, plone4 -->
   <!-- for="eea.mediacentre.interfaces.IPossibleMediaFile" -->
-  <browser:menuItem for="p4a.video.interfaces.IVideoEnhanced"
+  <!-- browser:menuItem for="p4a.video.interfaces.IVideoEnhanced"
                     menu="object"
                     title="Media type"
                     action="mediatype_edit.html"
-                    permission="cmf.ModifyPortalContent" />
+                    permission="cmf.ModifyPortalContent" / -->
 
   <!-- provides data for the media portlet template -->
   <browser:page for="*"
@@ -60,12 +61,13 @@
                 attribute="showEditMetadataTab"
                 permission="zope.Public" />
 
-  <browser:menuItem menu="object"
+  <!-- #TODO: fix me, plone4 -->
+  <!-- browser:menuItem menu="object"
                     for="p4a.video.interfaces.IVideoEnhanced"
                     title="Edit video metadata"
                     action="${object_url}/video_edit"
                     filter="object/@@showEditVideoMetadataTab"
-                    permission="cmf.ModifyPortalContent" />
+                    permission="cmf.ModifyPortalContent" / -->
 
   <!-- Activates all FlashFile objects -->
   <browser:page for="*"
