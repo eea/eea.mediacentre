@@ -31,6 +31,12 @@ setup(name=name,
         zip_safe=False,
         install_requires=[
             "setuptools",
+
+            #TODO: fix me, plone4
+            #"eea.dataservice",
+            #"p4a.plonevideo",
+            #"Products.EEAContentTypes",
+            #"eea.geotags",
             ],
         entry_points="""
         # -*- Entry points: -*-

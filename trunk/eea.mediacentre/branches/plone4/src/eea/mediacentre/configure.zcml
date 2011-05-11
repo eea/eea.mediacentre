@@ -1,37 +1,32 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           i18n_domain="eea.mediacentre">
+           i18n_domain="eea">
 
     <include file="profiles.zcml" />
     <include file="skins.zcml" />
 
-    <adapter
-        for="p4a.video.interfaces.IVideoEnhanced"
-        provides="zope.annotation.interfaces.IAnnotations"
-        factory="zope.annotation.attribute.AttributeAnnotations"
-        />
+    <adapter for="p4a.video.interfaces.IVideoEnhanced"
+             provides="zope.annotation.interfaces.IAnnotations"
+             factory="zope.annotation.attribute.AttributeAnnotations" />
 
-    <adapter
-        name="eeacontentypes.video"
-        for="p4a.video.interfaces.IVideoEnhanced"
-        factory=".media.SchemaExtender" />
+    <adapter name="eeacontentypes.video"
+             for="p4a.video.interfaces.IVideoEnhanced"
+             factory=".media.SchemaExtender" />
 
     <adapter factory=".mediatypes.MediaTypesAdapter" />
     <adapter factory=".mediatypes.MediaTypesImageAdapter" />
+    <!-- #TODO: fix me, plone4 -->
+    <!-- adapter factory=".swf.SWFAdapter" / -->
 
-    <adapter factory=".swf.SWFAdapter" />
+    <adapter for="p4a.video.interfaces.IVideoEnhanced"
+             provides=".interfaces.IMediaDisplayInfo"
+             factory=".media.P4AVideoDisplayInfoAdapter"
+             name="video/x-flv" />
 
-    <adapter
-        for="p4a.video.interfaces.IVideoEnhanced"
-        provides=".interfaces.IMediaDisplayInfo"
-        factory=".media.P4AVideoDisplayInfoAdapter"
-        name="video/x-flv"
-        />
-    <adapter
-        for="Products.EEAContentTypes.content.FlashFile.FlashFile"
-        provides=".interfaces.IMediaDisplayInfo"
-        factory=".swf.SWFDisplay"
-        name="application/x-shockwave-flash"
-        />
+    <!-- #TODO: fix me, plone4 -->
+    <!-- adapter for="Products.EEAContentTypes.content.FlashFile.FlashFile"
+             provides=".interfaces.IMediaDisplayInfo"
+             factory=".swf.SWFDisplay"
+             name="application/x-shockwave-flash" / -->
 
     <adapter for="*" factory=".media.MediaProvider" />
     <adapter for="Products.ATContentTypes.content.topic.ATTopic"

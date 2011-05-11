@@ -1,14 +1,15 @@
+""" Navigation
+"""
 from Products.CMFPlone import utils
-#from Products.CMFCore.utils import getToolByName
+from Products.Five import BrowserView
 from zope.component import getUtility
 from eea.mediacentre.interfaces import IMediaCentre
-#from eea.mediacentre.browser.portlets.base import MediaPortlet
 from eea.themecentre.themecentre import getThemeCentre
 
-class NavigationPortlet(utils.BrowserView):
+class NavigationPortlet(BrowserView):
 
     def mediacentre(self):
-        context = utils.context(self)
+        context = self.context()
         themecentre = getThemeCentre(context)
 
         if not themecentre:
@@ -20,7 +21,7 @@ class NavigationPortlet(utils.BrowserView):
         return media
 
     def media_types(self):
-        context = utils.context(self)
+        context = self.context()
         themecentre = getThemeCentre(context)
 
         if not themecentre:

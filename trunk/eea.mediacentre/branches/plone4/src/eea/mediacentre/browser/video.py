@@ -1,10 +1,9 @@
+""" Video
+"""
 from Products.Archetypes.interfaces import ISchema
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from eea.dataservice.widgets.ManagementPlanWidget import FormlibManagementPlanWidget
-from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
 from eea.mediacentre.interfaces import IMediaType
-from eea.geotags.widget.location import GeotagSingleField, GeotagMultiField
 from p4a.common import at
 from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser import video as vid
@@ -16,12 +15,16 @@ from zope.component import adapts
 from zope.component import getUtility
 from zope.formlib.form import FormFields
 from zope.interface import Interface, implements
-
-
-from eea.geotags.widget.location import FormlibGeotagWidget
-from Products.EEAContentTypes.subtypes import IGeotagSingleEdit, IGeotagMultiEdit
-
-#from Products.ZCatalog.CatalogBrains import AbstractCatalogBrain
+#TODO: fix me, plone4
+#from eea.geotags.widget.location import FormlibGeotagWidget
+#TODO: fix me, plone4
+#from Products.EEAContentTypes.subtypes import (
+    #IGeotagSingleEdit,
+    #IGeotagMultiEdit
+#)
+#TODO: fix me, plone4
+#from eea.dataservice.widgets.ManagementPlanWidget import FormlibManagementPlanWidget
+#from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
 
 def getMediaTypes(obj):
     if obj is not None:
@@ -55,16 +58,14 @@ def getPublishedDate(obj):
     return tool.ulocalized_time(time, None, obj,
                                 domain='plone')
 
-
 class IManagementPlanCodeEdit(Interface):
     """Interface for edit forms that edit management plan code"""
 
-    management_plan = ManagementPlanCode(
-            title=u"Management plan", 
-            description=u"The management plan year and code", 
-            years_vocabulary='Temporal coverage'
-            )
-
+    #TODO: fix me, plone4
+    #management_plan = ManagementPlanCode(
+            #title=u"Management plan",
+            #description=u"The management plan year and code",
+            #years_vocabulary='Temporal coverage')
 
 class ManagementPlanCodeEdit(object):
     """Edit adapter for management plan code"""
@@ -97,14 +98,20 @@ class ManagementPlanCodeEdit(object):
 class VideoEditForm(vid.VideoEditForm):
     """Form for editing video fields.  """
 
-    form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagSingleEdit)
-#    form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagMultiEdit)
-    
+    #TODO: fix me, plone4
+    #form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagSingleEdit)
+    form_fields = FormFields(IVideo, IManagementPlanCodeEdit)
+
+    # Uncomment below is multiple geotags field is needed
+    #form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagMultiEdit)
+
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
-    form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
-    form_fields['geotag'].custom_widget = FormlibGeotagWidget
-    
+    #TODO: fix me, plone4
+    #form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
+    #TODO: fix me, plone4
+    #form_fields['geotag'].custom_widget = FormlibGeotagWidget
+
     def __init__(self, context, request):
         self.context = context
         self.request = request
@@ -149,13 +156,13 @@ class VideoListedSingle(P4AVideoListedSingle):
 class IVideoView(vid.IVideoView):
     def media_types(): #pylint: disable-msg = E0211
         pass
-    def duration(): #pylint: disable-msg = E0211 
+    def duration(): #pylint: disable-msg = E0211
         pass
     def author():  #pylint: disable-msg = E0211
         pass
-    def published_date(): #pylint: disable-msg = E0211 
+    def published_date(): #pylint: disable-msg = E0211
         pass
-    def width_incl_player(): #pylint: disable-msg = E0211 
+    def width_incl_player(): #pylint: disable-msg = E0211
         pass
 
 
