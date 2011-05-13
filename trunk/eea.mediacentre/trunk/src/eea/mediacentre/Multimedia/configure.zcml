@@ -43,4 +43,25 @@
     file="js/jquery.jcoverflip.js"
     />
 
+  <browser:resource
+    name="jquery.fullbg.min.js"
+    file="js/jquery.fullbg.min.js"
+    />
+
+  <browser:resource
+    name="eea.multimedia.js"
+    file="js/eea.multimedia.js"
+    />
+
+  <browser:resourceDirectory 
+      name="css" 
+      directory="css"
+      permission="zope.Public" 
+      /> 
+
+  <browser:resource
+    name="eea.multimedia.css"
+    file="css/eea.multimedia.css"
+    />
+
 </configure>
