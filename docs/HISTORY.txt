@@ -3,7 +3,8 @@ Changelog
 
 0.6-dev - (unreleased)
 ----------------------
-
+ * WIP: implemented multimedia js widgets [szabozo0 #4262]
+ 
 0.5 - (2011-04-19)
 ------------------
  * Feature: added location field to the video edit form [szabozo0 #4260]
