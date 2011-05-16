@@ -1,3 +1,6 @@
+Media types
+===========
+
 A media file can be one of several types, e.g. interview and map. This can be
 specified on any file object using an adapter.
 

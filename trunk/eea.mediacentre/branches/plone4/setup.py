@@ -31,17 +31,17 @@ setup(name=name,
         zip_safe=False,
         install_requires=[
             "setuptools",
+            "eea.themecentre",
+            "p4a.video",
+            "p4a.plonevideo",
+            "p4a.common",
+            "p4a.subtyper",
+            "p4a.fileimage",
 
             #TODO: fix me, plone4
             #"eea.dataservice",
             #"Products.EEAContentTypes",
-            #"eea.themecentre",
             #"eea.geotags",
-            #"p4a.video",
-            #"p4a.plonevideo",
-            #"p4a.common",
-            #"p4a.subtyper",
-            #"p4a.fileimage",
 
             #TODO: plone4, dependencies from tests
             #"Products.EEAPloneAdmin",

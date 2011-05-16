@@ -43,7 +43,10 @@ class MediaTypesAdapter(object):
         mapping = anno.get(KEY)
         mapping['types'] = PersistentList(values)
 
-        self.context.reindexObject()
+        try:
+            self.context.reindexObject()
+        except AttributeError:
+            pass
 
     types = property(gett, sett)
 
