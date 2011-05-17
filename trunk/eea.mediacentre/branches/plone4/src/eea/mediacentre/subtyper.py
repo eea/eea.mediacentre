@@ -5,6 +5,9 @@ from zope.annotation.interfaces import IAnnotations
 from zope.component import adapter
 from p4a.subtyper.interfaces import ISubtypeAddedEvent, ISubtypeRemovedEvent
 from eea.mediacentre.mediatypes import KEY
+import logging
+
+logger = logging.getLogger('eea.mediacentre.subtyper')
 
 @adapter(ISubtypeAddedEvent)
 def subtype_added(evt):
@@ -16,8 +19,8 @@ def subtype_added(evt):
         if not media.types:
             media.types = ['other']
     except TypeError:
-        # an object is subtyped that isn't video enhanced, so we ignore it
-        pass
+        logger.info("An object is subtyped that isn't video "
+                    "enhanced, so we ignore it")
 
 @adapter(ISubtypeRemovedEvent)
 def subtype_removed(evt):

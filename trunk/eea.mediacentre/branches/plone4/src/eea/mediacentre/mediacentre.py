@@ -11,7 +11,8 @@ class MediaCentre(object):
     """
     implements(IMediaCentre)
 
-    def getMedia(self, media_type=None, size=None, full_objects=True, search=None):
+    def getMedia(self, media_type=None, size=None,
+                 full_objects=True, search=None):
         """ Get Media
         """
         if search is None:
@@ -20,7 +21,10 @@ class MediaCentre(object):
         plugins = self._getPlugins()
 
         for plugin in plugins:
-            mediaobjects = plugin.getMedia(media_type, size, full_objects, search)
+            mediaobjects = plugin.getMedia(media_type,
+                                           size,
+                                           full_objects,
+                                           search)
             result.extend(mediaobjects)
 
         return result

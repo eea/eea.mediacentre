@@ -52,7 +52,7 @@ class MediaPortlet(BasePortlet):
         context = utils.context(self)
         theme = getTheme(context)
         mediacentre = getUtility(IMediaCentre)
-        query= { MEDIA_SEARCH_KEY: {'theme': theme} }
+        query= {MEDIA_SEARCH_KEY: {'theme': theme, }, }
         files = mediacentre.getMedia(self.media_type, 1, search=query)
         return files
 

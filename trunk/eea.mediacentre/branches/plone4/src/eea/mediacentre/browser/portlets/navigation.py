@@ -1,6 +1,5 @@
 """ Navigation
 """
-from Products.CMFPlone import utils
 from Products.Five import BrowserView
 from zope.component import getUtility
 from eea.mediacentre.interfaces import IMediaCentre

@@ -82,16 +82,20 @@ class ManagementPlanCodeEdit(object):
     def __init__(self, context):
         self.context = context
 
-    def management_plan():
+    def management_plan(self):
         """ Management plan
         """
         def get(self):
+            """ Get management plan
+            """
             schema = ISchema(self.context)
             field = schema['eeaManagementPlan']
             accessor = field.getAccessor(self.context)
             return accessor()
 
         def set(self, value):
+            """ Set management plan
+            """
             schema = ISchema(self.context)
             field = schema['eeaManagementPlan']
             mutator = field.getMutator(self.context)
@@ -106,8 +110,11 @@ class VideoEditForm(vid.VideoEditForm):
     """
 
     #TODO: fix me, plone4
-    #form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagSingleEdit)
-    form_fields = FormFields(IVideo, IManagementPlanCodeEdit)
+    #form_fields = FormFields(IVideo,
+                              #IManagementPlanCodeEdit,
+                              #IGeotagSingleEdit)
+    form_fields = FormFields(IVideo,
+                             IManagementPlanCodeEdit)
 
     # Uncomment below is multiple geotags field is needed
     #form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagMultiEdit)
@@ -149,7 +156,8 @@ class VideoListedSingle(P4AVideoListedSingle):
 
             type_ids = IMediaType(videoobj).types
 
-            types = sorted([vocab.getTerm(type_id).title for type_id in type_ids])
+            types = sorted([vocab.getTerm(type_id).title
+                                     for type_id in type_ids])
             if types:
                 video['media_types'] = ', '.join(types)
             else:
@@ -164,27 +172,27 @@ class VideoListedSingle(P4AVideoListedSingle):
 class IVideoView(vid.IVideoView):
     """ Video view
     """
-    def media_types(): #pylint: disable-msg = E0211
+    def media_types(self):
         """ Media types
         """
         pass
 
-    def duration(): #pylint: disable-msg = E0211
+    def duration(self):
         """ Duration
         """
         pass
 
-    def author():  #pylint: disable-msg = E0211
+    def author(self):
         """ Author
         """
         pass
 
-    def published_date(): #pylint: disable-msg = E0211
+    def published_date(self):
         """ Published date
         """
         pass
 
-    def width_incl_player(): #pylint: disable-msg = E0211
+    def width_incl_player(self):
         """ Width incl player
         """
         pass

@@ -5,19 +5,30 @@ import unittest
 import os
 from Acquisition import aq_base
 from p4a.subtyper.engine import Subtyper
-from p4a.video.interfaces import IVideo
+#TODO: fix me, plone4
+#from p4a.video.interfaces import IVideo
 from p4a.video.media import MediaActivator
 from p4a.video.subtype import VideoDescriptor
 from eea.mediacentre.mediacentre import MediaCentre
 from eea.mediacentre.mediatypes import MediaTypesAdapter
-from eea.mediacentre.interfaces import IMediaProvider, IMediaType
+from eea.mediacentre.interfaces import (
+    #TODO: fix me, plone4
+    #IMediaProvider,
+    IMediaType,
+)
 from eea.mediacentre.subtyper import subtype_added, subtype_removed
 from eea.mediacentre.tests.base import MediaCentreTestCase
 from zope.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
-from zope.component import queryAdapter
-from zope.component.testing import setUp, tearDown
-from Testing.ZopeTestCase import FunctionalDocFileSuite
+#TODO: fix me, plone4
+#from zope.component import queryAdapter
+from zope.component.testing import (
+    setUp,
+    #TODO: fix me, plone4
+    #tearDown
+)
+#TODO: fix me, plone4
+#from Testing.ZopeTestCase import FunctionalDocFileSuite
 
 optionflags =  (doctest.ELLIPSIS |
                 doctest.NORMALIZE_WHITESPACE |
@@ -61,7 +72,10 @@ class TestMediaCentre(MediaCentreTestCase):
         config = barsandtones.restrictedTraverse('@@video-config.html')
         config.media_activated = True
         barsandtones.reindexObject()
-        self.portal.portal_membership.addMember('manager', 'secret', ['Manager'], [])
+        self.portal.portal_membership.addMember('manager',
+                                                'secret',
+                                                ['Manager'],
+                                                [])
         self.login('manager')
         #TODO: fix me, plone4
         #self.portal.portal_workflow.doActionFor(barsandtones, 'publish')
@@ -72,10 +86,12 @@ class TestMediaCentre(MediaCentreTestCase):
         interview = aq_base(self.portal.interview)
         IMediaType(interview).types = ['interview']
         #TODO: fix me, plone4
-        #self.portal.portal_workflow.doActionFor(self.portal.interview, 'publish')
+        #self.portal.portal_workflow.doActionFor(self.portal.interview,
+                                                 #'publish')
 
         self.portal.invokeFactory('Topic', id='topic')
-        crit = self.portal.topic.addCriterion('review_state', 'ATSimpleStringCriterion')
+        crit = self.portal.topic.addCriterion('review_state',
+                                              'ATSimpleStringCriterion')
         crit.setValue('published')
 
     #TODO: fix me, plone4
@@ -93,8 +109,8 @@ class TestMediaCentre(MediaCentreTestCase):
     #TODO: fix me, plone4
     #def testVideoFlashAdapter(self):
         #""" Test that a FlashFile can not be adapted to IVideo before it's
-            #marked with the IVideoEnhanced interface. This follows the p4a.video
-            #convention on IVideo adapters.
+            #marked with the IVideoEnhanced interface. This follows the
+            #p4a.video convention on IVideo adapters.
         #"""
 
         #self.portal.invokeFactory('FlashFile', id='flashy')

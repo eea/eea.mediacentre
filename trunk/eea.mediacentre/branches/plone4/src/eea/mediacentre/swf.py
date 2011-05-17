@@ -6,9 +6,21 @@ from eea.mediacentre.interfaces import IMediaDisplayInfo
 from p4a.common.formatting import fancy_data_size
 from p4a.plonevideo.atct import _ATCTFileVideo
 from p4a.video.interfaces import IMediaPlayer
-from p4a.video.interfaces import IVideo, IVideoEnhanced
-from zope.component import adapts, adapter
-from zope.interface import implements, implementer
+from p4a.video.interfaces import (
+    IVideo,
+    #TODO: fix me, plone4
+    #IVideoEnhanced
+)
+from zope.component import (
+    adapts,
+    #TODO: fix me, plone4
+    #adapter
+)
+from zope.interface import (
+    implements,
+    #TODO: fix me, plone4
+    #implementer
+)
 
 #TODO: fix me, plone4
 #@implementer(IVideo)

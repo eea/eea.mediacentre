@@ -8,7 +8,7 @@ class IMediaCentre(Interface):
         plugins (providing IMediaCentrePlugin) to provide media files.
     """
 
-    def getMedia(mediatype, size, full_objects, search): #pylint: disable-msg = E0213
+    def getMedia(self, mediatype, size, full_objects, search):
         """ Returns multimedia files that satisfies the criterias.
             If mediatype is specified only that certain type is returned.
             size is the number of files that should be returned.
@@ -16,12 +16,12 @@ class IMediaCentre(Interface):
             be returned. These constraints can be plugin specific.
         """
 
-    def getMediaTypes(): #pylint: disable-msg = E0211
+    def getMediaTypes(self):
         """ Returns what media types are available, for instance
             interviews, maps and videos.
         """
 
-    def getPluginNames(): #pylint: disable-msg = E0211
+    def getPluginNames(self):
         """ Returns all plugins that media centre uses.
         """
 
@@ -34,7 +34,7 @@ class IMediaCentrePlugin(Interface):
 
     name = Attribute("The name of the plugin")
 
-    def getMedia(): #pylint: disable-msg = E0211
+    def getMedia(self):
         """ Returns multimedia files that satisfies the criterias.
             If mediatype is specified only that certain type is returned.
             size is the number of files that should be returned.
@@ -42,7 +42,7 @@ class IMediaCentrePlugin(Interface):
             be returned. These constraints can be plugin specific.
         """
 
-    def getMediaTypes(): #pylint: disable-msg = E0211
+    def getMediaTypes(self):
         """ Returns what media types are available, for instance
             interviews, maps and videos.
         """
@@ -70,12 +70,14 @@ class IMediaProvider(Interface):
     """
     media_type = Attribute("The type of media for this object")
 
-    def media_items(): #pylint: disable-msg = E0211
+    def media_items(self):
         """ Returns a list of media objects this provider finds available.
         """
 
 class IMediaDisplayInfo(Interface):
-    def __call__(): #pylint: disable-msg = E0211
+    """ Media Display Info
+    """
+    def __call__(self):
         """ Returns a dict of useful information for the ui.
         """
 

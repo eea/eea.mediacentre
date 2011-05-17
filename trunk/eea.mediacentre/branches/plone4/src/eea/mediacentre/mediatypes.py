@@ -11,8 +11,10 @@ from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.component import adapts
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+import logging
 
 KEY = 'eea.mediacentre.mediafile'
+logger = logging.getLogger('eea.mediacentre.mediatypes')
 
 class MediaTypesAdapter(object):
     """ Media Types Adapter
@@ -46,7 +48,7 @@ class MediaTypesAdapter(object):
         try:
             self.context.reindexObject()
         except AttributeError:
-            pass
+            logger.info('Reindex skipped')
 
     types = property(gett, sett)
 

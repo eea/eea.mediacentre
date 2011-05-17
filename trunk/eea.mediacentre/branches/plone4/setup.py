@@ -5,7 +5,7 @@ import os
 
 name = 'eea.mediacentre'
 path = name.split('.') + ['version.txt']
-version = open(os.path.join("src/",*path)).read().strip()
+version = open(os.path.join("src/", *path)).read().strip()
 
 setup(name=name,
         version=version,

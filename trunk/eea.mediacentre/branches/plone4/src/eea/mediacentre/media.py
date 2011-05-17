@@ -1,10 +1,12 @@
 """ Media
 """
-from Products.Archetypes.atapi import AnnotationStorage
+#TODO: fix me, plone4
+#from Products.Archetypes.atapi import AnnotationStorage
+#TODO: fix me, plone4
+#from datetime import datetime
 from Products.CMFCore.utils import getToolByName
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import ISchemaExtender
-from datetime import datetime
 from zope.component import getUtility
 from zope.interface import implements
 from p4a.common.formatting import fancy_time_amount, fancy_data_size

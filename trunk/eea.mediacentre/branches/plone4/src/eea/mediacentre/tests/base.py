@@ -14,6 +14,8 @@ PloneTestCase.installProduct('EEAPloneAdmin')
 
 @onsetup
 def setup_mediacentre():
+    """ Setup media centre
+    """
     fiveconfigure.debug_mode = True
     zcml.load_config('configure.zcml', eea.mediacentre)
     fiveconfigure.debug_mode = False

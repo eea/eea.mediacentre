@@ -11,7 +11,8 @@ class CatalogPlugin(object):
     """
     implements(ICatalogPlugin)
 
-    def getMedia(self, media_type=None, size=None, full_objects=True, searchfor=None):
+    def getMedia(self, media_type=None, size=None, full_objects=True,
+                 searchfor=None):
         """ Returns media files as dicts. media_type arg can be e.g.
             video, interview or other. Other means that no type is chosen.
             Returned media can be ATImage, ATFile or FlashFile objects.

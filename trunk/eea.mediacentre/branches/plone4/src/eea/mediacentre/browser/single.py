@@ -8,7 +8,8 @@ from p4a.video.interfaces import IVideo
 class IListedSingle(Interface):
     """ Listed Single
     """
-    def single(obj=None, pos=None): #pylint: disable-msg = E0213
+
+    def single(self, obj=None, pos=None):
         """ Single
         """
         pass
@@ -41,7 +42,6 @@ class ListedSingle(object):
 class ImageListedSingle(object):
     """ Image Listed Single
     """
-
     template = ViewPageTemplateFile('image-listed-single.pt')
 
     def __init__(self, context, request):
