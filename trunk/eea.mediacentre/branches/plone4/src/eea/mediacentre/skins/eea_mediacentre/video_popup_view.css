@@ -54,7 +54,7 @@ body.video_popup_view .slider .slidernav {
     position: absolute;
     z-index: 1;
     cursor: pointer;
-    top: 430px;
+    top: 460px;
 }
 
 body.video_popup_view .slider .larrow {

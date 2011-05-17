@@ -29,20 +29,13 @@ class FLVVideoPlayer(object):
         downloadurl = contentobj.absolute_url()
         videoid = 'video' + contentobj.getId().replace('.','')
 
-        # See flowPlayer.js for available options
-        #config = {
-        #    'autoPlay': True,
-        #    'loop': False,
-        #    'autoBuffering': True,
-        #    'useNativeFullScreen': True,
-        #    'initialScale': 'fit',
-        #}
+        # See flowplayer.org site for available options
         config = {
                 'clip': {
                     'url':downloadurl,
                     'autoPlay': True,
                     'autoBuffering': True,
-                    'scaling': 'scale',
+                    'scaling': 'fit',
                     'useNativeFullScreen': True,
                     },
                 'plugins': {

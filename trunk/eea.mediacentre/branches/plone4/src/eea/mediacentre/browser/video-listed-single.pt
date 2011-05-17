@@ -4,7 +4,7 @@
                            video video|options/video|python:view.safe_video(videoobj);
                            viewurl string:${video/url}/view;
                            oddeven oddeven|video/oddeven|string:;
-                           portal_url portal_url|video/portal_url;
+                           portal_url context/@@plone_portal_state/portal_url;
                            portal_type video/portal_type"
                tal:attributes="class string:media-item $oddeven portal_type_$portal_type">
             <div class="item-left">
