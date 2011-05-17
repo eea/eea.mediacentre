@@ -3,8 +3,8 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="p4a.video">
 
-<body>
-
+      <head> 
+      
 <metal:headslot fill-slot="head_slot">
     <style type="text/css">
     .media-player {
@@ -13,11 +13,14 @@
     </style>
 </metal:headslot>
 
-<metal:cssslot fill-slot="css_slot">
+<metal:cssslot fill-slot="style_slot">
     <link rel="stylesheet" href="video.css"
           tal:attributes="href string:$portal_url/++resource++videostyles/video.css"
         />
 </metal:cssslot>
+      </head>  
+<body>
+
 
 <div metal:fill-slot="main"
      tal:define="video_info context/@@video_view;

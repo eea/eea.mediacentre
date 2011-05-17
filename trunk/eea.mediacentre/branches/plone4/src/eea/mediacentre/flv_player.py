@@ -23,27 +23,41 @@ class FLVVideoPlayer(object):
 
         portal_tool = cmfutils.getToolByName(contentobj, 'portal_url')
         portal_url = portal_tool.getPortalObject().absolute_url()
-        player = portal_url + "/++resource++flowplayer/FlowPlayerLight.swf"
+        player = portal_url + "/++resource++flowplayer/flowplayer-3.2.2.swf"
 
         #videoobj = interfaces.IVideo(contentobj)
         downloadurl = contentobj.absolute_url()
         videoid = 'video' + contentobj.getId().replace('.','')
 
         # See flowPlayer.js for available options
+        #config = {
+        #    'autoPlay': True,
+        #    'loop': False,
+        #    'autoBuffering': True,
+        #    'useNativeFullScreen': True,
+        #    'initialScale': 'fit',
+        #}
         config = {
-            'videoFile': downloadurl,
-            'autoPlay': True,
-            'loop': False,
-            'autoBuffering': True,
-            'useNativeFullScreen': True,
-            'initialScale': 'fit',
-        }
+                'clip': {
+                    'url':downloadurl,
+                    'autoPlay': True,
+                    'autoBuffering': True,
+                    'scaling': 'scale',
+                    'useNativeFullScreen': True,
+                    },
+                'plugins': {
+                    'controls': {
+                        'autoHide': 'never',
+                        }
+                    },
+                }
         config = simplejson.dumps(config)
 
         return MAIN_VIDEO_TEMPLATE % {'videoid': videoid,
                                       'player': player,
                                       'title': contentobj.title,
-                                      'config': config}
+                                      'config': config,
+                                      }
 
 MAIN_VIDEO_TEMPLATE = """
         <div class="flowplayer">
@@ -57,7 +71,7 @@ MAIN_VIDEO_TEMPLATE = """
                     src:'%(player)s'
                   },
                   {
-                    config:%(config)s
+                    config:%(config)s,
                   }
                 );
             });
