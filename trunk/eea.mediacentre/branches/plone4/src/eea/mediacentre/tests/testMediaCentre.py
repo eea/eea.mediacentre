@@ -1,5 +1,6 @@
 """ Test media centre
 """
+import doctest
 import unittest
 import os
 from Acquisition import aq_base
@@ -15,21 +16,23 @@ from eea.mediacentre.tests.base import MediaCentreTestCase
 from zope.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
 from zope.component import queryAdapter
-from zope.testing import doctest
+from zope.component.testing import setUp, tearDown
 from Testing.ZopeTestCase import FunctionalDocFileSuite
 
 optionflags =  (doctest.ELLIPSIS |
                 doctest.NORMALIZE_WHITESPACE |
                 doctest.REPORT_ONLY_FIRST_FAILURE)
 
-def setUp(test):
+def configurationSetUp(test):
     """ Setup
     """
+    setUp()
     provideUtility(MediaCentre())
 
-def setUp2(test):
+def configurationSetUp2(test):
     """ Setup 2
     """
+    setUp()
     provideAdapter(AttributeAnnotations)
     provideAdapter(MediaTypesAdapter)
     provideAdapter(MediaActivator)
@@ -110,15 +113,17 @@ def test_suite():
         unittest.makeSuite(TestMediaCentre),
 
         #TODO: fix me, plone4
-        #doctest.DocFileSuite('../README.txt',
-                     #setUp=setUp,
-                     #optionflags=optionflags,),
-        doctest.DocFileSuite('mediatypes.txt',
-                     setUp=setUp2,
-                     optionflags=optionflags,),
+        #doctest.DocFileSuite('README.txt',
+                    #package='eea.mediacentre',
+                    #setUp=configurationSetUp,
+                    #optionflags=optionflags,),
+        doctest.DocFileSuite('tests/mediatypes.txt',
+                    package='eea.mediacentre',
+                    setUp=configurationSetUp2,
+                    optionflags=optionflags,),
         #TODO: fix me, plone4
-        #FunctionalDocFileSuite('video.txt',
-                     #test_class = TestMediaCentre,
+        #FunctionalDocFileSuite('tests/video.txt',
+                     #test_class=TestMediaCentre,
                      #optionflags=optionflags,
-                     #package = 'eea.mediacentre.tests'),
+                     #package='eea.mediacentre'),
     ))
