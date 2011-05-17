@@ -82,7 +82,7 @@ class ManagementPlanCodeEdit(object):
     def __init__(self, context):
         self.context = context
 
-    def management_plan(self):
+    def management_plan():
         """ Management plan
         """
         def get(self):
