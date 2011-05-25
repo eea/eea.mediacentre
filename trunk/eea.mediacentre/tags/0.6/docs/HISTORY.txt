@@ -1,0 +1,35 @@
+Changelog
+=========
+
+0.6 - (2011-05-25)
+------------------
+ * Feature: implementing IPossibleVideo for ATBlob metatypes [tiberich #4362]
+ * WIP: implemented multimedia js widgets [szabozo0 #4262]
+
+0.5 - (2011-04-19)
+------------------
+ * Feature: added location field to the video edit form [szabozo0 #4260]
+ * Bug fix: brought images that were in thickbox product for video popup [ichimdav #4266]
+
+0.4 - (2011-04-08)
+------------------
+ * Bug fix: Added translation domain to ZCML files [voineali #4139]
+ * Cleanup: of pyflakes compiler warnings [ichimdav #4141]
+ * Cleanup: of pylint violations [ichimdav #4140]
+ * Feature: added management plan code for videos [tiberich #4215]
+
+0.3 - (2011-03-01)
+------------------
+ * Bug fix: fixed tests [tiberich #4153]
+
+0.2 - (2011-02-18)
+------------------
+ * Change: update egg structure [ichimdav #2931]
+ * New fancybox based video popup [thuliper, #3040]
+ * Fixed bug where videos were looping [thuliper, #2664]
+ * video_popup_view was appended even if it shouldn't, now it replaces any existing view_popup_view string. [vincisas]
+
+0.1 - (2009)
+------------------
+ * Initial creation of package
+
