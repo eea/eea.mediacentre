@@ -1,6 +1,9 @@
 Changelog
 =========
 
+0.7-dev - (unreleased)
+----------------------
+
 0.6 - (2011-05-25)
 ------------------
  * Feature: implementing IPossibleVideo for ATBlob metatypes [tiberich #4362]
