@@ -1,34 +1,29 @@
 """ SWF
 """
-#TODO: fix me, plone4
-#from Products.EEAContentTypes.content.FlashFile import FlashFile
+from Products.EEAContentTypes.content.FlashFile import FlashFile
 from eea.mediacentre.interfaces import IMediaDisplayInfo
 from p4a.common.formatting import fancy_data_size
 from p4a.plonevideo.atct import _ATCTFileVideo
 from p4a.video.interfaces import IMediaPlayer
 from p4a.video.interfaces import (
     IVideo,
-    #TODO: fix me, plone4
-    #IVideoEnhanced
+    IVideoEnhanced
 )
 from zope.component import (
     adapts,
-    #TODO: fix me, plone4
-    #adapter
+    adapter
 )
 from zope.interface import (
     implements,
-    #TODO: fix me, plone4
-    #implementer
+    implementer
 )
 
-#TODO: fix me, plone4
-#@implementer(IVideo)
-#@adapter(FlashFile)
-#def SWFAdapter(context):
-#    if not IVideoEnhanced.providedBy(context):
-#        return None
-#    return _SWFAdapter(context)
+@implementer(IVideo)
+@adapter(FlashFile)
+def SWFAdapter(context):
+    if not IVideoEnhanced.providedBy(context):
+        return None
+    return _SWFAdapter(context)
 
 class _SWFAdapter(_ATCTFileVideo):
     """ We inherit attributes from ATCTFileVideo, but width

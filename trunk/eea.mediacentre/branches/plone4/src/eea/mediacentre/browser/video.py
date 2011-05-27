@@ -15,13 +15,11 @@ from zope.component import adapts
 from zope.component import getUtility
 from zope.formlib.form import FormFields
 from zope.interface import Interface, implements
-#TODO: fix me, plone4
-#from eea.geotags.widget.location import FormlibGeotagWidget
-#TODO: fix me, plone4
-#from Products.EEAContentTypes.subtypes import (
-    #IGeotagSingleEdit,
-    #IGeotagMultiEdit
-#)
+from eea.geotags.widget.location import FormlibGeotagWidget
+from Products.EEAContentTypes.subtypes import (
+    IGeotagSingleEdit,
+    IGeotagMultiEdit
+)
 #TODO: fix me, plone4
 #from eea.dataservice.widgets.ManagementPlanWidget import \
 #                                FormlibManagementPlanWidget
@@ -104,23 +102,20 @@ class ManagementPlanCodeEdit(object):
 class VideoEditForm(vid.VideoEditForm):
     """ Form for editing video fields.
     """
-
-    #TODO: fix me, plone4
-    #form_fields = FormFields(IVideo,
-                              #IManagementPlanCodeEdit,
-                              #IGeotagSingleEdit)
+    form_fields = FormFields(IVideo,
+                              IManagementPlanCodeEdit,
+                              IGeotagSingleEdit)
     form_fields = FormFields(IVideo,
                              IManagementPlanCodeEdit)
 
     # Uncomment below is multiple geotags field is needed
-    #form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagMultiEdit)
+    form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagMultiEdit)
 
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
     #TODO: fix me, plone4
     #form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
-    #TODO: fix me, plone4
-    #form_fields['geotag'].custom_widget = FormlibGeotagWidget
+    form_fields['geotag'].custom_widget = FormlibGeotagWidget
 
     def __init__(self, context, request):
         self.context = context

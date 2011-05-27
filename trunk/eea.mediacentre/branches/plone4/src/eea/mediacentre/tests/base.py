@@ -8,8 +8,7 @@ import eea.mediacentre
 
 PloneTestCase.installProduct('ATVocabularyManager')
 PloneTestCase.installProduct('LinguaPlone')
-#TODO: fix me, plone4
-#PloneTestCase.installProduct('EEAContentTypes')
+PloneTestCase.installProduct('EEAContentTypes')
 PloneTestCase.installProduct('EEAPloneAdmin')
 
 @onsetup
@@ -31,4 +30,5 @@ setup_mediacentre()
 PloneTestCase.setupPloneSite(extension_profiles=('eea.mediacentre:default',))
 
 class MediaCentreTestCase(PloneTestCase.FunctionalTestCase):
-    """ A test case for mediacentres. """
+    """ A test case for mediacentres.
+    """

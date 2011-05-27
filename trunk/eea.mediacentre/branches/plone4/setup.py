@@ -37,17 +37,17 @@ setup(name=name,
             "p4a.common",
             "p4a.subtyper",
             "p4a.fileimage",
+            "eea.geotags",
+            "Products.EEAContentTypes",
 
             #TODO: fix me, plone4
             #"eea.dataservice",
-            #"Products.EEAContentTypes",
-            #"eea.geotags",
 
             #TODO: plone4, dependencies from tests
-            #"Products.EEAPloneAdmin",
-            #"Products.ATVocabularyManager",
             #"Products.LinguaPlone",
             #"valentine.linguaflow",
+            #"Products.ATVocabularyManager",
+            #"Products.EEAPloneAdmin",
             ],
         entry_points="""
         # -*- Entry points: -*-
