@@ -23,7 +23,8 @@ from zope.interface import Interface, implements
     #IGeotagMultiEdit
 #)
 #TODO: fix me, plone4
-#from eea.dataservice.widgets.ManagementPlanWidget import FormlibManagementPlanWidget
+#from eea.dataservice.widgets.ManagementPlanWidget import \
+#                                FormlibManagementPlanWidget
 #from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
 
 def getMediaTypes(obj):
@@ -82,28 +83,23 @@ class ManagementPlanCodeEdit(object):
     def __init__(self, context):
         self.context = context
 
-    def management_plan():
-        """ Management plan
+    def get_management(self):
+        """ Get management plan
         """
-        def get(self):
-            """ Get management plan
-            """
-            schema = ISchema(self.context)
-            field = schema['eeaManagementPlan']
-            accessor = field.getAccessor(self.context)
-            return accessor()
+        schema = ISchema(self.context)
+        field = schema['eeaManagementPlan']
+        accessor = field.getAccessor(self.context)
+        return accessor()
 
-        def set(self, value):
-            """ Set management plan
-            """
-            schema = ISchema(self.context)
-            field = schema['eeaManagementPlan']
-            mutator = field.getMutator(self.context)
-            mutator(value)
+    def set_management(self, value):
+        """ Set management plan
+        """
+        schema = ISchema(self.context)
+        field = schema['eeaManagementPlan']
+        mutator = field.getMutator(self.context)
+        mutator(value)
 
-        return property(get, set)
-
-    management_plan = management_plan()
+    management_plan = property(get_management, set_management)
 
 class VideoEditForm(vid.VideoEditForm):
     """ Form for editing video fields.
