@@ -38,10 +38,10 @@ setup(name=name,
             "p4a.subtyper",
             "p4a.fileimage",
             "eea.geotags",
-            "Products.EEAContentTypes",
 
             #TODO: fix me, plone4
             #"eea.dataservice",
+            #"Products.EEAContentTypes",
 
             #TODO: plone4, dependencies from tests
             #"Products.LinguaPlone",
