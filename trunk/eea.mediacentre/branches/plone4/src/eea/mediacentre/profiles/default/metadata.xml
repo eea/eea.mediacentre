@@ -1,5 +1,20 @@
 <?xml version="1.0"?>
 <metadata>
  <description>EEA Media Centre profile</description>
- <version>1</version>
+ <version>4.0</version>
+   <dependencies>
+        <dependency>profile-Products.ATVocabularyManager:default</dependency>
+        <dependency>profile-Products.EEAContentTypes:default</dependency>
+        <dependency>profile-Products.EEAPloneAdmin:default</dependency>
+        <dependency>profile-eea.dataservice:default</dependency>
+        <dependency>profile-eea.geotags:default</dependency>
+        <dependency>profile-eea.jquery:02-ui</dependency>
+        <dependency>profile-eea.jquery:06-fancybox</dependency>
+        <dependency>profile-eea.jquery:08-galleryview</dependency>
+        <dependency>profile-eea.themecentre:default</dependency>
+        <dependency>profile-eea.versions:default</dependency>
+        <dependency>profile-p4a.subtyper:default</dependency>
+        <dependency>profile-p4a.video:default</dependency>
+        <dependency>profile-valentine.linguaflow:default</dependency>
+    </dependencies>
 </metadata>

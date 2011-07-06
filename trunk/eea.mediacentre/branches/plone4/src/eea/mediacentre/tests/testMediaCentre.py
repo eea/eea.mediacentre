@@ -5,34 +5,28 @@ import unittest
 import os
 from Acquisition import aq_base
 from p4a.subtyper.engine import Subtyper
-#TODO: fix me, plone4
-#from p4a.video.interfaces import IVideo
 from p4a.video.media import MediaActivator
 from p4a.video.subtype import VideoDescriptor
 from eea.mediacentre.mediacentre import MediaCentre
 from eea.mediacentre.mediatypes import MediaTypesAdapter
 from eea.mediacentre.interfaces import (
-    #TODO: fix me, plone4
-    #IMediaProvider,
+    IMediaProvider,
     IMediaType,
 )
 from eea.mediacentre.subtyper import subtype_added, subtype_removed
 from eea.mediacentre.tests.base import MediaCentreTestCase
 from zope.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
-#TODO: fix me, plone4
-#from zope.component import queryAdapter
-from zope.component.testing import (
-    setUp,
-    #TODO: fix me, plone4
-    #tearDown
-)
-#TODO: fix me, plone4
-#from Testing.ZopeTestCase import FunctionalDocFileSuite
+from zope.component.testing import setUp
+from Testing.ZopeTestCase import FunctionalDocFileSuite
+# NOTE: this is needed because when testing you get some parser
+# warnings which make the jenkins builds fail
+import hachoir_core.config
+hachoir_core.config.quiet = True
 
 optionflags =  (doctest.ELLIPSIS |
-                doctest.NORMALIZE_WHITESPACE |
-                doctest.REPORT_ONLY_FIRST_FAILURE)
+        doctest.NORMALIZE_WHITESPACE | 
+        doctest.REPORT_ONLY_FIRST_FAILURE)
 
 def configurationSetUp(test):
     """ Setup
@@ -59,6 +53,7 @@ class TestMediaCentre(MediaCentreTestCase):
         """ After setup
         """
         self.setRoles(['Manager'])
+
         self.portal.invokeFactory('File', id='barsandtones')
         self.portal.invokeFactory('Document', id='barsandtones2')
         self.portal.barsandtones2.setText('Cow')
@@ -77,50 +72,32 @@ class TestMediaCentre(MediaCentreTestCase):
                                                 ['Manager'],
                                                 [])
         self.login('manager')
-        #TODO: fix me, plone4
-        #self.portal.portal_workflow.doActionFor(barsandtones, 'publish')
 
         self.portal.invokeFactory('File', id='interview')
         config = self.portal.interview.restrictedTraverse('@@video-config.html')
         config.media_activated = True
         interview = aq_base(self.portal.interview)
         IMediaType(interview).types = ['interview']
-        #TODO: fix me, plone4
-        #self.portal.portal_workflow.doActionFor(self.portal.interview,
-                                                 #'publish')
-
+        
+        # NOTE: Plone 4.x doesn't have a workflow for files and images 
+        # so we don't search by published state, 
         self.portal.invokeFactory('Topic', id='topic')
-        crit = self.portal.topic.addCriterion('review_state',
-                                              'ATSimpleStringCriterion')
-        crit.setValue('published')
+        crit = self.portal.topic.addCriterion('Type', 'ATPortalTypeCriterion')
+        crit.setValue('File')
+        
 
-    #TODO: fix me, plone4
-    #def testTopicMediaProvider(self):
-        #""" Test Topic Media Provider
-        #"""
-        #self.portal.interview.reindexObject()   #fixes test
-        #provider = IMediaProvider(self.portal.topic)
-        ## we should now get all the published files
-        #self.assertEquals(len(provider.media_items), 2)
-        #provider.media_type = 'interview'
-        ## now we should only get the interview file
-        #self.assertEquals(len(provider.media_items), 1)
 
-    #TODO: fix me, plone4
-    #def testVideoFlashAdapter(self):
-        #""" Test that a FlashFile can not be adapted to IVideo before it's
-            #marked with the IVideoEnhanced interface. This follows the
-            #p4a.video convention on IVideo adapters.
-        #"""
+    def testTopicMediaProvider(self):
+        """ Test Topic Media Provider
+        """
+        self.portal.interview.reindexObject()   #fixes test
+        provider = IMediaProvider(self.portal.topic)
+        # we should now get all the files we created
+        self.assertEquals(len(provider.media_items), 2)
+        provider.media_type = 'interview'
+        # now we should only get the interview file
+        self.assertEquals(len(provider.media_items), 1)
 
-        #self.portal.invokeFactory('FlashFile', id='flashy')
-
-        ##NOTE: FlashFile now directly provides IVideoEnhanced, disabling test
-        ##self.assertTrue(queryAdapter(self.portal.flashy, IVideo) is None)
-        ##config = self.portal.flashy.restrictedTraverse('@@video-config.html')
-        ##config.media_activated = True
-
-        #self.assertTrue(queryAdapter(self.portal.flashy, IVideo) is not None)
 
 def test_suite():
     """ Test suite
@@ -128,18 +105,17 @@ def test_suite():
     return unittest.TestSuite((
         unittest.makeSuite(TestMediaCentre),
 
-        #TODO: fix me, plone4
-        #doctest.DocFileSuite('README.txt',
-                    #package='eea.mediacentre',
-                    #setUp=configurationSetUp,
-                    #optionflags=optionflags,),
+        doctest.DocFileSuite('README.txt',
+                    package='eea.mediacentre',
+                    setUp=configurationSetUp,
+                    optionflags=optionflags,),
         doctest.DocFileSuite('tests/mediatypes.txt',
                     package='eea.mediacentre',
                     setUp=configurationSetUp2,
                     optionflags=optionflags,),
-        #TODO: fix me, plone4
-        #FunctionalDocFileSuite('tests/video.txt',
-                     #test_class=TestMediaCentre,
-                     #optionflags=optionflags,
-                     #package='eea.mediacentre'),
+        FunctionalDocFileSuite('tests/video.txt',
+                    package='eea.mediacentre',
+                    test_class=TestMediaCentre,
+                    optionflags=optionflags,
+                    ),
     ))

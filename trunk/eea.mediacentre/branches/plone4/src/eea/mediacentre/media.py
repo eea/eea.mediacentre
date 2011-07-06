@@ -1,9 +1,7 @@
 """ Media
 """
-#TODO: fix me, plone4
-#from Products.Archetypes.atapi import AnnotationStorage
-#TODO: fix me, plone4
-#from datetime import datetime
+from Products.Archetypes.atapi import AnnotationStorage
+from datetime import datetime
 from Products.CMFCore.utils import getToolByName
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import ISchemaExtender
@@ -15,10 +13,8 @@ from p4a.video.interfaces import IVideoEnhanced
 from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 from eea.themecentre.themecentre import getTheme
-#TODO: fix me, plone4
-#from eea.dataservice.fields.ManagementPlanField import ManagementPlanField
-#from eea.dataservice.vocabulary import DatasetYears
-#from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanWidget
+from eea.dataservice.fields.ManagementPlanField import ManagementPlanField
+from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanWidget
 
 def P4AVideoDisplayInfoAdapter(context):
     """ P4A Video Display Info Adapter
@@ -93,9 +89,7 @@ class TopicMediaProvider(object):
         brains = portal_catalog.searchResults(query)
         return brains
 
-#TODO: fix me, plone4
-#class ExtensionManagementPlanfield(ExtensionField, ManagementPlanField):
-class ExtensionManagementPlanfield(ExtensionField):
+class ExtensionManagementPlanfield(ExtensionField, ManagementPlanField):
     """ Derivative of blobfield for extending schemas
     """
 
@@ -105,26 +99,24 @@ class SchemaExtender(object):
     implements(ISchemaExtender)
 
     fields = [
-        #TODO: fix me, plone4
-        #ExtensionManagementPlanfield(
-            #name='eeaManagementPlan',
-            #languageIndependent=True,
-            #required=True,
-            #default=(datetime.now().year, ''),
-            #validators = ('management_plan_code_validator',),
-            ##TODO: fix me, plone4
-            ##vocabulary=DatasetYears(),
-            #storage = AnnotationStorage(migrate=True),
-            ##TODO: fix me, plone4
-            ##widget = ManagementPlanWidget(
-                ##format="select",
-                ##label="EEA Management Plan",
-                ##description = ("EEA Management plan code."),
-                ##label_msgid='dataservice_label_eea_mp',
-                ##description_msgid='dataservice_help_eea_mp',
-                ##i18n_domain='eea.dataservice',
-                ##)
-            #)
+        ExtensionManagementPlanfield(
+            name='eeaManagementPlan',
+            languageIndependent=True,
+            required=True,
+            default=(datetime.now().year, ''),
+            validators = ('management_plan_code_validator',),
+
+            vocabulary_factory="Temporal coverage",
+            storage = AnnotationStorage(migrate=True),
+            widget = ManagementPlanWidget(
+                format="select",
+                label="EEA Management Plan",
+                description = ("EEA Management plan code."),
+                label_msgid='dataservice_label_eea_mp',
+                description_msgid='dataservice_help_eea_mp',
+                i18n_domain='eea.dataservice',
+                )
+            )
     ]
 
     def __init__(self, context):

@@ -10,6 +10,7 @@ PloneTestCase.installProduct('ATVocabularyManager')
 PloneTestCase.installProduct('LinguaPlone')
 PloneTestCase.installProduct('EEAContentTypes')
 PloneTestCase.installProduct('EEAPloneAdmin')
+PloneTestCase.installProduct('eea.themcentre')
 
 @onsetup
 def setup_mediacentre():
@@ -20,14 +21,16 @@ def setup_mediacentre():
     fiveconfigure.debug_mode = False
 
     PloneTestCase.installPackage('valentine.linguaflow')
+    PloneTestCase.installPackage('ATVocabularyManager')
     PloneTestCase.installPackage('p4a.z2utils')
     PloneTestCase.installPackage('p4a.fileimage')
     PloneTestCase.installPackage('p4a.video')
+    PloneTestCase.installPackage('eea.themcentre')
     PloneTestCase.installPackage('p4a.plonevideo')
     PloneTestCase.installPackage('p4a.subtyper')
 
 setup_mediacentre()
-PloneTestCase.setupPloneSite(extension_profiles=('eea.mediacentre:default',))
+PloneTestCase.setupPloneSite(extension_profiles=('eea.themecentre:default','eea.mediacentre:default'))
 
 class MediaCentreTestCase(PloneTestCase.FunctionalTestCase):
     """ A test case for mediacentres.

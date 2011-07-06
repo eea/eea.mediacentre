@@ -21,6 +21,8 @@ from zope.interface import (
 @implementer(IVideo)
 @adapter(FlashFile)
 def SWFAdapter(context):
+    """ SWFAdapter
+    """
     if not IVideoEnhanced.providedBy(context):
         return None
     return _SWFAdapter(context)

@@ -5,6 +5,7 @@ Media Centre is a utility that you can ask what media files are
 available.
 
   >>> from zope.component import getUtility, provideUtility
+  >>> from zope.component import getGlobalSiteManager
   >>> from zope.interface import implements
   >>> from eea.mediacentre.interfaces import IMediaCentre
   >>> from eea.mediacentre.interfaces import IMediaCentrePlugin
@@ -26,7 +27,9 @@ automatically be used by the media centre.
   ...     def getMediaTypes(self): return {'video': {}}
   ...     def getMedia(self, media_type=None, size=None, full_objects=False, search={}):
   ...         return [None, None]
-  >>> provideUtility(DummyPlugin1())
+  >>> gsm = getGlobalSiteManager()
+  >>> dummy1 = DummyPlugin1()
+  >>> gsm.registerUtility(dummy1, IMediaCentrePlugin, name="dummy1")
 
 Now we can ask the Media Centre if there are any video files. The Media
 Centre will know that a plugin has been registered.
@@ -44,7 +47,8 @@ Let's register one more dummy plugin.
   ...     def getMediaTypes(self): return {'map': {}}
   ...     def getMedia(self, media_type=None, size=None, full_objects=False, search={}):
   ...         return [None, None, None]
-  >>> provideUtility(DummyPlugin2())
+  >>> dummy2 = DummyPlugin2()
+  >>> gsm.registerUtility(dummy2, IMediaCentrePlugin, name="dummy2")
 
 Now we can ask the Media Centre for all the media files it knows about.
 Media Centre will find two plugins and return the result of them both.

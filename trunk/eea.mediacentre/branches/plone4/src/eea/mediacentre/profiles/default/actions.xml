@@ -14,6 +14,18 @@
             <property name="visible">True</property>
         </object>
 
+        <object name="metadata_video_edit" meta_type="CMF Action" i18n:domain="eea">
+            <property name="title" i18n:translate="">Edit video metadata</property>
+            <property name="description" i18n:translate=""/>
+            <property name="url_expr">string:${object_url}/video_edit</property>
+            <property name="available_expr">python:'p4a.video.interfaces.IVideoEnhanced' in object.restrictedTraverse('@@get_interfaces')() and object.restrictedTraverse('@@showEditVideoMetadataTab')</property>
+            <property name="permissions">
+                <element value="Modify portal content"/>
+            </property>
+            <property name="visible">True</property>
+        </object>
+
+
     </object>
 </object>
 

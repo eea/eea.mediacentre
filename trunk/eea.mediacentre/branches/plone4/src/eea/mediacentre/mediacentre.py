@@ -34,7 +34,6 @@ class MediaCentre(object):
         """
         mediatypes = {}
         plugins = self._getPlugins()
-
         for plugin in plugins:
             mediatypes.update(plugin.getMediaTypes())
 
@@ -50,4 +49,5 @@ class MediaCentre(object):
         """ Get Plugins
         """
         plugins = getAllUtilitiesRegisteredFor(IMediaCentrePlugin)
+        
         return plugins

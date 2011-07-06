@@ -11,6 +11,7 @@
 
     <include package=".browser" />
     <include package=".plugins" />
+    <include package=".upgrades" />
     <include package=".Multimedia" />
 
     <include file="profiles.zcml" />
@@ -26,8 +27,7 @@
 
     <adapter factory=".mediatypes.MediaTypesAdapter" />
     <adapter factory=".mediatypes.MediaTypesImageAdapter" />
-    <!-- #TODO: fix me, plone4 -->
-    <!-- adapter factory=".swf.SWFAdapter" / -->
+    <adapter factory=".swf.SWFAdapter" />
 
     <adapter for="p4a.video.interfaces.IVideoEnhanced"
              provides=".interfaces.IMediaDisplayInfo"

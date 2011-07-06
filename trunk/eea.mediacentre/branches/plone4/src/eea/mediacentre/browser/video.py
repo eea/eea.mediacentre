@@ -20,10 +20,9 @@ from Products.EEAContentTypes.subtypes import (
     IGeotagSingleEdit,
     IGeotagMultiEdit
 )
-#TODO: fix me, plone4
-#from eea.dataservice.widgets.ManagementPlanWidget import \
-#                                FormlibManagementPlanWidget
-#from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
+from eea.dataservice.widgets.ManagementPlanWidget import \
+                                FormlibManagementPlanWidget
+from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
 
 def getMediaTypes(obj):
     """ Get Media Types
@@ -66,11 +65,10 @@ def getPublishedDate(obj):
 class IManagementPlanCodeEdit(Interface):
     """ Interface for edit forms that edit management plan code
     """
-    #TODO: fix me, plone4
-    #management_plan = ManagementPlanCode(
-            #title=u"Management plan",
-            #description=u"The management plan year and code",
-            #years_vocabulary='Temporal coverage')
+    management_plan = ManagementPlanCode(
+            title=u"Management plan",
+            description=u"The management plan year and code",
+            years_vocabulary='Temporal coverage')
 
 class ManagementPlanCodeEdit(object):
     """ Edit adapter for management plan code
@@ -113,8 +111,7 @@ class VideoEditForm(vid.VideoEditForm):
 
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
-    #TODO: fix me, plone4
-    #form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
+    form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
     form_fields['geotag'].custom_widget = FormlibGeotagWidget
 
     def __init__(self, context, request):

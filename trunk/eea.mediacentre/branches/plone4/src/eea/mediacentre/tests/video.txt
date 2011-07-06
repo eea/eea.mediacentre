@@ -22,5 +22,5 @@ that the rich_description field uses kupu.
   >>> browser.open('http://nohost/plone/barsandtones/edit')
   >>> 'rich_description' in browser.contents
   True
-  >>> 'kupu-editor-body' in browser.contents
+  >>> 'mce_editable' in browser.contents
   True

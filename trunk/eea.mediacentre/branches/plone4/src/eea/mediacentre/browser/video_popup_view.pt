@@ -32,40 +32,36 @@
         <li><a class="tabnav" href="#tab-desc" i18n:translate="about-this-video-link">About this video</a></li>
     </ul>
     <div id="tab-desc" tal:define="video_info context/@@video_view">
-        <!-- #TODO plone4 -->
-       <!--<div class="discreet"><tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">-->
-       <!--Show the publishdate only (effective date)-->
-       <!--</tal:publishdate></div>-->
+       <div class="discreet"><tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
+       Show the publishdate only (effective date)
+       </tal:publishdate></div>
         <p id="vid-desc" tal:content="context/Description"></p>
-        <!-- #TODO plone4 -->
 
-        <!--<tal:author condition="video_info/author">-->
-        <!--    <dt>Author:</dt>-->
-        <!--    <dd tal:content="video_info/author">Author</dd>-->
-        <!--</tal:author>-->
+        <tal:author condition="video_info/author">
+            <dt>Author:</dt>
+            <dd tal:content="video_info/author">Author</dd>
+        </tal:author>
     
         
-        <!-- #TODO plone4 -->
-        <!--<div tal:content="structure video_info/rich_description" tal:condition="video_info/rich_description">-->
-        <!--    Rich Description-->
-        <!--</div>-->
+        <div tal:content="structure video_info/rich_description" tal:condition="video_info/rich_description">
+            Rich Description
+        </div>
     </div>
     <div id="tab-vids">
         <div id="vids-slider" class="slider" tal:define="nr_items python:25; fill_limit python:25; imgsize string:image_tile">
             
-            <!-- #TODO plone4 -->
-            <!--<div metal:use-macro="here/document_relateditems/macros/auto-context">-->
-            <!--    show auto related items if they exist-->
-            <!--</div>-->
+            <div metal:use-macro="here/document_relateditems/macros/auto-context">
+                show auto related items if they exist
+            </div>
             <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
             <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
         </div>
     </div>
     <div id="tab-docs">
         <div id="docs-slider" class="slider" tal:define="nr_items python:25; imgsize string:image_tile; portal_type python:['Highlight', 'PressRelease', 'Article']">
-            <!--<div metal:use-macro="here/document_relateditems/macros/auto-context">-->
-            <!--    show auto related items if they exist-->
-            <!--</div>-->
+            <div metal:use-macro="here/document_relateditems/macros/auto-context">
+                show auto related items if they exist
+            </div>
             <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
             <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
         </div>
