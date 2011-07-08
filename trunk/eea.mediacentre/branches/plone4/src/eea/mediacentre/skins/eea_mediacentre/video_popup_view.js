@@ -31,6 +31,9 @@ $(document).ready(function() {
         $('body').html('<img id="ajax-loader" src="/++resource++faceted_images/ajax-loader.gif" />');
     });
     
+    $('a.current').parent().addClass('current_li');
+    
+    $('a.tabnav').click(function() {$('a.tabnav').parent().removeClass('current_li');$('a.current').parent().addClass('current_li');});  
 });
 
 jQuery.fn.extend({
