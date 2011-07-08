@@ -7,6 +7,7 @@ var NUM_ITEMS = 25;
 var PAGE_WIDTH = 600;
 var ITEM_WIDTH = 120;
 
+(function($) {
 $(document).ready(function() {
     // Make ordinary, non video links, open in parent window.
     ignore = ".video-fancybox, #vid-desc-link, #vid-dl-link, .tabnav";
@@ -19,7 +20,8 @@ $(document).ready(function() {
     }
     $("h1").text(caption);
 
-    $("#tabs").tabs();
+    // TODO: plone4
+   $("ul.tabs").tabs("div.panes > div");
     $(".portlet img").reflect();
 
     $("#docs-slider").slidersetup();
@@ -28,6 +30,7 @@ $(document).ready(function() {
     $("#vids-slider a").click(function() {
         $('body').html('<img id="ajax-loader" src="/++resource++faceted_images/ajax-loader.gif" />');
     });
+    
 });
 
 jQuery.fn.extend({
@@ -93,3 +96,4 @@ jQuery.fn.extend({
     }
 });
 
+})(jQuery);

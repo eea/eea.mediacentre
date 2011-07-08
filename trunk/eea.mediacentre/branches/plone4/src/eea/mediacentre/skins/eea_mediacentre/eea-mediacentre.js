@@ -1,3 +1,4 @@
+(function($) {
 $(document).ready(function() {
 
     function prepareVideoLinkURLs() {
@@ -42,3 +43,5 @@ $(document).ready(function() {
     }
 
 });
+
+})(jQuery);
