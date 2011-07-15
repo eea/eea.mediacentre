@@ -1,6 +1,8 @@
 """ Media types
 """
 from Products.ATContentTypes.content.image import ATImage
+from Products.ATContentTypes.interfaces import IATImage
+
 from Products.CMFCore.utils import getToolByName
 from eea.mediacentre.interfaces import IMediaType
 from p4a.video.interfaces import IVideoEnhanced
@@ -56,7 +58,7 @@ class MediaTypesImageAdapter(object):
     """ Media Types Image Adapter
     """
     implements(IMediaType)
-    adapts(ATImage)
+    adapts(IATImage)
 
     def __init__(self, context):
         self.context = context

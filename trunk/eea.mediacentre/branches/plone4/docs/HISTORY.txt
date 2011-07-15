@@ -5,11 +5,7 @@ Changelog
 4.0-dev - (unreleased)
 ----------------------
 
-* TODO: plone4
-  This package has one issue left, when adding a FlashFile, and the hachoir parsers are trying to read the file they are receiving the plone content stream of FlashFile instead of the flash file itself, therefore the flash fails to validate, and the created content ends up without the uploded flash file.
-  Update: the flash file is uploded and you can actually get it by using flashfile/getFile but all of the metadata that the flash file should contain, like width and height and duration isn't extracted from the file.
-  Also you cannot see the image that is uploded for the flash file so this contenttype needs further testing if it's completely ported to Plone 4.
-  [ichimdav]
+* Bugfix: Changed MediaTypesImageAdapter to adapt IATImage instead of ATImage [szabozo0 #4423]
 
 * Feature: Added upgrade steps
   [voineali #4392]
