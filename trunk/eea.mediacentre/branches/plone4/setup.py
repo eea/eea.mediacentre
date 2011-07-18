@@ -44,6 +44,7 @@ setup(name=NAME,
           "valentine.linguaflow",
           "Products.ATVocabularyManager",
           "Products.EEAPloneAdmin",
+          "eea.forms"
           ],
       entry_points="""
       # -*- Entry points: -*-
