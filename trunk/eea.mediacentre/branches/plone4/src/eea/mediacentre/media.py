@@ -13,8 +13,8 @@ from p4a.video.interfaces import IVideoEnhanced
 from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 from eea.themecentre.themecentre import getTheme
-from eea.dataservice.fields.ManagementPlanField import ManagementPlanField
-from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanWidget
+from eea.forms.fields.ManagementPlanField import ManagementPlanField
+from eea.forms.widgets.ManagementPlanWidget import ManagementPlanWidget
 
 def P4AVideoDisplayInfoAdapter(context):
     """ P4A Video Display Info Adapter

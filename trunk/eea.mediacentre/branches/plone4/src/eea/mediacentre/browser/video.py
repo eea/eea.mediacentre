@@ -20,9 +20,9 @@ from Products.EEAContentTypes.subtypes import (
     IGeotagSingleEdit,
     IGeotagMultiEdit
 )
-from eea.dataservice.widgets.ManagementPlanWidget import \
+from eea.forms.widgets.ManagementPlanWidget import \
                                 FormlibManagementPlanWidget
-from eea.dataservice.widgets.ManagementPlanWidget import ManagementPlanCode
+from eea.forms.widgets.ManagementPlanWidget import ManagementPlanCode
 
 def getMediaTypes(obj):
     """ Get Media Types
