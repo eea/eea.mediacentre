@@ -1,6 +1,5 @@
 """ Media types
 """
-from Products.ATContentTypes.content.image import ATImage
 from Products.ATContentTypes.interfaces import IATImage
 
 from Products.CMFCore.utils import getToolByName
