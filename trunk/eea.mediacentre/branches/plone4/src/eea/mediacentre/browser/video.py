@@ -16,10 +16,13 @@ from zope.component import getUtility
 from zope.formlib.form import FormFields
 from zope.interface import Interface, implements
 from eea.geotags.widget.location import FormlibGeotagWidget
-from Products.EEAContentTypes.subtypes import (
-    IGeotagSingleEdit,
-    IGeotagMultiEdit
-)
+
+# Uncomment below is single geotag field is needed
+#from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
+
+# Uncomment below is multiple geotags field is needed
+from Products.EEAContentTypes.subtypes import IGeotagMultiEdit
+
 from eea.forms.widgets.ManagementPlanWidget import \
                                 FormlibManagementPlanWidget
 from eea.forms.widgets.ManagementPlanWidget import ManagementPlanCode
@@ -100,14 +103,15 @@ class ManagementPlanCodeEdit(object):
 class VideoEditForm(vid.VideoEditForm):
     """ Form for editing video fields.
     """
-    form_fields = FormFields(IVideo,
-                              IManagementPlanCodeEdit,
-                              IGeotagSingleEdit)
-    form_fields = FormFields(IVideo,
-                             IManagementPlanCodeEdit)
+    # Uncomment below is single geotag field is needed
+#    form_fields = FormFields(IVideo,
+#                              IManagementPlanCodeEdit,
+#                              IGeotagSingleEdit)
 
     # Uncomment below is multiple geotags field is needed
-    form_fields = FormFields(IVideo, IManagementPlanCodeEdit, IGeotagMultiEdit)
+    form_fields = FormFields(IVideo,
+                              IManagementPlanCodeEdit,
+                              IGeotagMultiEdit)
 
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
