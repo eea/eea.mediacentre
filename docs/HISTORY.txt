@@ -3,7 +3,8 @@ Changelog
 
 0.7-dev - (unreleased)
 ----------------------
-
+ * Change: Enabled multiedit for geotags [szabozo0 #4428]
+ 
 0.6 - (2011-05-25)
 ------------------
  * Feature: implementing IPossibleVideo for ATBlob metatypes [tiberich #4362]
