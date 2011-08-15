@@ -4,16 +4,18 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
-* Change: Enabled geotags multiedit [szabozo0 #4428]
+ * Change: removed the old themes portlet, now part of the main template as viewlet [demarant]
 
-* Change: Included ManagementPlan Field and Widget from eea.forms instead of eea.dataservice [szabozo0 #4423]
+ * Change: Enabled geotags multiedit [szabozo0 #4428]
 
-* Bugfix: Changed MediaTypesImageAdapter to adapt IATImage instead of ATImage [szabozo0 #4423]
+ * Change: Included ManagementPlan Field and Widget from eea.forms instead of eea.dataservice [szabozo0 #4423]
 
-* Feature: Added upgrade steps
+ * Bugfix: Changed MediaTypesImageAdapter to adapt IATImage instead of ATImage [szabozo0 #4423]
+
+ * Feature: Added upgrade steps
   [voineali #4392]
 
-* Feature: Plone 4.x compatible release
+ * Feature: Plone 4.x compatible release
   [ghicaale #4259]
 
 
