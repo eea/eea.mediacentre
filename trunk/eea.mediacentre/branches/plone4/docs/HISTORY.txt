@@ -4,6 +4,8 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+ * Feature: Modified "Edit video metadata" to display schematas bar [szabozo0 #4510]
+ 
  * Change: removed the old themes portlet, now part of the main template as viewlet [demarant]
 
  * Change: Enabled geotags multiedit [szabozo0 #4428]
