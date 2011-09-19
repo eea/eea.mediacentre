@@ -59,7 +59,7 @@ MAIN_VIDEO_TEMPLATE = """
             </div>
 
             <script type="text/javascript">
-            $(document).ready(function() {
+            jQuery(document).ready(function($) {
                 $("#%(videoid)s").flashembed({
                     src:'%(player)s'
                   },

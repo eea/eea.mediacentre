@@ -4,6 +4,8 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+ * Bugfix: fixed IE js errors [szabozo #4542]
+ 
  * Change: fixed the video.pt template to fill content-core instead of main slot.
    [demarant #4541]
  
