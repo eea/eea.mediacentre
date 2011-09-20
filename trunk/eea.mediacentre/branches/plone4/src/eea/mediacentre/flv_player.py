@@ -64,7 +64,7 @@ MAIN_VIDEO_TEMPLATE = """
                     src:'%(player)s'
                   },
                   {
-                    config:%(config)s,
+                    config:%(config)s
                   }
                 );
             });
