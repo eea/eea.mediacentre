@@ -28,7 +28,8 @@ $(document).ready(function() {
                     height: 564,
                     scrolling: 'no',
                     autoScale: false,
-                    autoDimensions: false
+                    autoDimensions: false,
+                    titlePosition: 'wrap'
                 });
             });
         }
