@@ -62,7 +62,7 @@ def getPublishedDate(obj):
     """
     time = obj.EffectiveDate()
     tool = getToolByName(obj, 'translation_service')
-    return tool.ulocalized_time(time, None, obj,
+    return tool.ulocalized_time(time, None, None, obj,
                                 domain='plone')
 
 class IManagementPlanCodeEdit(Interface):

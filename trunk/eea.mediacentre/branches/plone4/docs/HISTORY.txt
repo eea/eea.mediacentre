@@ -4,6 +4,8 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+ * Bugfix: Fixed time format on video view [szabozo0 #4549] 
+ 
  * Bugfix: Fixed layout of video popup view [szabozo0 #4510]
  
  * Bugfix: fixed IE js errors [szabozo0 #4542]
