@@ -10,7 +10,7 @@ from p4a.video.browser import video as vid
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from p4a.video.interfaces import IVideo, IMediaActivator
 from p4a.video.interfaces import IVideoEnhanced
-from zope.app.schema.vocabulary import IVocabularyFactory
+from zope.schema.interfaces import IVocabularyFactory
 from zope.component import adapts
 from zope.component import getUtility
 from zope.formlib.form import FormFields

@@ -8,7 +8,7 @@ from p4a.video.interfaces import IVideoEnhanced
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
 from zope.annotation.interfaces import IAnnotations
-from zope.app.schema.vocabulary import IVocabularyFactory
+from zope.schema.interfaces import IVocabularyFactory
 from zope.component import adapts
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
