@@ -41,6 +41,7 @@ class FLVVideoPlayer(object):
                 'plugins': {
                     'controls': {
                         'autoHide': 'never',
+                        'url': portal_url + '/%2B%2Bresource%2B%2Bflowplayer/flowplayer.controls-3.2.1.swf',
                         }
                     },
                 }
