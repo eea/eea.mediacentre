@@ -162,3 +162,12 @@ ul li {
     padding: 7px 0 5px 10px;
     border: medium none;
 }    
+
+#portal-colophon {
+    background: #FFF;
+    margin: 0px;
+}
+
+#footer-wrapper {
+    margin: 0px;
+}

@@ -4,9 +4,18 @@ jQuery.fn.delay = function(time,func){
     });
 };
 
-$(document).ready(function(){
-    $("#background1").fullBg();
+jQuery(document).ready(function($){
+    var bg = $("#background1"); 
+    bg.hide();
+    bg.fullBg();
+    bg.fadeIn();
     $("#background2").fullBg();
+
+    var footer = $("#visual-portal-wrapper").find(".row").last();
+    footer.detach().appendTo("body");
+    var colophon = $("#portal-colophon");
+    colophon.detach().appendTo("body");
+    
     $(this).delay(1000,function(){  
         $("#title").fadeOut(2000);
         /* $("#visual-portal-wrapper").animate({width:"1024px"},{queue:false, duration:1000, easing:'easeOutCirc'}); */
@@ -21,9 +30,9 @@ $(document).ready(function(){
 function showMediaPlayer(item){
     var thumb_url = item.content.getAttribute('src'),
         video_url = thumb_url.substring(0, thumb_url.length - 12);
-    $("#player-title").html(item.caption.innerHTML);
+    jQuery("#player-title").html(item.caption.innerHTML);
     console.log(video_url);
-    $("#media-flowplayer").flashembed({
+    jQuery("#media-flowplayer").flashembed({
 	    src:'++resource++flowplayer/flowplayer-3.2.2.swf'
         },
         { 
@@ -40,17 +49,17 @@ function showMediaPlayer(item){
 	} 
     );
      
-     var bg = $("#background2");
+     var bg = jQuery("#background2");
      bg.attr('src', thumb_url.replace(/thumb/, "xlarge"));
      bg.fullBg();
-     bg.fadeIn('slow',function(){$('#background1').fadeOut('slow',function(){});});
-     $('#contentFlow').fadeOut('slow',function(){$('#media-player').fadeIn('slow',function(){});});
+     bg.fadeIn('slow',function(){jQuery('#background1').fadeOut('slow',function(){});});
+     jQuery('#contentFlow').fadeOut('slow',function(){jQuery('#media-player').fadeIn('slow',function(){});});
 }
 
 function hideMediaPlayer(){
-    $('#media-player').fadeOut('slow',function(){$('#contentFlow').fadeIn('slow',function(){});});    
-    $('#background1').fadeIn('slow',function(){$('#background2').fadeOut('slow',function(){
-    var media_flowplayer = $('#media-flowplayer');
+    jQuery('#media-player').fadeOut('slow',function(){jQuery('#contentFlow').fadeIn('slow',function(){});});    
+    jQuery('#background1').fadeIn('slow',function(){jQuery('#background2').fadeOut('slow',function(){
+    var media_flowplayer = jQuery('#media-flowplayer');
 	    media_flowplayer.html("Please enable javascript or upgrade to <a href='http://www.adobe.com/go/getflashplayer'/> to watch the video.");
 	    media_flowplayer.find('a').html("Flash 9");
 	});
