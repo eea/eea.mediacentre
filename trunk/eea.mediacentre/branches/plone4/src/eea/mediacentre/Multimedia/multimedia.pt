@@ -27,7 +27,7 @@
 	#visual-portal-wrapper{
 	    min-width:976px;
 	    max-width:none;
-//	    width:98% !important;
+	   /* width:98% !important; */
 	}
 	.multimedia-widget {
 	    width:48%;
@@ -60,7 +60,7 @@
 	    text-align:center;
 	}
 	#multimedia-widgets{
-//	    height:640px;
+	    /* height:640px; */
 	    height:250px;
 	    position:relative;
 	    overflow:hidden;
@@ -154,7 +154,7 @@
 	    $("#bottom-widgets").animate({top:"320px"},{queue:false, duration:1000, easing:'easeInOutBack'});
 	});
 
-        jQuery( '#flip' ).jcoverflip({
+        jQuery('#flip').jcoverflip({
           current: 2,
           beforeCss: function( el, container, offset ){
             return [
@@ -171,7 +171,7 @@
           currentCss: function( el, container ){
             return [
               $.jcoverflip.animationElement( el, { left: ( container.width( )/2 - 100 )+'px', bottom: 0 }, { } ),
-              $.jcoverflip.animationElement( el.find( 'img' ), { width: '200px' }, { } )
+              $.jcoverflip.animationElement( el.find('img'), {width: '200px'}, { } )
             ];
           },
           change: function(event, ui){
@@ -184,7 +184,7 @@
           stop: function(event, ui) {
             if(event.originalEvent) {
               var newVal = Math.round(ui.value/25);
-              jQuery( '#flip' ).jcoverflip( 'current', newVal );
+              jQuery('#flip').jcoverflip('current', newVal);
               jQuery('#scrollbar').slider('value', newVal*25);
             }
           }

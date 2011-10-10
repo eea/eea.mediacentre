@@ -814,18 +814,18 @@ $.widget( 'ui.jcoverflip', {
 		
 		
 		// default action
-		$.widget.prototype.destroy.apply( this, arguments );
+		$.Widget.prototype.destroy.apply( this, arguments );
 	},
 	
 	
 	enable: function( ){
-		$.widget.prototype.enable.apply( this, arguments );
+		$.Widget.prototype.enable.apply( this, arguments );
 		this._trigger( 'enable', {} );
 	},
 		
 	
 	disable: function( ){
-		$.widget.prototype.disable.apply( this, arguments );
+		$.Widget.prototype.disable.apply( this, arguments );
 		this._trigger( 'disable', {} );
 	},
 	
@@ -834,7 +834,7 @@ $.widget( 'ui.jcoverflip', {
 		
 		// getter
 		if( typeof value == 'undefined' ){
-			return $.widget.prototype.option.apply( this, arguments );
+			return $.Widget.prototype.option.apply( this, arguments );
 		}
 		
 		// setter
@@ -863,7 +863,7 @@ $.widget( 'ui.jcoverflip', {
 		}
 		
 		// Default action
-		return $.widget.prototype.option.apply( this, arguments );
+		return $.Widget.prototype.option.apply( this, arguments );
 	},
 	
 	
@@ -1038,7 +1038,7 @@ $.widget( 'ui.jcoverflip', {
 
 
 
-$.ui.jcoverflip.defaults = {
+$.ui.jcoverflip.prototype.options = {
 	items: '',
 	beforeCss: function( el, container, offset ){
 		return [
