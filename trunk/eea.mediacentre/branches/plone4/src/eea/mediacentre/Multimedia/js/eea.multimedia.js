@@ -22,23 +22,29 @@ function showMediaPlayer(item){
     var thumb_url = item.content.getAttribute('src'),
         video_url = thumb_url.substring(0, thumb_url.length - 12);
     $("#player-title").html(item.caption.innerHTML);
+    console.log(video_url);
     $("#media-flowplayer").flashembed({
 	    src:'++resource++flowplayer/flowplayer-3.2.2.swf'
         },
         { 
             config:{
-	        'videoFile': video_url,
-            'autoPlay': false,
-            'loop': false,
+	        clip: { 
+            'url' : video_url,
             'autoBuffering': true,
+            'autoPlay': false,
+            'loop': false 
+            },
             'useNativeFullScreen': true,
             'initialScale': 'fit'
 	    }
 	} 
     );
-     $("#background2").attr('src', thumb_url.replace(/thumb/, "xlarge"))
-                      .fadeIn('slow',function(){$('#background1').fadeOut('slow',function(){});});
-    $('#contentFlow').fadeOut('slow',function(){$('#media-player').fadeIn('slow',function(){});});
+     
+     var bg = $("#background2");
+     bg.attr('src', thumb_url.replace(/thumb/, "xlarge"));
+     bg.fullBg();
+     bg.fadeIn('slow',function(){$('#background1').fadeOut('slow',function(){});});
+     $('#contentFlow').fadeOut('slow',function(){$('#media-player').fadeIn('slow',function(){});});
 }
 
 function hideMediaPlayer(){
