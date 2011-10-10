@@ -3,54 +3,50 @@ jQuery.fn.delay = function(time,func){
         setTimeout(func,time);
     });
 };
+
 $(document).ready(function(){
     $("#background1").fullBg();
     $("#background2").fullBg();
-    
     $(this).delay(1000,function(){  
         $("#title").fadeOut(2000);
         $("#visual-portal-wrapper").animate({width:"100%"},{queue:false, duration:1000, easing:'easeOutCirc'});
-    });
-    $(this).delay(3000,function(){  
+    }).delay(3000,function(){  
         $("#multimedia-widgets").animate({height:"640px"},{queue:false, duration:500, easing:'easeOutCirc'});
-    });
-
-    $(this).delay(3500,function(){  
+    }).delay(3500,function(){  
         $("#top-widgets").animate({top:"0px"},{queue:false, duration:1000, easing:'easeInOutBack'});
         $("#bottom-widgets").animate({top:"430px"},{queue:false, duration:1000, easing:'easeInOutBack'});
     });
 }); 
 
 function showMediaPlayer(item){
-    thumb_url = item.content.getAttribute('src');
-    video_url = thumb_url.substring(0, thumb_url.length - 12);
+    var thumb_url = item.content.getAttribute('src'),
+        video_url = thumb_url.substring(0, thumb_url.length - 12);
     $("#player-title").html(item.caption.innerHTML);
     $("#media-flowplayer").flashembed({
-	    src:'++resource++flowplayer/FlowPlayerLight.swf'
+	    src:'++resource++flowplayer/flowplayer-3.2.2.swf'
         },
         { 
             config:{
 	        'videoFile': video_url,
-		'autoPlay': false,
-		'loop': false,
-		'autoBuffering': true,
-		'useNativeFullScreen': true,
-		'initialScale': 'fit'
+            'autoPlay': false,
+            'loop': false,
+            'autoBuffering': true,
+            'useNativeFullScreen': true,
+            'initialScale': 'fit'
 	    }
 	} 
     );
-
-    $('#background2').attr('src',item.content.getAttribute('src'));
-    $("#background2").fullBg();
-    $('#background2').fadeIn('slow',function(){$('#background1').fadeOut('slow',function(){});});	    
+     $("#background2").attr('src', thumb_url.replace(/thumb/, "xlarge"))
+                      .fadeIn('slow',function(){$('#background1').fadeOut('slow',function(){});});
     $('#contentFlow').fadeOut('slow',function(){$('#media-player').fadeIn('slow',function(){});});
 }
 
 function hideMediaPlayer(){
     $('#media-player').fadeOut('slow',function(){$('#contentFlow').fadeIn('slow',function(){});});    
     $('#background1').fadeIn('slow',function(){$('#background2').fadeOut('slow',function(){
-	    $('#media-flowplayer').html("Please enable javascript or upgrade to <a href='http://www.adobe.com/go/getflashplayer'/> to watch the video.");
-	    $('#media-flowplayer > a').html("Flash 9");
+    var media_flowplayer = $('#media-flowplayer');
+	    media_flowplayer.html("Please enable javascript or upgrade to <a href='http://www.adobe.com/go/getflashplayer'/> to watch the video.");
+	    media_flowplayer.find('a').html("Flash 9");
 	});
     });
 }
