@@ -1,10 +1,10 @@
-body{
-    background: transparent !important;
-    min-width:994px;
-}
+/* body{ */
+/*     background: transparent !important; */
+/*     min-width:994px; */
+/* } */
 
 
-#belowContent {
+#belowContent, #viewlet-above-content {
     display:none;
 }
 
@@ -15,8 +15,8 @@ body{
 
 
 #visual-portal-wrapper{
-    min-width:1001px;
-    max-width:none;
+    /* min-width:1001px; */
+    /* max-width:none; */
 }
 
 
@@ -142,17 +142,6 @@ ul li {
     position: absolute;
     left: 20px;
     right: 20px;
-}
-
-	
-#colophon-wrapper{
-    padding-top:1em;
-    background-color:white;
-}
-
-
-#portal-footer{
-    margin:0px;
 }
 
     

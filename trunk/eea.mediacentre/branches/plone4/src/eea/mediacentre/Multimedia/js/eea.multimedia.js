@@ -9,7 +9,7 @@ $(document).ready(function(){
     $("#background2").fullBg();
     $(this).delay(1000,function(){  
         $("#title").fadeOut(2000);
-        $("#visual-portal-wrapper").animate({width:"100%"},{queue:false, duration:1000, easing:'easeOutCirc'});
+        /* $("#visual-portal-wrapper").animate({width:"1024px"},{queue:false, duration:1000, easing:'easeOutCirc'}); */
     }).delay(3000,function(){  
         $("#multimedia-widgets").animate({height:"640px"},{queue:false, duration:500, easing:'easeOutCirc'});
     }).delay(3500,function(){  
