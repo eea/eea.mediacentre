@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="mediacentre">
+<head>
+    <title>Information about the Media centre</title>
+</head>
+<body>
+<div metal:fill-slot="main">
+    <p>
+    Media Centre is a virtual repository of multimedia files. It can be
+    videos, interviews, maps, animations, images etc. The repository right
+    now contains:
+    </p>
+
+    <p>
+        <tal:block tal:repeat="data view/getMediaStats">
+        <span tal:replace="data/type" />: <span tal:replace="data/count" />
+        <br />
+        </tal:block>
+    </p>
+
+    <p>
+    Media Centre relies on plugins. Each plugin handles a set of media
+    types and knows how to retrieve media files/data from the repository
+    it handles. When Media Centre is asked for all videos that are
+    available it will forward the question to all registered plugins and
+    will then merge the results.
+    </p>
+
+    <p>
+    Registered plugins:
+    </p>
+    <ul>
+        <li tal:repeat="plugin view/getPluginNames"
+            tal:content="plugin" />
+    </ul>
+
+</div>
+</body>
+</html>

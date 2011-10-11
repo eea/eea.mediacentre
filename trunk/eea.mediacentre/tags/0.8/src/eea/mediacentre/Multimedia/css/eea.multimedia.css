@@ -1,0 +1,175 @@
+body{
+    background: transparent !important;
+    min-width:994px;
+}
+
+
+#belowContent {
+    display:none;
+}
+
+
+#content {
+    margin:0 0 0 0 !important;
+}
+
+
+#visual-portal-wrapper{
+    min-width:1001px;
+    max-width:none;
+}
+
+
+.multimedia-widget {
+    width:265px;
+    height:100%;
+    border:3px solid black;
+    margin-bottom:20px;
+    display:block;
+    float:left;
+}
+
+
+.empty-widget {
+    background-color:#555555;
+    opacity:0.4;	
+}
+
+
+#top-widgets {
+    margin-top:10px;
+    top:-420px;
+    height:400px;
+    position:absolute;	
+    width:100%;
+}
+
+
+#bottom-widgets {
+    top:1140px;
+    height:200px;
+    position:absolute;	
+    width:100%;
+}
+
+
+.left-widget {
+    width:675px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+
+#title{
+    margin-top:100px;
+    font-size:5em;
+    text-align:center;
+}
+
+
+#multimedia-widgets{
+    height:250px;
+    position:relative;
+    overflow:hidden;
+}
+
+
+#sliders{
+    overflow:hidden;
+}
+
+
+.ui-jcoverflip {
+    position: relative;
+}
+
+      
+.ui-jcoverflip--item {
+    position: absolute;
+    display: block;
+}
+      
+
+#flip {
+    height: 200px;
+    margin-bottom: 50px;
+}
+      
+
+#flip .ui-jcoverflip--title {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    text-align: center;
+    color: #555;
+}
+      
+
+#flip img {
+    display: block;
+    border: 0;
+    outline: none;
+}
+
+      
+#flip a {
+    outline: none;
+}
+
+      
+#wrapper {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+      
+.ui-jcoverflip--item {
+    cursor: pointer;
+}
+
+      
+ul,
+ul li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style-type: none;
+}
+      
+
+#scrollbar {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+}
+
+	
+#colophon-wrapper{
+    padding-top:1em;
+    background-color:white;
+}
+
+
+#portal-footer{
+    margin:0px;
+}
+
+    
+.fullBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index:-1;
+}
+
+
+#player-title {
+    background-color:#E8E8E8;
+    color: black;
+    font-size: 1em;
+    margin: 0;
+    padding: 7px 0 5px 10px;
+    border: medium none;
+}    
