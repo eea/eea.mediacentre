@@ -27,7 +27,7 @@ class FLVVideoPlayer(object):
 
         #videoobj = interfaces.IVideo(contentobj)
         downloadurl = contentobj.absolute_url()
-        videoid = 'video' + contentobj.getId().replace('.','')
+        videoid = 'video' + contentobj.getId().replace('.','').replace(' ', '-')
 
         # See flowplayer.org site for available options
         config = {

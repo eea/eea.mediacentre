@@ -4,6 +4,8 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+ * Bug fix: enable playing of videos with spaces in their name [tiberich]
+
  * Bugfix: Fixed time format on video view [szabozo0 #4549] 
  
  * Bugfix: Fixed layout of video popup view [szabozo0 #4510]
