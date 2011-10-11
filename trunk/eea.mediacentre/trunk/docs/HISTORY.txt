@@ -3,6 +3,7 @@ Changelog
 
 0.8-dev - (unreleased)
 ----------------------
+ * Bug fix: fix video play of files that have a space inside them [tiberich]
 
 0.7 - (2011-09-07)
 ------------------
