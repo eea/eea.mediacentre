@@ -8,4 +8,13 @@
              id="eea-mediacentre.js"
              inline="False"
              position-after="eea-fancybox.js"/>
+ <javascript cacheable="True"
+             compression="safe"
+             cookable="True"
+             enabled="True"
+             expression=""
+             id="eea.multimedia.js"
+             inline="False"
+             position-after="eea-mediacentre.js"/>
+
 </object>

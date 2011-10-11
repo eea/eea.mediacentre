@@ -5,9 +5,12 @@
  <object name="eea_mediacentre" meta_type="Filesystem Directory View"
      directory="eea.mediacentre:skins/eea_mediacentre"/>
 
+    <object name="eea_multimedia" meta_type="Filesystem Directory View"
+        directory="eea.mediacentre:skins/eea_multimedia" />
+
  <skin-path name="*">
-  <layer name="eea_mediacentre" insert-after="custom" />
-  <layer name="ATVocabularyManager"/>
+  <layer name="eea_mediacentre" insert-before="custom" />
+  <layer name="eea_multimedia" insert-before="custom" />
  </skin-path>
 
 </object>
