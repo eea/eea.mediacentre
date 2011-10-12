@@ -4,7 +4,9 @@
             setTimeout(func,time);
         });
     };
-
+    $(window).load(function() {
+        $("#background1").fullBg();
+    });
     jQuery(document).ready(function($){
 
         var bg = $("#background1"), 
@@ -15,9 +17,6 @@
         multimedia_widgets = $("#multimedia-widgets"),
         top_widgets  = $("#top-widgets"),
         bottom_widgets = $("#bottom-widgets");
-        bg.hide();
-        bg.fullBg();
-        bg.fadeIn();
         bg2.fullBg();
 
         var footer = $("#visual-portal-wrapper").find(".row").last();

@@ -14,7 +14,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                 <script src="++resource++jquery.flashembed-0.31.js" type="text/javascript"></script>
                 <script language="JavaScript" type="text/javascript" src="++resource++js/ContentFlow/contentflow.js" load="EEA"></script>
 
-                <img src="++resource++eea.background.jpg" id="background1" />
+                <img src="++resource++eea.background.jpg" id="background1" style="display: none" />
                 <img id="background2" style="display:none;"/>
 
                 <div id="multimedia-widgets">
