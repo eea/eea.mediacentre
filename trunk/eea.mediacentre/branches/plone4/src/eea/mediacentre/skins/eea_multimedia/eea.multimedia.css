@@ -4,6 +4,7 @@
 
 #content {
     margin:0 !important;
+    padding: 0;
 }
 
 #title{
@@ -22,9 +23,8 @@ h1#player-title {
 }    
 
 .multimedia-widget {
-    width:305px;
+    width:350px;
     height:100%;
-    border:3px solid black;
     margin-bottom:20px;
     display:block;
     float:left;
@@ -51,8 +51,8 @@ h1#player-title {
 }
 
 .left-widget {
-    width:675px;
-    margin-right:20px;
+    width:650px;
+    margin-right:24px;
 }
 
 #multimedia-widgets{
@@ -126,3 +126,7 @@ ul, ul li {
     margin: 0px;
 }
 
+/* elements from other pages */
+#tag-cloud {
+    height: 335px;
+}

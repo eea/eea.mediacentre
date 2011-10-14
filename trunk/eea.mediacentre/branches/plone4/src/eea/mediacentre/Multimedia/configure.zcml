@@ -19,7 +19,7 @@
   <browser:resource name="jquery.jcoverflip.js"
                     file="js/jquery.jcoverflip.js" />
 
-  <browser:page name="Multimedia.html"
+  <browser:page name="multimedia"
                 template="multimedia.pt"
                 for="*"
                 class=".multimedia.Multimedia"
