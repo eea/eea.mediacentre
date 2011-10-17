@@ -7,7 +7,7 @@
         id="eea.multimedia.css"
         media="all" rel="stylesheet" rendering="link"
         cacheable="True" compression="safe" cookable="True"
-        enabled="1" expression="python:'Multimedia.html' in request.URL0"
+        enabled="1" expression="python:'videopage' in request.URL0"
         position-after="ploneCustom.css"
         />
 
