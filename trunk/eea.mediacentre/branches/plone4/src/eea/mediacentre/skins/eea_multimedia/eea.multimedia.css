@@ -64,6 +64,12 @@ h1#player-title {
 #multimedia-coverflow {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
     position:relative;
+    box-shadow: 0 2px 2px #000;
+    -webkit-box-shadow: 0 2px 2px #000;
+    -moz-box-shadow: 0 2px 2px #000;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
 }
 
 #media-player {
@@ -80,6 +86,12 @@ h1#player-title {
 
 #multimedia-vids {
     overflow: auto;
+    box-shadow: 0 2px 2px #000;
+    -webkit-box-shadow: 0 2px 2px #000;
+    -moz-box-shadow: 0 2px 2px #000;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
 }
 
 #fancybox-close {
