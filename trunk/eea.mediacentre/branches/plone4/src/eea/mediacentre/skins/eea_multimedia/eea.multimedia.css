@@ -52,7 +52,7 @@ h1#player-title {
 
 .left-widget {
     width:650px;
-    margin-right:24px;
+    margin:0 24px 0 0;
 }
 
 #multimedia-widgets{
@@ -62,7 +62,7 @@ h1#player-title {
 }
 
 #multimedia-coverflow {
-    background-color:#000000;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
     position:relative;
 }
 
@@ -112,9 +112,35 @@ ul, ul li {
     z-index:-1;
 }
 
-.highlights {
-    background: #FFF;
-    background-color: rgba(255, 255, 255, 0.7);
+ul#tabs {
+   background: transparent;
+   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+}
+
+ul#tabs li a {
+   //background: #000;
+   //background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+} 
+
+ul#tabs li a.current, ul#tabs li a:hover {
+   background: #888;
+   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.15);
+   color: white;
+   text-shadow: 1px 1px 1px #000000;
+} 
+
+
+#faceted-form .faceted-widget {
+    color: #fff;
+    background: transparent;
+}
+
+
+
+#whatsnew-gallery .highlights, #tag-cloud {
+    color: #fff;
+    background: #888;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 #footer-wrapper {
