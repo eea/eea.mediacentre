@@ -9,8 +9,8 @@
         directory="eea.mediacentre:skins/eea_multimedia" />
 
  <skin-path name="*">
-  <layer name="eea_mediacentre" insert-before="custom" />
-  <layer name="eea_multimedia" insert-before="custom" />
+  <layer name="eea_multimedia" insert-after="custom" />
+  <layer name="eea_mediacentre" insert-after="eea_design" />
  </skin-path>
 
 </object>

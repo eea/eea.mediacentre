@@ -129,4 +129,5 @@ ul, ul li {
 /* elements from other pages */
 #tag-cloud {
     height: 335px;
+    margin-top: -3px;
 }

@@ -34,6 +34,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     <div class="globalCaption"></div>
                                     <div class="scrollbar">
                                         <div class="slider">
+                                            <div class="position"></div>
                                         </div>
                                     </div>
 

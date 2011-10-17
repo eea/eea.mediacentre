@@ -74,7 +74,13 @@
         });
     });
 
-    var myNewFlow = new ContentFlow('contentFlow',{onclickActiveItem:function(item){showMediaPlayer(item);}});
+    var myNewFlow = new ContentFlow('contentFlow',{
+           onclickActiveItem:function(item){showMediaPlayer(item);},
+           scaleFactor : 2.0,
+           reflectionHeight: 0,
+
+    });
 
 }); 
 })(jQuery);
+

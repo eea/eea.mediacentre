@@ -4,7 +4,7 @@
              compression="safe"
              cookable="True"
              enabled="True"
-             expression="python:'videopage' in request.URL0"
+             expression=""
              id="eea-mediacentre.js"
              inline="False"
              position-after="eea-fancybox.js"/>
@@ -12,7 +12,7 @@
              compression="safe"
              cookable="True"
              enabled="True"
-             expression=""
+             expression="python:'videopage' in request.URL0"
              id="eea.multimedia.js"
              inline="False"
              position-after="eea-mediacentre.js"/>
