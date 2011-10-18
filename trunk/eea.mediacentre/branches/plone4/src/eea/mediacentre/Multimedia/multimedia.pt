@@ -108,7 +108,8 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="multimedia-map" class="multimedia-widget empty-widget"></div>
+                                <div id="multimedia-map" class="multimedia-widget empty-widget">
+                                </div>
                             </div>
                         </div>
                     </div>
