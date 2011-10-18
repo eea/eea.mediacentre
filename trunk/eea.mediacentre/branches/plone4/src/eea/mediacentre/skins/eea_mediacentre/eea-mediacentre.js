@@ -9,7 +9,8 @@ $(document).ready(function() {
             href = href + "/video_popup_view";
             this.href = href; 
             var isInsidePopUp = $('body').hasClass('video_popup_view');
-            var video_page = window.location.href.indexOf('videopage') != '-1' ? true : undefined;
+            var coverflow = $("#multimedia-coverflow"),
+                video_page = coverflow.length > 0 ? 1 : 0;
             var options = {
                     type: 'iframe',
                     padding: 0,
@@ -22,7 +23,7 @@ $(document).ready(function() {
                     centerOnScroll : false
             };
             if (video_page) {
-                var mult = $("#multimedia-coverflow").offset();
+                var mult = coverflow.offset();
                 options.width = 650;
                 options.onStart = function() {
                     $.fancybox.center = function() { return false;};

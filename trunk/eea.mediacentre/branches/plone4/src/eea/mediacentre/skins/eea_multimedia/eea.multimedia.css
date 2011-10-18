@@ -103,15 +103,15 @@ h1#player-title {
 }
 
 #media-player {
-    width:675px;
-    height:400px;
+    width:650px;
+    height:375px;
     background-color:#FFFFFF;
     position:relative; 
 }
 
 #media-flowplayer {
     width:100%;
-    height:373px;
+    height:360px;
 }
 
 #multimedia-vids {
