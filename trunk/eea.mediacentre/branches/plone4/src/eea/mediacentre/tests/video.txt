@@ -4,23 +4,23 @@ RDF portlets in a multilingual folder
 A swedish themecentre, an english feed folder, a swedish RSSFeedRecipe
 and an english RSSFeedRecipe are already set up for us.
 
-  >>> from Testing.testbrowser import Browser
-  >>> browser = Browser()
-  >>> browser.handleErrors = False
-  >>> browser.open('http://nohost/plone/login_form')
-  >>> browser.getControl('Login Name').value = 'manager'
-  >>> browser.getControl('Password').value = 'secret'
-  >>> browser.getControl('Log in').click()
+    >>> from Testing.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    >>> browser.open('http://nohost/plone/login_form')
+    >>> browser.getControl('Login Name').value = 'manager'
+    >>> browser.getControl('Password').value = 'secret'
+    >>> browser.getControl('Log in').click()
 
 Make a basic test and make sure the view tab loads successfully.
 
-  >>> dummy=browser.open('http://nohost/plone/barsandtones/view')
+    >>> dummy=browser.open('http://nohost/plone/barsandtones/view')
 
 Open the edit tab and make sure it loads successfully. Also check
 that the rich_description field uses kupu.
 
-  >>> browser.open('http://nohost/plone/barsandtones/edit')
-  >>> 'rich_description' in browser.contents
-  True
-  >>> 'mce_editable' in browser.contents
-  True
+    >>> browser.open('http://nohost/plone/barsandtones/edit')
+    >>> 'rich_description' in browser.contents
+    True
+    >>> 'mce_editable' in browser.contents
+    True
