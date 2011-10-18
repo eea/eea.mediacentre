@@ -2,7 +2,7 @@
 """
 from Products.PloneTestCase import PloneTestCase
 from Products.PloneTestCase.layer import onsetup
-from Products.Five import zcml
+from Zope2.App import zcml
 from Products.Five import fiveconfigure
 import eea.mediacentre
 

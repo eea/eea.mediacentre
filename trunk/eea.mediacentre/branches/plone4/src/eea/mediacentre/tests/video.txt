@@ -4,7 +4,7 @@ RDF portlets in a multilingual folder
 A swedish themecentre, an english feed folder, a swedish RSSFeedRecipe
 and an english RSSFeedRecipe are already set up for us.
 
-  >>> from Products.Five.testbrowser import Browser
+  >>> from Testing.testbrowser import Browser
   >>> browser = Browser()
   >>> browser.handleErrors = False
   >>> browser.open('http://nohost/plone/login_form')
