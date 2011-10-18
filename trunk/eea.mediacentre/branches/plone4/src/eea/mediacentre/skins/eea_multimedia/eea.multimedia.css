@@ -31,21 +31,51 @@ h1#player-title {
 }
 
 .empty-widget {
-    background-color:#555555;
-    opacity:0.4;	
+    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.6);
 }
 
 #top-widgets {
     margin-top:10px;
     top:-420px;
-    height:335px;
+    height:385px;
     position:relative;	
     width:100%;
 }
 
+#top-widgets a.moreLink,
+#bottom-widgets a.moreLink {
+    color: #FFFFFF !important;
+}
+
+#top-widgets #topright-widgets.multimedia-widget .advanced-search-link {
+    padding: 0 !important;
+    margin-right: 25px;
+    color: #FFFFFF !important;
+    border-bottom: 1px solid #FFFFFF !important;
+}
+
+#top-widgets #topright-widgets.multimedia-widget .advanced-search-link:hover {
+    cursor: pointer;
+    border-bottom: none;
+}
+
+#top-widgets #topright-widgets.multimedia-widget #tag-cloud #faceted-form .widget-fieldset legend {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#top-widgets #topright-widgets #tag-cloud #faceted-form ul.tags-cloud {
+    width: 300px;
+}
+
+#top-widgets #topright-widgets #tag-cloud #faceted-form ul.tags-cloud li,
+#top-widgets #topright-widgets #tag-cloud #faceted-form ul.tags-cloud li a {
+    color: #FFFFFF !important;
+}
+
 #bottom-widgets {
     top:1140px;
-    height:335px;
+    height:386px;
     position: relative;	
     width:100%;
 }
@@ -62,7 +92,7 @@ h1#player-title {
 }
 
 #multimedia-coverflow {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.6);
     position:relative;
     box-shadow: 0 2px 2px #000;
     -webkit-box-shadow: 0 2px 2px #000;
@@ -95,7 +125,7 @@ h1#player-title {
 
 #multimedia-vids #multimedia-highlights {
     overflow: auto;
-    height: 283px;
+    height: 334px;
     -webkit-border-radius: 0 0 10px 10px;
        -moz-border-radius: 0 0 10px 10px;
         -ms-border-radius: 0 0 10px 10px;
@@ -115,6 +145,7 @@ h1#player-title {
 
 #multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry {
     height: 120px;
+    width: 128px;
     padding: 0;
     margin: 3px;
     -webkit-box-shadow: none;
@@ -135,6 +166,10 @@ h1#player-title {
     margin: 0;
     height: 120px;
     width: 128px;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry .photoAlbumEntryTitle {
+    color: #FFFFFF;
 }
 
 #multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper {
@@ -179,7 +214,7 @@ ul, ul li {
 }
 
 .featured {
-   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+   background: none repeat scroll 0 0 rgba(52, 111, 131, 0.6);
    box-shadow: 0 2px 2px #000000;
    -webkit-box-shadow: 0 2px 2px #000000;
    -moz-box-shadow: 0 2px 2px #000000;
@@ -200,14 +235,15 @@ ul, ul li {
 }
 
 .multimedia-widget #tag-cloud {
-   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+   background: transparent;
+   color: #FFFFFF;
    box-shadow: 0 2px 2px #000000;
    -webkit-box-shadow: 0 2px 2px #000000;
    -moz-box-shadow: 0 2px 2px #000000;
        -webkit-border-radius: 10px;
        -moz-border-radius: 10px;
             border-radius: 10px;
-   padding:1em 2em;
+   padding: 10px 20px;
    }
 
 .multimedia-widget #faceted-form .widget-fieldset legend {
@@ -219,17 +255,11 @@ ul, ul li {
 
 ul#tabs {
    background: transparent;
-   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+   background: none repeat scroll 0 0 rgba(52, 111, 131, 0.3);
 }
 
-ul#tabs li a {
-   //background: #000;
-   //background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
-} 
-
 ul#tabs li a.current, ul#tabs li a:hover {
-   background: #888;
-   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.15);
+   background: none repeat scroll 0 0 rgba(52, 111, 131, 0.4);
    color: white;
    text-shadow: 1px 1px 1px #000000;
 } 
@@ -238,8 +268,7 @@ ul#tabs li a.current, ul#tabs li a:hover {
 
 #whatsnew-gallery .highlights {
     color: #fff;
-    background: #888;
-    background-color: rgba(0, 0, 0, 0.3);
+    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.6);
 }
 
 #footer-wrapper {
@@ -253,7 +282,8 @@ ul#tabs li a.current, ul#tabs li a:hover {
 
 /* elements from other pages */
 #tag-cloud {
-    height: 210px;
+    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.6);
+    height: 265px;
     margin-top: -17px;
 }
 
