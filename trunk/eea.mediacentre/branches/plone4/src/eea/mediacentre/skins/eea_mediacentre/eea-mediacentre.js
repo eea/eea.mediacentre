@@ -8,6 +8,7 @@ $(document).ready(function() {
             href = href.replace(regex, ''); // remove any trailing '/view' or '/'
             href = href + "/video_popup_view";
             this.href = href; 
+            var parent = this;
             var isInsidePopUp = $('body').hasClass('video_popup_view');
             var coverflow = $("#multimedia-coverflow"),
                 video_page = coverflow.length > 0 ? 1 : 0;
@@ -23,7 +24,11 @@ $(document).ready(function() {
                     centerOnScroll : false
             };
             if (video_page) {
-                var mult = coverflow.offset();
+                var mult = coverflow.offset(),
+                    bg = window.whatsnew.multimedia.bg,
+                    bg2 = window.whatsnew.multimedia.bg2,
+                    thumb_url = $(parent).find('img')[0].src;
+
                 options.width = 650;
                 options.onStart = function() {
                     $.fancybox.center = function() { return false;};
@@ -32,7 +37,15 @@ $(document).ready(function() {
                         left: mult.left - 18,
                         top: mult.top - 18
                     }, 200);   
+                    
+                        bg2.attr('src', thumb_url.replace(/thumb/, "xlarge"));
+                        bg2.fullBg();
+                        bg2.fadeIn('slow',function(){bg.fadeOut('slow',function(){});});
                 };            
+                options.onCleanup = function(){
+                    bg.show();
+                    bg2.hide();
+                };
             }
             if (!isInsidePopUp) {
                     $(this).fancybox( options );
@@ -56,4 +69,5 @@ $(document).ready(function() {
 });
 
 })(jQuery);
+
 
