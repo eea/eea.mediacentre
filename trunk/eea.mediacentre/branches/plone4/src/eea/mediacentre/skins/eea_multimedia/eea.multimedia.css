@@ -4,7 +4,7 @@
 
 #content {
     margin:0 !important;
-    padding: 0;
+    padding: 0 !important;
 }
 
 #title{
@@ -201,4 +201,9 @@ ul#tabs li a.current, ul#tabs li a:hover {
 #tag-cloud {
     height: 210px;
     margin-top: -17px;
+}
+
+#faceted-form li.selected {
+    background-color: #F6A800;
+    color: white !important;
 }
