@@ -39,24 +39,24 @@
             $("#cross-site-top, #portal-header, #footer-wrapper, #portal-colophon").slideUp('fast');
 
             // unbind any events from the tag cloud items
-            var tags = $("#tag-cloud-content").find('li');
+            var tags = $("#c8").find('li');
             tags.unbind();
             // remove default theme vocabulary item from tags
-            $('#c8default').remove();
+            /* $('#c8default').remove(); */
             $('#c8all').text("All topics").addClass('selected');
             
             // changes the results of the whatsnewgallery when clicking on
             // a theme 
             tags.click(function(){
-                var tag_id = this.id.substr(2),
-                    sel_value = tag_id === 'all' ? undefined : tag_id,
+                var tag_title = this.title,
+                    sel_value = tag_title === 'All' ? undefined : tag_title,
                     sel_text = this.innerHTML,
                     index;
                 tags.filter('.selected').removeClass('selected');
                 this.className = "selected";
                 var tabs = $("#tabs"),
                     cur_tab_val = tabs.find('a').filter('.current')[0].id.substr(4);
-                window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index);
+                window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
             });
         });
 
