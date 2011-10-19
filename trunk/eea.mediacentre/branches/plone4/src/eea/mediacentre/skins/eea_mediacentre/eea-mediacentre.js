@@ -27,7 +27,10 @@ $(document).ready(function() {
                 var mult = coverflow.offset(),
                     bg = window.whatsnew.multimedia.bg,
                     bg2 = window.whatsnew.multimedia.bg2,
-                    thumb_url = $(parent).find('img')[0].src;
+                    $parent = $(parent),
+                    src = $parent.find('img');
+                // if the parent can't find the img then we have listing view 
+                var thumb_url = src.length !== 0 ? src[0].src : $parent.closest('div').prev().children()[0].src;
 
                 options.width = 650;
                 options.onStart = function() {
