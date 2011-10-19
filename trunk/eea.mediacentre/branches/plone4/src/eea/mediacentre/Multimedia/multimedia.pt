@@ -45,25 +45,8 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     <div id="media-flowplayer" class="embeddedvideo">
                                         Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
                                     </div>
-
-
-    <div id="tab-vids">
-        <div id="vids-slider" class="slider" tal:define="nr_items python:25; fill_limit python:25; imgsize string:image_tile">
-            <div metal:use-macro="here/document_relateditems/macros/auto-context">
-                show auto related items if they exist
-            </div>
-            <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
-            <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
-        </div>
-    </div>
-
-<p id="vid-title" tal:content="context/Title">Video Title</p>
-<a href="#" id="bookmark-link" class="footer" tal:define="url context/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>
-<a href="#" id="vid-dl-link" class="footer" tal:attributes="href context/absolute_url" i18n:translate="video-download-link">Download</a>
-<a href="#" id="more-vids-link" class="footer" tal:attributes="href string:$portal_url/multimedia" i18n:translate="mediacentre-link">More videos</a>
-                                </div>
-
                             </div>
+                        </div>
                             <div id="topright-widgets" class="multimedia-widget">
 				<!-- data and maps global search -->
 				<a href="all-videos" class="archives advanced-search-link" style="padding-right:10px;" title="Go to advanced search">

@@ -143,9 +143,10 @@ h1#player-title {
 }
 
 #multimedia-vids #multimedia-highlights ul.gallery-layout-selection {
-    position: absolute;
-    top: 30px;
-    margin-left: 60px;
+    position: relative;
+    top: -26px;
+    margin: 0px;
+    right: -15px;
 }
 
 /* Album view */
