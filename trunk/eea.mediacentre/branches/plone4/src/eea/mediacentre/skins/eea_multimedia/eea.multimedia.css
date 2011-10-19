@@ -47,6 +47,11 @@ h1#player-title {
     color: #FFFFFF !important;
 }
 
+#top-widgets a.moreLink:hover,
+#bottom-widgets a.moreLink:hover {
+    text-decoration: underline !important;
+}
+
 #top-widgets #topright-widgets.multimedia-widget .advanced-search-link {
     padding: 0 !important;
     margin-right: 25px;
@@ -56,7 +61,7 @@ h1#player-title {
 
 #top-widgets #topright-widgets.multimedia-widget .advanced-search-link:hover {
     cursor: pointer;
-    border-bottom: none;
+    border-bottom: none !important;
 }
 
 #top-widgets #topright-widgets.multimedia-widget #faceted-form #tag-cloud  .widget-fieldset legend {
@@ -143,6 +148,7 @@ h1#player-title {
     margin-left: 60px;
 }
 
+/* Album view */
 #multimedia-vids #multimedia-highlights .gallery-album {
     width: 536px;
 }
@@ -185,6 +191,40 @@ h1#player-title {
 #multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
     position: relative;
     top: -29px;
+}
+
+/* Listing view */
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem {
+    width: 536px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage {
+    overflow: hidden;
+    height: 71px;
+    border: none !important;
+    margin-bottom: 0 !important;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage img {
+    position: relative;
+    top: -29px;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileContent .tileHeadline {
+    text-shadow: 1px 1px black !important;
+    color: #FFFFFF;
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileContent .tileHeadline a {
+    color: #FFFFFF !important;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileContent .date {
+    color: #FFFFFF;
 }
 
 #fancybox-close {
