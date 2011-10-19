@@ -102,6 +102,9 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         <div metal:use-macro="here/frontpage_macros/macros/multimedia">
                                             multimedia highlights
                                         </div>
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                            animations highlights
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="multimedia-map" class="multimedia-widget empty-widget">

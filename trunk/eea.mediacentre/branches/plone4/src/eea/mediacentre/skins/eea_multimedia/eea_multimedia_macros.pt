@@ -1,0 +1,8 @@
+<div metal:define-macro="animations"
+     id="animations-highlights"
+     class="highlights"
+     tal:define="hide_listing python: True;
+                 hide_album python: False;
+                 more_href string:animations;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+</div>
