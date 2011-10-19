@@ -197,14 +197,23 @@ h1#player-title {
 #multimedia-vids #multimedia-highlights .gallery-listing .tileItem {
     width: 536px;
     position: relative;
-    margin: 0 auto;
+    margin: 1em auto;
+    padding: 0;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem:first-child {
+    margin: 0 auto !important;
 }
 
 #multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage {
     overflow: hidden;
     height: 71px;
     border: none !important;
-    margin-bottom: 0 !important;
+    margin: 3px 1em 0 0 !important;
+}
+
+#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage:hover {
+    border: none !important;
 }
 
 #multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage img {
@@ -216,7 +225,7 @@ h1#player-title {
     text-shadow: 1px 1px black !important;
     color: #FFFFFF;
     margin-bottom: 0;
-    padding-bottom: 0 !important;
+    padding: 0 !important;
 }
 
 #multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileContent .tileHeadline a {
