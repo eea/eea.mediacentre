@@ -41,7 +41,8 @@ class FLVVideoPlayer(object):
                 'plugins': {
                     'controls': {
                         'autoHide': 'never',
-                        'url': portal_url + '/%2B%2Bresource%2B%2Bflowplayer/flowplayer.controls-3.2.1.swf',
+                        'url': portal_url + \
+                '/%2B%2Bresource%2B%2Bflowplayer/flowplayer.controls-3.2.1.swf',
                         }
                     },
                 }
@@ -56,7 +57,9 @@ class FLVVideoPlayer(object):
 MAIN_VIDEO_TEMPLATE = """
         <div class="flowplayer">
             <div id="%(videoid)s" class="embeddedvideo">
-                Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a> to watch the video.
+                Please enable javascript or upgrade to
+                <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a>
+                to watch the video.
             </div>
 
             <script type="text/javascript">

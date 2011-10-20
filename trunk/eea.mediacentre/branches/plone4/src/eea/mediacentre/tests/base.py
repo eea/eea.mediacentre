@@ -30,7 +30,8 @@ def setup_mediacentre():
     PloneTestCase.installPackage('p4a.subtyper')
 
 setup_mediacentre()
-PloneTestCase.setupPloneSite(extension_profiles=('eea.themecentre:default','eea.mediacentre:default'))
+PloneTestCase.setupPloneSite(extension_profiles=(
+    'eea.themecentre:default','eea.mediacentre:default'))
 
 class MediaCentreTestCase(PloneTestCase.FunctionalTestCase):
     """ A test case for mediacentres.
