@@ -237,6 +237,10 @@ h1#player-title {
     color: #FFFFFF;
 }
 
+#multimedia-vids .highlights .portletFooter {
+    padding: 0.5em !important;
+}
+
 #fancybox-close {
     display: inline;
     border: 0px;
