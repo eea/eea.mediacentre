@@ -318,7 +318,7 @@ ul#tabs {
 
 ul#tabs li a.current, ul#tabs li a:hover {
    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.4);
-   color: white;
+   color: #F6A800;
    text-shadow: 1px 1px 1px #000000;
 } 
 
