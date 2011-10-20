@@ -327,6 +327,14 @@ ul#tabs li a.current, ul#tabs li a:hover {
     background: none repeat scroll 0 0 rgba(52, 111, 131, 0.6);
 }
 
+.filter-topic {
+    width: 77%;
+    padding-top: 0px;
+    margin: 0px !important;
+    position: relative;
+    top: 291px;
+}
+
 #footer-wrapper {
     margin: 0px;
 }
