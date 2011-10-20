@@ -49,7 +49,7 @@
             // a theme 
             tags.click(function(){
                 var tag_title = this.title,
-                    sel_value = tag_title === 'All' ? undefined : tag_title,
+                    sel_value = tag_title === 'All' ? '' : tag_title,
                     sel_text = this.innerHTML,
                     index;
                 tags.filter('.selected').removeClass('selected');

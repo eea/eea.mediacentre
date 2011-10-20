@@ -85,10 +85,10 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                 <a href="#" id="tab-multimedia" i18n:translate="">All</a>
                                             </li>
                                             <li>
-                                                <a href="#" id="tab-videoclips" i18n:translate="">Video Clips</a>
+                                                <a href="#" id="tab-animations" i18n:translate="">Animations</a>
                                             </li>
                                             <li>
-                                                <a href="#" id="tab-animations" i18n:translate="">Animations</a>
+                                                <a href="#" id="tab-videoclips" i18n:translate="">Video Clips</a>
                                             </li>
                                             <li>
                                                 <a href="#" id="tab-imagegalleries" i18n:translate="">Image Galleries</a>
