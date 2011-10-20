@@ -45,6 +45,18 @@
             /* $('#c8default').remove(); */
             $('#c8all').text("All topics").addClass('selected');
 
+        $("#animations-highlights").delegate("a", "hover", function(){
+            var animations = $("#animations-highlights").find('a').filter('.animation-fancybox');
+            console.log(animations);
+            animations.click( function(){
+                var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
+                media_flowplayer.flashembed({
+                        src: swf_href
+                });
+                media_player.fadeIn('slow');
+                return false;
+            });
+        });
             // changes the results of the whatsnewgallery when clicking on
             // a theme
             tags.click(function(){
