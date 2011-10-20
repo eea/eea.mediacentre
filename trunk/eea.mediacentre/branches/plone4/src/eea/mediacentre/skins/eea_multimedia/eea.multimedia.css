@@ -128,7 +128,7 @@ h1#player-title {
             border-radius: 10px;
 }
 
-#multimedia-vids #multimedia-highlights {
+#multimedia-vids .highlights {
     height: 303px;
     -webkit-border-radius: 0 0 10px 10px;
        -moz-border-radius: 0 0 10px 10px;
@@ -137,12 +137,12 @@ h1#player-title {
             border-radius: 0 0 10px 10px;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-ajax {
+#multimedia-vids .highlights .gallery-ajax {
     height: 250px;
     overflow: auto;
 }
 
-#multimedia-vids #multimedia-highlights ul.gallery-layout-selection {
+#multimedia-vids .highlights ul.gallery-layout-selection {
     position: relative;
     top: -26px;
     margin: 0px;
@@ -150,11 +150,11 @@ h1#player-title {
 }
 
 /* Album view */
-#multimedia-vids #multimedia-highlights .gallery-album {
+#multimedia-vids .highlights .gallery-album {
     width: 536px;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry {
+#multimedia-vids .highlights .gallery-album .photoAlbumEntry {
     height: 120px;
     width: 128px;
     padding: 0;
@@ -173,67 +173,67 @@ h1#player-title {
     border: none;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry a {
+#multimedia-vids .highlights .gallery-album .photoAlbumEntry a {
     margin: 0;
     height: 120px;
     width: 128px;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry .photoAlbumEntryTitle {
+#multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryTitle {
     color: #FFFFFF;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper {
+#multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper {
     overflow: hidden;
     height: 71px;
     margin: 0;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
+#multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
     position: relative;
     top: -29px;
 }
 
 /* Listing view */
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem {
+#multimedia-vids .highlights .gallery-listing .tileItem {
     width: 536px;
     position: relative;
     margin: 1em auto;
     padding: 0;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem:first-child {
-    margin: 0 auto !important;
+#multimedia-vids .highlights .gallery-listing .tileItem:first-child {
+    margin: 0 auto 1em auto !important;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage {
+#multimedia-vids .highlights .gallery-listing .tileItem .tileImage {
     overflow: hidden;
     height: 71px;
     border: none !important;
     margin: 3px 1em 0 0 !important;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage:hover {
+#multimedia-vids .highlights .gallery-listing .tileItem .tileImage:hover {
     border: none !important;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileImage img {
+#multimedia-vids .highlights .gallery-listing .tileItem .tileImage img {
     position: relative;
     top: -29px;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileContent .tileHeadline {
+#multimedia-vids .highlights .gallery-listing .tileItem .tileContent .tileHeadline {
     text-shadow: 1px 1px black !important;
     color: #FFFFFF;
     margin-bottom: 0;
     padding: 0 !important;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileContent .tileHeadline a {
+#multimedia-vids .highlights .gallery-listing .tileItem .tileContent .tileHeadline a {
     color: #FFFFFF !important;
 }
 
-#multimedia-vids #multimedia-highlights .gallery-listing .tileItem .tileContent .date {
+#multimedia-vids .highlights .gallery-listing .tileItem .tileContent .date {
     color: #FFFFFF;
 }
 
