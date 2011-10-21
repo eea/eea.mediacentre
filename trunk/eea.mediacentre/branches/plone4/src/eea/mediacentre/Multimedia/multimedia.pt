@@ -26,9 +26,19 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 <div id="contentFlow" class="ContentFlow">
                                     <div class="loadIndicator"><div class="indicator"></div></div>
                                     <div class="flow">
-                                        <div class="item" tal:repeat="video view/videos">
-                                            <img class="content" tal:attributes="src string:${video/url}/image_thumb"/>
-                                            <div class="caption" tal:content="string:${video/title}"></div>
+                                        <div class="item">
+                                                <img class="content" id="artic" tal:attributes="src string:films/ourarcticchallenge/image_thumb"
+                                                rel="http://vimeo.com/moogaloop.swf?clip_id=18778572" />
+                                            <div class="caption">One degree matters</div>
+                                        </div>
+                                        <div class="item">
+                                            <img class="content" tal:attributes="src string:films/one-degreematters/image_thumb"
+                                            id="degree" rel="http://vimeo.com/moogaloop.swf?clip_id=8119882" />
+                                            <div class="caption">Our arctic challenge</div>
+                                        </div>
+                                        <div class="item">
+                                            <img class="content" tal:attributes="src string:/themes/economy/multimedia/which-steps-will-bring-us/image_thumb" />
+                                            <div class="caption">Which steps will bring us forward on the road to a Green economy?</div>
                                         </div>
                                     </div>
                                     <div class="globalCaption"></div>

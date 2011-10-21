@@ -45,6 +45,32 @@
             $('#c10default').remove();
             $('#c10all').text("All topics").addClass('selected');
 
+            $("#artic, #degree").click(function() {
+                    $.fancybox({
+                            'padding'		: 0,
+                            'autoScale'		: false,
+                            'transitionIn'	: 'none',
+                            'transitionOut'	: 'none',
+                            'title'			: this.title,
+                            'overlayShow'   : false,
+                            'width'		    : 650,
+                            'height'		: 400,
+                            'href'			: $(this).attr('rel'),
+                            'type'			: 'swf',
+                            'swf'			: {
+                                 'wmode'		: 'transparent',
+                                'allowfullscreen'	: 'true'
+                            },
+                            'onStart' : function() {
+                                $.fancybox.center = function() { return false;};
+                                $('html, body').animate({scrollTop: 0}, 200);
+                                $("#fancybox-wrap").css({position : 'absolute'}).animate({
+                                    left: 262,
+                                    top: 42 
+                                }, 200);}            
+                    });
+            });
+
         $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
             var $this = $(this);
             $this.click( function(){
@@ -84,24 +110,26 @@
             var thumb_url = item.content.src,
                 video_url = thumb_url.substring(0, thumb_url.length - 12);
             player_title.innerHTML = item.caption.innerHTML;
-            media_flowplayer.flashembed(
-                {
-                    src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
-                },
-                {
-                    config:{
-                        clip: {
-                            'url' : video_url,
-                            'autoBuffering': true,
-                            'autoPlay': false,
-                            'loop': false
-                        },
-                        'useNativeFullScreen': true,
-                        'initialScale': 'fit'
-                    }
-                });
+            if ( video_url.indexOf('artic') != '-1' || video_url.indexOf('degree') ) {
+                media_flowplayer.flashembed(
+                    {
+                        src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
+                    },
+                    {
+                        config:{
+                            clip: {
+                                'url' : video_url,
+                                'autoBuffering': true,
+                                'autoPlay': false,
+                                'loop': false
+                            },
+                            'useNativeFullScreen': true,
+                            'initialScale': 'fit'
+                        }
+                    });
 
              content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
+            }
         }
 
         // closes the fancybox window
