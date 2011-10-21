@@ -107,20 +107,22 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="multimedia-map" class="multimedia-widget empty-widget">
+                                <div id="multimedia-map" class="multimedia-widget">
                                     <div class="featured">
                                         <h2>Featured Films</h2>
                                         <div class="featured-left">
                                             <a href="#">
                                                 <img src="multimedia/films/one-degreematters/image_thumb" />
                                             </a>
-                                        <h3>One degree matters</h3>
+                                            <h3><a href="#">One degree matters</a></h3>
+                                            <a href="films/one-degreematters/view" class="moreLink">Read More</a>
                                         </div>
                                         <div class="featured-left">
                                             <a href="#">
                                                 <img src="multimedia/films/ourarcticchallenge/image_thumb" />
                                             </a>
-                                        <h3>Our arctic challenge</h3>
+                                            <h3> <a href="#">Our arctic challenge</a> </h3>
+                                            <a href="films/ourarcticchallenge/view" class="moreLink">Read More</a>
                                         </div>
                                     </div>
                                 </div>
