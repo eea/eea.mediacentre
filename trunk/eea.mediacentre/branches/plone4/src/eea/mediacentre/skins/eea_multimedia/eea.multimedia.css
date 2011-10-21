@@ -111,7 +111,8 @@ h1#player-title {
     width:650px;
     height:375px;
     background-color:#FFFFFF;
-    position:relative; 
+    position:absolute; 
+    z-index: 1000;
 }
 
 #media-flowplayer {

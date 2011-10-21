@@ -13,16 +13,16 @@
     jQuery(document).ready(function($){
         window.whatsnew.multimedia = { };
         var mult = window.whatsnew.multimedia;
-        mult.bg = $("#background1");
-        mult.bg2 = $("#background2");
-        content_flow = $("#contentFlow");
-        media_player = $("#media-player");
-        media_flowplayer = $("#media-flowplayer");
-        multimedia_widgets = $("#multimedia-widgets");
-        top_widgets  = $("#top-widgets");
-        bottom_widgets = $("#bottom-widgets");
+            mult.bg = $("#background1");
+            mult.bg2 = $("#background2");
+        var content_flow = $("#contentFlow"),
+            media_player = $("#media-player"),
+            media_flowplayer = $("#media-flowplayer"),
+            multimedia_widgets = $("#multimedia-widgets"),
+            top_widgets  = $("#top-widgets"),
+            bottom_widgets = $("#bottom-widgets");
         mult.bg2.fullBg();
-
+        var player_title = document.getElementById("player-title");
         // move the footer and colophon out of visual-portal-wrapper
         var footer = $("#visual-portal-wrapper").find(".row").last();
         footer.detach().appendTo("body");
@@ -39,31 +39,41 @@
             $("#cross-site-top, #portal-header, #footer-wrapper, #portal-colophon").slideUp('fast');
 
             // unbind any events from the tag cloud items
-            var tags = $("#c8").find('li');
+            var tags = $("#c10").find('li');
             tags.unbind();
             // remove default theme vocabulary item from tags
-            /* $('#c8default').remove(); */
-            $('#c8all').text("All topics").addClass('selected');
+            $('#c10default').remove();
+            $('#c10all').text("All topics").addClass('selected');
 
-        $("#animations-highlights").delegate("a", "hover", function(){
-            var animations = $("#animations-highlights").find('a').filter('.animation-fancybox');
-            console.log(animations);
-            animations.click( function(){
+        $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
+            $(this).click( function(){
                 var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
+                player_title.innerHTML = this.title;
                 media_flowplayer.flashembed({
                         src: swf_href
                 });
                 media_player.fadeIn('slow');
+                var mult = content_flow.offset();
+                $('html, body').animate({scrollTop: 0}, 200);
+                media_player.animate({
+                    left: 0,
+                    top: 0
+                }, 2000);   
+                content_flow.fadeOut('slow');
                 return false;
             });
         });
             // changes the results of the whatsnewgallery when clicking on
             // a theme
             tags.click(function(){
-                var tag_title = this.title,
-                    sel_value = tag_title === 'All' ? '' : tag_title,
+                // this code is for tags 
+                // var tag_title = this.title,
+                //     sel_value = tag_title === 'All' ? '' : tag_title,
+                var tag_id = this.id.substr(3),
+                    sel_value = tag_title === 'all' ? '' : tag_id,
                     sel_text = this.innerHTML,
-                    index;
+                    index,
+                    tag_title;
                 tags.filter('.selected').removeClass('selected');
                 this.className = "selected";
                 var tabs = $("#tabs"),
@@ -77,7 +87,7 @@
         function showMediaPlayer(item){
             var thumb_url = item.content.src,
                 video_url = thumb_url.substring(0, thumb_url.length - 12);
-            jQuery("#player-title").html(item.caption.innerHTML);
+            player_title.innerHTML = item.caption.innerHTML;
             media_flowplayer.flashembed(
                 {
                     src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
@@ -110,7 +120,6 @@
         // contentFlow configurations
         var myNewFlow = new ContentFlow('contentFlow',{
                onclickActiveItem:function(item){showMediaPlayer(item);},
-               scaleFactor : 2.0,
                reflectionHeight: 0
         });
 
