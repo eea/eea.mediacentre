@@ -46,9 +46,10 @@
             $('#c10all').text("All topics").addClass('selected');
 
         $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
-            $(this).click( function(){
+            var $this = $(this);
+            $this.click( function(){
                 var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
-                player_title.innerHTML = this.title;
+                player_title.innerHTML = $this.attr('alt');
                 media_flowplayer.flashembed({
                         src: swf_href
                 });
