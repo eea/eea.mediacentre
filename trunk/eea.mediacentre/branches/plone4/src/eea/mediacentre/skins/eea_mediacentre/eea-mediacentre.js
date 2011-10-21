@@ -33,6 +33,7 @@ $(document).ready(function() {
                 var thumb_url = src.length !== 0 ? src[0].src : $parent.closest('div').prev().children()[0].src;
 
                 options.width = 650;
+                options.height = 387;
                 options.overlayShow = false;
                 options.onStart = function() {
                     $.fancybox.center = function() { return false;};

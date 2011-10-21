@@ -31,55 +31,60 @@
 
 <div style="clear:both"></div>
 
-<div id="tabs" style="height:148px;">
-    <ul class="tabs">
-        <li><a class="tabnav" href="#" i18n:translate="videos-link">Related videos</a></li>
-        <li><a class="tabnav" href="#" i18n:translate="news-link">News and articles</a></li>
-        <li><a class="tabnav" href="#" i18n:translate="about-this-video-link">About this video</a></li>
-    </ul>
-</div>
-<div class="panes">
-    <div id="tab-vids">
-        <div id="vids-slider" class="slider" tal:define="nr_items python:25; fill_limit python:25; imgsize string:image_tile">
-            <div metal:use-macro="here/document_relateditems/macros/auto-context">
-                show auto related items if they exist
-            </div>
-            <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
-            <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
-        </div>
+<metal:cond tal:define="request nocall: context/REQUEST; fromrequest python: request.get_header('referer')" tal:condition="python:'videopage' not in fromrequest">
+    <div id="tabs" style="height:148px;">
+        <ul class="tabs">
+            <li><a class="tabnav" href="#" i18n:translate="videos-link">Related videos</a></li>
+            <li><a class="tabnav" href="#" i18n:translate="news-link">News and articles</a></li>
+            <li><a class="tabnav" href="#" i18n:translate="about-this-video-link">About this video</a></li>
+        </ul>
     </div>
-    <div id="tab-docs">
-        <div id="docs-slider" class="slider" tal:define="nr_items python:25; imgsize string:image_tile; portal_type python:['Highlight', 'PressRelease', 'Article']">
+    <div class="panes">
 
-            <div metal:use-macro="here/document_relateditems/macros/auto-context">
-                show auto related items if they exist
-            </div>
-            <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
-            <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
+
+<div id="tab-vids">
+
+    <div id="vids-slider" class="slider" tal:define="nr_items python:25; fill_limit python:25; imgsize string:image_tile">
+        <div metal:use-macro="here/document_relateditems/macros/auto-context">
+            show auto related items if they exist
         </div>
+        <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
+        <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
     </div>
-    <div id="tab-desc" tal:define="video_info context/@@video_view" style="top:430px;position:absolute;height:100px;overflow:auto;">
-       <div class="discreet"><tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
-       Show the publishdate only (effective date)
-       </tal:publishdate></div>
+</div>
+<div id="tab-docs">
+    <div id="docs-slider" class="slider" tal:define="nr_items python:25; imgsize string:image_tile; portal_type python:['Highlight', 'PressRelease', 'Article']">
+
+        <div metal:use-macro="here/document_relateditems/macros/auto-context">
+            show auto related items if they exist
+        </div>
+        <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
+        <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
+    </div>
+</div>
+<div id="tab-desc" tal:define="video_info context/@@video_view" style="top:430px;position:absolute;height:100px;overflow:auto;">
+    <div class="discreet"><tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
+        Show the publishdate only (effective date)
+        </tal:publishdate></div>
         <p id="vid-desc" tal:content="context/Description"></p>
 
         <tal:author condition="video_info/author">
-            <dt>Author:</dt>
-            <dd tal:content="video_info/author">Author</dd>
+        <dt>Author:</dt>
+        <dd tal:content="video_info/author">Author</dd>
         </tal:author>
-    
-        
+
+
         <div tal:content="structure video_info/rich_description" tal:condition="video_info/rich_description">
             Rich Description
         </div>
     </div>
 </div>
-
-<p id="vid-title" tal:content="context/Title">Video Title</p>
 <a href="#" id="bookmark-link" class="footer" tal:define="url context/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>
 <a href="#" id="vid-dl-link" class="footer" tal:attributes="href context/absolute_url" i18n:translate="video-download-link">Download</a>
 <a href="#" id="more-vids-link" class="footer" tal:attributes="href string:$portal_url/multimedia" i18n:translate="mediacentre-link">More videos</a>
+
+</metal:cond>
+<p id="vid-title" tal:content="context/Title">Video Title</p>
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
