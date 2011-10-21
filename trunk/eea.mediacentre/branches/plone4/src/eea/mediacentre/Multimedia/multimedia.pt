@@ -108,22 +108,35 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     </div>
                                 </div>
                                 <div id="multimedia-map" class="multimedia-widget">
-                                    <div class="featured">
-                                        <h2>Featured Films</h2>
-                                        <div class="featured-left">
-                                            <a href="#">
-                                                <img src="multimedia/films/one-degreematters/image_thumb" />
-                                            </a>
-                                            <h3><a href="#">One degree matters</a></h3>
-                                            <a href="films/one-degreematters/view" class="moreLink">Read More</a>
-                                        </div>
-                                        <div class="featured-left">
-                                            <a href="#">
-                                                <img src="multimedia/films/ourarcticchallenge/image_thumb" />
-                                            </a>
-                                            <h3> <a href="#">Our arctic challenge</a> </h3>
-                                            <a href="films/ourarcticchallenge/view" class="moreLink">Read More</a>
-                                        </div>
+                                    <div class="featured"
+                                        tal:define="plone_view nocall:plone_view|context/@@plone;">
+                                        <h2 class="column-title">Featured Films</h2>
+					<div class="featured-holder">
+					    <div class="featured-highlights">
+						<div class="figure-left">
+						    <a href="#">
+							<img src="multimedia/films/one-degreematters/image_thumb" />
+						    </a>
+						</div>
+						<h3 class="highlight">
+						    <a href="#">One degree matters</a>
+						</h3>
+						<p>One degree matters' follows social and business leaders as they travel to Greenland and experience for themselves the dramatic effects of the...</p>
+						<p><a href="films/one-degreematters/view" class="moreLink">Read More</a></p>
+					    </div>
+					    <div class="featured-highlights">
+						<div class="figure-left">
+						    <a href="#">
+							<img src="multimedia/films/ourarcticchallenge/image_thumb" />
+						    </a>
+						</div>
+						<h3 class="highlight">
+						    <a href="#">Our arctic challenge</a>
+						</h3>
+						<p>Jacqueline McGlade, Executive Director of the European Environment Agency (EEA), and three of her colleagues have chosen to be part of an extraordinary journey in...</p>
+						<p><a href="films/ourarcticchallenge/view" class="moreLink">Read More</a></p>
+					    </div>
+					</div>
                                     </div>
                                 </div>
                             </div>

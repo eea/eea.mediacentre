@@ -14,14 +14,14 @@
         window.whatsnew.multimedia = { };
         var mult = window.whatsnew.multimedia;
             mult.bg = $("#background1");
-            mult.bg2 = $("#background2");
+            /* mult.bg2 = $("#background2"); */
         var content_flow = $("#contentFlow"),
             media_player = $("#media-player"),
             media_flowplayer = $("#media-flowplayer"),
             multimedia_widgets = $("#multimedia-widgets"),
             top_widgets  = $("#top-widgets"),
             bottom_widgets = $("#bottom-widgets");
-        mult.bg2.fullBg();
+        /* mult.bg2.fullBg(); */
         var player_title = document.getElementById("player-title");
         // move the footer and colophon out of visual-portal-wrapper
         var footer = $("#visual-portal-wrapper").find(".row").last();
@@ -52,15 +52,9 @@
                 media_flowplayer.flashembed({
                         src: swf_href
                 });
-                media_player.fadeIn('slow');
+                content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
                 var mult = content_flow.offset();
                 $('html, body').animate({scrollTop: 0}, 200);
-                media_player.animate({
-                    left: 0,
-                    top: 0,
-                    opacity: 1
-                }, 500).fadeIn('slow');   
-                content_flow.fadeOut('slow');
                 return false;
             });
         });
@@ -106,22 +100,12 @@
                     }
                 });
 
-             mult.bg2.attr('src', thumb_url.replace(/thumb/, "xlarge"));
-             mult.bg2.fullBg();
-             mult.bg2.fadeIn('slow',function(){mult.bg.fadeOut('slow',function(){});});
-             content_flow.fadeOut('slow',function(){media_player.css({'top': 0, 'opacity' : 1}).fadeIn('slow',function(){});});
+             content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
         }
 
         // closes the fancybox window
         $("#fancybox-close").click(function(){
-            /* media_player.fadeOut('fast',function(){content_flow.fadeIn('slow',function(){});}); */
-                media_player.animate({
-                    left: 0,
-                    top: 405,
-                    opacity: 0
-                }, 500).fadeOut();   
-                content_flow.fadeIn('slow');
-            mult.bg.fadeIn('slow',function(){mult.bg2.fadeOut('slow');});
+            media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
         });
 
         // contentFlow configurations

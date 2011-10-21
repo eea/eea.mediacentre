@@ -277,6 +277,7 @@ ul, ul li {
    box-shadow: 0 2px 2px #000000;
    -webkit-box-shadow: 0 2px 2px #000000;
    -moz-box-shadow: 0 2px 2px #000000;
+   color: #FFFFFF !important;
 }
 
 .featured h2 {
@@ -284,8 +285,36 @@ ul, ul li {
    text-shadow: 0 2px 2px #000;
 }
 
+.featured-holder {
+    overflow: auto;
+    height: 300px;
+}
+
 .multimedia-widget #faceted-text-search input[type="text"] {
    width: 210px;
+}
+
+#multimedia-map .featured {
+    padding: 1em 1em 1em 2em;
+}
+
+#multimedia-map .featured h2,
+#multimedia-map .featured h3,
+#multimedia-map .featured h2 a,
+#multimedia-map .featured h3 a {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px #000000;
+    border: none !important;
+}
+
+#multimedia-map .featured h2 a,
+#multimedia-map .featured h3 a {
+    text-decoration: underline !important;
+}
+
+#multimedia-map .featured h2 a:hover,
+#multimedia-map .featured h3 a:hover {
+    text-decoration: none !important;
 }
 
 #faceted-form .faceted-widget {
@@ -356,3 +385,4 @@ ul#tabs li a.current, ul#tabs li a:hover {
     background-color: #F6A800;
     color: white !important;
 }
+

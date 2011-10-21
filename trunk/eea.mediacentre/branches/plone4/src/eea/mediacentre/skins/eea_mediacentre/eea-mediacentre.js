@@ -42,14 +42,7 @@ $(document).ready(function() {
                         top: mult.top - 18
                     }, 200);   
                     
-                        bg2.attr('src', thumb_url.replace(/thumb/, "xlarge"));
-                        bg2.fullBg();
-                        bg2.fadeIn('slow',function(){bg.fadeOut('slow',function(){});});
                 };            
-                options.onCleanup = function(){
-                    bg.show();
-                    bg2.hide();
-                };
             }
             if (!isInsidePopUp) {
                     $(this).fancybox( options );
