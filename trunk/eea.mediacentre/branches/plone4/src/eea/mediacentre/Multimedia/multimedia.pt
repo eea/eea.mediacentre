@@ -76,7 +76,8 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 		    
 					</div> 
 					<div class="portletFooter">
-					    <p><a href="all-videos" class="moreLink" title="archive">Explore all tags
+
+					    <p><a href="tags" class="moreLink" title="Explore all tags">Explore all tags
 						</a>
 					    </p>
 					</div>
