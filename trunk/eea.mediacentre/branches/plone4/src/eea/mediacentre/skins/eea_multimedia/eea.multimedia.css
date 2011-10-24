@@ -32,6 +32,8 @@ h1#player-title {
 
 .empty-widget {
     background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
 }
 
 #top-widgets {
@@ -98,6 +100,8 @@ h1#player-title {
 
 #multimedia-coverflow {
     background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
     position:relative;
     box-shadow: 0 2px 2px #000;
     -webkit-box-shadow: 0 2px 2px #000;
@@ -274,6 +278,8 @@ ul, ul li {
 
 .featured {
    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
    box-shadow: 0 2px 2px #000000;
    -webkit-box-shadow: 0 2px 2px #000000;
    -moz-box-shadow: 0 2px 2px #000000;
@@ -344,10 +350,14 @@ ul, ul li {
 ul#tabs {
    background: transparent;
    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.3);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c346f83, endColorstr=#4c346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c346f83, endColorstr=#4c346f83)";
 }
 
 ul#tabs li a.current, ul#tabs li a:hover {
    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
    color: #F6A800;
    text-shadow: 1px 1px 1px #000000;
 } 
@@ -355,6 +365,8 @@ ul#tabs li a.current, ul#tabs li a:hover {
 #whatsnew-gallery .highlights {
     color: #fff;
     background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
 }
 
 .filter-topic {
@@ -382,6 +394,8 @@ ul#tabs li a.current, ul#tabs li a:hover {
 /* elements from other pages */
 #tag-cloud {
     background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
     height: 265px;
     margin-top: -17px;
 }
