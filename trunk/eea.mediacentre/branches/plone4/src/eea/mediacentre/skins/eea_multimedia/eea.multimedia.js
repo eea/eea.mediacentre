@@ -110,7 +110,7 @@
             var thumb_url = item.content.src,
                 video_url = thumb_url.substring(0, thumb_url.length - 12);
             player_title.innerHTML = item.caption.innerHTML;
-            if ( video_url.indexOf('artic') != '-1' || video_url.indexOf('degree') ) {
+            if ( video_url.indexOf('films') === -1) {
                 media_flowplayer.flashembed(
                     {
                         src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
