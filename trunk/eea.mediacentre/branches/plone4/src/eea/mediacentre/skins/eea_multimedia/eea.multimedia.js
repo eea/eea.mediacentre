@@ -63,11 +63,12 @@
                             },
                             'onStart' : function() {
                                 $.fancybox.center = function() { return false;};
+                                var c_f_offset = content_flow.offset();
                                 $('html, body').animate({scrollTop: 0}, 200);
-                                $("#fancybox-wrap").css({position : 'absolute'}).animate({
-                                    left: 262,
-                                    top: 42 
-                                }, 200);}            
+                                $("#fancybox-wrap").css({position : 'absolute', display: 'none'}).animate({
+                                    left: c_f_offset.left -19,
+                                    top: c_f_offset.top - 19,
+                                }, 500).fadeIn('slow');}            
                     });
             });
 
@@ -120,7 +121,7 @@
                             clip: {
                                 'url' : video_url,
                                 'autoBuffering': true,
-                                'autoPlay': false,
+                                'autoPlay': true,
                                 'loop': false
                             },
                             'useNativeFullScreen': true,

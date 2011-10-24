@@ -251,6 +251,10 @@ h1#player-title {
     border: 0px;
 }
 
+#fancybox-outer {
+    background: #000;
+}
+
 #sliders{
     overflow:hidden;
 }
