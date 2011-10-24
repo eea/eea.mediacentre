@@ -121,7 +121,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 <div id="multimedia-map" class="multimedia-widget">
                                     <div class="featured"
                                         tal:define="plone_view nocall:plone_view|context/@@plone;">
-                                        <h2 class="column-title">By location</h2>
+                                        <h2>By location</h2>
                                         <div class="featured-holder">
                                             <img src="interactive-map.png" />
                                         </div>

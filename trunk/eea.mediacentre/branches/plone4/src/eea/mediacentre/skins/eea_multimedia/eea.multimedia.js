@@ -11,6 +11,8 @@
     });
 
     jQuery(document).ready(function($){
+        var faceted_form = $("#faceted-form");
+        faceted_form.hide();
         window.whatsnew.multimedia = { };
         var mult = window.whatsnew.multimedia;
             mult.bg = $("#background1");
@@ -37,40 +39,15 @@
         }).delay(3500,function(){
             $("#top-widgets, #bottom-widgets").animate({top:"0px"},{queue:false, duration:1000, easing:'easeInOutBack'});
             $("#cross-site-top, #portal-header, #footer-wrapper, #portal-colophon").slideUp('fast');
-
+            // show faceted_form after the animation of the multimedia items to
+            // avoid it appearing when the title is animating
+            faceted_form.show();
             // unbind any events from the tag cloud items
             var tags = $("#c10").find('li');
             tags.unbind();
             // remove default theme vocabulary item from tags
             $('#c10default').remove();
             $('#c10all').text("All topics").addClass('selected');
-
-            $("#artic, #degree").click(function() {
-                    $.fancybox({
-                            'padding'		: 0,
-                            'autoScale'		: false,
-                            'transitionIn'	: 'none',
-                            'transitionOut'	: 'none',
-                            'title'			: this.title,
-                            'overlayShow'   : false,
-                            'width'		    : 650,
-                            'height'		: 400,
-                            'href'			: $(this).attr('rel'),
-                            'type'			: 'swf',
-                            'swf'			: {
-                             'wmode'		: 'transparent',
-                             'allowfullscreen'	: 'true' 
-                            },
-                            'onStart' : function() {
-                                $.fancybox.center = function() { return false;};
-                                var c_f_offset = content_flow.offset();
-                                $('html, body').animate({scrollTop: 0}, 200);
-                                $("#fancybox-wrap").css({position : 'absolute', display: 'none'}).animate({
-                                    left: c_f_offset.left -19,
-                                    top: c_f_offset.top - 19
-                                }, 500).fadeIn('slow');}            
-                    });
-            });
 
         $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
             var $this = $(this);
@@ -129,8 +106,13 @@
                         }
                     });
 
-             content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
             }
+            else {
+                media_flowplayer.flashembed({
+                        src:'http://vimeo.com/moogaloop.swf?clip_id=8119882&autoplay=true'
+                });
+            }
+            content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
         }
 
         // closes the fancybox window
