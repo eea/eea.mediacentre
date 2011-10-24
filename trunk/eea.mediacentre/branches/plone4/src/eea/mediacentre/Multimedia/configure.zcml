@@ -10,8 +10,6 @@
                              directory="js"
                              permission="zope.Public" />
 
-  <browser:resource name="eea.background.jpg"
-                    file="images/background.jpg" />
 
   <browser:resource name="jquery.easing.1.3.js"
                     file="js/jquery.easing.1.3.js" />
