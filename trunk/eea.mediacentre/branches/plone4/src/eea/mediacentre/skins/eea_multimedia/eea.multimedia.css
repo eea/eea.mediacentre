@@ -362,7 +362,12 @@ ul#tabs li a.current, ul#tabs li a:hover {
     padding-top: 0px;
     margin: 0px !important;
     position: relative;
-    top: 291px;
+    top: 283px;
+    right: -45px;
+}
+
+.filter-topic span {
+    color: #F6A800;
 }
 
 #footer-wrapper {
