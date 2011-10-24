@@ -58,8 +58,8 @@
                             'href'			: $(this).attr('rel'),
                             'type'			: 'swf',
                             'swf'			: {
-                                 'wmode'		: 'transparent',
-                                'allowfullscreen'	: 'true'
+                             'wmode'		: 'transparent',
+                             'allowfullscreen'	: 'true' 
                             },
                             'onStart' : function() {
                                 $.fancybox.center = function() { return false;};
@@ -67,7 +67,7 @@
                                 $('html, body').animate({scrollTop: 0}, 200);
                                 $("#fancybox-wrap").css({position : 'absolute', display: 'none'}).animate({
                                     left: c_f_offset.left -19,
-                                    top: c_f_offset.top - 19,
+                                    top: c_f_offset.top - 19
                                 }, 500).fadeIn('slow');}            
                     });
             });
@@ -109,7 +109,7 @@
         // played file
         function showMediaPlayer(item){
             var thumb_url = item.content.src,
-                video_url = thumb_url.substring(0, thumb_url.length - 12);
+                video_url = thumb_url.substring(0, thumb_url.length - 11);
             player_title.innerHTML = item.caption.innerHTML;
             if ( video_url.indexOf('films') === -1) {
                 media_flowplayer.flashembed(

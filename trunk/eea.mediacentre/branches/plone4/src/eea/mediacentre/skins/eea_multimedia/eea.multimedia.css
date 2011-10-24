@@ -300,6 +300,11 @@ ul, ul li {
     height: 300px;
 }
 
+.featured img {
+    width: 307px; 
+    height: 176px; 
+    margin-top:12px;
+}
 .multimedia-widget #faceted-text-search input[type="text"] {
    width: 210px;
 }
