@@ -109,7 +109,7 @@
             }
             else {
                 media_flowplayer.flashembed({
-                        src:'http://vimeo.com/moogaloop.swf?clip_id=8119882&autoplay=true'
+                        src: $(item.content).attr('rel')
                 });
             }
             content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
@@ -123,7 +123,8 @@
         // contentFlow configurations
         var myNewFlow = new ContentFlow('contentFlow',{
                onclickActiveItem:function(item){showMediaPlayer(item);},
-               reflectionHeight: 0
+               reflectionHeight: 0,
+               flowDragFriction: 1.0
         });
 
 });
