@@ -11,6 +11,7 @@
     });
 
     jQuery(document).ready(function($){
+        var multimedia_logo = $("#multimedia-logo");
         var faceted_form = $("#faceted-form");
         faceted_form.hide();
         window.whatsnew.multimedia = { };
@@ -38,7 +39,8 @@
             multimedia_widgets.animate({height:"775px"},{queue:false, duration:500, easing:'easeOutCirc'});
         }).delay(3500,function(){
             $("#top-widgets, #bottom-widgets").animate({top:"0px"},{queue:false, duration:1000, easing:'easeInOutBack'});
-            $("#cross-site-top, #portal-header, #footer-wrapper, #portal-colophon").slideUp('fast');
+            $("#cross-site-top, #portal-header, #footer-wrapper").slideUp('fast');
+            multimedia_logo.animate({left: 0}, 1000);
             // show faceted_form after the animation of the multimedia items to
             // avoid it appearing when the title is animating
             faceted_form.show();
@@ -121,12 +123,15 @@
         });
 
         // contentFlow configurations
+
         var myNewFlow = new ContentFlow('contentFlow',{
                onclickActiveItem:function(item){showMediaPlayer(item);},
                reflectionHeight: 0,
-               flowDragFriction: 1.0
+               flowDragFriction: 1,
+               startOnLoad: true
         });
 
 });
 })(jQuery);
+
 

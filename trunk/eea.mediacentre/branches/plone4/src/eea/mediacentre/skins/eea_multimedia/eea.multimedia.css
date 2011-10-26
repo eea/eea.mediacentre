@@ -420,10 +420,6 @@ ul#tabs li a.current, ul#tabs li a:hover {
     margin: 0px;
 }
 
-#portal-colophon {
-    background: #FFF;
-    margin: 0px;
-}
 
 /* elements from other pages */
 #tag-cloud {
@@ -439,3 +435,78 @@ ul#tabs li a.current, ul#tabs li a:hover {
     color: white !important;
 }
 
+
+/* rules for short colophon */
+.colophon-left {
+    width: 230px;
+}
+
+#globalnav-holder, #portal-colophon {
+    background: -moz-linear-gradient(#478EA5, #346F83); /* FF 3.6+ */  
+    background: -ms-linear-gradient(#478EA5, #346F83); /* IE10 */  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #478EA5), color-stop(100%, #346F83)); /* Safari 4+, Chrome 2+ */  
+    background: -webkit-linear-gradient(#478EA5, #346F83); /* Safari 5.1+, Chrome 10+ */  
+    background: -o-linear-gradient(#478EA5, #346F83); /* Opera 11.10 */  
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#478EA5', endColorstr='#346F83'); /* IE6 & IE7 */  
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#478EA5', endColorstr='#346F83')"; /* IE8+ */  
+    background: linear-gradient(#478EA5, #346F83); /* the standard */
+    width: 100%;
+    display: block;
+    clear: both;
+    height: 65px;
+    box-shadow: 0 2px 2px #333333;
+    -webkit-box-shadow: 0 2px 2px #333333;
+    -moz-box-shadow: 0 2px 2px #333333;
+}
+
+#portal-globalnav {
+    /* text-align: right; */
+    background: transparent;
+}
+#portal-globalnav li a {
+    padding: 2em 1em 1em 0em;
+}
+#portal-colophon, #portal-colophon a, .colophon-links li a {
+    color: #FFF !important;
+    text-decoration: none !important;
+    font-size: 11px;
+}
+
+#portal-colophon a:hover {
+    text-decoration: underline !important;
+}
+.visualFloatLeft {
+    float: left;
+}
+
+#multimedia-logo {
+    margin-top: -4px;
+    position: relative;
+    left: -3000px;
+}
+
+.colophon-middle {
+    width: 260px;
+}
+
+.colophon-right {
+    width: 520px;
+    margin-top: -18px;
+}
+
+#portal-colophon .colophonWrapper {
+    margin: 30px auto 0px auto;
+}
+.colophon-right img, .colophon-right img.selected {
+    float: right;
+    width: 60px;
+    height: 40px;
+    border: 3px solid #FFF;
+    border-radius: 5px;
+    margin-left: 10px;
+    opacity: 0.5;
+}
+.colophon-right img.selected {
+   border: 3px solid #000;
+   opacity: 1;
+}
