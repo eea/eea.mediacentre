@@ -1,3 +1,26 @@
+/* hide the following elements */
+.documentDescription, #article-language {
+    display: block;
+    background: transparent;
+    background-image: none; /* safari bug */
+    border: none;
+    height: 0.1em;
+    overflow: hidden;
+    padding: 0;
+    margin: -0.1em 0 0 -0.1em;
+    width: 1px;
+}
+
+.documentFirstHeading {
+   border-bottom: none;
+   font-size:3em;
+   color: #fff;
+   text-shadow: 2px 2px 2px #000;
+   margin:0px;
+   padding:0px;
+   line-height: 1.0;
+}
+
 #belowContent, #viewlet-above-content {
     display:none;
 }
