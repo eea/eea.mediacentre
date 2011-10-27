@@ -181,6 +181,8 @@ h1#player-title {
 /* Album view */
 #multimedia-vids .highlights .gallery-album {
     width: 536px;
+    position: relative;
+    margin: 0 auto;
 }
 
 #multimedia-vids .highlights .gallery-album .photoAlbumEntry {
@@ -214,13 +216,13 @@ h1#player-title {
 
 #multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper {
     overflow: hidden;
-    height: 71px;
+    height: 65px;
     margin: 0;
 }
 
 #multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
     position: relative;
-    top: -29px;
+    top: -31px;
 }
 
 /* Listing view */
@@ -538,6 +540,7 @@ h1#parent-fieldname-title {
     margin: 7px auto 0px auto;
     display: inline-block;
 }
+
 .colophon-right img, .colophon-right img.selected {
     float: right;
     height: 30px;
