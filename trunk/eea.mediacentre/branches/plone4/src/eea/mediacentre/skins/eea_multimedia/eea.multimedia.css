@@ -420,7 +420,39 @@ ul#tabs li a.current, ul#tabs li a:hover {
     margin: 0px;
 }
 
+h1#parent-fieldname-title {
+    color: #FFFFFF;
+    font-size: 26px;
+    text-shadow: 1px 1px 3px #000000;
+    border: none;
+    margin-bottom: 0;
+}
 
+#parent-fieldname-description {
+    font-size: 18px;
+    color: #252525;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+#languageCodes {
+    display: none;
+    background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
+    padding: 3px 10px !important;
+    color: #FFFFFF;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+}
+
+#languageCodes li {
+    margin-bottom: 0 !important;
+}
+
+#plone-document-byline {
+    color: #000000 !important;
+}
 /* elements from other pages */
 #tag-cloud {
     background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7) !important;
@@ -453,10 +485,13 @@ ul#tabs li a.current, ul#tabs li a:hover {
     width: 100%;
     display: block;
     clear: both;
-    height: 65px;
     box-shadow: 0 2px 2px #333333;
     -webkit-box-shadow: 0 2px 2px #333333;
     -moz-box-shadow: 0 2px 2px #333333;
+}
+
+#globalnav-holder {
+    height: 65px;
 }
 
 #portal-globalnav {
@@ -466,10 +501,16 @@ ul#tabs li a.current, ul#tabs li a:hover {
 #portal-globalnav li a {
     padding: 2em 1em 1em 0em;
 }
+#portal-colophon {
+    margin: 1.5em 0em 0em 0em !important;
+    padding: 0.5em 0em 1.4em 0em;
+    height: 30px;
+}
 #portal-colophon, #portal-colophon a, .colophon-links li a {
     color: #FFF !important;
     text-decoration: none !important;
     font-size: 11px;
+    line-height: 2.7;
 }
 
 #portal-colophon a:hover {
@@ -486,27 +527,37 @@ ul#tabs li a.current, ul#tabs li a:hover {
 }
 
 .colophon-middle {
-    width: 260px;
+    width: 420px;
 }
 
 .colophon-right {
-    width: 520px;
-    margin-top: -18px;
+    width: 370px;
 }
 
 #portal-colophon .colophonWrapper {
-    margin: 30px auto 0px auto;
+    margin: 7px auto 0px auto;
+    display: inline-block;
 }
 .colophon-right img, .colophon-right img.selected {
     float: right;
-    width: 60px;
-    height: 40px;
-    border: 3px solid #FFF;
-    border-radius: 5px;
+    height: 30px;
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+         -o-border-radius: 2px;
+            border-radius: 2px;
     margin-left: 10px;
-    opacity: 0.5;
+    opacity: 0.7;
 }
-.colophon-right img.selected {
-   border: 3px solid #000;
+.colophon-right img.selected, .colophon-right img:hover {
    opacity: 1;
+   -webkit-box-shadow: 0px 0px 2px #FFFFFF;
+      -moz-box-shadow: 0px 0px 2px #FFFFFF;
+       -ms-box-shadow: 0px 0px 2px #FFFFFF;
+      -  o-box-shadow: 0px 0px 2px #FFFFFF;
+           box-shadow: 0px 0px 2px #FFFFFF;
+}
+
+.colophon-right img.selected {
+    border: 1px solid #FFF;
 }
