@@ -83,8 +83,9 @@
         });
 
             // get all of the colophon images that are not selected
-            $(this).delay('4000', function (){
+            $(this).delay('8000', function (){
                 var colophon_imgs = $(".colophon-right").find('img').not('.selected');
+                var background_imgs = $("#backgrounds").find('img');
                 var hid_imgs = background_imgs.filter(':hidden');
                 var vis_img = background_imgs.filter(':visible');
                 colophon_imgs.each( function(i){
