@@ -12,25 +12,40 @@
 
     jQuery(document).ready(function($){
         var multimedia_logo = $("#multimedia-logo");
+        var multimedia_header = $("#parent-fieldname-title");
         var faceted_form = $("#faceted-form");
         faceted_form.hide();
         window.whatsnew.multimedia = { };
         var mult = window.whatsnew.multimedia;
             mult.bg = $("#background1");
-            /* mult.bg2 = $("#background2"); */
+            mult.bg2 = $("#background2");
         var content_flow = $("#contentFlow"),
             media_player = $("#media-player"),
             media_flowplayer = $("#media-flowplayer"),
             multimedia_widgets = $("#multimedia-widgets"),
             top_widgets  = $("#top-widgets"),
             bottom_widgets = $("#bottom-widgets");
-        /* mult.bg2.fullBg(); */
         var player_title = document.getElementById("player-title");
         // move the footer and colophon out of visual-portal-wrapper
         var footer = $("#visual-portal-wrapper").find(".row").last();
         footer.detach().appendTo("body");
         var colophon = $("#portal-colophon");
         colophon.detach().appendTo("body");
+
+        // background switching
+        var background_imgs = $("#backgrounds").find('img');
+        var colophon_links = $(".colophon-right").find('a');
+        var colophon_imgs = colophon_links.find('img');
+        colophon_links.click(function(e){
+            var $this = $(this);
+            colophon_imgs.removeClass('selected');
+            var img = $this.children();
+            img.addClass("selected");
+            var selected_index = $this.index();
+            var sel = background_imgs.filter(':visible');
+            $(background_imgs[selected_index]).css({zIndex : -1 }).fadeIn('slow', function(){ sel.fadeOut('fast');});
+            e.preventDefault(); 
+        });
 
         // animate the positon of the title, and the top and bottom widgets
         $(this).delay(1000,function(){
@@ -40,6 +55,7 @@
         }).delay(3500,function(){
             $("#top-widgets, #bottom-widgets").animate({top:"0px"},{queue:false, duration:1000, easing:'easeInOutBack'});
             $("#cross-site-top, #portal-header, #footer-wrapper").slideUp('fast');
+            multimedia_header.animate({left: 0}, 1000);
             multimedia_logo.animate({left: 0}, 1000);
             // show faceted_form after the animation of the multimedia items to
             // avoid it appearing when the title is animating
@@ -65,6 +81,19 @@
                 return false;
             });
         });
+
+            // get all of the colophon images that are not selected
+            $(this).delay('4000', function (){
+                var colophon_imgs = $(".colophon-right").find('img').not('.selected');
+                var hid_imgs = background_imgs.filter(':hidden');
+                var vis_img = background_imgs.filter(':visible');
+                colophon_imgs.each( function(i){
+                    var $back = $(hid_imgs[i]);
+                    var col_img = this;
+                    $back.attr('src', this.src.replace(/\/image_thumb/, ''));
+                    $back.css({zIndex : -2, width: vis_img.css('width'), height: vis_img.css('height')}).hide();
+                });
+            });
             // changes the results of the whatsnewgallery when clicking on
             // a theme
             tags.click(function(){
@@ -133,5 +162,6 @@
 
 });
 })(jQuery);
+
 
 

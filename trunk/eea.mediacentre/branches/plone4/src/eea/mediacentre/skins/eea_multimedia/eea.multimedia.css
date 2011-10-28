@@ -298,7 +298,7 @@ ul, ul li {
     right: 20px;
 }
     
-.fullBg {
+.fullBg, #backgrounds img {
     position: fixed;
     top: 0;
     left: 0;
@@ -427,7 +427,7 @@ h1#parent-fieldname-title {
     font-size: 26px;
     text-shadow: 1px 1px 3px #000000;
     border: none;
-    margin-bottom: 0;
+    margin: 0px;
 }
 
 #parent-fieldname-description {
@@ -507,6 +507,8 @@ h1#parent-fieldname-title {
     margin: 1.5em 0em 0em 0em !important;
     padding: 0.5em 0em 1.4em 0em;
     height: 30px;
+    position: relative;
+    z-index: 300;
 }
 #portal-colophon, #portal-colophon a, .colophon-links li a {
     color: #FFF !important;
@@ -522,7 +524,7 @@ h1#parent-fieldname-title {
     float: left;
 }
 
-#multimedia-logo {
+#multimedia-logo, #parent-fieldname-title {
     margin-top: -4px;
     position: relative;
     left: -3000px;
