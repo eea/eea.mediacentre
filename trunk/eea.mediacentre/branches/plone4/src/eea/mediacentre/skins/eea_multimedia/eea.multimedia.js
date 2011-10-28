@@ -15,10 +15,10 @@
         var multimedia_header = $("#parent-fieldname-title");
         var faceted_form = $("#faceted-form");
         faceted_form.hide();
-        window.whatsnew.multimedia = { };
+        window.whatsnew.multimedia = { }; 
         var mult = window.whatsnew.multimedia;
-            mult.bg = $("#background1");
-            mult.bg2 = $("#background2");
+             mult.bg = $("#background1");
+             mult.bg2 = $("#background2");
         var content_flow = $("#contentFlow"),
             media_player = $("#media-player"),
             media_flowplayer = $("#media-flowplayer"),
@@ -153,13 +153,14 @@
         });
 
         // contentFlow configurations
-
-        var myNewFlow = new ContentFlow('contentFlow',{
-               onclickActiveItem:function(item){showMediaPlayer(item);},
-               reflectionHeight: 0,
-               flowDragFriction: 1,
-               startOnLoad: true
-        });
+        if ( window.location.href.indexOf(2) === -1 ) {
+            var myNewFlow = new ContentFlow('contentFlow',{
+                   onclickActiveItem:function(item){showMediaPlayer(item);},
+                   reflectionHeight: 0,
+                   flowDragFriction: 1,
+                   startOnLoad: true
+            });
+        }
 
 });
 })(jQuery);

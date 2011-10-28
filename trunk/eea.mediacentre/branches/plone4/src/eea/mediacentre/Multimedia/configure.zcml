@@ -23,6 +23,12 @@
                 class=".multimedia.Multimedia"
                 permission="zope2.View" />
 
+  <browser:page name="videopage2"
+                template="multimedia2.pt"
+                for="*"
+                class=".multimedia.Multimedia"
+                permission="zope2.View" />
+
   <browser:resource
     name="jquery.fullbg.min.js"
     file="js/jquery.fullbg.min.js"
