@@ -83,7 +83,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 					</div> 
 					<div class="portletFooter">
 
-					    <p><a href="tags" class="moreLink" title="Explore all tags">Explore all tags
+					    <p><a href="all-videos" class="moreLink" title="Explore all tags">Explore all tags
 						</a>
 					    </p>
 					</div>
@@ -122,9 +122,16 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
                                             animations highlights
                                         </div>
-                                        <div class="highlights" id="videoclips-highlights"> Video clips</div>
-                                        <div class="highlights" id="imagegalleries-highlights">Image galleries</div>
-                                        <div class="highlights" id="playlist-highlights">My playlist</div>
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                           video clips  highlights
+                                        </div>
+
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                            image galleris highlights
+                                        </div>
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                            my playlist highlights
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="multimedia-map" class="multimedia-widget">

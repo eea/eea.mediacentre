@@ -16,6 +16,8 @@
              mult.bg = $("#background1");
              mult.bg2 = $("#background2");
 
+        // add background and colophon based on cookie if present else get the
+        // first background and show it
         var background_imgs = $("#backgrounds").find('img');
         var colophon_imgs = $(".colophon-right").find('img');
         var colophon_img = SubCookieUtil.get('multimedia', 'colophon-image');
@@ -46,7 +48,7 @@
         colophon.detach().appendTo("body");
 
         // background switching
-         var cookie_expires = new Date();
+        var cookie_expires = new Date();
             cookie_expires.setMonth(cookie_expires.getMonth() + 1); // one month
         var data_page = window.whatsnew.gallery_page;
         var colophon_links = $(".colophon-right").find('a');
@@ -82,31 +84,31 @@
             $('#c10default').remove();
             $('#c10all').text("All topics").addClass('selected');
 
-        $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
-            var $this = $(this);
-            $this.click( function(){
-                var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
-                player_title.innerHTML = $this.attr('alt');
-                media_flowplayer.flashembed({
-                        src: swf_href
+            $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
+                var $this = $(this);
+                $this.click( function(){
+                    var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
+                    player_title.innerHTML = $this.attr('alt');
+                    media_flowplayer.flashembed({
+                            src: swf_href
+                    });
+                    content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
+                    var mult = content_flow.offset();
+                    $('html, body').animate({scrollTop: 0}, 200);
+                    return false;
                 });
-                content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
-                var mult = content_flow.offset();
-                $('html, body').animate({scrollTop: 0}, 200);
-                return false;
             });
-        });
 
             // get all of the colophon images that are not selected
-                var col_imgs = colophon_imgs.not('.selected');
-                var hid_imgs = background_imgs.filter(':hidden');
-                var vis_img = background_imgs.filter(':visible');
-                col_imgs.each( function(i){
-                    var $back = $(hid_imgs[i]);
-                    var col_img = this;
-                    $back.attr('src', this.src.replace(/\/image_thumb/, ''));
-                    $back.css({zIndex : -2, width: vis_img.css('width'), height: vis_img.css('height')}).hide();
-                });
+            var col_imgs = colophon_imgs.not('.selected');
+            var hid_imgs = background_imgs.filter(':hidden');
+            var vis_img = background_imgs.filter(':visible');
+            col_imgs.each( function(i){
+                var $back = $(hid_imgs[i]);
+                var col_img = this;
+                $back.attr('src', this.src.replace(/\/image_thumb/, ''));
+                $back.css({zIndex : -2, width: vis_img.css('width'), height: vis_img.css('height')}).hide();
+            });
             // changes the results of the whatsnewgallery when clicking on
             // a theme
             tags.click(function(){
@@ -124,6 +126,7 @@
                     cur_tab_val = tabs.find('a').filter('.current')[0].id.substr(4);
                 window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
             });
+        // end delay 3500
         });
 
         // displays media player, changes background image to the image of the
@@ -134,22 +137,21 @@
             player_title.innerHTML = item.caption.innerHTML;
             if ( video_url.indexOf('films') === -1) {
                 media_flowplayer.flashembed(
-                    {
-                        src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
-                    },
-                    {
-                        config:{
-                            clip: {
-                                'url' : video_url,
-                                'autoBuffering': true,
-                                'autoPlay': true,
-                                'loop': false
-                            },
-                            'useNativeFullScreen': true,
-                            'initialScale': 'fit'
-                        }
-                    });
-
+                {
+                    src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
+                },
+                {
+                    config:{
+                        clip: {
+                            'url' : video_url,
+                            'autoBuffering': true,
+                            'autoPlay': true,
+                            'loop': false
+                        },
+                        'useNativeFullScreen': true,
+                        'initialScale': 'fit'
+                    }
+                });
             }
             else {
                 media_flowplayer.flashembed({
@@ -174,5 +176,6 @@
             });
         }
 
-});
+    // end ready state
+    });
 })(jQuery);
