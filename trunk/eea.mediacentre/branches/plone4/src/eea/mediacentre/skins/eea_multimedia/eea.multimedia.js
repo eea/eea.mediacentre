@@ -6,9 +6,9 @@
         });
     };
 
-    $(window).load(function() {
-        $("#background1").fullBg();
-    });
+    // $(window).load(function() {
+    //     $("#background1").fullBg();
+    // });
 
     jQuery(document).ready(function($){
         var multimedia_logo = $("#multimedia-logo");
@@ -19,6 +19,23 @@
         var mult = window.whatsnew.multimedia;
              mult.bg = $("#background1");
              mult.bg2 = $("#background2");
+
+        var background_imgs = $("#backgrounds").find('img');
+        var colophon_imgs = $(".colophon-right").find('img');
+        var colophon_img = SubCookieUtil.get('multimedia', 'colophon-image');
+        if ( colophon_img ) {
+            var index = parseInt(colophon_img, 10);
+            var bg = background_imgs[index];
+            var cl =  colophon_imgs[index];
+            colophon_imgs.removeClass('selected');
+            cl.className = 'selected';
+            bg.src = cl.src.replace(/\/image_thumb/, '');
+            $(bg).fullBg();
+        }
+        else {
+            $("#background1").fullBg();
+        }
+
         var content_flow = $("#contentFlow"),
             media_player = $("#media-player"),
             media_flowplayer = $("#media-flowplayer"),
@@ -33,15 +50,17 @@
         colophon.detach().appendTo("body");
 
         // background switching
-        var background_imgs = $("#backgrounds").find('img');
+         var cookie_expires = new Date();
+            cookie_expires.setMonth(cookie_expires.getMonth() + 1); // one month
+        var data_page = window.whatsnew.gallery_page;
         var colophon_links = $(".colophon-right").find('a');
-        var colophon_imgs = colophon_links.find('img');
         colophon_links.click(function(e){
             var $this = $(this);
             colophon_imgs.removeClass('selected');
             var img = $this.children();
             img.addClass("selected");
             var selected_index = $this.index();
+            SubCookieUtil.set(data_page, "colophon-image", selected_index, expires = cookie_expires);
             var sel = background_imgs.filter(':visible');
             $(background_imgs[selected_index]).css({zIndex : -1 }).fadeIn('slow', function(){ sel.fadeOut('fast');});
             e.preventDefault(); 
@@ -84,11 +103,10 @@
 
             // get all of the colophon images that are not selected
             $(this).delay('8000', function (){
-                var colophon_imgs = $(".colophon-right").find('img').not('.selected');
-                var background_imgs = $("#backgrounds").find('img');
+                var col_imgs = colophon_imgs.not('.selected');
                 var hid_imgs = background_imgs.filter(':hidden');
                 var vis_img = background_imgs.filter(':visible');
-                colophon_imgs.each( function(i){
+                col_imgs.each( function(i){
                     var $back = $(hid_imgs[i]);
                     var col_img = this;
                     $back.attr('src', this.src.replace(/\/image_thumb/, ''));
@@ -164,6 +182,3 @@
 
 });
 })(jQuery);
-
-
-
