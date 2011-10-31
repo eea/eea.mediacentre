@@ -7,6 +7,7 @@
     };
 
     jQuery(document).ready(function($){
+        var $body = $('html, body');
         var multimedia_logo = $("#multimedia-logo");
         var multimedia_header = $("#parent-fieldname-title");
         var faceted_form = $("#faceted-form");
@@ -94,7 +95,7 @@
                     });
                     content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
                     var mult = content_flow.offset();
-                    $('html, body').animate({scrollTop: 0}, 200);
+                    $body.animate({scrolltop: 0}, 200);
                     return false;
                 });
             });
@@ -115,6 +116,10 @@
                 // this code is for tags 
                 // var tag_title = this.title,
                 //     sel_value = tag_title === 'All' ? '' : tag_title,
+                /* var scrollBottom = $(window).scrollTop() + $(window).height(); */
+                var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+
+                $body.animate({scrollTop: scrollBottom}, 600);
                 var tag_id = this.id.substr(3),
                     sel_value = tag_id === 'all' ? '' : tag_id,
                     sel_text = this.innerHTML,
