@@ -6,10 +6,6 @@
         });
     };
 
-    // $(window).load(function() {
-    //     $("#background1").fullBg();
-    // });
-
     jQuery(document).ready(function($){
         var multimedia_logo = $("#multimedia-logo");
         var multimedia_header = $("#parent-fieldname-title");
@@ -102,7 +98,6 @@
         });
 
             // get all of the colophon images that are not selected
-            $(this).delay('8000', function (){
                 var col_imgs = colophon_imgs.not('.selected');
                 var hid_imgs = background_imgs.filter(':hidden');
                 var vis_img = background_imgs.filter(':visible');
@@ -112,7 +107,6 @@
                     $back.attr('src', this.src.replace(/\/image_thumb/, ''));
                     $back.css({zIndex : -2, width: vis_img.css('width'), height: vis_img.css('height')}).hide();
                 });
-            });
             // changes the results of the whatsnewgallery when clicking on
             // a theme
             tags.click(function(){
