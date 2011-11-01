@@ -34,7 +34,6 @@ $(function () {
 
         listContent: "",
 
-
         artist: "",
         album: "",
         sortable: $('#sortable'),
@@ -115,12 +114,16 @@ $(function () {
                     max: $('#coverflow > *').length - 1,
                     value: coverflowApp.defaultItem,
                     slide: function (event, ui) {
-
                         var current = $('.coverflowItem');
-                        coverflowApp.coverflowCtrl.coverflow('select', ui.value, true);
-                        current.removeClass('ui-selected');
-                        current.eq(ui.value).addClass('ui-selected');
-                        coverflowApp.setCaption(current.eq(ui.value).html());
+                        if ( current.length ) {
+                            coverflowApp.coverflowCtrl.coverflow('select', ui.value, true);
+                            current.removeClass('ui-selected');
+                            current.eq(ui.value).addClass('ui-selected');
+                            coverflowApp.setCaption(current.eq(ui.value).html()); 
+                        }
+                        else {
+                            coverflowApp.setCaption( coverflowApp.coverflowImages.eq(ui.value).attr('title'));
+                        }
                     }
                 })
             } else {
@@ -132,7 +135,6 @@ $(function () {
                         max: 100,
                         value: 0,
                         slide: function (event, ui) {
-                            console.log('aaa');
                             var topValue = -((100 - ui.value) * coverflowApp.difference / 100);
                             coverflowApp.sortable.css({
                                 top: topValue
@@ -151,11 +153,16 @@ $(function () {
         skipTo: function (itemNumber) {
 
             var items = $('.coverflowItem');
-            this.sliderCtrl.slider("option", "value", itemNumber);
-            this.coverflowCtrl.coverflow('select', itemNumber, true);
-            items.removeClass('ui-selected');
-            items.eq(itemNumber).addClass('ui-selected');
+            if ( items.length ) {
+                this.sliderCtrl.slider("option", "value", itemNumber);
+                this.coverflowCtrl.coverflow('select', itemNumber, true);
+                items.removeClass('ui-selected');
+                items.eq(itemNumber).addClass('ui-selected');
             this.setCaption(items.eq(itemNumber).html());
+            }
+            else {
+                this.setCaption(this.coverflowImages.eq(itemNumber).attr('title'));
+            }
 
         },
 
