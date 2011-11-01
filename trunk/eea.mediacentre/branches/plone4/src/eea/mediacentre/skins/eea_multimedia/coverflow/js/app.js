@@ -160,7 +160,7 @@ $(function () {
         },
 
         init_mousewheel: function () {
-            $('body').mousewheel(function (event, delta) {
+            $('.demo').mousewheel(function (event, delta) {
 
                 var speed = 1,
                     sliderVal = coverflowApp.sliderCtrl.slider("value"),
