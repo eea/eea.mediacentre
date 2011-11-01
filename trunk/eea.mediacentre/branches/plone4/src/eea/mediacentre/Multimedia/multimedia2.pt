@@ -70,9 +70,9 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 
 		<div class="wrapper">
 			<div id="coverflow">
-                <img class="content" id="artic" tal:attributes="src string:films/ourarcticchallenge/image_wide" />
-                <img class="content" tal:attributes="src string:films/one-degreematters/image_wide" />
-                <img class="content" tal:attributes="src string:/themes/economy/multimedia/which-steps-will-bring-us/image_wide" />
+                <img class="content" id="artic" tal:attributes="src string:films/ourarcticchallenge/image_wide" rel="http://vimeo.com/moogaloop.swf?clip_id=18778572&autoplay=true" title="One degree matters" />
+                <img class="content selected" tal:attributes="src string:films/one-degreematters/image_wide" rel="http://vimeo.com/moogaloop.swf?clip_id=8119882&autoplay=true" title="Our arctic challenge" />
+                <img class="content" tal:attributes="src string:/themes/economy/multimedia/which-steps-will-bring-us/image_wide" titl="Which steps will bring us forward on the road to a Green economy?" />
 			</div>
 		</div>
 

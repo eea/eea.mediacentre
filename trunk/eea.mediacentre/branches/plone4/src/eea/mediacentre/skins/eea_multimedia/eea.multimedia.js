@@ -134,12 +134,11 @@
         // end delay 3500
         });
 
-        // displays media player, changes background image to the image of the
-        // played file
         function showMediaPlayer(item){
-            var thumb_url = item.content.src,
+            var thumb_url = item.content ? item.content.src : item.src,
                 video_url = thumb_url.substring(0, thumb_url.length - 11);
-            player_title.innerHTML = item.caption.innerHTML;
+            var link = item.caption ? item.caption : 1;
+            player_title.innerHTML = link !== 1 ? item.caption.innerHTML : item.title;
             if ( video_url.indexOf('films') === -1) {
                 media_flowplayer.flashembed(
                 {
@@ -159,13 +158,25 @@
                 });
             }
             else {
+                var current = link !== 1 ? $(item.content) : $(item);
                 media_flowplayer.flashembed({
-                        src: $(item.content).attr('rel')
+                        src: current.attr('rel')
                 });
             }
             content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
         }
 
+        // displays media player, changes background image to the image of the
+        // played file
+        var coverflow_imgs = $("#coverflow").find('img');
+        coverflow_imgs.click(function(e){
+            var $this = $(this);
+            if ( this.className === "content selected") {
+                showMediaPlayer(this);
+            }
+            coverflow_imgs.removeClass('selected');
+            this.className = "content selected";
+        });
         // closes the fancybox window
         $("#fancybox-close").click(function(){
             media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
