@@ -95,7 +95,7 @@
                     });
                     content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
                     var mult = content_flow.offset();
-                    $body.animate({scrolltop: 0}, 1200, 'linear');
+                    $body.animate({scrollTop: 0}, 1200, 'linear');
                     return false;
                 });
             });
