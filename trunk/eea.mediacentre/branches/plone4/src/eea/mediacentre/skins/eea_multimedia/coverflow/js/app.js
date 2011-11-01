@@ -182,6 +182,7 @@ $(function () {
                 if (Math.abs(leftValue) > coverflowApp.difference) leftValue = (-1) * coverflowApp.difference; //stop the content scrolling up beyond point desired
                 coverflowItem = Math.floor(sliderVal);
                 coverflowApp.skipTo(coverflowItem);
+                event.preventDefault();
 
             });
         },

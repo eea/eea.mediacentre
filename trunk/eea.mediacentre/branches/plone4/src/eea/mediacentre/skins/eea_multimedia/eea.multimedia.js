@@ -95,7 +95,7 @@
                     });
                     content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
                     var mult = content_flow.offset();
-                    $body.animate({scrolltop: 0}, 200);
+                    $body.animate({scrolltop: 0}, 1200, 'linear');
                     return false;
                 });
             });
@@ -116,10 +116,18 @@
                 // this code is for tags 
                 // var tag_title = this.title,
                 //     sel_value = tag_title === 'All' ? '' : tag_title,
-                /* var scrollBottom = $(window).scrollTop() + $(window).height(); */
-                var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+                
+                // scroll window to the bottom when clicking of tags to focus
+                // on the whatsnewgallery
+                var $window = $(window);
+                var win_height = $window.height(); 
+                var win_scroll = $window.scrollTop();
+                var scrollBottom = win_scroll + win_height;
+                if ( win_scroll !== scrollBottom ) {
 
-                $body.animate({scrollTop: scrollBottom}, 600);
+                    $body.animate({scrollTop: scrollBottom}, 1200, 'linear');
+                }
+
                 var tag_id = this.id.substr(3),
                     sel_value = tag_id === 'all' ? '' : tag_id,
                     sel_text = this.innerHTML,
@@ -195,3 +203,4 @@
     // end ready state
     });
 })(jQuery);
+
