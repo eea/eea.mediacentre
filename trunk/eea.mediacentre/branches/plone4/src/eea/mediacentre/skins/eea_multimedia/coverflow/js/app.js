@@ -115,8 +115,8 @@ $(function () {
                     value: coverflowApp.defaultItem,
                     slide: function (event, ui) {
                         var current = $('.coverflowItem');
+                        coverflowApp.coverflowCtrl.coverflow('select', ui.value, true);
                         if ( current.length ) {
-                            coverflowApp.coverflowCtrl.coverflow('select', ui.value, true);
                             current.removeClass('ui-selected');
                             current.eq(ui.value).addClass('ui-selected');
                             coverflowApp.setCaption(current.eq(ui.value).html()); 
@@ -125,7 +125,7 @@ $(function () {
                             coverflowApp.setCaption( coverflowApp.coverflowImages.eq(ui.value).attr('title'));
                         }
                     }
-                })
+                });
             } else {
                 if (direction == 'vertical') {
                     elem.slider({
@@ -140,7 +140,7 @@ $(function () {
                                 top: topValue
                             });
                         }
-                    })
+                    });
                 }
             }
         },
@@ -153,9 +153,9 @@ $(function () {
         skipTo: function (itemNumber) {
 
             var items = $('.coverflowItem');
+            this.sliderCtrl.slider("option", "value", itemNumber);
+            this.coverflowCtrl.coverflow('select', itemNumber, true);
             if ( items.length ) {
-                this.sliderCtrl.slider("option", "value", itemNumber);
-                this.coverflowCtrl.coverflow('select', itemNumber, true);
                 items.removeClass('ui-selected');
                 items.eq(itemNumber).addClass('ui-selected');
             this.setCaption(items.eq(itemNumber).html());
@@ -185,8 +185,8 @@ $(function () {
                 }
 
                 leftValue = -((100 - sliderVal) * coverflowApp.difference / 100); //calculate the content top from the slider position
-                if (leftValue > 0) leftValue = 0; //stop the content scrolling down too much
-                if (Math.abs(leftValue) > coverflowApp.difference) leftValue = (-1) * coverflowApp.difference; //stop the content scrolling up beyond point desired
+                if (leftValue > 0) { leftValue = 0; } //stop the content scrolling down too much
+                if (Math.abs(leftValue) > coverflowApp.difference) { leftValue = (-1) * coverflowApp.difference; } //stop the content scrolling up beyond point desired
                 coverflowItem = Math.floor(sliderVal);
                 coverflowApp.skipTo(coverflowItem);
                 event.preventDefault();
@@ -212,7 +212,7 @@ $(function () {
                 }
 
 
-            })
+            });
         },
 
         generateList: function () {
@@ -221,7 +221,7 @@ $(function () {
                 try {
                     listContent += "<li class='ui-state-default coverflowItem' data-itemlink='" + (index) + "'>" + t.data('artist') + " - " + t.data('album') + "</li>";
                 } catch (e) {}
-            })
+            });
         },
 
 
