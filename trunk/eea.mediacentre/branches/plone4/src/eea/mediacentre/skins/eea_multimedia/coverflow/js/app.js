@@ -12,7 +12,7 @@ $(function () {
 
     coverflowApp = {
 
-        defaultItem: 1,
+        defaultItem: 2,
         //default set item to be centered on
         defaultDuration: 1200,
         //animation duration

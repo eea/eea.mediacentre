@@ -199,7 +199,7 @@ code, pre { padding:8px 0 8px 20px ; font-size: 1.2em; line-height:130%;  }
 div.demo {
 	padding:12px;
 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
-	background-color:#000;
+	height: 365px;
 }
 
 div.demo h3.docs { clear:left; font-size:12px; font-weight:normal; padding:0 0 1em; margin:0; }
@@ -349,8 +349,8 @@ div.demo-description {
 
 
 div.wrapper {
-	height: 450px;
-	width: 800px; /*600*/
+	height: 300px;
+	width: 600px; /*800*/
 	padding: 10px;
 	overflow: hidden;
 	position: relative;
@@ -360,23 +360,22 @@ div.wrapper {
 
 #coverflow {
 	display: inline-block;
-	height: 600px;
+	height: 250px;
 	width: 2600px;
 
-	padding: 42px;
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	margin-top: 50px;
+	margin-top: 65px;
 }
 
 #coverflow img {
 	width: 260px;
-	height: 260px;
+	max-height: 260px;
 	float: left;
 	position: relative;
-	margin: -35px;
-	 -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(black), color-stop(.7, black), to(transparent));
+	margin: 0 -35px -35px;
+	 -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(black), color-stop(1, transparent), to(black));
 
 }
 
@@ -506,6 +505,7 @@ div.wrapper {
   font-size:12px;
   text-align:center;
 }
+
 
 
 
