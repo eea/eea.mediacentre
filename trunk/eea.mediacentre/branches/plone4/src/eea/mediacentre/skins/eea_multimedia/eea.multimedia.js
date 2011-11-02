@@ -140,7 +140,7 @@
                 tags.filter('.selected').removeClass('selected');
                 this.className = "selected";
 
-                if ($(this).parent().prev().text().indexOf('topic') !== 0) { 
+                if ($(this).parent().prev().text().indexOf('tags') !== -1 ) { 
                     tag_title = this.title;
                     sel_value = tag_title === 'All' ? '' : tag_title;
                 }
