@@ -73,27 +73,24 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 
 	<div class="demo">
 
-		<div class="wrapper">
-			<div id="coverflow">
+        <div class="wrapper">
+            <div id="coverflow">
                 <img class="content" id="artic" tal:attributes="src string:films/ourarcticchallenge/image_wide" rel="http://vimeo.com/moogaloop.swf?clip_id=18778572&autoplay=true" title="One degree matters" />
                 <img class="content selected" tal:attributes="src string:films/one-degreematters/image_wide" rel="http://vimeo.com/moogaloop.swf?clip_id=8119882&autoplay=true" title="Our arctic challenge" />
                 <img class="content" tal:attributes="src string:/themes/economy/multimedia/which-steps-will-bring-us/image_wide" title="Which steps will bring us forward on the road to a Green economy?" />
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<div id="imageCaption">
-		Sample Text
-		</div>
+        <div id="imageCaption">
+            Sample Text
+        </div>
 
+        <div id='slider'></div>
+    </div>
 
-		<div id='slider'></div>
-		</div>
+        <div class="demo-description"> </div>
 
-
-		<div class="demo-description">
-		</div>
-
-                                </div>
+    </div>
                                 <div id="media-player" style="display:none;">
                                     <a id='fancybox-close'></a>
                                     <h2 id='player-title'>title</h2>
@@ -113,22 +110,24 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 			       <input type="submit" value="Search" name="search" />
 				   </form>
 				</div>
-				<!-- Popular tags --> 
+                
+                <!-- Popular tags --> 
 				<div id="faceted-form"> 
 				    <div id="tag-cloud"> 
-					<div id="tag-cloud-content" tal:define="faceted_path python:'multimedia/all-videos'"> 
-					    <metal:tags use-macro="here/portlet_soer_tagcloud/macros/portlet" /> 
-		    
-					</div> 
-					<div class="portletFooter">
-
-					    <p><a href="tags" class="moreLink" title="Explore all tags">Explore all tags
-						</a>
-					    </p>
-					</div>
+                        <ul id="faceted-tabs">
+                            <li><a href="#" id="faceted-topics">By topics</a></li>
+                            <li><a href="#" id="faceted-tags">By tags</a></li>
+                        </ul>
+                        <div id="tag-cloud-content" tal:define="faceted_path python:'multimedia/all-videos'"> 
+                            <metal:tags use-macro="here/portlet_faceted_tagclouds/macros/portlet" /> 
+                        </div> 
+                        <div class="portletFooter">
+                            <p>
+                                <a href="all-videos" class="moreLink" title="Explore all tags">Explore all tags</a>
+                            </p>
+                        </div>
 				    </div> 
 				</div> 			
-
 
                            </div>
                         </div>
@@ -161,9 +160,16 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
                                             animations highlights
                                         </div>
-                                        <div class="highlights" id="videoclips-highlights"> Video clips</div>
-                                        <div class="highlights" id="imagegalleries-highlights">Image galleries</div>
-                                        <div class="highlights" id="playlist-highlights">My playlist</div>
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                           video clips  highlights
+                                        </div>
+
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                            image galleris highlights
+                                        </div>
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                            my playlist highlights
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="multimedia-map" class="multimedia-widget">

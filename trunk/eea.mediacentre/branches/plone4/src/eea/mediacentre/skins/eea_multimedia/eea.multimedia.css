@@ -364,6 +364,13 @@ ul, ul li {
     background: transparent;
 }
 
+#faceted-form ul {
+    margin: 0px;
+}
+#faceted-tabs li {
+    display: inline;
+}
+
 .multimedia-widget #tag-cloud {
    background: transparent;
    color: #FFFFFF;
@@ -463,6 +470,14 @@ h1#parent-fieldname-title {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
     height: 265px;
     margin-top: -17px;
+}
+
+#tag-cloud .portletFooter {
+    padding: 0.3em 1em;
+}
+
+.tags-cloud {
+    min-height: 173px;
 }
 
 #faceted-form li.selected {

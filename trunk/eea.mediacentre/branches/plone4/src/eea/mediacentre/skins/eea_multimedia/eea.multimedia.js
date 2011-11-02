@@ -79,12 +79,16 @@
             // avoid it appearing when the title is animating
             faceted_form.show();
             // unbind any events from the tag cloud items
-            var tags = $("#c10").find('li');
+            /* var tags = $("#c10").find('li'); */
+            var tags = $("#tag-cloud-content").find('li');
             tags.unbind();
             // remove default theme vocabulary item from tags
             $('#c10default').remove();
             $('#c10all').text("All topics").addClass('selected');
-
+            $('#c8all').addClass('selected');
+            
+            $("#faceted-tabs").tabs("#tag-cloud-content > div.faceted-widget");
+            
             $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
                 var $this = $(this);
                 $this.click( function(){
@@ -95,7 +99,7 @@
                     });
                     content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
                     var mult = content_flow.offset();
-                    $body.animate({scrollTop: 0}, 1200, 'linear');
+                    $body.animate({scrollTop: 0}, 600, 'linear');
                     return false;
                 });
             });
@@ -135,6 +139,12 @@
                     tag_title;
                 tags.filter('.selected').removeClass('selected');
                 this.className = "selected";
+
+                if ($(this).parent().prev().text().indexOf('topic') !== 0) { 
+                    tag_title = this.title;
+                    sel_value = tag_title === 'All' ? '' : tag_title;
+                }
+                
                 var tabs = $("#tabs"),
                     cur_tab_val = tabs.find('a').filter('.current')[0].id.substr(4);
                 window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
@@ -203,4 +213,5 @@
     // end ready state
     });
 })(jQuery);
+
 

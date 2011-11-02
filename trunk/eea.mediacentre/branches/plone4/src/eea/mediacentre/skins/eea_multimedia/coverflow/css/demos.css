@@ -257,7 +257,9 @@ div.wrapper {
 
 #slider {
 	margin-top:20px;
-
+	background: transparent url("++resource++js/ContentFlow/img/scrollbar.png") repeat-x scroll top center !important;
+	height: 5px !important;
+	border: none !important;
 }
 
 #sortable {
@@ -384,9 +386,11 @@ div.wrapper {
 	cursor: pointer;
 	height: 22px;
 	width: 22px;
+	top: -8px;
 }
 
 #slider .ui-slider-handle.ui-state-hover,
 #slider .ui-slider .ui-state-hover {
 	background: url("++resource++js/ContentFlow/img/slider.png") no-repeat scroll 0 0px transparent !important;
 }
+
