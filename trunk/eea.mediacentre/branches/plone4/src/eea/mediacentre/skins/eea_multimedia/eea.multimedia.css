@@ -31,11 +31,10 @@
     padding: 0 !important;
 }
 
-#title{
+#title {
     margin-top:100px;
     font-size:5em;
     text-align:center;
-
 }
 
 h2#player-title {
@@ -46,6 +45,15 @@ h2#player-title {
     padding: 7px 0 5px 10px;
     border: medium none;
 }    
+
+h2#player-title,
+#media-player {
+	-webkit-border-radius: 10px 0;
+	   -moz-border-radius: 10px 0;
+	    -ms-border-radius: 10px 0;
+	     -o-border-radius: 10px 0;
+	        border-radius: 10px 0;
+}
 
 .multimedia-widget {
     width:350px;
@@ -274,6 +282,8 @@ h2#player-title {
 }
 
 #fancybox-close {
+	background-position: -40px 3px;
+	height: 33px;
     display: inline;
     border: 0px;
 }
@@ -367,8 +377,41 @@ ul, ul li {
 #faceted-form ul {
     margin: 0px;
 }
-#faceted-tabs li {
+ul#faceted-tabs li {
     display: inline;
+}
+
+ul#faceted-tabs {
+	background: none repeat scroll 0 0 rgba(52, 111, 131, 0.3);
+}
+
+#faceted-tabs li {
+	list-style-image: none !important;
+	margin: 0 !important;
+	text-indent: 0;
+	line-height: 1.5em;
+	margin-bottom: 0.25em;
+}
+
+#faceted-tabs li:first-child a.current, ul#faceted-tabs li:first-child a:hover {
+	border-radius: 8px 0 0 0;
+}
+
+#faceted-tabs li a.current, ul#faceted-tabs li a:hover {
+	background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7);
+	color: #F6A800;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+#faceted-tabs li a {
+	border: 0 none;
+	color: #FFFFFF;
+	display: inline-block;
+	font-size: 125%;
+	height: 17px;
+	padding: 9px 10px 11px;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px #000000;
 }
 
 .multimedia-widget #tag-cloud {
@@ -380,7 +423,7 @@ ul, ul li {
        -webkit-border-radius: 10px;
        -moz-border-radius: 10px;
             border-radius: 10px;
-   padding: 10px 20px;
+   /* padding: 10px 20px; */
    }
 
 .multimedia-widget #faceted-form .widget-fieldset legend {
@@ -389,6 +432,12 @@ ul, ul li {
    text-shadow: 0 2px 2px #000;
    padding: 5px 0px;
    font-size: 150%;
+}
+
+.multimedia-widget #tag-cloud #tag-cloud-content {
+	padding: 0 10px;
+	height: 200px;
+	overflow-y: auto;
 }
 
 ul#tabs {
