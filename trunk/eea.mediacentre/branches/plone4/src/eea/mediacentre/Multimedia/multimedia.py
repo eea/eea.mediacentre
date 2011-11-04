@@ -20,10 +20,10 @@ class Multimedia(BrowserView):
         frontpage_properties = getattr(portal_properties,
                                                 'frontpage_properties')
 
-        self.noOfMultimedia = frontpage_properties.getProperty(
-                                                           'noOfMultimedia', 8)
+        self.noOfVideos = frontpage_properties.getProperty(
+                                                           'noOfVideos', 200)
         self.noOfAnimations = frontpage_properties.getProperty(
-                                                           'noOfAnimations', 8)
+                                                           'noOfAnimations', 200)
         self.noOfLatestMultimedia = frontpage_properties.getProperty(
                                                      'noOfLatestMultimedia', 8)
         self.now = DateTime()
@@ -50,7 +50,7 @@ class Multimedia(BrowserView):
         # IVideoEnhanced
         result = _getItems(self,
                     interfaces = interface,
-                    noOfItems=self.noOfMultimedia)
+                    noOfItems=self.noOfLatestMultimedia)
 
         return result
     
@@ -61,9 +61,9 @@ class Multimedia(BrowserView):
         # IVideoEnhanced
         result = _getItems(self,
                     interfaces = interface,
-                    noOfItems=self.noOfMultimedia + 20)
+                    noOfItems=self.noOfVideos + 20)
         result = [i for i in result if not IFlashAnimation.providedBy(
-                                          i.getObject())][:self.noOfMultimedia]
+                                          i.getObject())][:self.noOfVideos]
         return result
 
     def getAnimations(self):
