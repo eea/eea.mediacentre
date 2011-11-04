@@ -8,7 +8,7 @@ from Products.EEAContentTypes.content.interfaces import IFlashAnimation
 from eea.design.browser.frontpage import _getItems
 
 class Multimedia(BrowserView):
-    """ Multimedia frontpahe with coverflow, latest videos, 
+    """ Multimedia frontpahe with coverflow, latest videos,
     green tips animations categories, tags,
     """
     videos = []
@@ -25,9 +25,9 @@ class Multimedia(BrowserView):
         self.noOfAnimations = frontpage_properties.getProperty(
                                                            'noOfAnimations', 8)
         self.noOfLatestMultimedia = frontpage_properties.getProperty(
-                                                        'noOfLatestMultimedia', 8)
-        self.now = DateTime()        
-        
+                                                     'noOfLatestMultimedia', 8)
+        self.now = DateTime()
+
         query = {'sort_on': 'effective',
                  'sort_order': 'reverse',
                  'Language': self.context.getLanguage(),
