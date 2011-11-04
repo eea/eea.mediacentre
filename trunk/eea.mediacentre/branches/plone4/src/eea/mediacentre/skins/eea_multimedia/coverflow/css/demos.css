@@ -1,5 +1,5 @@
 div.demo {
-	padding:12px;
+	padding: 0px 12px;
 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
 	height: 365px;
 }
@@ -20,7 +20,7 @@ div.demo-description {
 div.wrapper {
 	height: 285px;
 	width: 600px; /*800*/
-	padding: 10px;
+	padding: 0px 10px;
 	overflow: hidden;
 	position: relative;
 	margin: 0 auto;
@@ -38,11 +38,11 @@ div.wrapper {
 }
 
 #coverflow img {
-	width: 260px;
-	max-height: 260px;
+	width: 350px;
+	max-height: 350px;
 	float: left;
 	position: relative;
-	margin: 0 -35px -35px;
+	margin: 0 -47px -35px;
 	 /*-webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(black), color-stop(1, transparent), to(black));*/
 
 }
@@ -52,7 +52,7 @@ div.wrapper {
 }
 
 #slider {
-	margin-top:20px;
+	margin-top:30px;
 	background: transparent url("++resource++js/ContentFlow/img/scrollbar.png") repeat-x scroll top center !important;
 	height: 5px !important;
 	border: none !important;
@@ -146,3 +146,4 @@ div.wrapper {
 #slider .ui-slider .ui-state-hover {
 	background: url("++resource++js/ContentFlow/img/slider.png") no-repeat scroll 0 0px transparent !important;
 }
+
