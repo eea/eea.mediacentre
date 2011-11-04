@@ -42,11 +42,6 @@
             top_widgets  = $("#top-widgets"),
             bottom_widgets = $("#bottom-widgets");
         var player_title = document.getElementById("player-title");
-        // move the footer and colophon out of visual-portal-wrapper
-        var footer = $("#visual-portal-wrapper").find(".row").last();
-        footer.detach().appendTo("body");
-        var colophon = $("#portal-colophon");
-        colophon.detach().appendTo("body");
 
         // background switching
         var cookie_expires = new Date();
@@ -117,21 +112,6 @@
             // changes the results of the whatsnewgallery when clicking on
             // a theme
             tags.click(function(){
-                // this code is for tags 
-                // var tag_title = this.title,
-                //     sel_value = tag_title === 'All' ? '' : tag_title,
-                
-                // scroll window to the bottom when clicking of tags to focus
-                // on the whatsnewgallery
-                var $window = $(window);
-                var win_height = $window.height(); 
-                var win_scroll = $window.scrollTop();
-                var scrollBottom = win_scroll + win_height;
-                if ( win_scroll !== scrollBottom ) {
-
-                    $body.animate({scrollTop: scrollBottom}, 1200, 'linear');
-                }
-
                 var tag_id = this.id.substr(3),
                     sel_value = tag_id === 'all' ? '' : tag_id,
                     sel_text = this.innerHTML,

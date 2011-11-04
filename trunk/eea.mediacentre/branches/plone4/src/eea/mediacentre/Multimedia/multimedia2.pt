@@ -111,23 +111,12 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 				   </form>
 				</div>
                 
-                <!-- Popular tags --> 
-				<div id="faceted-form"> 
-				    <div id="tag-cloud"> 
-                        <ul id="faceted-tabs">
-                            <li><a href="#" id="faceted-topics">By topics</a></li>
-                            <li><a href="#" id="faceted-tags">By tags</a></li>
-                        </ul>
-                        <div id="tag-cloud-content" tal:define="faceted_path python:'multimedia/all-videos'"> 
-                            <metal:tags use-macro="here/portlet_faceted_tagclouds/macros/portlet" /> 
-                        </div> 
-                        <div class="portletFooter">
-                            <p>
-                                <a href="all-videos" class="moreLink" title="Explore all tags">Explore all tags</a>
-                            </p>
-                        </div>
-				    </div> 
-				</div> 			
+                <div class="featured" id="featured-location">
+                    <h2>By location</h2>
+                    <div class="featured-holder">
+                        <img src="interactive-map.png" />
+                    </div>
+                </div>
 
                            </div>
                         </div>
@@ -172,14 +161,24 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="multimedia-map" class="multimedia-widget">
-                                    <div class="featured"
-                                        tal:define="plone_view nocall:plone_view|context/@@plone;">
-                                        <h2>By location</h2>
-                                        <div class="featured-holder">
-                                            <img src="interactive-map.png" />
-                                        </div>
-                                    </div>
+                                <div id="bottomright-widgets" class="multimedia-widget">
+                <!-- Popular tags --> 
+				<div id="faceted-form"> 
+				    <div id="tag-cloud"> 
+                        <ul id="faceted-tabs">
+                            <li><a href="#" id="faceted-topics">By topics</a></li>
+                            <li><a href="#" id="faceted-tags">By tags</a></li>
+                        </ul>
+                        <div id="tag-cloud-content" tal:define="faceted_path python:'multimedia/all-videos'"> 
+                            <metal:tags use-macro="here/portlet_faceted_tagclouds/macros/portlet" /> 
+                        </div> 
+                        <div class="portletFooter">
+                            <p>
+                                <a href="all-videos" class="moreLink" title="Explore all tags">Explore all tags</a>
+                            </p>
+                        </div>
+				    </div> 
+				</div> 			
                                 </div>
                             </div>
                         </div>
