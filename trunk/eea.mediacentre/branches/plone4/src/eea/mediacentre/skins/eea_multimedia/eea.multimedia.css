@@ -99,17 +99,17 @@ h2#player-title,
     border-bottom: none !important;
 }
 
-#top-widgets #topright-widgets.multimedia-widget #faceted-form #tag-cloud  .widget-fieldset legend {
+#bottomright-widgets #faceted-form #tag-cloud  .widget-fieldset legend {
     padding: 0;
     margin-bottom: 0;
 }
 
-#top-widgets #topright-widgets #faceted-form #tag-cloud ul.tags-cloud {
+#bottomright-widgets #faceted-form #tag-cloud ul.tags-cloud {
     width: 300px;
 }
 
-#top-widgets #topright-widgets #faceted-form #tag-cloud ul.tags-cloud li,
-#top-widgets #topright-widgets #faceted-form #tag-cloud ul.tags-cloud li a {
+#bottomright-widgets #faceted-form #tag-cloud ul.tags-cloud li,
+#bottomright-widgets #faceted-form #tag-cloud ul.tags-cloud li a {
     color: #FFFFFF !important;
 }
 
@@ -522,27 +522,28 @@ h1#parent-fieldname-title {
     color: #000000 !important;
 }
 /* elements from other pages */
-#tag-cloud {
+#bottomright-widgets #tag-cloud {
     background: none repeat scroll 0 0 rgba(52, 111, 131, 0.7) !important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83);
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2346f83, endColorstr=#b2346f83)";
     height: 355px;
 }
 
-#tag-cloud-content legend {
+#bottomright-widgets #tag-cloud-content legend {
     position: absolute;
     left: -9999px;
 }
 
-#tag-cloud .portletFooter {
+#bottomright-widgets #tag-cloud .portletFooter {
     padding: 0.3em 1em;
 }
 
-.tags-cloud {
+#bottomright-widgets .tags-cloud {
     min-height: 173px;
+    padding: 0px !important;
 }
 
-#faceted-form li.selected {
+#bottomright-widgets #faceted-form li.selected {
     background-color: #F6A800;
     color: white !important;
 }
@@ -575,7 +576,6 @@ h1#parent-fieldname-title {
 }
 
 #portal-globalnav {
-    /* text-align: right; */
     background: transparent;
 }
 #portal-globalnav li a {
