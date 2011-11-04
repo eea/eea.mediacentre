@@ -1,6 +1,6 @@
-<tal:multimedia metal:define-macro="videoclips" 
+<tal:multimedia metal:define-macro="latest" 
         tal:define="frontpage_view context/@@multimedia_logic;
-                    folderContents frontpage_view/getVideos;
+                    folderContents frontpage_view/getLatestMultimedia;
                     ajax python:True">
         <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
 </tal:multimedia>

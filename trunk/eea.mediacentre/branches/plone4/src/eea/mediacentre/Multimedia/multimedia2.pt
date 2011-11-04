@@ -99,37 +99,37 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                             </div>
                         </div>
 
-                        <div id="bottom-widgets">
-                            <div id="multimedia-vids" class="multimedia-widget left-widget">
-                                <div tal:define="datapage string:multimedia;" tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
-                                    <ul id="tabs">
-                                        <li>
-                                            <a href="#" id="tab-multimedia" i18n:translate="">All</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" id="tab-greentips" i18n:translate="">Green tips</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" id="tab-videoclips" i18n:translate="">Video clips</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" id="tab-imagegalleries" i18n:translate="">Image galleries</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" id="tab-playlist" i18n:translate="">My playlist</a>
-                                        </li>
-                                    </ul>
-                                    <!-- end_tabs -->
+                            <div id="bottom-widgets">
+                                <div id="multimedia-vids" class="multimedia-widget left-widget">
+                                    <div tal:define="datapage string:multimedia;" tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
+                                        <ul id="tabs">
+                                            <!--li>
+                                                <a href="#" id="tab-latest" i18n:translate="">Latest</a>
+                                            </li-->
+					    <li>
+                                                <a href="#" id="tab-videoclips" i18n:translate="">Videos</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id="tab-greentips" i18n:translate="">Green tips</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id="tab-imagegalleries" i18n:translate="">Image galleries</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id="tab-playlist" i18n:translate="">My playlist</a>
+                                            </li>
+                                        </ul>
+                                        <!-- end_tabs -->
 
-                                    <div metal:use-macro="here/frontpage_macros/macros/multimedia">
-                                        multimedia highlights
-                                    </div>
-                                    <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
-                                        animations highlights
-                                    </div>
-                                    <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
-                                        video clips  highlights
-                                    </div>
+				        <!--div metal:use-macro="here/eea_multimedia_macros/macros/latest">
+                                            multimedia highlights
+                                        </div-->
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/videoclips">
+                                            video highlights
+                                        </div>
+                                        <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
+                                            green tips highlights
+                                        </div>
 
                                     <div metal:use-macro="here/eea_multimedia_macros/macros/animations">
                                         image galleris highlights

@@ -1,3 +1,23 @@
+<div metal:define-macro="videoclips"
+     class="highlights"
+     id="videoclips-highlights" 
+     tal:define="multimedia_view multimedia_view|context/@@multimedia_logic;
+                 folderContents multimedia_view/getVideos|nothing;
+                 hide_album python: False;
+                 hide_listing python: True;
+                 more_href string:/all-videos;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
+</div>
+
+<div metal:define-macro="videos"
+     id="videos-highlights"
+     class="highlights"
+     tal:define="hide_listing python: True;
+                 hide_album python: False;
+                 more_href string:all-videos;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+</div>
+
 <div metal:define-macro="animations"
      id="animations-highlights"
      class="highlights"
@@ -6,3 +26,4 @@
                  more_href string:animations;">
         <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
+

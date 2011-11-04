@@ -29,9 +29,14 @@
                 class=".multimedia.Multimedia"
                 permission="zope2.View" />
 
+  <browser:page
+        for="*"
+        name="multimedia_logic"
+        class=".multimedia.Multimedia"
+        permission="zope.Public" />
+        
   <browser:resource
     name="jquery.fullbg.min.js"
-    file="js/jquery.fullbg.min.js"
-    />
+    file="js/jquery.fullbg.min.js" />
 
 </configure>
