@@ -42,6 +42,10 @@
             top_widgets  = $("#top-widgets"),
             bottom_widgets = $("#bottom-widgets");
         var player_title = document.getElementById("player-title");
+        var footer = $("#visual-portal-wrapper").find(".row").last();
+        footer.detach().appendTo("body");        
+        var colophon = $("#portal-colophon");
+        colophon.detach().appendTo("body");
 
         // background switching
         var cookie_expires = new Date();
@@ -193,5 +197,6 @@
     // end ready state
     });
 })(jQuery);
+
 
 
