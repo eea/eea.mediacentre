@@ -116,7 +116,8 @@
             // changes the results of the whatsnewgallery when clicking on
             // a theme
             tags.click(function(){
-                var tag_id = this.id.substr(3),
+                var tag_id = this.id,
+                    tag_id = window.isNaN(this.id[3]) ? this.id.substr(2) : this.id.substr(3);
                     sel_value = tag_id === 'all' ? '' : tag_id,
                     sel_text = this.innerHTML,
                     index,
