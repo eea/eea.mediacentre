@@ -5,7 +5,7 @@
                  folderContents multimedia_view/getVideos|nothing;
                  hide_album python: False;
                  hide_listing python: True;
-                 more_href string:/all-videos;">
+                 more_href string:all-videos;">
         <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
 </div>
 
