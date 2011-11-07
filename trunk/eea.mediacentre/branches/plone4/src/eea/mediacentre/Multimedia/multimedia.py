@@ -21,16 +21,16 @@ class Multimedia(BrowserView):
                                                 'frontpage_properties')
 
         self.noOfVideos = frontpage_properties.getProperty(
-                                                           'noOfVideos', 200)
+                                                           'noOfVideos', 8)
         self.noOfAnimations = frontpage_properties.getProperty(
-                                                           'noOfAnimations', 200)
+                                                        'noOfAnimations', 8)
         self.noOfLatestMultimedia = frontpage_properties.getProperty(
                                                      'noOfLatestMultimedia', 8)
         self.now = DateTime()
 
+        #'Language': self.context.getLanguage(),
         query = {'sort_on': 'effective',
                  'sort_order': 'reverse',
-                 'Language': self.context.getLanguage(),
                  'effectiveRange': DateTime()}
         query['object_provides'] = 'p4a.video.interfaces.IVideoEnhanced'
         brains = self.catalog.searchResults(query)[0:5]
@@ -42,8 +42,8 @@ class Multimedia(BrowserView):
             })
 
     def getLatestMultimedia(self):
-        """ retrieves latest pubsliched 
-        multimedia objects (videos/animations etc..) 
+        """ retrieves latest published
+        multimedia objects (videos/animations etc..)
         filtered by date and by topic """
         interface = 'p4a.video.interfaces.IVideoEnhanced'
         # querying for extra objects because Animations also implement 

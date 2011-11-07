@@ -105,6 +105,7 @@ h2#player-title,
 #bottomright-widgets #faceted-form #tag-cloud ul.tags-cloud li,
 #bottomright-widgets #faceted-form #tag-cloud ul.tags-cloud li a {
     color: #FFFFFF !important;
+    display: inline;
 }
 
 #bottom-widgets {

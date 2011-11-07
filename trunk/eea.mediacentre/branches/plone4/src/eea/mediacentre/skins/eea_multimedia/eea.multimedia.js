@@ -29,10 +29,10 @@
             colophon_imgs.removeClass('selected');
             cl.className = 'selected';
             bg.src = cl.src.replace(/\/image_thumb/, '');
-            $(bg).fullBg();
+            $(bg).fullBg().fadeIn();
         }
         else {
-            $("#background1").fullBg();
+            $("#background1").fullBg().fadeIn();
         }
 
         var content_flow = $("#contentFlow"),
@@ -79,14 +79,14 @@
             faceted_form.show();
             // unbind any events from the tag cloud items
             /* var tags = $("#c10").find('li'); */
-            var tags = $("#tag-cloud-content").find('li');
-            tags.unbind();
-            // remove default theme vocabulary item from tags
-            $('#c10default').remove();
-            $('#c10all').text("All topics").addClass('selected');
-            $('#c8all').addClass('selected');
             
-            $("#faceted-tabs").tabs("#tag-cloud-content > div.faceted-widget");
+            $("#faceted-tabs").tabs("#tag-cloud-content > div.faceted-widget", function(event, index) {
+                var cur_tab = this.getTabs()[index],
+                    cur_tab_val = cur_tab.id.substr(8);
+                if (cur_tab_val === "tags") {
+                    $("#c3").find('li').unbind();
+                }
+            });
             
             $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
                 var $this = $(this);
@@ -111,18 +111,32 @@
                 var $back = $(hid_imgs[i]);
                 var col_img = this;
                 $back.attr('src', this.src.replace(/\/image_thumb/, ''));
-                $back.css({zIndex : -2, width: vis_img.css('width'), height: vis_img.css('height')}).hide();
+                $back.css({zIndex : -2, width: vis_img.css('width'), height: vis_img.css('height')});
+                $back.fullBg();
+                $back.hide();
             });
             // changes the results of the whatsnewgallery when clicking on
             // a theme
-            tags.click(function(){
-                var tag_id = this.id,
-                    tag_id = window.isNaN(this.id[3]) ? this.id.substr(2) : this.id.substr(3),
+            var tags = $("#tag-cloud-content");
+            var tags_li = tags.find('li').unbind();
+            // remove items that have no results
+            tags_li.filter( function(){
+                return this.value === 1 && this.title !== "All";
+            }).remove();
+
+            // remove default theme vocabulary item from tags
+            $('#c1default').remove();
+            $('#c1all').addClass('selected');
+            $('#c3all').addClass('selected');
+            tags.delegate('li', 'click', function(){
+                var tag_id = window.isNaN(this.id[3]) ? this.id.substr(2) : this.id.substr(3),
                     sel_value = tag_id === 'all' ? '' : tag_id,
                     sel_text = this.innerHTML,
                     index,
                     tag_title;
-                tags.filter('.selected').removeClass('selected');
+                /* tags_li.filter('.selected').removeClass('selected'); */
+                $("#c3").find('li').filter('.selected').removeClass('selected');
+                $("#c1").find('li').filter('.selected').removeClass('selected');
                 this.className = "selected";
 
                 if ($(this).parent().prev().text().indexOf('tags') !== -1 ) { 
@@ -198,6 +212,3 @@
     // end ready state
     });
 })(jQuery);
-
-
-

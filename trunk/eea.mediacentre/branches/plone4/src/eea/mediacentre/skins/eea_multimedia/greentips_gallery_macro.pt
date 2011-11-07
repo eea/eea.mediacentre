@@ -2,5 +2,5 @@
         tal:define="frontpage_view context/@@multimedia_logic;
                     folderContents frontpage_view/getAnimations;
                     ajax python:True">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
+        <div metal:use-macro="here/eea_multimedia_macros/macros/gallery-condition" />
 </tal:multimedia>

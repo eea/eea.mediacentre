@@ -54,7 +54,7 @@ $(function () {
             this.coverflowCtrl.coverflow({
                 item: coverflowApp.defaultItem,
                 duration: 1200,
-                select: function (event, sky) {
+                select: function (evnt, sky) {
                     coverflowApp.skipTo(sky.value);
                 }
             });
@@ -113,7 +113,7 @@ $(function () {
                     min: 0,
                     max: $('#coverflow > *').length - 1,
                     value: coverflowApp.defaultItem,
-                    slide: function (event, ui) {
+                    slide: function (evnt, ui) {
                         var current = $('.coverflowItem');
                         coverflowApp.coverflowCtrl.coverflow('select', ui.value, true);
                         if ( current.length ) {
@@ -134,7 +134,7 @@ $(function () {
                         min: 0,
                         max: 100,
                         value: 0,
-                        slide: function (event, ui) {
+                        slide: function (evnt, ui) {
                             var topValue = -((100 - ui.value) * coverflowApp.difference / 100);
                             coverflowApp.sortable.css({
                                 top: topValue
@@ -167,7 +167,7 @@ $(function () {
         },
 
         init_mousewheel: function () {
-            $('.demo').mousewheel(function (event, delta) {
+            $('.demo').mousewheel(function (evnt, delta) {
 
                 var speed = 1,
                     sliderVal = coverflowApp.sliderCtrl.slider("value"),
@@ -189,7 +189,7 @@ $(function () {
                 if (Math.abs(leftValue) > coverflowApp.difference) { leftValue = (-1) * coverflowApp.difference; } //stop the content scrolling up beyond point desired
                 coverflowItem = Math.floor(sliderVal);
                 coverflowApp.skipTo(coverflowItem);
-                event.preventDefault();
+                evnt.preventDefault();
 
             });
         },
@@ -210,8 +210,6 @@ $(function () {
                         }
                     }
                 }
-
-
             });
         },
 
@@ -223,7 +221,6 @@ $(function () {
                 } catch (e) {}
             });
         },
-
 
         setScrollPositions: function () {
             $('#slider-vertical').slider('value', this.item * 5);
@@ -240,9 +237,23 @@ $(function () {
         }
     };
 
-
+    var slide_ctrl = coverflowApp.sliderCtrl;
+    slide_ctrl.unbind('click mouseup mousedown');
+    slide_ctrl.bind('click', function(e) {
+                        var btn_pos = coverflowApp.sliderCtrl.find('a');
+                        var current = coverflowApp.sliderCtrl.slider('value');
+                        var slider_pos = e.pageX;
+                        if (slider_pos > btn_pos.offset().left) {
+                        e.preventDefault();
+                            current++;
+                            coverflowApp.skipTo(current);
+                        }
+                        else {
+                            e.preventDefault();
+                            current--;
+                            coverflowApp.skipTo(current);
+                        }
+    });
+    
     coverflowApp.init_coverflow();
-
-
-
 });

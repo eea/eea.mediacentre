@@ -56,6 +56,9 @@ div.wrapper {
 	background: transparent url("++resource++js/ContentFlow/img/scrollbar.png") repeat-x scroll top center !important;
 	height: 5px !important;
 	border: none !important;
+    cursor: move;
+    /* padding: 30px 0px; */
+
 }
 
 .ui-selected {
@@ -135,7 +138,7 @@ div.wrapper {
 	     -o-border-radius: 0;
 	        border-radius: 0;
 	background: url("++resource++js/ContentFlow/img/slider.png") no-repeat scroll 0 -23px transparent !important;
-	cursor: pointer;
+	cursor: move;
 	height: 22px;
 	width: 22px;
 	top: -8px;
