@@ -125,7 +125,9 @@
             }).remove();
 
             // remove default theme vocabulary item from tags
-            $('#c1default').remove();
+            $('#c8default').remove();
+            $('#c8all').addClass('selected');
+            $('#c10all').addClass('selected');
             $('#c1all').addClass('selected');
             $('#c3all').addClass('selected');
             tags.delegate('li', 'click', function(){
@@ -134,9 +136,11 @@
                     sel_text = this.innerHTML,
                     index,
                     tag_title;
-                /* tags_li.filter('.selected').removeClass('selected'); */
-                $("#c3").find('li').filter('.selected').removeClass('selected');
+                // tags_li.filter('.selected').removeClass('selected'); 
+                $("#c10").find('li').filter('.selected').removeClass('selected');
+                $("#c8").find('li').filter('.selected').removeClass('selected');
                 $("#c1").find('li').filter('.selected').removeClass('selected');
+                $("#c3").find('li').filter('.selected').removeClass('selected');
                 this.className = "selected";
 
                 if ($(this).parent().prev().text().indexOf('tags') !== -1 ) { 
@@ -212,3 +216,4 @@
     // end ready state
     });
 })(jQuery);
+
