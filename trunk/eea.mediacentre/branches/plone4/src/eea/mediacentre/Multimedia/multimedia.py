@@ -53,7 +53,7 @@ class Multimedia(BrowserView):
                     noOfItems=self.noOfLatestMultimedia)
 
         return result
-    
+
     def getVideos(self):
         """ retrieves videos filtered by date and by topic """
         interface = 'p4a.video.interfaces.IVideoEnhanced'
@@ -72,3 +72,13 @@ class Multimedia(BrowserView):
                 'Products.EEAContentTypes.content.interfaces.IFlashAnimation',
                 noOfItems = self.noOfAnimations)
         return result
+
+    def getImageGalleries(self):
+        """ retrieves image galleries filtered by date and by topic """
+        query = {'sort_on': 'effective',
+                 'sort_order': 'reverse',
+                 'effectiveRange': self.now,
+                 'portal_type' :'Image',
+                 'path' : 'www/SITE/pressroom/pictures'}
+        res = self.catalog(query)
+        return res
