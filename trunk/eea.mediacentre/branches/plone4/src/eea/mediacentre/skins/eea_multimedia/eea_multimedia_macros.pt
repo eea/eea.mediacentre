@@ -27,6 +27,15 @@
         <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
 
+<div metal:define-macro="imagegalleries"
+     id="imagegalleries-highlights"
+     class="highlights"
+     tal:define="hide_listing python: True;
+                 hide_album python: False;
+                 more_href string:galleries;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+</div>
+
 <metal:condition metal:define-macro="gallery-condition">
     <tal:cond tal:condition="folderContents"
         tal:define="ajax ajax|nothing;

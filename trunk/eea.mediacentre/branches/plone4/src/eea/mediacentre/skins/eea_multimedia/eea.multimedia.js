@@ -103,6 +103,26 @@
                 });
             });
 
+            $("#imagegalleries-highlights").delegate("a", "click", function(){
+                var $this = $(this);
+                var href = this.href;
+                if (href.indexOf('signals') !== -1) {
+                    var res_href = href + "/gallery_fancybox_view";
+                    $this.attr('href', res_href);
+                    $this.fancybox({
+                        type: 'iframe',
+                        padding: 0,
+                        margin: 0,
+                        width: 780,
+                        height: 580,
+                        scrolling: 'no',
+                        autoScale: false,
+                        autoDimensions: false
+                    });
+                    return false;
+                }
+            
+            });
             // get all of the colophon images that are not selected
             var col_imgs = colophon_imgs.not('.selected');
             var hid_imgs = background_imgs.filter(':hidden');

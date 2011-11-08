@@ -75,10 +75,16 @@ class Multimedia(BrowserView):
 
     def getImageGalleries(self):
         """ retrieves image galleries filtered by date and by topic """
+        #query = {'sort_on': 'effective',
+        #         'sort_order': 'reverse',
+        #         'effectiveRange': self.now,
+        #         'portal_type' :'Image',
+        #         'path' : 'www/SITE/pressroom/pictures'}
         query = {'sort_on': 'effective',
                  'sort_order': 'reverse',
                  'effectiveRange': self.now,
-                 'portal_type' :'Image',
-                 'path' : 'www/SITE/pressroom/pictures'}
+                 'portal_type' :'EyewitnessStory',
+                 'path' : 'www/SITE/signals/galleries'}
+        #http://www.eea.europa.eu/signals/galleries/createObject?type_name=EyewitnessStory
         res = self.catalog(query)
         return res
