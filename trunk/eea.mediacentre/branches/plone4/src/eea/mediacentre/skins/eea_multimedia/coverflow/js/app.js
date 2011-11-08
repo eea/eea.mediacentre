@@ -237,23 +237,6 @@ $(function () {
         }
     };
 
-    var slide_ctrl = coverflowApp.sliderCtrl;
-    slide_ctrl.unbind('click mouseup mousedown');
-    slide_ctrl.bind('click', function(e) {
-                        var btn_pos = coverflowApp.sliderCtrl.find('a');
-                        var current = coverflowApp.sliderCtrl.slider('value');
-                        var slider_pos = e.pageX;
-                        if (slider_pos > btn_pos.offset().left) {
-                        e.preventDefault();
-                            current++;
-                            coverflowApp.skipTo(current);
-                        }
-                        else {
-                            e.preventDefault();
-                            current--;
-                            coverflowApp.skipTo(current);
-                        }
-    });
     
     coverflowApp.init_coverflow();
 });

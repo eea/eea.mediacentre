@@ -52,11 +52,12 @@ div.wrapper {
 }
 
 #slider {
-	margin-top:30px;
+	margin:30px auto;
 	background: transparent url("++resource++js/ContentFlow/img/scrollbar.png") repeat-x scroll top center !important;
 	height: 5px !important;
 	border: none !important;
     cursor: move;
+    width: 200px;
     /* padding: 30px 0px; */
 
 }
