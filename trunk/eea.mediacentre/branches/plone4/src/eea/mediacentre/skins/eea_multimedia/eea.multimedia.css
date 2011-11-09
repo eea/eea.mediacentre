@@ -571,7 +571,9 @@ h1#parent-fieldname-title {
 #portal-globalnav {
     background: transparent;
     font-size: 117%;
-}
+    filter: none;
+    -ms-filter: "none";
+ }
 #portal-globalnav li a {
     padding: 2em 1em 1em 0em;
 }
