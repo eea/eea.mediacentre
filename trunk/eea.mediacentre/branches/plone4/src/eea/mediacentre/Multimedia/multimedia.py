@@ -92,6 +92,20 @@ class Multimedia(BrowserView):
                  'path' : 'www/SITE/signals/galleries'}
         res_eyewitness = self.catalog(query_eyewitness)
 
+        query_atlas = {'sort_on': 'effective',
+                 'sort_order': 'reverse',
+                 'effectiveRange': self.now,
+                 'portal_type' :'Folder',
+                 'path' : {'query' : '/www/SITE/atlas/eea', 'depth': 1}
+                 }
+        res_atlas_brains = self.catalog(query_atlas)
+        res_brains = []
+        for i in range(0, len(res_atlas_brains) - 1):
+            if res_atlas_brains[i].getObject().get('photos', 'none') != 'none':
+                res_brains.append(res_atlas_brains[i])
+
         res.extend(res_pressroom)
         res.extend(res_eyewitness)
+        res.extend(res_brains)
+
         return res

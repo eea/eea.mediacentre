@@ -106,7 +106,9 @@
             $("#imagegalleries-highlights").delegate("a", "hover", function(){
                 var $this = $(this);
                 var href = this.href;
-                    var res_href = href + "/gallery_fancybox_view";
+                if (href.indexOf('fancybox') === -1) {
+                    var res_href = href.indexOf('atlas') === -1 ? href + "/gallery_fancybox_view" : 
+                                                        href + "/photos/gallery_fancybox_view";
                     $this.attr('href', res_href);
                     $this.fancybox({
                         type: 'iframe',
@@ -118,7 +120,8 @@
                         autoScale: false,
                         autoDimensions: false
                     });
-                    return false;
+                }
+                return false;
             
             });
             // get all of the colophon images that are not selected
