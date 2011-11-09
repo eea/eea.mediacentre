@@ -2,29 +2,15 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            i18n_domain="eea">
 
-  <browser:resourceDirectory name="multimedia-background"
-                             directory="images"
-                             permission="zope.Public" />
-
   <browser:resourceDirectory name="js"
                              directory="js"
                              permission="zope.Public" />
 
-
   <browser:resource name="jquery.easing.1.3.js"
                     file="js/jquery.easing.1.3.js" />
 
-  <browser:resource name="jquery.jcoverflip.js"
-                    file="js/jquery.jcoverflip.js" />
-
   <browser:page name="videopage"
                 template="multimedia.pt"
-                for="*"
-                class=".multimedia.Multimedia"
-                permission="zope2.View" />
-
-  <browser:page name="videopage2"
-                template="multimedia2.pt"
                 for="*"
                 class=".multimedia.Multimedia"
                 permission="zope2.View" />

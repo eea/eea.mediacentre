@@ -10,9 +10,9 @@
 	function getPrefix( prop ){  
 	        var prefixes = ['Moz','Webkit','Khtml','O','ms'],  
 	            elem     = document.createElement('div'),  
-	            upper      = prop.charAt(0).toUpperCase() + prop.slice(1),  
+	            upper    = prop.charAt(0).toUpperCase() + prop.slice(1),  
 	            pref     = "",
-				len 	 = 0;
+                len      = 0;
 	
 	        for(len = prefixes.length; len--;){  
 	            if((prefixes[len] + upper) in elem.style){  
@@ -69,9 +69,7 @@
 			//Center the actual parent's left side within it's parent
 
 			this.element.css(this.props[2],
-				(o.recenter ? -this.current * this.itemSize/2 : 0)
-				+ (o.center ? this.element.parent()[0]['offset'+this.props[1]]/2 - this.itemSize/2 : 0) //Center the items container
-				- (o.center ? parseInt(this.element.css('padding'+this.props[3]),10) || 0 : 0) //Subtract the padding of the items container
+				(o.recenter ? -this.current * this.itemSize/2 : 0) + (o.center ? this.element.parent()[0]['offset'+this.props[1]]/2 - this.itemSize/2 : 0) - (o.center ? parseInt(this.element.css('padding'+this.props[3]),10) || 0 : 0) //Subtract the padding of the items container
 			);
 
 			//Jump to the first item
@@ -87,7 +85,7 @@
 			
 
 			//Don't animate when clicking on the same item
-			if(this.previous == this.current) return false; 
+			if(this.previous == this.current) { return false; }
 			
 			//Overwrite $.fx.step.coverflow everytime again with custom scoped values for this specific animation
 			var self = this, to = Math.abs(self.previous-self.current) <=1 ? self.previous : self.current+(self.previous < self.current ? -1 : 1);
@@ -101,15 +99,15 @@
 		
 		
 			animation[this.props[2]] = (
-				(this.options.recenter ? -this.current * this.itemSize/2 : 0)
-				+ (this.options.center ? this.element.parent()[0]['offset'+this.props[1]]/2 - this.itemSize/2 : 0) //Center the items container
-				- (this.options.center ? parseInt(this.element.css('padding'+this.props[3]),10) || 0 : 0) //Subtract the padding of the items container
+				(this.options.recenter ? -this.current * this.itemSize/2 : 0) +
+                (this.options.center ? this.element.parent()[0]['offset'+this.props[1]]/2 - this.itemSize/2 : 0)	-
+                (this.options.center ? parseInt(this.element.css('padding'+this.props[3]),10) || 0 : 0) //Subtract the padding of the items container
 			);
 		
 		
 			
 			//Trigger the 'select' event/callback
-			if(!noPropagation) this._trigger('select', null, this._uiHash());
+			if(!noPropagation) { this._trigger('select', null, this._uiHash()); }
 			
 			this.element.stop().animate(animation, {
 				duration: this.options.duration,
@@ -134,9 +132,9 @@
 				    //css[($.browser.safari ? 'webkit' : ($.browser.opera ? 'O' : 'Moz'))+'Transform'] = 'matrix(1,'+(mod * (side == 'right' ? -0.2 : 0.2))+',0,1,0,0) scale('+(1+((1-mod)*0.3)) + ')'; 
 	           
 	
-				if(vendorPrefix == 'ms' || vendorPrefix == ""){
+				if(vendorPrefix === 'ms' || vendorPrefix === ""){
 		
-					css["filter"] = "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=" + (mod * (side == 'right' ? -0.2 : 0.2)) + ", M22=1";
+					css.filter = "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=" + (mod * (side == 'right' ? -0.2 : 0.2)) + ", M22=1";
 					css[self.props[2]] = ( (-i * (self.itemSize/2)) + (side == 'right'? -self.itemSize/2 : self.itemSize/2) * mod );
 		
 					if(i == self.current){
