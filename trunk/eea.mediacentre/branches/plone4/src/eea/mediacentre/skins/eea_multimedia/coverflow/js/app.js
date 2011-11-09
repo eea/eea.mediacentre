@@ -6,6 +6,7 @@
   With contributions from Paul Bakhaus, Nicolas Bonnicci
   
 */
+(function($){
 $(function () {
 
     var coverflowApp = coverflowApp || {};
@@ -240,3 +241,4 @@ $(function () {
     
     coverflowApp.init_coverflow();
 });
+})(jQuery); 
