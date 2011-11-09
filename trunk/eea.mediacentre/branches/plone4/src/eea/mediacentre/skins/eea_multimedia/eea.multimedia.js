@@ -103,10 +103,9 @@
                 });
             });
 
-            $("#imagegalleries-highlights").delegate("a", "click", function(){
+            $("#imagegalleries-highlights").delegate("a", "hover", function(){
                 var $this = $(this);
                 var href = this.href;
-                if (href.indexOf('signals') !== -1) {
                     var res_href = href + "/gallery_fancybox_view";
                     $this.attr('href', res_href);
                     $this.fancybox({
@@ -120,7 +119,6 @@
                         autoDimensions: false
                     });
                     return false;
-                }
             
             });
             // get all of the colophon images that are not selected
