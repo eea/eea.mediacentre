@@ -79,13 +79,14 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                             </div>
                             <div id="topright-widgets" class="multimedia-widget">
                                 <!-- data and maps global search -->
-                                <a href="all-videos" class="archives advanced-search-link" style="padding-right:10px;" title="Go to advanced search">
-                                    <span>Advanced</span></a>
                                 <div class="featured">
-                                    <h2 i18n:translate="featured_global_search">Search</h2>
+                                    <h2 i18n:translate="featured_global_search" style="float:left;">Search</h2>
+                                    <a href="all-videos" class="archives advanced-search-link" style="float:right;margin:5px 0px 0px 0px;" title="Go to advanced search">
+                                    <span>Advanced</span></a>
+                                    <div style="clear:both"> </div>
                                     <form tal:attributes="action string:${here/absolute_url}/all-videos"  method="get" id="faceted-text-search" class="searchforms faceted-external-search">
                                         <input type="text" name="c12" title="Search videos, animations, image galleries" value=""/>
-                                        <input type="submit" value="Search" name="search" />
+                                        <input type="submit" value="Search" name="search" style="float:right"/>
                                     </form>
                                 </div>
 
