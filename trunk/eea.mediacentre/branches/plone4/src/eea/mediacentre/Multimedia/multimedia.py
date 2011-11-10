@@ -76,29 +76,23 @@ class Multimedia(BrowserView):
     def getImageGalleries(self):
         """ retrieves image galleries filtered by date and by topic """
         res = []
-
-        query_pressroom = {'sort_on': 'effective',
+        query = {'sort_on': 'effective',
                  'sort_order': 'reverse',
                  'effectiveRange': self.now,
                  'id' : 'pictures',
                  'portal_type' :'Folder',
+                 'review_state': 'published',
                  'path' : 'www/SITE/pressroom'}
-        res_pressroom = self.catalog(query_pressroom)
+        res_pressroom = self.catalog(query)
+        query.pop('id')
 
-        query_eyewitness = {'sort_on': 'effective',
-                 'sort_order': 'reverse',
-                 'effectiveRange': self.now,
-                 'portal_type' :'EyewitnessStory',
-                 'path' : 'www/SITE/signals/galleries'}
-        res_eyewitness = self.catalog(query_eyewitness)
+        query['portal_type'] = 'EyewitnessStory'
+        query['path'] = 'www/SITE/signals/galleries'
+        res_eyewitness = self.catalog(query)
 
-        query_atlas = {'sort_on': 'effective',
-                 'sort_order': 'reverse',
-                 'effectiveRange': self.now,
-                 'portal_type' :'Folder',
-                 'path' : {'query' : '/www/SITE/atlas/eea', 'depth': 1}
-                 }
-        res_atlas_brains = self.catalog(query_atlas)
+        query['portal_type'] = 'Folder'
+        query['path'] = {'query' : '/www/SITE/atlas/eea', 'depth': 1}
+        res_atlas_brains = self.catalog(query)
         res_brains = []
         for i in range(0, len(res_atlas_brains) - 1):
             if res_atlas_brains[i].getObject().get('photos', 'none') != 'none':
