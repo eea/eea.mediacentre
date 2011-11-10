@@ -22,7 +22,6 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                 <link type="text/css" tal:attributes="href string:${cover}/css/demos.css" rel="stylesheet" />
                 </tal:cond>
 
-
                 <!-- Transformie is a plugin that makes webkit's CSS transforms work in Internet Explorer -->
                 <script tal:attributes="src string:${cover}/js/sylvester.js" type="text/javascript"></script>
                 <script tal:attributes="src string:${cover}/js/transformie.js" type="text/javascript"></script>

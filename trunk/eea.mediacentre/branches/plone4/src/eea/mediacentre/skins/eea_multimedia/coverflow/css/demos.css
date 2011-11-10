@@ -53,7 +53,7 @@ div.wrapper {
 
 #slider {
 	margin:30px auto;
-	background: transparent url("++resource++js/ContentFlow/img/scrollbar.png") repeat-x scroll top center !important;
+	background: transparent url("../img/scrollbar.png") repeat-x scroll top center !important;
 	height: 5px !important;
 	border: none !important;
     cursor: move;
@@ -128,7 +128,7 @@ div.wrapper {
 }
 
 #slider .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-	background: url("++resource++js/ContentFlow/img/slider.png") no-repeat scroll 0 -23px transparent !important;
+	background: url("../img/slider.png") no-repeat scroll 0 -23px transparent !important;
 }
 
 #slider .ui-slider-handle.ui-state-default {
@@ -138,7 +138,7 @@ div.wrapper {
 	    -ms-border-radius: 0;
 	     -o-border-radius: 0;
 	        border-radius: 0;
-	background: url("++resource++js/ContentFlow/img/slider.png") no-repeat scroll 0 -23px transparent !important;
+	background: url("../img/slider.png") no-repeat scroll 0 -23px transparent !important;
 	cursor: move;
 	height: 22px;
 	width: 22px;
@@ -148,6 +148,6 @@ div.wrapper {
 
 #slider .ui-slider-handle.ui-state-hover,
 #slider .ui-slider .ui-state-hover {
-	background: url("++resource++js/ContentFlow/img/slider.png") no-repeat scroll 0 0px transparent !important;
+	background: url("../img/slider.png") no-repeat scroll 0 0px transparent !important;
 }
 

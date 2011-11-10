@@ -127,8 +127,8 @@
             // get all of the colophon images that are not selected
             var col_imgs = colophon_imgs.not('.selected');
             var hid_imgs = background_imgs.filter(':hidden');
-            var vis_img = background_imgs.filter(':visible');
-            col_imgs.each( function(i){
+            var vis_img  = background_imgs.filter(':visible');
+            col_imgs.each(function(i){
                 var $back = $(hid_imgs[i]);
                 var col_img = this;
                 $back.attr('src', this.src.replace(/\/image_thumb/, ''));
@@ -141,7 +141,7 @@
             var tags = $("#tag-cloud-content");
             var tags_li = tags.find('li').unbind();
             // remove items that have no results
-            tags_li.filter( function(){
+            tags_li.filter(function(){
                 return this.value === 1 && this.title !== "All";
             }).remove();
 
@@ -177,10 +177,9 @@
         });
 
         function showMediaPlayer(item){
-            var thumb_url = item.content ? item.content.src : item.src,
+            var thumb_url =  item.src,
                 video_url = thumb_url.substring(0, thumb_url.length - 11);
-            var link = item.caption ? item.caption : 1;
-            player_title.innerHTML = link !== 1 ? item.caption.innerHTML : item.title;
+            player_title.innerHTML = item.title;
             if ( video_url.indexOf('films') === -1) {
                 media_flowplayer.flashembed(
                 {
@@ -200,7 +199,7 @@
                 });
             }
             else {
-                var current = link !== 1 ? $(item.content) : $(item);
+                var current = $(item);
                 media_flowplayer.flashembed({
                         src: current.attr('rel')
                 });
@@ -223,16 +222,6 @@
         $("#fancybox-close").click(function(){
             media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
         });
-
-        // contentFlow configurations
-        if ( window.location.href.indexOf(2) === -1 ) {
-            var myNewFlow = new ContentFlow('contentFlow',{
-                   onclickActiveItem:function(item){showMediaPlayer(item);},
-                   reflectionHeight: 0,
-                   flowDragFriction: 1,
-                   startOnLoad: true
-            });
-        }
 
     // end ready state
     });
