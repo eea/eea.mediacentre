@@ -118,7 +118,18 @@
                         height: 580,
                         scrolling: 'no',
                         autoScale: false,
-                        autoDimensions: false
+                        autoDimensions: false,
+                        centerOnScroll : false,
+                        overlayShow : false, 
+                        onStart : function() {
+                            $.fancybox.center = function() { return false;};
+                            console.log("oncomplete call");
+                            $('html, body').animate({scrollTop: 0}, 200);
+                            $("#fancybox-wrap").css({position : 'absolute'}).animate({
+                                left: "260px",
+                                top: "100px" 
+                            }, 200);
+                        }            
                     });
                 }
                 return false;
