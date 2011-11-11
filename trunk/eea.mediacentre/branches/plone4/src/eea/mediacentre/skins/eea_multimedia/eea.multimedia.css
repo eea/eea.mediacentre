@@ -379,11 +379,11 @@ ul, ul li {
 ul#faceted-tabs {
 	background: none repeat scroll 0 0 rgba(52, 111, 131, 0.3);
     height: 36px;
-    -webkit-border-radius: 10px;
-       -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-         -o-border-radius: 10px;
-            border-radius: 10px;
+    -webkit-border-radius: 10px 10px 0 0;
+       -moz-border-radius: 10px 10px 0 0;
+        -ms-border-radius: 10px 10px 0 0;
+         -o-border-radius: 10px 10px 0 0;
+            border-radius: 10px 10px 0 0;
 }
 
 #faceted-tabs li a.current, ul#faceted-tabs li a:hover,

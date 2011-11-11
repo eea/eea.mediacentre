@@ -123,7 +123,6 @@
                         overlayShow : false, 
                         onStart : function() {
                             $.fancybox.center = function() { return false;};
-                            console.log("oncomplete call");
                             $('html, body').animate({scrollTop: 0}, 200);
                             $("#fancybox-wrap").css({position : 'absolute'}).animate({
                                 left: "260px",
