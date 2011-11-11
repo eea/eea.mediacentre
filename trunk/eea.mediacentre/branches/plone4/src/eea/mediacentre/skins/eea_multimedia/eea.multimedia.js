@@ -143,6 +143,7 @@
                 var col_img = this;
                 $back.attr('src', this.src.replace(/\/image_thumb/, ''));
                 $back.css({zIndex : -2, width: vis_img.css('width'), height: vis_img.css('height')});
+                $back.attr('alt', 'Switch background image');
                 $back.fullBg();
                 $back.hide();
             });
