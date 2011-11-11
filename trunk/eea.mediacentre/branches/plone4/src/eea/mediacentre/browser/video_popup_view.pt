@@ -31,7 +31,7 @@
 
 <div style="clear:both"></div>
 
-<metal:cond tal:define="request nocall: context/REQUEST; fromrequest python: request.get_header('referer')" tal:condition="python:'videopage' not in fromrequest">
+<metal:cond tal:define="request nocall: context/REQUEST; fromrequest python: request.get_header('referer')" tal:condition="python:fromrequest and 'videopage' not in fromrequest">
     <div id="tabs" style="height:148px;">
         <ul class="tabs">
             <li><a class="tabnav" href="#" i18n:translate="videos-link">Related videos</a></li>
