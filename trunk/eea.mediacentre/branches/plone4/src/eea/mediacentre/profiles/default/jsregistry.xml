@@ -12,7 +12,7 @@
              compression="safe"
              cookable="True"
              enabled="True"
-             expression="python:'videopage' in request.URL0"
+             expression="python:'multimedia_view' in context.getLayout()"
              id="eea.multimedia.js"
              inline="False"
              position-after="eea-mediacentre.js"/>

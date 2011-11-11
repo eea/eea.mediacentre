@@ -30,8 +30,7 @@
 </metal:video>
 
 <div style="clear:both"></div>
-
-<metal:cond tal:define="request nocall: context/REQUEST; fromrequest python: request.get_header('referer')" tal:condition="python:fromrequest and 'videopage' not in fromrequest">
+<metal:cond tal:condition="not:python:'multimedia_view' in context.getLayout()">
     <div id="tabs" style="height:148px;">
         <ul class="tabs">
             <li><a class="tabnav" href="#" i18n:translate="videos-link">Related videos</a></li>
