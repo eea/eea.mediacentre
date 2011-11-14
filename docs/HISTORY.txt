@@ -1,0 +1,63 @@
+Changelog
+=========
+
+
+4.0-dev - (unreleased)
+----------------------
+ * Bug fix: Fixed layout for search box, fixed top navigation gradient problem [szabozo0 #4673]
+
+ * Bug fix: enable playing of videos with spaces in their name [tiberich]
+
+ * Bugfix: Fixed time format on video view [szabozo0 #4549] 
+ 
+ * Bugfix: Fixed layout of video popup view [szabozo0 #4510]
+ 
+ * Bugfix: fixed IE js errors [szabozo0 #4542]
+ 
+ * Change: fixed the video.pt template to fill content-core instead of main slot.
+   [demarant #4541]
+ 
+ * Feature: Modified "Edit video metadata" to display schematas bar [szabozo0 #4510]
+ 
+ * Change: removed the old themes portlet, now part of the main template as viewlet [demarant]
+
+ * Change: Enabled geotags multiedit [szabozo0 #4428]
+
+ * Change: Included ManagementPlan Field and Widget from eea.forms instead of eea.dataservice [szabozo0 #4423]
+
+ * Bugfix: Changed MediaTypesImageAdapter to adapt IATImage instead of ATImage [szabozo0 #4423]
+
+ * Feature: Added upgrade steps
+  [voineali #4392]
+
+ * Feature: Plone 4.x compatible release
+  [ghicaale #4259]
+
+
+0.5 - (2011-04-19)
+------------------
+ * Feature: added location field to the video edit form [szabozo0 #4260]
+ * Bug fix: brought images that were in thickbox product for video popup [ichimdav #4266]
+
+0.4 - (2011-04-08)
+------------------
+ * Bug fix: Added translation domain to ZCML files [voineali #4139]
+ * Cleanup: of pyflakes compiler warnings [ichimdav #4141]
+ * Cleanup: of pylint violations [ichimdav #4140]
+ * Feature: added management plan code for videos [tiberich #4215]
+
+0.3 - (2011-03-01)
+------------------
+ * Bug fix: fixed tests [tiberich #4153]
+
+0.2 - (2011-02-18)
+------------------
+ * Change: update egg structure [ichimdav #2931]
+ * New fancybox based video popup [thuliper, #3040]
+ * Fixed bug where videos were looping [thuliper, #2664]
+ * video_popup_view was appended even if it shouldn't, now it replaces any existing view_popup_view string. [vincisas]
+
+0.1 - (2009)
+------------------
+ * Initial creation of package
+

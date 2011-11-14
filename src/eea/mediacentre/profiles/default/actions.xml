@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n" name="portal_actions">
+
+    <object name="object">
+        
+        <object name="mediatype_edit" meta_type="CMF Action" i18n:domain="eea">
+            <property name="title" i18n:translate="">Media type</property>
+            <property name="description" i18n:translate=""/>
+            <property name="url_expr">string:${object_url}/mediatype_edit.html</property>
+            <property name="available_expr">python:'p4a.video.interfaces.IVideoEnhanced' in object.restrictedTraverse('@@get_interfaces')()</property>
+            <property name="permissions">
+                <element value="Modify portal content"/>
+            </property>
+            <property name="visible">True</property>
+        </object>
+
+        <object name="metadata_video_edit" meta_type="CMF Action" i18n:domain="eea">
+            <property name="title" i18n:translate="">Edit video metadata</property>
+            <property name="description" i18n:translate=""/>
+            <property name="url_expr">string:${object_url}/base_edit</property>
+            <property name="available_expr">python:'p4a.video.interfaces.IVideoEnhanced' in object.restrictedTraverse('@@get_interfaces')() and object.restrictedTraverse('@@showEditVideoMetadataTab')</property>
+            <property name="permissions">
+                <element value="Modify portal content"/>
+            </property>
+            <property name="visible">True</property>
+        </object>
+
+
+    </object>
+</object>
+
+

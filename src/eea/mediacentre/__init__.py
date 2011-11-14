@@ -1,0 +1,2 @@
+""" EEA Media Centre package
+"""
