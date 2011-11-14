@@ -42,8 +42,7 @@ $(document).ready(function() {
                         left: mult.left - 18,
                         top: mult.top - 18
                     }, 200);   
-                    
-                };            
+                };
             }
             if (!isInsidePopUp) {
                     $(this).fancybox( options );

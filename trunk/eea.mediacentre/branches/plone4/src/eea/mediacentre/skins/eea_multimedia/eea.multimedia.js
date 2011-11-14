@@ -103,7 +103,7 @@
                 });
             });
 
-            $("#imagegalleries-highlights").delegate("a", "hover", function(){
+            $("#imagegalleries-highlights").delegate(".gallery-ajax a", "hover", function(){
                 var $this = $(this);
                 var href = this.href;
                 if (href.indexOf('fancybox') === -1) {
@@ -128,7 +128,7 @@
                                 left: "260px",
                                 top: "100px" 
                             }, 200);
-                        }            
+                        }
                     });
                 }
                 return false;
@@ -233,7 +233,10 @@
         $("#fancybox-close").click(function(){
             media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
         });
-
+        
+        // get the description tab from video_popup_view which contains desc,
+        // video link, title, author and other key information
+        $("#fancybox-frame").contents().find("#tab-desc");
     // end ready state
     });
 })(jQuery);
