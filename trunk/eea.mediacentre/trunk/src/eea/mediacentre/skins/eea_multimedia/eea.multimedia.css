@@ -644,3 +644,8 @@ h1#parent-fieldname-title {
 .colophon-right img.selected {
     border: 1px solid #FFF;
 }
+
+/* hide items from the multimedia page */
+#viewlet-below-content, .documentActions {
+    display: none;
+}
