@@ -43,6 +43,16 @@ $(document).ready(function() {
                         top: mult.top - 18
                     }, 200);   
                 };
+                options.onComplete = function() {
+                    window.setTimeout(function() {
+                        // get the description tab from video_popup_view which contains desc,
+                        // video link, title, author and other key information
+                        var tab_desc = $("#fancybox-frame").contents().find("#tab-desc");
+                        tab_desc.css({position : 'relative', display: 'block', height: '200px', top: '0px'});
+                        $("#featured-films").fadeOut();
+                        $("#featured-items").html(tab_desc).fadeIn();
+                    }, 2000);
+                };
             }
             if (!isInsidePopUp) {
                     $(this).fancybox( options );
