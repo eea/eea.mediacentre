@@ -16,7 +16,6 @@
         var mult = window.whatsnew.multimedia;
              mult.bg = $("#background1");
              mult.bg2 = $("#background2");
-
         // add background and colophon based on cookie if present else get the
         // first background and show it
         var background_imgs = $("#backgrounds").find('img');
@@ -221,10 +220,27 @@
         // displays media player, changes background image to the image of the
         // played file
         var coverflow_imgs = $("#coverflow").find('img');
+        var featured_films = $("#featured-films");
+        var featured_artic = featured_films.find("#artic");
+        var featured_degree = featured_films.find("#degree");
         coverflow_imgs.click(function(e){
             var $this = $(this);
             if ( this.className === "content selected") {
                 showMediaPlayer(this);
+                var title = this.title;
+                if (title.indexOf('arctic') !== -1) {
+                    featured_degree.fadeOut('slow');
+                    featured_artic.fadeIn('slow');
+                }
+                else if (title.indexOf('degree') !== -1) {
+                    featured_degree.fadeIn('slow');
+                    featured_artic.fadeOut('slow');
+                }
+                // TODO refactor this code when I have brains of the featured
+                // films and other videos that should be added as featured
+                // else {
+                // }
+
             }
             coverflow_imgs.removeClass('selected');
             this.className = "content selected";
