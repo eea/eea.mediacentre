@@ -4,10 +4,9 @@ $(document).ready(function() {
     function prepareVideoLinkURLs() {
         $("#content, #vids-slider").delegate(".video-fancybox", "hover", function(){
             var regex = /(\/$|\/view\/?$|\/video_popup_view\/?$)/;
-            var href = this.href;
-            href = href.replace(regex, ''); // remove any trailing '/view' or '/'
-            href = href + "/video_popup_view";
-            this.href = href; 
+            var orig_href = this.href;
+            var clean_href = orig_href.replace(regex, ''); // remove any trailing '/view' or '/'
+            this.href = clean_href + "/video_popup_view"; 
             var parent = this;
             var isInsidePopUp = $('body').hasClass('video_popup_view');
             var coverflow = $("#multimedia-coverflow"),
@@ -48,9 +47,16 @@ $(document).ready(function() {
                         // get the description tab from video_popup_view which contains desc,
                         // video link, title, author and other key information
                         var tab_desc = $("#fancybox-frame").contents().find("#tab-desc");
-                        tab_desc.css({position : 'relative', display: 'block', height: '200px', top: '0px'});
+                        var featured_item = $("#featured-items");
+                        tab_desc.css({position : 'relative', display: 'block', height: '160px', top: '0px', minHeight: '160px', maxHeight:'200px'});
                         $("#featured-films").fadeOut();
-                        $("#featured-items").html(tab_desc).fadeIn();
+                        featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
+                        console.log($parent.find(".photoAlbumEntryTitle"));
+                        var title = $parent.find(".photoAlbumEntryTitle").text();
+                        featured_item.find("h3").text(title);
+                        console.log(orig_href);
+                        $(".bookmark-link").attr("href", orig_href);
+                        $(".vid-dl-link").attr("href", clean_href);
                     }, 2000);
                 };
             }

@@ -108,11 +108,14 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                             </div>
                                         </div>
                                         <div id="featured-items" style="display:none">
-
+                                            <h3>Featured Item Title</h3>
+                                            <p class="featured-description" > Featured Item Description</p>
+                                                <div class="portletFooter">
                                                 <p class="links">
-                                                <!--<a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>-->
-                                                <!--<a href="#" id="vid-dl-link" class="footer" tal:attributes="href film/absolute_url" i18n:translate="video-download-link">Download</a>-->
+                                                <a href="#" class="bookmark-link" i18n:translate="video-bookmark-link">Link</a>
+                                                <a href="#" class="vid-dl-link"  i18n:translate="video-download-link">Download</a>
                                                 </p>
+                                            </div>
                                         
                                         </div>
                                     </div>

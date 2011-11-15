@@ -353,8 +353,10 @@ ul, ul li {
     padding: 0.5em;
 }
 #featured-location .featured-description {
-    overflow: auto; 
-    height: 180px;
+    overflow: auto;
+    height: 160px;
+    min-height: 160px;
+    max-height: 180px;
     margin-bottom: 0.7em;
 }
 .multimedia-widget #faceted-text-search input[type="text"] {
