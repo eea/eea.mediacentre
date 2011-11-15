@@ -323,8 +323,12 @@ ul, ul li {
 }
 
 .featured-holder {
-    overflow: auto;
+    /* overflow: auto; */
     height: 215px;
+}
+
+.links a {
+    color: #FFF;
 }
 
 .featured img {
