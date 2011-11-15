@@ -228,6 +228,8 @@
             if ( this.className === "content selected") {
                 showMediaPlayer(this);
                 var title = this.title;
+                $("#featured-items").fadeOut('slow');
+                featured_films.fadeIn('slow');
                 if (title.indexOf('arctic') !== -1) {
                     featured_degree.fadeOut('slow');
                     featured_artic.fadeIn('slow');
@@ -250,9 +252,6 @@
             media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
         });
         
-        // get the description tab from video_popup_view which contains desc,
-        // video link, title, author and other key information
-        $("#fancybox-frame").contents().find("#tab-desc");
     // end ready state
     });
 })(jQuery);

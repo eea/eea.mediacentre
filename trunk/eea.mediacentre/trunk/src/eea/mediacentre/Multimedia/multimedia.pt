@@ -94,18 +94,25 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                             <div id="degree">
                                                 <tal metal:define-macro="featured-film" tal:define="film nocall:featured_film|degree_matters" tal:omit-tag="">
                                             <h3 tal:content="film/Title">Title</h3>
-                                                <p tal:content="film/Description" style="overflow: scroll; height: 150px;">Description</p>
+                                                <p tal:content="film/Description" class="featured-description">Description</p>
+                                                <div class="portletFooter">
                                                 <p class="links">
                                                 <a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>
                                                 <a href="#" id="vid-dl-link" class="footer" tal:attributes="href film/absolute_url" i18n:translate="video-download-link">Download</a>
                                                 </p>
+                                                </div>
                                             </tal>
                                             </div>
                                             <div id="artic" style="display:none" tal:define="featured_film nocall:artic_challenge">
                                                 <tal  metal:use-macro="here/@@multimedia_view/featured-film"  />
                                             </div>
                                         </div>
-                                        <div id="featured-items">
+                                        <div id="featured-items" style="display:none">
+
+                                                <p class="links">
+                                                <!--<a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>-->
+                                                <!--<a href="#" id="vid-dl-link" class="footer" tal:attributes="href film/absolute_url" i18n:translate="video-download-link">Download</a>-->
+                                                </p>
                                         
                                         </div>
                                     </div>
