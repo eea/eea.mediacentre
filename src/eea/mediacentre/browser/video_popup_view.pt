@@ -24,7 +24,7 @@
 <body class="video_popup_view">
     <metal:cond tal:define="requests context/REQUEST; fromrequest python: requests.get_header('referer')"> 
 
-<h1 tal:content="context/Title">Video Title</h1>
+<h1 tal:content="context/Title" id="video-title">Video Title</h1>
 
 <metal:video>
     <div tal:replace="structure view/widgets/media_player"></div>
