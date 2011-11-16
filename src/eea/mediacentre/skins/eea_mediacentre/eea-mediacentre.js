@@ -49,7 +49,7 @@ $(document).ready(function() {
                         var iframe = $("#fancybox-frame").contents();
                         var tab_desc = iframe.find("#tab-desc");
                         var featured_item = $("#featured-items");
-                        tab_desc.css({position : 'relative', display: 'block', height: '145px', top: '0px', minHeight: '145px', maxHeight:'200px'});
+                        tab_desc.css({position : 'relative', display: 'block',  top: '0px', height: ''});
                         $("#featured-films").fadeOut();
                         featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
                         var title = iframe.find("#video-title").text();

@@ -351,10 +351,12 @@ ul, ul li {
 
 #featured-location .portletFooter {
     padding: 0em 0.5em;
+    position: absolute;
+    top: 260px;
+    width: 295px;
 }
 #featured-location .featured-description {
     overflow: auto;
-    height: 145px;
     min-height: 145px;
     max-height: 180px;
     margin-bottom: 0.7em;
