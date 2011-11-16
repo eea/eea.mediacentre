@@ -86,10 +86,24 @@
                     $("#c3").find('li').unbind();
                 }
             });
-            
+            var item_info = function(item, orig_href, clean_href) {
+                        // get the description tab from video_popup_view which contains desc,
+                        // video link, title, author and other key information
+                        var $this = item;
+                        var tab_desc = $this.find(".photoAlbumEntryDescription").text();                        
+                        var featured_item = $("#featured-items");
+                        $("#featured-films").fadeOut();
+                        featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
+                        var title = $this.find(".photoAlbumEntryTitle").text();
+                        featured_item.find("h3").text(title);
+                        $(".bookmark-link").attr("href", orig_href);
+                        $(".vid-dl-link").attr("href", clean_href);
+            };
             $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
                 var $this = $(this);
                 $this.click( function(){
+                    var orig_href = this.href;
+                    var clean_href = this.href.replace(/(view|video_popup_view)/, "");
                     var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
                     player_title.innerHTML = $this.attr('alt');
                     media_flowplayer.flashembed({
@@ -98,6 +112,7 @@
                     content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
                     var mult = content_flow.offset();
                     $body.animate({scrollTop: 0}, 600, 'linear');
+                    item_info($this, orig_href, clean_href);
                     return false;
                 });
             });
@@ -106,6 +121,7 @@
                 var $this = $(this);
                 var href = this.href;
                 if (href.indexOf('fancybox') === -1) {
+                    
                     var res_href = href.indexOf('atlas') === -1 ? href + "/gallery_fancybox_view" : 
                                                         href + "/photos/gallery_fancybox_view";
                     $this.attr('href', res_href);
@@ -128,6 +144,11 @@
                                 top: "100px" 
                             }, 200);
                         }
+                    });
+
+                    $this.click(function() {
+                        var orig_href = href.indexOf('atlas') === -1 ? href : href + "/photos";
+                        item_info($this, orig_href, orig_href);
                     });
                 }
                 return false;
