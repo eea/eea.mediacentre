@@ -46,12 +46,13 @@ $(document).ready(function() {
                     window.setTimeout(function() {
                         // get the description tab from video_popup_view which contains desc,
                         // video link, title, author and other key information
-                        var tab_desc = $("#fancybox-frame").contents().find("#tab-desc");
+                        var iframe = $("#fancybox-frame").contents();
+                        var tab_desc = iframe.find("#tab-desc");
                         var featured_item = $("#featured-items");
-                        tab_desc.css({position : 'relative', display: 'block', height: '160px', top: '0px', minHeight: '160px', maxHeight:'200px'});
+                        tab_desc.css({position : 'relative', display: 'block', height: '145px', top: '0px', minHeight: '145px', maxHeight:'200px'});
                         $("#featured-films").fadeOut();
                         featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
-                        var title = $parent.find(".photoAlbumEntryTitle").text();
+                        var title = iframe.find("#video-title").text();
                         featured_item.find("h3").text(title);
                         $(".bookmark-link").attr("href", orig_href);
                         $(".vid-dl-link").attr("href", clean_href);
