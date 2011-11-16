@@ -81,6 +81,11 @@ h2#player-title,
     text-decoration: underline !important;
 }
 
+#top-widgets #topright-widgets {
+    position: relative;
+    z-index: 600;
+}
+
 #top-widgets #topright-widgets.multimedia-widget .advanced-search-link {
     padding: 0 !important;
     margin-right: 25px;
