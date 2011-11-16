@@ -366,6 +366,16 @@ ul, ul li {
     max-height: 180px;
     margin-bottom: 0.7em;
 }
+
+#featured-location .featured-description a {
+    color: #F6A800;
+    font-weight: bold;
+}
+
+#featured-items .discreet {
+    color: #FFF;
+}
+
 .multimedia-widget #faceted-text-search input[type="text"] {
    width: 210px;
 }
