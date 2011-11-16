@@ -22,6 +22,7 @@
 </head>    
 
 <body class="video_popup_view">
+    <metal:cond tal:define="requests context/REQUEST; fromrequest python: requests.get_header('referer')"> 
 
 <h1 tal:content="context/Title">Video Title</h1>
 
@@ -41,18 +42,20 @@
 
     <div id="tab-vids">
 
-        <div id="vids-slider" class="slider" tal:define="nr_items python:25; fill_limit python:25; imgsize string:image_tile">
+        <div id="vids-slider" class="slider" tal:define="nr_items python:25; fill_limit python:25; imgsize string:image_tile"
+            tal:condition="python:'multimedia' not in fromrequest if fromrequest else True">
             <div metal:use-macro="here/document_relateditems/macros/auto-context">
                 show auto related items if they exist
             </div>
-            <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
-            <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png"/>
+            <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png" />
+            <img class="slidernav rarrow" src="++resource++video-slider-images/rarrow_on.png" />
         </div>
     </div>
-    <div id="tab-docs">
+    <div id="tab-docs" tal:condition="python:'multimedia' not in fromrequest if fromrequest else True">
         <div id="docs-slider" class="slider" tal:define="nr_items python:25; imgsize string:image_tile; portal_type python:['Highlight', 'PressRelease', 'Article']">
 
             <div metal:use-macro="here/document_relateditems/macros/auto-context">
+
                 show auto related items if they exist
             </div>
             <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
@@ -91,7 +94,7 @@ pageTracker._setDomainName("eea.europa.eu");
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>
-
+</metal:cond>
 </body>
 </html>
 </metal:page>
