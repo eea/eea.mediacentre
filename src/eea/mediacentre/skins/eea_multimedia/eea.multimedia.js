@@ -93,12 +93,31 @@
                         var tab_desc = $this.find(".photoAlbumEntryDescription").text();                        
                         var featured_item = $("#featured-items");
                         $("#featured-films").fadeOut();
-                        featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
+                        
+                        var featured_description = featured_item.find(".featured-description");
+                        featured_description.html(tab_desc).end().fadeIn();
+                        
                         var title = $this.find(".photoAlbumEntryTitle").text();
-                        featured_item.find("h3").text(title);
+                        var featured_item_title = featured_item.find("h3");
+                        featured_item_title.text(title);
+                        
+                        var title_height = featured_item_title.height();
+                        var desc_height;
+                        if (title_height === 21) {
+                            desc_height = "184px";
+                        }
+                        else if (title_height === 42) {
+                            desc_height = "163px";
+                        }
+                        else {
+                            desc_height = "142px";
+                        }
+                        featured_description.css({height: desc_height});
+
                         $(".bookmark-link").attr("href", orig_href);
                         $(".vid-dl-link").attr("href", clean_href);
             };
+
             $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
                 var $this = $(this);
                 $this.click( function(){

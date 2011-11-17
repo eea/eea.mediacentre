@@ -360,10 +360,13 @@ ul, ul li {
     top: 260px;
     width: 295px;
 }
+
+#featured-films .featured-description {
+    height: 183px;
+}
+
 #featured-location .featured-description {
     overflow: auto;
-    min-height: 145px;
-    max-height: 180px;
     margin-bottom: 0.7em;
 }
 
