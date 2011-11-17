@@ -146,6 +146,7 @@ h2#player-title,
     height:375px;
     background-color:#FFFFFF;
     position:absolute; 
+    top: 0;
     z-index: 1000;
 }
 

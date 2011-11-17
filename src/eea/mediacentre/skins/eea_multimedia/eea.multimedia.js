@@ -121,6 +121,14 @@
             $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
                 var $this = $(this);
                 $this.click( function(){
+                    // hide videoplayer if it's still open when we click on an
+                    // animation
+                    var fancybox_wrap = $("#fancybox-wrap");
+                    if (fancybox_wrap.is(":visible")) {
+                        fancybox_wrap.fadeOut('fast',function(){$("#contentFlow").fadeIn('fast');});
+                        $("#fancybox-frame").remove();
+                    }
+
                     var orig_href = this.href;
                     var clean_href = this.href.replace(/(view|video_popup_view)/, "");
                     var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
@@ -290,6 +298,7 @@
         // closes the fancybox window
         $("#fancybox-close").click(function(){
             media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
+            $("#media-flowplayer").children().remove();
         });
         
     // end ready state

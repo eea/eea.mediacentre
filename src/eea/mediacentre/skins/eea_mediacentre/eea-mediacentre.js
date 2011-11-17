@@ -35,6 +35,13 @@ $(document).ready(function() {
                 options.height = 387;
                 options.overlayShow = false;
                 options.onStart = function() {
+                    //close green tips media player if clicking on a video
+                    var media_player = $("#media-player");
+                    if (media_player.is(":visible")) {
+                        media_player.fadeOut('fast',function(){$("#contentFlow").fadeIn('slow');});
+                        $("#media-flowplayer").children().remove();
+                    }
+
                     $.fancybox.center = function() { return false;};
                     $('html, body').animate({scrollTop: 0}, 200);
                     $("#fancybox-wrap").css({position : 'absolute'}).animate({
