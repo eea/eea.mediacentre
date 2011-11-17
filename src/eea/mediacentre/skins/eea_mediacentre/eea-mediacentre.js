@@ -42,21 +42,29 @@ $(document).ready(function() {
                         top: mult.top - 18
                     }, 200);   
                 };
+
+                // function tthat fills the info area with content from
+                // videopage on multimedia page
+                var info_area = function(iframe) {
+                    var frame = iframe.contents();
+                    var tab_desc = frame.find("#tab-desc");
+                    var featured_item = $("#featured-items");
+                    tab_desc.css({position : 'relative', display: 'block',  top: '0px', height: ''});
+                    $("#featured-films").fadeOut();
+                    featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
+                    var title = frame.find("#video-title").text();
+                    featured_item.find("h3").text(title);
+                    featured_item.find(".bookmark-link").attr("href", orig_href);
+                    featured_item.find(".vid-dl-link").attr("href", clean_href);
+                };
+
+                // fill info area of the multimedia page with content from the
+                // fancybox irframe with video information
                 options.onComplete = function() {
-                    window.setTimeout(function() {
-                        // get the description tab from video_popup_view which contains desc,
-                        // video link, title, author and other key information
-                        var iframe = $("#fancybox-frame").contents();
-                        var tab_desc = iframe.find("#tab-desc");
-                        var featured_item = $("#featured-items");
-                        tab_desc.css({position : 'relative', display: 'block',  top: '0px', height: ''});
-                        $("#featured-films").fadeOut();
-                        featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
-                        var title = iframe.find("#video-title").text();
-                        featured_item.find("h3").text(title);
-                        $(".bookmark-link").attr("href", orig_href);
-                        $(".vid-dl-link").attr("href", clean_href);
-                    }, 2000);
+                    var iframe = $("#fancybox-frame");
+                    iframe.one("load",function(){
+                        info_area(iframe);
+                    });
                 };
             }
             if (!isInsidePopUp) {
