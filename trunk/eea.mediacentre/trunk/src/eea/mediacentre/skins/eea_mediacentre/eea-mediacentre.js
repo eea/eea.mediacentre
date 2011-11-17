@@ -49,11 +49,25 @@ $(document).ready(function() {
                     var frame = iframe.contents();
                     var tab_desc = frame.find("#tab-desc");
                     var featured_item = $("#featured-items");
+                    var video_title = frame.find("#video-title").text();
+                    var featured_item_title = featured_item.find("h3");
+                    featured_item_title.text(video_title);
                     tab_desc.css({position : 'relative', display: 'block',  top: '0px', height: ''});
+                    var featured_description = featured_item.find(".featured-description");
                     $("#featured-films").fadeOut();
-                    featured_item.find(".featured-description").html(tab_desc).end().fadeIn();
-                    var title = frame.find("#video-title").text();
-                    featured_item.find("h3").text(title);
+                    featured_description.html(tab_desc).end().fadeIn();
+                    var title_height = featured_item_title.height();
+                    var desc_height;
+                    if (title_height === 21) {
+                        desc_height = "184px";
+                    }
+                    else if (title_height === 42) {
+                        desc_height = "163px";
+                    }
+                    else {
+                        desc_height = "142px";
+                    }
+                    featured_description.css({height: desc_height});
                     featured_item.find(".bookmark-link").attr("href", orig_href);
                     featured_item.find(".vid-dl-link").attr("href", clean_href);
                 };
