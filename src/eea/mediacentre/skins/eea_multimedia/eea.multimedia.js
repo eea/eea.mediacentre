@@ -285,6 +285,16 @@
                     featured_degree.fadeIn('slow');
                     featured_artic.fadeOut('slow');
                 }
+                else {
+                    featured_films.fadeOut();
+                    var featured_item = $("#featured-items");
+                    var featured_item_title = featured_item.find("h3");
+                        featured_item_title.text(this.title);
+                    $("#featured-location").find(".bookmark-link").attr("href", this.src.replace(/image_wide/, 'view'));
+                    featured_description = featured_item.find(".featured-description");
+                    featured_description.text('Concepts such as Green Economy, Resource efficiency and Sustainable Consumption and Production are currently discussed as pathways to reduce environmental pressures in Europe and beyond. The European Environment Agency has interviewed some selected key stakeholders  - from government, business, non-governmental organisations and academia -  and asked them which steps will bring us forward on the road to a Green economy.');
+                    featured_item.fadeIn();
+                }
                 // TODO refactor this code when I have brains of the featured
                 // films and other videos that should be added as featured
                 // else {
