@@ -115,7 +115,6 @@
                         featured_description.css({height: desc_height});
 
                         $(".bookmark-link").attr("href", orig_href);
-                        $(".vid-dl-link").attr("href", clean_href);
             };
 
             $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
