@@ -419,6 +419,7 @@ ul, ul li {
     margin: 0px;
 }
 
+ul#multimedia-tabs,
 ul#faceted-tabs {
 	background: none repeat scroll 0 0 rgba(52, 111, 131, 0.3);
     height: 36px;
@@ -429,6 +430,7 @@ ul#faceted-tabs {
             border-radius: 10px 10px 0 0;
 }
 
+#multimedia-tabs li a.current, ul#multimedia-tabs li a:hover,
 #faceted-tabs li a.current, ul#faceted-tabs li a:hover,
 .multimedia-widget #tag-cloud #tag-cloud-content,
 ul#tabs li a.current, ul#tabs li a:hover,
@@ -443,6 +445,7 @@ ul#tabs li a.current, ul#tabs li a:hover,
 
 }
 
+#multimedia-tabs li,
 #faceted-tabs li {
 	list-style-image: none !important;
 	margin: 0 !important;
@@ -452,15 +455,18 @@ ul#tabs li a.current, ul#tabs li a:hover,
     float: left;
 }
 
+#multimedia-tabs li:first-child a.current, ul#multimedia-tabs li:first-child a:hover,
 #faceted-tabs li:first-child a.current, ul#faceted-tabs li:first-child a:hover {
 	border-radius: 8px 0 0 0;
 }
 
+#multimedia-tabs li a.current, ul#multimedia-tabs li a:hover,
 #faceted-tabs li a.current, ul#faceted-tabs li a:hover {
 	color: #F6A800;
 	text-shadow: 1px 1px 1px #000000;
 }
 
+#multimedia-tabs li a,
 #faceted-tabs li a {
 	border: 0 none;
 	color: #FFFFFF;
@@ -496,6 +502,7 @@ ul#tabs li a.current, ul#tabs li a:hover,
     clear: left;
 }
 
+ul#multimedia-tabs,
 ul#tabs,
 ul#faceted-tabs {
    background: transparent;
@@ -699,4 +706,8 @@ h1#parent-fieldname-title {
 /* hide items from the multimedia page */
 #viewlet-below-content, .documentActions {
     display: none;
+}
+
+ul#multimedia-tabs {
+    margin-left:0px;
 }
