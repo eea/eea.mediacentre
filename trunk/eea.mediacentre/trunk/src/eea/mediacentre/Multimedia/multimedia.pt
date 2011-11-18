@@ -80,8 +80,8 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     <a href="all-videos" class="archives advanced-search-link" style="float:right;margin:5px 0px 0px 0px;" title="Go to advanced search">
                                     <span>Advanced</span></a>
                                     <div style="clear:both"> </div>
-                                    <form tal:attributes="action string:${here/absolute_url}/all-videos"  method="get" id="faceted-text-search" class="searchforms faceted-external-search">
-                                        <input type="text" name="c12" title="Search videos, animations, image galleries" value=""/>
+                                    <form tal:attributes="action string:${here/absolute_url}/all"  method="get" id="faceted-text-search" class="searchforms faceted-external-search">
+                                        <input type="text" name="c7" title="Search videos, animations, image galleries" value=""/>
                                         <input type="submit" value="Search" name="search" style="float:right"/>
                                     </form>
                                 </div>
@@ -163,7 +163,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                             <li><a href="#" id="faceted-topics">By topics</a></li>
                                             <li><a href="#" id="faceted-tags">By tags</a></li>
                                         </ul>
-                                        <div id="tag-cloud-content" tal:define="faceted_path python:'multimedia/all-videos'"> 
+                                        <div id="tag-cloud-content" tal:define="faceted_path python:'multimedia/all'"> 
                                             <metal:tags use-macro="here/portlet_faceted_tagclouds/macros/portlet" /> 
                                         </div> 
                                         <div class="portletFooter">
