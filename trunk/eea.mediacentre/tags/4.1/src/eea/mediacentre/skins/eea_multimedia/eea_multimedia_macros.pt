@@ -1,0 +1,94 @@
+<div metal:define-macro="videoclips"
+     class="highlights"
+     id="videoclips-highlights" 
+     tal:define="multimedia_view multimedia_view|context/@@multimedia_logic;
+                 folderContents multimedia_view/getVideos|nothing;
+                 hide_album python: False;
+                 hide_listing python: True;
+                 more_href string:all-videos;">
+        <div metal:use-macro="here/eea_multimedia_macros/macros/gallery-condition" />
+</div>
+
+<div metal:define-macro="videos"
+     id="videos-highlights"
+     class="highlights"
+     tal:define="hide_listing python: True;
+                 hide_album python: False;
+                 more_href string:all-videos;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+</div>
+
+<div metal:define-macro="animations"
+     id="animations-highlights"
+     class="highlights"
+     tal:define="hide_listing python: True;
+                 hide_album python: False;
+                 more_href string:animations;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+</div>
+
+<div metal:define-macro="imagegalleries"
+     id="imagegalleries-highlights"
+     class="highlights"
+     tal:define="hide_listing python: True;
+                 hide_album python: False;
+                 more_href string:galleries;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+</div>
+
+<div metal:define-macro="playlist"
+     id="playlist-highlights"
+     class="highlights"
+     tal:define="hide_listing python: True;
+                 hide_album python: False;
+                 more_href string:playlist;">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+</div>
+
+<metal:condition metal:define-macro="gallery-condition">
+    <tal:cond tal:condition="folderContents"
+        tal:define="ajax ajax|nothing;
+        limit_display limit_display|nothing;
+        foldermacro python:context.eea_multimedia_macros.macros['ajax-items'] if ajax else context.eea_multimedia_macros.macros['gallery-layout-selection'];">
+        <div metal:use-macro="foldermacro" />
+    </tal:cond>
+    <tal:nocond tal:condition="not:folderContents">
+        <div class='portalMessage informationMessage'><p i18n:translate="no-topics">No results are available for this topic</p></div>
+    </tal:nocond>
+</metal:condition>
+
+<metal:gallery-layout-selection metal:define-macro="gallery-layout-selection">
+     <p class="filter-topic"></p>
+     <ul class="gallery-layout-selection"
+         tal:define="active_list python:' active-list' if not hide_listing else '';
+                     active_album python:' active-album' if not hide_album else '';">
+            <li><a href="#" tal:attributes="class string:list-layout${active_list}"></a></li>
+            <li><a href="#" tal:attributes="class string:album-layout${active_album}"></a></li>
+        </ul>
+        <div metal:use-macro="here/eea_multimedia_macros/macros/gallery-items" />
+        <div metal:use-macro="here/frontpage_macros/macros/more-link" />
+</metal:gallery-layout-selection>
+
+<metal:gallery-items define-macro="gallery-items"
+                     tal:define="visible_album python: 'hiddenStructure' if hide_album else '';
+                                 visible_listing python: 'hiddenStructure' if hide_listing else '';">
+        <div class="gallery-ajax visualClear">
+            <div tal:attributes="class string: gallery-listing ${visible_listing}">
+            </div>
+            <tal:enabled tal:define="enabled python: True">
+                <div tal:attributes="class string: gallery-album ${visible_album}">
+                    <div metal:use-macro="here/atct_album_view/macros/listing-nobatch"></div>
+                </div>
+            </tal:enabled>
+        </div>
+</metal:gallery-items>
+
+<metal:ajax-items define-macro="ajax-items">
+            <div class="gallery-listing">
+            </div>
+            <div class="gallery-album">
+                <tal:enabled tal:define="enabled python: True">
+                    <div metal:use-macro="here/atct_album_view/macros/listing-nobatch"></div>
+                </tal:enabled>
+            </div>
+</metal:ajax-items>

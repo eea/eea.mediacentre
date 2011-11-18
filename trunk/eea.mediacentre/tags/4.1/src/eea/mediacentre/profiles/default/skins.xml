@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins">
+
+ <object name="eea_mediacentre" meta_type="Filesystem Directory View"
+     directory="eea.mediacentre:skins/eea_mediacentre"/>
+
+    <object name="eea_multimedia" meta_type="Filesystem Directory View"
+        directory="eea.mediacentre:skins/eea_multimedia" />
+
+ <skin-path name="*">
+  <layer name="eea_multimedia" insert-after="custom" />
+  <layer name="eea_mediacentre" insert-after="eea_design" />
+ </skin-path>
+
+</object>
