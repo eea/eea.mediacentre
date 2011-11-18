@@ -29,8 +29,8 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                 <!-- Include mousewheel dependancies and app files -->
                 <script tal:attributes="src string:${cover}/js/jquery.mousewheel.min.js" type="text/javascript"></script>
                 <script tal:attributes="src string:${cover}/js/app.js" type="text/javascript"></script>
-                <div id="backgrounds">
-                    <img src="http://www-newdesign.webdev.eea.europa.eu/multimedia/backgrounds/background.jpg" id="background1" style="display: none" />
+                <div id="backgrounds" tal:define="local python:'/SITE' if 'localhost' in context.REQUEST['URL0'] else '';">
+                    <img tal:attributes="src string:${portal_url}${local}/multimedia/backgrounds/background.jpg" id="background1" style="display: none" />
                     <img id="background2" style="display:none;"/>
                     <img id="background3" style="display:none;"/>
                     <img id="background4" style="display:none;"/>
