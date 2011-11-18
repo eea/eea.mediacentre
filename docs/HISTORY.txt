@@ -1,38 +1,24 @@
 Changelog
 =========
 
-
-4.0-dev - (unreleased)
-----------------------
+4.0 - (2011-11-18)
+------------------
  * Bug fix: Fixed layout for search box, fixed top navigation gradient problem [szabozo0 #4673]
-
  * Bug fix: enable playing of videos with spaces in their name [tiberich]
-
  * Bugfix: Fixed time format on video view [szabozo0 #4549] 
- 
  * Bugfix: Fixed layout of video popup view [szabozo0 #4510]
- 
  * Bugfix: fixed IE js errors [szabozo0 #4542]
- 
  * Change: fixed the video.pt template to fill content-core instead of main slot.
    [demarant #4541]
- 
  * Feature: Modified "Edit video metadata" to display schematas bar [szabozo0 #4510]
- 
  * Change: removed the old themes portlet, now part of the main template as viewlet [demarant]
-
  * Change: Enabled geotags multiedit [szabozo0 #4428]
-
  * Change: Included ManagementPlan Field and Widget from eea.forms instead of eea.dataservice [szabozo0 #4423]
-
  * Bugfix: Changed MediaTypesImageAdapter to adapt IATImage instead of ATImage [szabozo0 #4423]
-
  * Feature: Added upgrade steps
   [voineali #4392]
-
  * Feature: Plone 4.x compatible release
   [ghicaale #4259]
-
 
 0.5 - (2011-04-19)
 ------------------
