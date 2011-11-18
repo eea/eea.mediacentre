@@ -75,8 +75,10 @@ $(document).ready(function() {
                         desc_height = "142px";
                     }
                     featured_description.css({height: desc_height});
+                    // convert the link back to view from video_popup_view
+                    // for link button
+                    orig_href = orig_href.replace(/video_popup_view/, 'view');
                     featured_item.find(".bookmark-link").attr("href", orig_href);
-                    featured_item.find(".vid-dl-link").attr("href", clean_href);
                 };
 
                 // fill info area of the multimedia page with content from the
