@@ -226,7 +226,7 @@
                     sel_value = tag_title === 'All' ? '' : tag_title;
                 }
                 
-                var tabs = $("#tabs"),
+                var tabs = $("#multimedia-tabs"),
                     cur_tab_val = tabs.find('a').filter('.current')[0].id.substr(4);
                 window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
             });

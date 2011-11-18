@@ -30,7 +30,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                 <script tal:attributes="src string:${cover}/js/jquery.mousewheel.min.js" type="text/javascript"></script>
                 <script tal:attributes="src string:${cover}/js/app.js" type="text/javascript"></script>
                 <div id="backgrounds">
-                    <img src="backgrounds/background.jpg" id="background1" style="display: none" />
+                    <img src="http://www-newdesign.webdev.eea.europa.eu/multimedia/backgrounds/background.jpg" id="background1" style="display: none" />
                     <img id="background2" style="display:none;"/>
                     <img id="background3" style="display:none;"/>
                     <img id="background4" style="display:none;"/>
@@ -123,7 +123,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                             <div id="bottom-widgets">
                                 <div id="multimedia-vids" class="multimedia-widget left-widget">
                                     <div tal:define="datapage string:multimedia;" tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
-                                        <ul id="tabs">
+                                        <ul id="multimedia-tabs">
                                             <!--li>
                                                 <a href="#" id="tab-latest" i18n:translate="">Latest</a>
                                             </li-->
