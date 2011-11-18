@@ -1,6 +1,9 @@
 Changelog
 =========
 
+4.1-dev - (unreleased)
+----------------------
+
 4.0 - (2011-11-18)
 ------------------
  * Bug fix: Fixed layout for search box, fixed top navigation gradient problem [szabozo0 #4673]
