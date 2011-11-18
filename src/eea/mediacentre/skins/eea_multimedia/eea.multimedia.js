@@ -77,7 +77,6 @@
             // avoid it appearing when the title is animating
             faceted_form.show();
             // unbind any events from the tag cloud items
-            /* var tags = $("#c10").find('li'); */
             
             $("#faceted-tabs").tabs("#tag-cloud-content > div.faceted-widget", function(event, index) {
                 var cur_tab = this.getTabs()[index],
@@ -203,9 +202,7 @@
             }).remove();
 
             // remove default theme vocabulary item from tags
-            $('#c8default').remove();
-            $('#c8all').addClass('selected');
-            $('#c10all').addClass('selected');
+            $('#c1default').remove();
             $('#c1all').addClass('selected');
             $('#c3all').addClass('selected');
             tags.delegate('li', 'click', function(){
@@ -215,8 +212,6 @@
                     index,
                     tag_title;
                 // tags_li.filter('.selected').removeClass('selected'); 
-                $("#c10").find('li').filter('.selected').removeClass('selected');
-                $("#c8").find('li').filter('.selected').removeClass('selected');
                 $("#c1").find('li').filter('.selected').removeClass('selected');
                 $("#c3").find('li').filter('.selected').removeClass('selected');
                 this.className = "selected";
