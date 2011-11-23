@@ -16,6 +16,7 @@
         var mult = window.whatsnew.multimedia;
              mult.bg = $("#background1");
              mult.bg2 = $("#background2");
+        var ajax_loader_img = '<div style="text-align: center;"><img src="++resource++faceted_images/ajax-loader.gif" /></div>';
         // add background and colophon based on cookie if present else get the
         // first background and show it
         var background_imgs = $("#backgrounds").find('img');
@@ -247,6 +248,8 @@
                 
                 var tabs = $("#multimedia-tabs"),
                     cur_tab_val = tabs.find('a').filter('.current')[0].id.substr(4);
+                var cur_tab_highlight = $("#whatsnew-gallery").find('.highlights').filter(':visible');
+                cur_tab_highlight.find(".gallery-ajax").html(ajax_loader_img);
                 window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
             });
         // end delay 3500
