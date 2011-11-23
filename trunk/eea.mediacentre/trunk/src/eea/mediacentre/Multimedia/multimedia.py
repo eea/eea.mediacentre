@@ -78,7 +78,6 @@ class Multimedia(BrowserView):
         res = []
         query = {'sort_on': 'effective',
                  'sort_order': 'reverse',
-                 'effectiveRange': self.now,
                  'id' : 'pictures',
                  'portal_type' :'Folder',
                  'review_state': 'published',
