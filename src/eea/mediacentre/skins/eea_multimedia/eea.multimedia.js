@@ -146,10 +146,20 @@
                 var $this = $(this);
                 var href = this.href;
                 if (href.indexOf('fancybox') === -1) {
+                    // close animations if they are still running when clicking
+                    // on an image gallery
+                    if (media_player.is(":visible")) {
+                        media_player.fadeOut('fast',function(){$("#contentFlow").fadeIn('slow');});
+                        $("#media-flowplayer").children().remove();
+                    }
                     
+                    // set link to gallery with different links depending
+                    // whether we have normal galleries or atlas galleries
+                    // which stores the photos in the photos directory
                     var res_href = href.indexOf('atlas') === -1 ? href + "/gallery_fancybox_view" : 
                                                         href + "/photos/gallery_fancybox_view";
                     $this.attr('href', res_href);
+
                     $this.fancybox({
                         type: 'iframe',
                         padding: 0,
@@ -162,6 +172,8 @@
                         centerOnScroll : false,
                         overlayShow : false, 
                         onStart : function() {
+                            // this function brings the fancybox to the top of
+                            // the multimedia topright-widgets
                             $.fancybox.center = function() { return false;};
                             $('html, body').animate({scrollTop: 0}, 200);
                             $("#fancybox-wrap").css({position : 'absolute'}).animate({
@@ -171,13 +183,15 @@
                         }
                     });
 
+                    // send information to the item_info which is responsible
+                    // for changing the about this item information 
                     $this.click(function() {
                         var orig_href = href.indexOf('atlas') === -1 ? href : href + "/photos";
                         item_info($this, orig_href, orig_href);
                     });
                 }
+
                 return false;
-            
             });
             // get all of the colophon images that are not selected
             var col_imgs = colophon_imgs.not('.selected');
@@ -205,17 +219,27 @@
             $('#c1default').remove();
             $('#c1all').addClass('selected');
             $('#c3all').addClass('selected');
+
             tags.delegate('li', 'click', function(){
                 var tag_id = window.isNaN(this.id[3]) ? this.id.substr(2) : this.id.substr(3),
                     sel_value = tag_id === 'all' ? '' : tag_id,
                     sel_text = this.innerHTML,
                     index,
                     tag_title;
-                // tags_li.filter('.selected').removeClass('selected'); 
-                $("#c1").find('li').filter('.selected').removeClass('selected');
-                $("#c3").find('li').filter('.selected').removeClass('selected');
-                this.className = "selected";
 
+                // remove previously selected item before assigning selected to
+                // the currently clicked item
+                var c1 = $("#c1_widget");
+                if (c1.is(":visible")) {
+                    c1.find('li').filter('.selected').removeClass('selected');
+                }
+                else {
+                    $("#c3").find('li').filter('.selected').removeClass('selected');
+                }
+                this.className = "selected";
+                
+                // don't send value if tag_title is All because we don't have
+                // a value to send
                 if ($(this).parent().prev().text().indexOf('tags') !== -1 ) { 
                     tag_title = this.title;
                     sel_value = tag_title === 'All' ? '' : tag_title;
