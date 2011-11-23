@@ -19,7 +19,7 @@
 </div>
 
 <div metal:define-macro="animations"
-     id="animations-highlights"
+     id="greentips-highlights"
      class="highlights"
      tal:define="hide_listing python: True;
                  hide_album python: False;
