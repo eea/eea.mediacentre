@@ -3,6 +3,7 @@ Changelog
 
 4.2-dev - (unreleased)
 ----------------------
+ * Bug fix: fixed the strikethrough issues described in ticket [ichimdav #4672]
  * Change: fixed and optimized some of the code that was responsible for the playing details [ichimdav #4686]
 
 4.1 - (2011-11-18)
