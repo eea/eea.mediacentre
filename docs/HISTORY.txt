@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.3-dev - (unreleased)
-----------------------
+4.3 - (2011-11-24)
+------------------
  * Bug fix: change the selector for the greentips from animation which prevented the greentips pop-up from appearing [ichimdav #4672] 
 
 4.2 - (2011-11-23)
