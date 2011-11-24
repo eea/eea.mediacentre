@@ -117,7 +117,7 @@
                         $(".bookmark-link").attr("href", orig_href);
             };
 
-            $("#animations-highlights").delegate("a.animation-fancybox", "hover", function(){
+            $("#greentips-highlights").delegate("a.animation-fancybox", "hover", function(){
                 var $this = $(this);
                 $this.click( function(){
                     // hide videoplayer if it's still open when we click on an
