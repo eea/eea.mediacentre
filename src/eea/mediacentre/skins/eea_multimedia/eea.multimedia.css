@@ -165,7 +165,7 @@ h2#player-title,
 }
 
 #multimedia-vids .highlights {
-    height: 303px;
+    height: 305px;
     -webkit-border-radius: 0 0 10px 10px;
        -moz-border-radius: 0 0 10px 10px;
         -ms-border-radius: 0 0 10px 10px;
@@ -445,6 +445,10 @@ ul#tabs li a.current, ul#tabs li a:hover,
 
 }
 
+#whatsnew-gallery .standardButton {
+    border: 0px !important;
+}
+
 #multimedia-tabs li,
 #faceted-tabs li {
 	list-style-image: none !important;
@@ -579,7 +583,7 @@ h1#parent-fieldname-title {
     -webkit-border-radius: 0px 0px 10px 10px;
        -moz-border-radius: 0px 0px 10px 10px;
             border-radius: 0px 0px 10px 10px;
-    height:48px;
+    height:50px;
 }
 
 #bottomright-widgets .tags-cloud {
@@ -705,7 +709,7 @@ h1#parent-fieldname-title {
 
 /* hide items from the multimedia page */
 #viewlet-below-content, .documentActions {
-    display: none;
+    display: none !important;
 }
 
 ul#multimedia-tabs {
