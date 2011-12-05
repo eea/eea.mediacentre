@@ -3,9 +3,11 @@ Changelog
 
 4.5-dev - (unreleased)
 ----------------------
+ * Bug fix: fixed displaced gallery pop-up view for logged in users [ichimdav #4672]
 
 4.4 - (2011-11-30)
 ------------------
+ * Bug fix: fixed ie css issues described in ticket 4673 related to the multimedia page (7 and 11) [ichimdav #4673]
 
 4.3 - (2011-11-24)
 ------------------
@@ -13,7 +15,7 @@ Changelog
 
 4.2 - (2011-11-23)
 ------------------
- * Bug fix: fixed the strikethrough issues described in ticket [ichimdav #4672]
+ * Bug fix: fixed the strikethrough issues described in ticket realted to the multimedia page [ichimdav #4672]
  * Change: fixed and optimized some of the code that was responsible for the playing details [ichimdav #4686]
 
 4.1 - (2011-11-18)

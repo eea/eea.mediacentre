@@ -66,8 +66,8 @@
                         $.fancybox.center = function() { return false;};
                         $('html, body').animate({scrollTop: 0}, 200);
                         $("#fancybox-wrap").css({position : 'absolute'}).animate({
-                            left: mult.left - 18,
-                            top: mult.top - 18
+                            left: mult.left - 20,
+                            top: mult.top - 20
                         }, 200);   
                     };
 
