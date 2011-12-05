@@ -39,7 +39,6 @@
             media_player = $("#media-player"),
             media_flowplayer = $("#media-flowplayer"),
             multimedia_widgets = $("#multimedia-widgets"),
-            top_widgets  = $("#top-widgets"),
             bottom_widgets = $("#bottom-widgets");
         var player_title = document.getElementById("player-title");
         var footer = $("#visual-portal-wrapper").find(".row").last();
@@ -86,6 +85,16 @@
                     $("#c3").find('li').unbind();
                 }
             });
+
+            var top_widgets  = $("#top-widgets");
+            var top_widget_offset, top_widget_left, top_widget_top;
+            function top_widget_offset_init() {
+                top_widget_offset =  top_widgets.offset();
+                top_widget_left = top_widget_offset.left;
+                top_widget_top = top_widget_offset.top;
+            }
+            window.setTimeout(top_widget_offset_init, 1050);
+
             var item_info = function(item, orig_href, clean_href) {
                         // get the description tab from video_popup_view which contains desc,
                         // video link, title, author and other key information
@@ -178,8 +187,8 @@
                             $.fancybox.center = function() { return false;};
                             $('html, body').animate({scrollTop: 0}, 200);
                             $("#fancybox-wrap").css({position : 'absolute'}).animate({
-                                left: "260px",
-                                top: "100px" 
+                                left: top_widget_left - 20, // "260px"
+                                top: top_widget_top - 20 //,"100px" 
                             }, 200);
                         }
                     });
@@ -334,5 +343,5 @@
         
     // end ready state
     });
-})(jQuery);
+}(jQuery));
 
