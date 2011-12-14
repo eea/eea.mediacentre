@@ -2,7 +2,7 @@
     $(document).ready(function() {
         
         function prepareVideoLinkURLs() {
-            $("#content, #vids-slider").delegate(".video-fancybox", "hover", function(){
+            $("#content, #vids-slider, #portal-column-two").delegate(".video-fancybox", "hover", function(){
                 var coverflow = $("#multimedia-coverflow"),
                     video_page = coverflow.length > 0 ? 1 : 0;
                 var parent = this;
