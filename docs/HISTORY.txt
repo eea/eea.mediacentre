@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.6-dev - (unreleased)
-----------------------
+4.6 - (2011-12-15)
+------------------
  * Bug fix: fix multimedia page for small screens of 1024px [ichimdav #4683]
  * Bug fix: add video_popup_view to videos that are in portal_column_two [ichimdav #4830]
 
