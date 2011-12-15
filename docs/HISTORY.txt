@@ -1,6 +1,9 @@
 Changelog
 =========
 
+4.7-dev - (unreleased)
+----------------------
+
 4.6 - (2011-12-15)
 ------------------
  * Bug fix: fix multimedia page for small screens of 1024px [ichimdav #4683]
