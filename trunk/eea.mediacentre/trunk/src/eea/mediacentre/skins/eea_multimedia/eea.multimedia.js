@@ -126,6 +126,15 @@
                         $(".bookmark-link").attr("href", orig_href);
             };
 
+            // reduce the margin of the multimedia widgets if the screen width
+            // is smaller than 1024px
+            var window_width = $(window).width(), 
+                               multimedia_margin;
+            if ( window_width < 1020) {
+                multimedia_margin = window_width === 1011 ? 10 : 7;
+                $("#multimedia-coverflow, #multimedia-vids").css('margin-right', multimedia_margin); 
+            }
+
             $("#greentips-highlights").delegate("a.animation-fancybox", "hover", function(){
                 var $this = $(this);
                 $this.click( function(){
