@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+ <javascript cacheable="True"
+             compression="safe"
+             cookable="True"
+             enabled="True"
+             expression=""
+             id="eea-mediacentre.js"
+             inline="False"
+             position-after="eea-fancybox.js"/>
+ <javascript cacheable="True"
+             compression="safe"
+             cookable="True"
+             enabled="True"
+             expression="python:'multimedia_view' in context.getLayout()"
+             id="eea.multimedia.js"
+             inline="False"
+             position-after="eea-mediacentre.js"/>
+
+</object>
