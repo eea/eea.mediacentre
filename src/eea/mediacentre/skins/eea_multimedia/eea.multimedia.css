@@ -630,10 +630,15 @@ h1#parent-fieldname-title {
     -moz-box-shadow: 0 2px 2px #333333;
 }
 
-#globalnav-holder {
+#globalnav-holder, #portal-globalnav {
     height: 65px;
 }
 
+#portal-globalnav .selected a {
+    height: 27px;
+    background: transparent;
+    text-shadow: 0 0 3px #000;
+}
 #portal-globalnav {
     background: transparent;
     font-size: 117%;
