@@ -26,6 +26,11 @@
     display:none;
 }
 
+
+#portal-column-content {
+    padding: 0;
+}
+
 #content {
     margin:0 !important;
     padding: 0 !important;
@@ -646,7 +651,7 @@ h1#parent-fieldname-title {
     -ms-filter: "none";
  }
 #portal-globalnav li a {
-    padding: 2em 1em 1em 0em;
+    padding: 2em 0.5em 1em 0.5em;
 }
 #portal-colophon {
     margin: 1.5em 0em 0em 0em !important;
