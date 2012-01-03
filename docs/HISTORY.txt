@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.7-dev - (unreleased)
-----------------------
+4.7 - (2012-01-03)
+------------------
  * Bug fix: fixed globalnav for logged in users in multimedia page which had 
    a smaller white background color than the size of background of the page [#4619]
 
