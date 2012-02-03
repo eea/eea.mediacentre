@@ -3,6 +3,9 @@ Changelog
 
 4.8-dev - (unreleased)
 ----------------------
+ * Bug fix: added width-full and position-0 customization for multimedia page 
+   because of the extra space needed on this page, removing it at the same time
+   from ploneCustom [ichimdav #4925]
 
 4.7 - (2012-01-03)
 ------------------
