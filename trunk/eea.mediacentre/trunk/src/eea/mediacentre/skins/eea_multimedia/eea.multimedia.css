@@ -725,3 +725,10 @@ h1#parent-fieldname-title {
 ul#multimedia-tabs {
     margin-left:0px;
 }
+
+div.width-full {
+    width: 100%;
+}
+div.position-0 {
+    margin-left: -100%;
+}
