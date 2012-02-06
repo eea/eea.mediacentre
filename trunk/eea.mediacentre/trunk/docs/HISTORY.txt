@@ -1,6 +1,9 @@
 Changelog
 =========
 
+4.9-dev - (unreleased)
+----------------------
+
 4.8 - (2012-02-06)
 ------------------
  * Bug fix: added width-full and position-0 customization for multimedia page 
