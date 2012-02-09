@@ -58,14 +58,15 @@ MAIN_VIDEO_TEMPLATE = """
         <div class="flowplayer">
             <div id="%(videoid)s" class="embeddedvideo">
                 Please enable javascript or upgrade to
-                <a href="http://www.adobe.com/go/getflashplayer">Flash 9</a>
+                <a href="http://www.adobe.com/go/getflashplayer">Flash Player 11</a>
                 to watch the video.
             </div>
 
             <script type="text/javascript">
             jQuery(document).ready(function($) {
                 $("#%(videoid)s").flashembed({
-                    src:'%(player)s'
+                    src:'%(player)s',
+                    version: [10, 0]
                   },
                   {
                     config:%(config)s
