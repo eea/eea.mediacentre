@@ -5,19 +5,6 @@
 
       <head> 
       
-<metal:headslot fill-slot="head_slot">
-    <style type="text/css">
-    .media-player {
-        width: auto;
-    }
-    </style>
-</metal:headslot>
-
-<metal:cssslot fill-slot="style_slot">
-    <link rel="stylesheet" href="video.css"
-          tal:attributes="href string:$portal_url/++resource++videostyles/video.css"
-        />
-</metal:cssslot>
       </head>  
 <body>
 
@@ -41,7 +28,7 @@
             <div tal:replace="structure view/widgets/media_player"></div>
 
             <!-- Display metadata about the video -->
-            <div tal:attributes="style string:margin:auto;; width:${video_info/width_incl_player}px">
+            <div>
               <dl class="media-single-item">
                 <tal:time condition="video_info/duration">
                     <dt i18n:translate="label_time">Time:</dt>

@@ -3,6 +3,8 @@ Changelog
 
 4.9-dev - (unreleased)
 ----------------------
+ * Bug fix: cleaned video.pt inline styles to make the video fullscreen
+   [ichimdav #4941]
 
 4.8 - (2012-02-06)
 ------------------
