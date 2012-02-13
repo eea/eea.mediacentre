@@ -18,12 +18,6 @@
            tal:define="size python:context.getObjSize(context);">
 
         <div id="objmetadata_pbwidgets_wrapper">
-            <div id="playback_widgets">
-
-            <a href="" id="download_icon" class="widget_icon"
-                  tal:attributes="href string:$context_url" title="Download file"></a>
-
-            </div>          
                    
             <div tal:replace="structure view/widgets/media_player"></div>
 

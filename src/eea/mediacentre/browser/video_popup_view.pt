@@ -77,7 +77,6 @@
     </div>
 </div>
 <a href="#" id="bookmark-link" class="footer" tal:define="url context/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>
-<a href="#" id="vid-dl-link" class="footer" tal:attributes="href context/absolute_url" i18n:translate="video-download-link">Download</a>
 <a href="#" id="more-vids-link" class="footer" tal:attributes="href string:$portal_url/multimedia/all" i18n:translate="mediacentre-link">More videos</a>
 
 <p id="vid-title" tal:content="context/Title">Video Title</p>
