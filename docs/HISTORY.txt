@@ -3,6 +3,8 @@ Changelog
 
 4.9-dev - (unreleased)
 ----------------------
+ * Bug fix: render video player with the height calculated based on the
+   video ratio [ichimdav #4941]
  * Bug fix: cleaned video.pt inline styles to make the video fullscreen
    [ichimdav #4941]
 

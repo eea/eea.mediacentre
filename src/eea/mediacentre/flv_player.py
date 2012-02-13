@@ -48,15 +48,27 @@ class FLVVideoPlayer(object):
                 }
         config = simplejson.dumps(config)
 
+        # check if aspect ratio fits in 4:3 or 16:9 and fallback to 16:9 
+        # if the video aspect ratio is not 4:3 or 16:9
+        aspect_ratio = ""
+        if width and height:
+            ratio = float(width) / float(height)
+            if ratio > 1.77:
+                aspect_ratio = "-16-9"
+            elif ratio < 1.34:
+                aspect_ratio = "-4-3"
+            else:
+                aspect_ratio = "-16-9"
         return MAIN_VIDEO_TEMPLATE % {'videoid': videoid,
                                       'player': player,
                                       'title': contentobj.title,
                                       'config': config,
+                                      'ratio' : aspect_ratio
                                       }
 
 MAIN_VIDEO_TEMPLATE = """
         <div class="flowplayer">
-            <div id="%(videoid)s" class="embeddedvideo">
+            <div id="%(videoid)s" class="embeddedvideo%(ratio)s">
                 Please enable javascript or upgrade to
                 <a href="http://www.adobe.com/go/getflashplayer">Flash Player 11</a>
                 to watch the video.
@@ -69,7 +81,7 @@ MAIN_VIDEO_TEMPLATE = """
                     version: [10, 0]
                   },
                   {
-                    config:%(config)s
+                    config:%(config)s,
                   }
                 );
             });
