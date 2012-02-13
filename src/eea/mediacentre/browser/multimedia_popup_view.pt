@@ -27,8 +27,8 @@
     <div tal:replace="structure view/widgets/media_player"></div>
 </metal:video>
 
-<div style="clear:both"></div>
-    <div id="tabs" style="height:148px;">
+<div class="visualClear"></div>
+    <div id="tabs">
         <ul class="tabs">
             <li><a class="tabnav" href="#" i18n:translate="about-this-video-link">About this video</a></li>
         </ul>
