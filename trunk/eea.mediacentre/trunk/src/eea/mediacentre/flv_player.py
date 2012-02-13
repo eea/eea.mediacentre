@@ -55,7 +55,7 @@ class FLVVideoPlayer(object):
                 aspect_ratio = "sixteen-nine" # 16:9
             elif ratio < 1.37: #proper is 1.33 but there are vids on production
                 #which are closer to 4:3 with a ratio of 1.36 rather than 16:9
-                aspect_ratio = "four_three" # 4:3
+                aspect_ratio = "four-three" # 4:3
             else:
                 aspect_ratio = "sixteen-nine"
         return MAIN_VIDEO_TEMPLATE % {
