@@ -7,6 +7,8 @@ Changelog
    video ratio [ichimdav #4941]
  * Bug fix: cleaned video.pt inline styles to make the video fullscreen
    [ichimdav #4941]
+ * Bug fix: log a warning and don't fail when viewimage didn't receive proper
+   paramters [tiberich #4947]
 
 4.8 - (2012-02-06)
 ------------------
