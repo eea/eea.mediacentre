@@ -388,10 +388,6 @@ ul, ul li {
     color: #FFF;
 }
 
-.multimedia-widget #faceted-text-search input[type="text"] {
-   width: 69%;
-}
-
 #bottomright-widgets .featured {
     padding: 1em 1em 1em 2em;
 }
@@ -636,6 +632,7 @@ h1#parent-fieldname-title {
     box-shadow: 0 2px 2px #333333;
     -webkit-box-shadow: 0 2px 2px #333333;
     -moz-box-shadow: 0 2px 2px #333333;
+    min-width: 995px;
 }
 
 #globalnav-holder, #portal-globalnav {
