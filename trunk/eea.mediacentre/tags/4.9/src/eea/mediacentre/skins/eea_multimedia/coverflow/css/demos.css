@@ -1,0 +1,154 @@
+div.demo {
+	padding: 0px 12px;
+	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+	height: 365px;
+}
+
+div.demo-description {
+	clear:both;
+	padding:12px;
+	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+	font-size: 1.3em;
+	line-height: 1.4em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top left;
+}
+
+/* UI Overrides*/
+div.wrapper {
+	height: 285px;
+	width: 600px; /*800*/
+	padding: 0px 10px;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+}
+
+#coverflow {
+	display: inline-block;
+	height: 250px;
+	width: 2600px;
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin-top: 65px;
+}
+
+#coverflow img {
+	width: 350px;
+	max-height: 350px;
+	float: left;
+	position: relative;
+	margin: 0 -47px -35px;
+	 /*-webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(black), color-stop(1, transparent), to(black));*/
+
+}
+
+#demo-frame {
+	overflow: hidden;
+}
+
+#slider {
+	margin:30px auto;
+	background: transparent url("../img/scrollbar.png") repeat-x scroll top center !important;
+	height: 5px !important;
+	border: none !important;
+    cursor: move;
+    width: 300px;
+    /* padding: 30px 0px; */
+
+}
+
+.ui-selected {
+	color: white;
+	background: #EDA32D; /* old browsers */
+	background: -moz-linear-gradient(top, #EDA32D 0%, #F9731E 99%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDA32D), color-stop(99%,#F9731E)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDA32D', endColorstr='#F9731E',GradientType=0 ); /* ie */
+	border:none;
+}
+
+.pageWrapper {
+	margin: 0 auto;
+	width: 960px
+}
+
+#imageCaption {
+	margin:0 auto;
+	width: 100%;
+	color: white;
+	font-family: Arial;
+	display: block;
+	font-size: 16px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #000000;
+	padding-top: 10px;
+	
+}
+
+/* css for scrollbar*/
+#scroll-pane {
+	float: left;
+	overflow: auto;
+	width: 620px;
+	height: 176px;
+	position: relative;
+	margin-left: 50px;
+	margin-bottom: 25px;
+	display: inline
+}
+
+.scroll-content-item {
+	background-color: #fcfcfc;
+	color: #003366;
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin: 10px;
+	font-size: 3em;
+	line-height: 96px;
+	text-align: center;
+	border: 1px solid gray;
+	display: inline;
+}
+
+#slider-wrap {
+	float: left;
+	height: 172px;
+	width: 20px;
+	border-left: none;
+}
+
+#slider-vertical {
+	margin-left: 5px;
+	position: relative;
+	height: 100%
+}
+
+#slider .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: url("../img/slider.png") no-repeat scroll 0 -23px transparent !important;
+}
+
+#slider .ui-slider-handle.ui-state-default {
+	border: none !important;
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+	    -ms-border-radius: 0;
+	     -o-border-radius: 0;
+	        border-radius: 0;
+	background: url("../img/slider.png") no-repeat scroll 0 -23px transparent !important;
+	cursor: move;
+	height: 22px;
+	width: 22px;
+	top: -8px;
+	margin-left: -10px;
+}
+
+#slider .ui-slider-handle.ui-state-hover,
+#slider .ui-slider .ui-state-hover {
+	background: url("../img/slider.png") no-repeat scroll 0 0px transparent !important;
+}
+
