@@ -129,9 +129,9 @@ h2#player-title,
 }
 
 .left-widget {
-    max-width:650px;
-    width: 64.6%;
-    margin:0 15px 0 0;
+    max-width: 640px;
+    width: 63.6%;
+    margin: 0 15px 0 6px;
 }
 
 #multimedia-widgets{
@@ -151,7 +151,7 @@ h2#player-title,
 }
 
 #media-player {
-    width:650px;
+    width:640px;
     height:375px;
     background-color:#FFFFFF;
     position:absolute; 

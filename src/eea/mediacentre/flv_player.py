@@ -33,7 +33,7 @@ class FLVVideoPlayer(object):
                 'url':downloadurl,
                 'autoPlay': True,
                 'autoBuffering': True,
-                'scaling': 'fit',
+                'scaling': 'scale',
                 'useNativeFullScreen': True,
             },
 
