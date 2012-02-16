@@ -192,6 +192,7 @@ h2#player-title,
     top: -26px;
     margin: 0px;
     right: -15px;
+    display:none;
 }
 
 /* Album view */

@@ -3,6 +3,8 @@ Changelog
 
 4.10-dev - (unreleased)
 -----------------------
+ * Bug fix: hide the gallery layout switch icons, since only gallery view 
+   enabled on multimedia. no need for switch [demarant]
  * Bug fix: changed the background color of the flowplayer flash to black
    [ichimdav #4941]
 
