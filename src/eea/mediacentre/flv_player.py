@@ -40,7 +40,7 @@ class FLVVideoPlayer(object):
             'canvas' : {
                     'backgroundColor' : '#000000',
                     'backgroundGradient': 'none'
-            }
+            },
 
             'plugins': {
                 'controls': {
