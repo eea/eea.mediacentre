@@ -52,8 +52,10 @@
                     // if the parent can't find the img then we have listing view 
                     var thumb_url = src.length !== 0 ? src[0].src : $parent.closest('div').prev().children()[0].src;
 
-                    options.width = 650;
+                    options.width = 640;
                     options.height = 387;
+                    /* options.height = 507; for 4:3 */
+
                     options.overlayShow = false;
                     options.onStart = function() {
                         //close green tips media player if clicking on a video
