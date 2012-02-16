@@ -35,14 +35,20 @@ class FLVVideoPlayer(object):
                 'autoBuffering': True,
                 'scaling': 'fit',
                 'useNativeFullScreen': True,
-                },
+            },
+
+            'canvas' : {
+                    'backgroundColor' : '#000000',
+                    'backgroundGradient': 'none'
+            }
+
             'plugins': {
                 'controls': {
                     'autoHide': 'never',
                     'url': portal_url + \
             '/%2B%2Bresource%2B%2Bflowplayer/flowplayer.controls-3.2.1.swf',
                     }
-                },
+            },
         }
         config = simplejson.dumps(config)
 
