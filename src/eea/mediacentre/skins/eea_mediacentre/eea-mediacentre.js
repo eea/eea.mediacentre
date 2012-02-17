@@ -77,6 +77,10 @@
                     // videopage on multimedia page
                     var info_area = function(iframe) {
                         var frame = iframe.contents();
+                        var embedded_video = frame.find("#embeddedvideo").attr('class');
+                        if(embedded_video === "four-three") {
+                            $("#fancybox-content").css({height: '507'});
+                        }
                         var tab_desc = frame.find("#tab-desc");
                         var featured_item = $("#featured-items");
                         var video_title = frame.find("#video-title").text();
