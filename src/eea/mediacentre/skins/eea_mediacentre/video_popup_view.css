@@ -46,11 +46,6 @@ body.video_popup_view .media-player .flowplayer #embeddedvideo {
     background: #000;
 }
 
-body.video_popup_view .media-player .flowplayer .four-three {
-    width: 640px;
-    height: 480px !important; /* 4:3 */
-}
-
 body.video_popup_view .slider {
     width: 640px;
     overflow: hidden;
