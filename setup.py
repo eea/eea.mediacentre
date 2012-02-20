@@ -31,6 +31,7 @@ setup(name=NAME,
       zip_safe=False,
       install_requires=[
           "setuptools",
+          'eea.vocab',
           "eea.themecentre",
           "p4a.video",
           "p4a.plonevideo",
