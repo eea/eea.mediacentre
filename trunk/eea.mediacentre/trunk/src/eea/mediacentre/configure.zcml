@@ -1,6 +1,7 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            i18n_domain="eea">
 
+    <include package="eea.vocab" />
     <include package="eea.themecentre" />
     <include package="p4a.video" />
     <include package="p4a.plonevideo" />
