@@ -39,7 +39,7 @@ body.video_popup_view .media-player {
     text-align: left;
 }
 
-body.video_popup_view .media-player .flowplayer #embeddedvideo {
+body.video_popup_view .media-player .flowplayer #embeddedvideo, .embeddedvideo {
     width: 640px;
     height: 360px; /* 640x360 == 16:9 */
     color: #FFF;

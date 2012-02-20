@@ -3,6 +3,8 @@ Changelog
 
 4.10-dev - (unreleased)
 -----------------------
+ * Bug fix: display fullscreen video on multimedia page for 16:9 where 
+   possible by making the fancybox width to 640px [ichimdav #4958]
  * Bug fix: hide the gallery layout switch icons, since only gallery view 
    enabled on multimedia. no need for switch [demarant]
  * Bug fix: changed the background color of the flowplayer flash to black
