@@ -103,7 +103,6 @@ h2#player-title,
 
 #top-widgets #topright-widgets.multimedia-widget .advanced-search-link:hover {
     cursor: pointer;
-    border-bottom: none !important;
 }
 
 #bottomright-widgets #faceted-form #tag-cloud  .widget-fieldset legend {
