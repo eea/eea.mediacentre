@@ -19,7 +19,11 @@
 
         <div id="objmetadata_pbwidgets_wrapper">
                    
-            <div tal:replace="structure view/widgets/media_player"></div>
+            <div tal:condition="video_info/cloudurl" tal:replace="structure video_info/cloudurl" />
+
+            <tal:co tal:condition="not:video_info/cloudurl">
+                <div tal:replace="structure view/widgets/media_player"></div>
+            </tal:co>
 
             <!-- Display metadata about the video -->
             <div>

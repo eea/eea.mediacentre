@@ -15,8 +15,9 @@ from zope.component import adapts
 from zope.component import getUtility
 from zope.formlib.form import FormFields
 from zope.interface import Interface, implements
+from zope import schema
 from eea.geotags.widget.location import FormlibGeotagWidget
-
+#from Products.Five import BrowserView
 # Uncomment below is single geotag field is needed
 #from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
 
@@ -85,20 +86,58 @@ class ManagementPlanCodeEdit(object):
     def get_management(self):
         """ Get management plan
         """
-        schema = ISchema(self.context)
-        field = schema['eeaManagementPlan']
+        obj_schema = ISchema(self.context)
+        field = obj_schema['eeaManagementPlan']
         accessor = field.getAccessor(self.context)
         return accessor()
 
     def set_management(self, value):
         """ Set management plan
         """
-        schema = ISchema(self.context)
-        field = schema['eeaManagementPlan']
+        obj_schema = ISchema(self.context)
+        field = obj_schema['eeaManagementPlan']
         mutator = field.getMutator(self.context)
         mutator(value)
 
     management_plan = property(get_management, set_management)
+
+
+class ICloudUrlEdit(Interface):
+    """ Interface for zope.formlib edit forms of cloud url field
+    """
+    cloud_url = schema.Text(
+            title=u"Cloud Url",
+            description=u"The embedding code for the video from external" \
+                    " sites eg. Vimeo or Youtube",
+            required = False)
+
+
+class CloudUrlEdit(object):
+    """ Edit adapter for cloud url field which contains the embedding code
+    for the video
+    """
+    implements(ICloudUrlEdit)
+    adapts(IVideoEnhanced)
+
+    def __init__(self, context):
+        self.context = context
+
+    def get_cloudUrl(self):
+        """ Get cloud url embbed code for video
+        """
+        obj_schema = ISchema(self.context)
+        field = obj_schema['cloudUrl']
+        accessor = field.getAccessor(self.context)
+        return accessor()
+
+    def set_cloudUrl(self, value):
+        """ Set cloud url embedd code for video
+        """
+        obj_schema = ISchema(self.context)
+        field = obj_schema['cloudUrl']
+        mutator = field.getMutator(self.context)
+        mutator(value)
+    cloud_url = property(get_cloudUrl, set_cloudUrl)
 
 class VideoEditForm(vid.VideoEditForm):
     """ Form for editing video fields.
@@ -109,10 +148,12 @@ class VideoEditForm(vid.VideoEditForm):
 #                              IGeotagSingleEdit)
 
     # Uncomment below is multiple geotags field is needed
-    form_fields = FormFields(IVideo,
+    
+    form_fields = FormFields( IVideo,
                               IManagementPlanCodeEdit,
+                              ICloudUrlEdit,
                               IGeotagMultiEdit)
-
+    
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
     form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
@@ -224,6 +265,12 @@ class VideoView(vid.VideoView):
         """
         return self.video.width + 35
 
+    def cloudurl(self):
+        """ Cloud Url
+        """
+        return ICloudUrlEdit(self.context).cloud_url
+
+
 class VideoUtils(object):
     """ A browser view for video utility methods.
     """
@@ -262,3 +309,4 @@ class Activate(object):
             activator = IMediaActivator(obj)
             if not activator.media_activated:
                 activator.media_activated = True
+

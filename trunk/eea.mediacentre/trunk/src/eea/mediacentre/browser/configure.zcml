@@ -93,5 +93,6 @@
                 permission="zope2.View" />
 
   <adapter factory=".video.ManagementPlanCodeEdit" />
+  <adapter factory=".video.CloudUrlEdit" />
 
 </configure>
