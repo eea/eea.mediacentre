@@ -15,6 +15,8 @@ from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 from eea.themecentre.themecentre import getTheme
 from eea.forms.fields.ManagementPlanField import ManagementPlanField
 from eea.forms.widgets.ManagementPlanWidget import ManagementPlanWidget
+from Products.Archetypes.atapi import TextAreaWidget
+from Products.Archetypes.atapi import TextField
 
 def P4AVideoDisplayInfoAdapter(context):
     """ P4A Video Display Info Adapter
@@ -93,6 +95,10 @@ class ExtensionManagementPlanfield(ExtensionField, ManagementPlanField):
     """ Derivative of blobfield for extending schemas
     """
 
+class ExtensionVideoCloudUrlfield(ExtensionField, TextField):
+    """ TextField wrapped in ExtensionField for extending schemas
+    """
+
 class SchemaExtender(object):
     """ Schema Extender
     """
@@ -115,8 +121,25 @@ class SchemaExtender(object):
                 label_msgid='dataservice_label_eea_mp',
                 description_msgid='dataservice_help_eea_mp',
                 i18n_domain='eea.dataservice',
+                ),
+            ),
+        ExtensionVideoCloudUrlfield(
+                name='cloudUrl',
+                languageIndependent=True,
+                required = False,
+                searchable = True,
+                schemata = 'default',
+                storage = AnnotationStorage(migrate=True),
+                default_content_type = 'text/html',
+                allowable_content_types =('text/html',),
+                default_output_type = 'text/html',
+                widget = TextAreaWidget(
+                    description = 'The embedding code for the video from' \
+                                    ' external sites eg. Vimeo or Youtube',
+                    label = "Cloud Url"
                 )
-            )
+        )
+
     ]
 
     def __init__(self, context):
@@ -126,3 +149,4 @@ class SchemaExtender(object):
         """ Get fields
         """
         return self.fields
+

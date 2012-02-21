@@ -3,6 +3,8 @@ Changelog
 
 4.10-dev - (unreleased)
 -----------------------
+ * Feature: added cloud url field which allows us to play videos from 
+   external sites like Youtube or Vimeo for video view [ichimdav #4963]
  * Bug fix: display fullscreen video on multimedia page for 16:9 where 
    possible by making the fancybox width to 640px [ichimdav #4958]
  * Bug fix: hide the gallery layout switch icons, since only gallery view 
