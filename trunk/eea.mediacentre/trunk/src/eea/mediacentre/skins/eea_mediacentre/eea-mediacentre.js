@@ -1,6 +1,10 @@
 (function($) {
     $(document).ready(function() {
         
+        var iframe = $("#objmetadata_pbwidgets_wrapper").find('iframe');
+        if(iframe.length) {
+            iframe.attr({width: 600, height: 338});
+        }
         function prepareVideoLinkURLs() {
             $("#content, #vids-slider, #portal-column-two").delegate(".video-fancybox", "hover", function(){
                 var coverflow = $("#multimedia-coverflow"),
