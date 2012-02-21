@@ -20,13 +20,15 @@
     <style type="text/css" media="all" tal:condition="exists:portal/portlets.css" tal:content="string:@import url($portal_url/portlets.css);"></style>
 </head>    
 
-<body class="video_popup_view">
+<body class="video_popup_view" tal:define="video_info context/@@video_view">
 
 <h1 tal:content="context/Title" id="video-title">Video Title</h1>
 
-<metal:video>
-    <div tal:replace="structure view/widgets/media_player"></div>
-</metal:video>
+            <div tal:condition="video_info/cloudurl" tal:replace="structure video_info/cloudurl" />
+
+            <tal:co tal:condition="not:video_info/cloudurl">
+                <div tal:replace="structure view/widgets/media_player"></div>
+            </tal:co>
 
 <div class="visualClear"></div>
     <div id="tabs">
@@ -36,7 +38,7 @@
     </div>
     <div class="panes">
 
-<div id="tab-desc" tal:define="video_info context/@@video_view">
+<div id="tab-desc">
     <div class="discreet"><tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
         Show the publishdate only (effective date)
         </tal:publishdate></div>
