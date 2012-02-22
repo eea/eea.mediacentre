@@ -17,6 +17,7 @@ from eea.forms.fields.ManagementPlanField import ManagementPlanField
 from eea.forms.widgets.ManagementPlanWidget import ManagementPlanWidget
 from Products.Archetypes.atapi import TextAreaWidget
 from Products.Archetypes.atapi import TextField
+from Products.EEAContentTypes.content.interfaces import ICloudVideo
 
 def P4AVideoDisplayInfoAdapter(context):
     """ P4A Video Display Info Adapter
@@ -127,7 +128,6 @@ class SchemaExtender(object):
                 name='cloudUrl',
                 languageIndependent=True,
                 required = False,
-                searchable = True,
                 schemata = 'default',
                 storage = AnnotationStorage(migrate=True),
                 default_content_type = 'text/html',
@@ -148,5 +148,8 @@ class SchemaExtender(object):
     def getFields(self):
         """ Get fields
         """
+        # make CloudUrl Required if ICloudVideo is provided by context
+        if ICloudVideo.providedBy(self.context):
+            self.fields[1].required = True
         return self.fields
 

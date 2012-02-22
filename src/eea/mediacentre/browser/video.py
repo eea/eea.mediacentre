@@ -17,6 +17,7 @@ from zope.formlib.form import FormFields
 from zope.interface import Interface, implements
 from zope import schema
 from eea.geotags.widget.location import FormlibGeotagWidget
+from Products.EEAContentTypes.content.interfaces import ICloudVideo
 #from Products.Five import BrowserView
 # Uncomment below is single geotag field is needed
 #from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
@@ -153,7 +154,7 @@ class VideoEditForm(vid.VideoEditForm):
                               IManagementPlanCodeEdit,
                               ICloudUrlEdit,
                               IGeotagMultiEdit)
-    
+
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
     form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
@@ -162,6 +163,9 @@ class VideoEditForm(vid.VideoEditForm):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        # make cloud_url required field if ICloudVideo is provided by context
+        if ICloudVideo.providedBy(self.context):
+            self.form_fields['cloud_url'].field.required = True
         self.form_fields = self.form_fields.omit('urls')
 
 class VideoListedSingle(P4AVideoListedSingle):
