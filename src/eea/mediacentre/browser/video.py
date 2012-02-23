@@ -21,6 +21,7 @@ from Products.EEAContentTypes.content.interfaces import ICloudVideo
 #from Products.Five import BrowserView
 # Uncomment below is single geotag field is needed
 #from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
+import urllib2
 
 # Uncomment below is multiple geotags field is needed
 from Products.EEAContentTypes.subtypes import IGeotagMultiEdit
@@ -123,6 +124,15 @@ class CloudUrlEdit(object):
     def __init__(self, context):
         self.context = context
 
+    def youtube_params(self, vid_url, params = None):
+        """ youtube iframe used for cloudUrl field setter
+        """
+        params = params or "?autoplay=1&playnext=1&egm=1&rel=1" \
+                                                "&fs=1&wmode=opaque"
+        return '<iframe width="640" height="360" ' \
+                'src="http://www.youtube.com/embed/%s%s" ' \
+                'frameborder="0" allowfullscreen></iframe>' % (vid_url, params)
+
     def get_cloudUrl(self):
         """ Get cloud url embbed code for video
         """
@@ -131,12 +141,28 @@ class CloudUrlEdit(object):
         accessor = field.getAccessor(self.context)
         return accessor()
 
+
     def set_cloudUrl(self, value):
         """ Set cloud url embedd code for video
         """
         obj_schema = ISchema(self.context)
         field = obj_schema['cloudUrl']
         mutator = field.getMutator(self.context)
+        vid_url = value
+        if 'youtu.be' in value:
+            url = urllib2.urlopen(value).url
+            url_split = url.split('=')
+            if 'list' in url:
+                vid_url = url_split[1].split("&")[0] + '&list=' +url_split[-1]
+            else:
+                vid_url = url.split("=")[1].split("&")[0]
+            value = self.youtube_params(vid_url)
+        elif ('youtube' in value) and ('iframe' not in value):
+            if 'list' in url:
+                vid_url = url_split[1].split("&")[0] + '&list=' +url_split[-1]
+            else:
+                vid_url = url.split("=")[1].split("&")[0]
+            value = self.youtube_params(vid_url)
         mutator(value)
     cloud_url = property(get_cloudUrl, set_cloudUrl)
 
