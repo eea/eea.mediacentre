@@ -18,11 +18,11 @@ from zope.interface import Interface, implements
 from zope import schema
 from eea.geotags.widget.location import FormlibGeotagWidget
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
+from Products.EEAContentTypes.content.validators import youtube_cloud_validator
+
 #from Products.Five import BrowserView
 # Uncomment below is single geotag field is needed
 #from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
-import urllib2
-import re
 
 # Uncomment below is multiple geotags field is needed
 from Products.EEAContentTypes.subtypes import IGeotagMultiEdit
@@ -125,16 +125,6 @@ class CloudUrlEdit(object):
     def __init__(self, context):
         self.context = context
 
-    def youtube_params(self, vid_url, params = None):
-        """ youtube iframe used for cloudUrl field setter
-        """
-        symbol = "&" if "?" in vid_url else "?"
-        params = params or symbol + "autoplay=1&playnext=1&egm=1&rel=1" \
-                                                "&fs=1&wmode=opaque"
-        return '<iframe width="640" height="360" ' \
-                'src="http://www.youtube.com/embed/%s%s" ' \
-                'frameborder="0" allowfullscreen></iframe>' % (vid_url, params)
-
     def get_cloudUrl(self):
         """ Get cloud url embbed code for video
         """
@@ -147,37 +137,9 @@ class CloudUrlEdit(object):
     def set_cloudUrl(self, value):
         """ Set cloud url embedd code for video
         """
-        obj_schema = ISchema(self.context)
-        field = obj_schema['cloudUrl']
-        mutator = field.getMutator(self.context)
-        vid_url = value
-        pattern = re.compile('[0-9a-zA-z]{8,100}')
-
-        if 'youtu.be' in value:
-            # transform youtu.be links iframe code
-            url = urllib2.urlopen(value).url
-            res = pattern.findall(url)
-            if 'list' in url:
-                vid_url = res[0] + '?list=' + res[-1]
-            else:
-                vid_url = res[0]
-            value = self.youtube_params(vid_url)
-
-        elif 'playlist' in value:
-            # transform playlist link to iframe code
-            res = pattern.findall(value)
-            vid_url = 'videoseries?list=' + res[1]
-            value = self.youtube_params(vid_url)
-
-        elif ('youtube' in value) and ('iframe' not in value):
-            # transform long youtube link to iframe code
-            res = pattern.findall(value)
-            if 'list' in value:
-                vid_url = res[0] + '?list=' + res[-1]
-            else:
-                vid_url = res[0]
-            value = self.youtube_params(vid_url)
-        mutator(value)
+        # function from eeacontenttypes.validators which
+        # turn youtube links into iframes for embedding
+        return youtube_cloud_validator(value, self.context)
     cloud_url = property(get_cloudUrl, set_cloudUrl)
 
 class VideoEditForm(vid.VideoEditForm):

@@ -131,6 +131,7 @@ class SchemaExtender(object):
                 schemata = 'default',
                 storage = AnnotationStorage(migrate=True),
                 default_content_type = 'text/html',
+                validators = ('youtubeCloudUrlValidator',),
                 allowable_content_types =('text/html',),
                 default_output_type = 'text/html',
                 widget = TextAreaWidget(
