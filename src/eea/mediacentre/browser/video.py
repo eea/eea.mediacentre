@@ -22,6 +22,7 @@ from Products.EEAContentTypes.content.interfaces import ICloudVideo
 # Uncomment below is single geotag field is needed
 #from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
 import urllib2
+import re
 
 # Uncomment below is multiple geotags field is needed
 from Products.EEAContentTypes.subtypes import IGeotagMultiEdit
@@ -127,7 +128,7 @@ class CloudUrlEdit(object):
     def youtube_params(self, vid_url, params = None):
         """ youtube iframe used for cloudUrl field setter
         """
-        params = params or "?autoplay=1&playnext=1&egm=1&rel=1" \
+        params = params or "&autoplay=1&playnext=1&egm=1&rel=1" \
                                                 "&fs=1&wmode=opaque"
         return '<iframe width="640" height="360" ' \
                 'src="http://www.youtube.com/embed/%s%s" ' \
@@ -149,19 +150,22 @@ class CloudUrlEdit(object):
         field = obj_schema['cloudUrl']
         mutator = field.getMutator(self.context)
         vid_url = value
+        pattern = re.compile('[0-9a-zA-z]{8,100}')
+        
         if 'youtu.be' in value:
             url = urllib2.urlopen(value).url
-            url_split = url.split('=')
+            res = pattern.findall(url)
             if 'list' in url:
-                vid_url = url_split[1].split("&")[0] + '&list=' +url_split[-1]
+                vid_url = res[0] + '?list=' + res[-1]
             else:
-                vid_url = url.split("=")[1].split("&")[0]
+                vid_url = res[0]
             value = self.youtube_params(vid_url)
         elif ('youtube' in value) and ('iframe' not in value):
-            if 'list' in url:
-                vid_url = url_split[1].split("&")[0] + '&list=' +url_split[-1]
+            res = pattern.findall(value)
+            if 'list' in value:
+                vid_url = res[0] + '?list=' + res[-1]
             else:
-                vid_url = url.split("=")[1].split("&")[0]
+                vid_url = res[0]
             value = self.youtube_params(vid_url)
         mutator(value)
     cloud_url = property(get_cloudUrl, set_cloudUrl)
