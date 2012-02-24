@@ -128,7 +128,8 @@ class CloudUrlEdit(object):
     def youtube_params(self, vid_url, params = None):
         """ youtube iframe used for cloudUrl field setter
         """
-        params = params or "&autoplay=1&playnext=1&egm=1&rel=1" \
+        symbol = "&" if "?" in vid_url else "?"
+        params = params or symbol + "autoplay=1&playnext=1&egm=1&rel=1" \
                                                 "&fs=1&wmode=opaque"
         return '<iframe width="640" height="360" ' \
                 'src="http://www.youtube.com/embed/%s%s" ' \
