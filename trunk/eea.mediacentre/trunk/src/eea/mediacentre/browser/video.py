@@ -151,8 +151,9 @@ class CloudUrlEdit(object):
         mutator = field.getMutator(self.context)
         vid_url = value
         pattern = re.compile('[0-9a-zA-z]{8,100}')
-        
+
         if 'youtu.be' in value:
+            # transform youtu.be links iframe code
             url = urllib2.urlopen(value).url
             res = pattern.findall(url)
             if 'list' in url:
@@ -160,7 +161,15 @@ class CloudUrlEdit(object):
             else:
                 vid_url = res[0]
             value = self.youtube_params(vid_url)
+
+        elif 'playlist' in value:
+            # transform playlist link to iframe code
+            res = pattern.findall(value)
+            vid_url = 'videoseries?list=' + res[1]
+            value = self.youtube_params(vid_url)
+
         elif ('youtube' in value) and ('iframe' not in value):
+            # transform long youtube link to iframe code
             res = pattern.findall(value)
             if 'list' in value:
                 vid_url = res[0] + '?list=' + res[-1]
