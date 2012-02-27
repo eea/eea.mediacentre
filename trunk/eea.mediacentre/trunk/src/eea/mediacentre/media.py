@@ -130,10 +130,10 @@ class SchemaExtender(object):
                 required = False,
                 schemata = 'default',
                 storage = AnnotationStorage(migrate=True),
-                default_content_type = 'text/html',
-                validators = ('youtubeCloudUrlValidator',),
-                allowable_content_types =('text/html',),
-                default_output_type = 'text/html',
+                default_content_type = 'text/plain',
+                validators = ('videoCloudUrlValidator',),
+                allowable_content_types =('text/plain',),
+                default_output_type = 'text/plain',
                 widget = TextAreaWidget(
                     description = 'The embedding code for the video from' \
                                     ' external sites eg. Vimeo or Youtube',
