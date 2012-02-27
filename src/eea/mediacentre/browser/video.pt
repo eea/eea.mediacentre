@@ -19,7 +19,16 @@
 
         <div id="objmetadata_pbwidgets_wrapper">
                    
-            <div tal:condition="video_info/cloudurl" tal:replace="structure video_info/cloudurl" />
+            <div metal:define-macro="youtube_iframe" tal:define=" cloud video_info/cloudurl; 
+                                                                height height|string:338; 
+                                                                width width|string:600; 
+                                                                params params|string:?autoplay=1&playnext=1&egm=1&rel=1&fs=1&wmode=opaque" 
+                                                                tal:condition="cloud">
+                <tal:youtube  tal:define="url python:cloud">
+                    <iframe width="600" height="338" tal:attributes="src string:http://www.youtube.com/embed/${url}${params}; width width; height height"
+                    frameborder="0" allowfullscreen></iframe>
+                </tal:youtube>
+            </div>
 
             <tal:co tal:condition="not:video_info/cloudurl">
                 <div tal:replace="structure view/widgets/media_player"></div>

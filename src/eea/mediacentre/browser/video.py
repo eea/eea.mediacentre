@@ -18,8 +18,10 @@ from zope.interface import Interface, implements
 from zope import schema
 from eea.geotags.widget.location import FormlibGeotagWidget
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
-from Products.EEAContentTypes.content.validators import youtube_cloud_validator
+from Products.EEAContentTypes.content.validators import video_cloud_validator
 
+#from zope.annotation.interfaces import IAnnotations
+#from persistent.dict import PersistentDict
 #from Products.Five import BrowserView
 # Uncomment below is single geotag field is needed
 #from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
@@ -30,6 +32,8 @@ from Products.EEAContentTypes.subtypes import IGeotagMultiEdit
 from eea.forms.widgets.ManagementPlanWidget import \
                                 FormlibManagementPlanWidget
 from eea.forms.widgets.ManagementPlanWidget import ManagementPlanCode
+
+KEY = 'eea.mediacentre.multimedia'
 
 def getMediaTypes(obj):
     """ Get Media Types
@@ -114,7 +118,6 @@ class ICloudUrlEdit(Interface):
                     " sites eg. Vimeo or Youtube",
             required = False)
 
-
 class CloudUrlEdit(object):
     """ Edit adapter for cloud url field which contains the embedding code
     for the video
@@ -122,14 +125,24 @@ class CloudUrlEdit(object):
     implements(ICloudUrlEdit)
     adapts(IVideoEnhanced)
 
+
     def __init__(self, context):
         self.context = context
+        self.context = context
+        #annotations = IAnnotations(context)
+
+        #mapping = annotations.get(KEY)
+        #if mapping is None:
+        #    cloud_url =  { 'cloud_url': PersistentDict() }
+        #    mapping = annotations[KEY] = PersistentDict(cloud_url)
+        #self.context.mapping = mapping
 
     def get_cloudUrl(self):
         """ Get cloud url embbed code for video
         """
         obj_schema = ISchema(self.context)
         field = obj_schema['cloudUrl']
+
         accessor = field.getAccessor(self.context)
         return accessor()
 
@@ -139,7 +152,7 @@ class CloudUrlEdit(object):
         """
         # function from eeacontenttypes.validators which
         # turn youtube links into iframes for embedding
-        return youtube_cloud_validator(value, self.context)
+        video_cloud_validator(value, self.context)
     cloud_url = property(get_cloudUrl, set_cloudUrl)
 
 class VideoEditForm(vid.VideoEditForm):
@@ -157,6 +170,7 @@ class VideoEditForm(vid.VideoEditForm):
                               ICloudUrlEdit,
                               IGeotagMultiEdit)
 
+    
     form_fields = form_fields.omit('urls')
     form_fields['rich_description'].custom_widget = at.RichTextEditWidget
     form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
@@ -166,6 +180,7 @@ class VideoEditForm(vid.VideoEditForm):
         self.context = context
         self.request = request
         # make cloud_url required field if ICloudVideo is provided by context
+        
         if ICloudVideo.providedBy(self.context):
             self.form_fields['cloud_url'].field.required = True
         self.form_fields = self.form_fields.omit('urls')
@@ -274,7 +289,10 @@ class VideoView(vid.VideoView):
     def cloudurl(self):
         """ Cloud Url
         """
-        return ICloudUrlEdit(self.context).cloud_url
+        #res = ICloudUrlEdit(self.context).cloud_url
+        res = self.context.mapping['cloud_url'].get('youtube')
+        #return res if 'iframe' in res else False
+        return res
 
 
 class VideoUtils(object):
