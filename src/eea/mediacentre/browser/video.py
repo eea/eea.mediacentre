@@ -289,8 +289,8 @@ class VideoView(vid.VideoView):
     def cloudurl(self):
         """ Cloud Url
         """
-        #res = ICloudUrlEdit(self.context).cloud_url
-        res = self.context.mapping['cloud_url'].get('youtube')
+        res = ICloudUrlEdit(self.context).cloud_url
+        #res = self.context.mapping['cloud_url'].get('youtube')
         #return res if 'iframe' in res else False
         return res
 
