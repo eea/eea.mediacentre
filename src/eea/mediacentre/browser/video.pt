@@ -21,23 +21,23 @@
             <tal:youtube metal:define-macro="youtube_iframe" tal:define=" cloud video_info/cloudurl; 
                                                                 url cloud/youtube|nothing;
                                                                 height height|string:338; 
-                                                                width width|string:600; 
-                                                                option python: '&' if '?' in url else '?';
-                                                                params params|string:${option}autoplay=1&playnext=1&egm=1&rel=1&fs=1&wmode=opaque" 
+                                                                width width|string:600;"
                                                                 tal:condition="url">
-                                                                <div tal:content="url" />
-                    <iframe tal:attributes="src string:http://www.youtube.com/embed/${url}${params}; width width; height height"
+                <iframe tal:define="option python: '&' if '?' in url else '?';
+                                    params params|string:${option}autoplay=1&playnext=1&egm=1&rel=1&fs=1&wmode=opaque" 
+                    tal:attributes="src string:http://www.youtube.com/embed/${url}${params}; width width; height height"
                     frameborder="0" allowfullscreen></iframe>
             </tal:youtube>
             
             <tal:vimeo metal:define-macro="vimeo_iframe" tal:define="cloud video_info/cloudurl; 
                                                                 url cloud/vimeo|nothing;
-                                                                height height|string:338; 
-                                                                width width|string:600; 
-                                                                params params|string:?title=0&byline=0&ortrait=0&wmode=opaque&utoplay=1" 
-                                                                tal:condition="python:url and not cloud['youtube']">
-                    <iframe  tal:attributes="src string:http://player.vimeo.com/video/${url}${params}; width width; height height"
-                    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                                                                youtube cloud/youtube|nothing;
+                                                                height height|string:338;"
+                                                                tal:condition="python:url and not youtube">
+            <iframe tal:define="width width|string:600; 
+                                params params|string:?title=0&byline=0&ortrait=0&wmode=opaque&autoplay=1" 
+                tal:attributes="src string:http://player.vimeo.com/video/${url}${params}; width width; height height"
+                frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </tal:vimeo>
 
             <tal:co tal:condition="not:video_info/cloudurl">
