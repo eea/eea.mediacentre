@@ -20,7 +20,7 @@ from eea.geotags.widget.location import FormlibGeotagWidget
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
 from Products.EEAContentTypes.content.validators import video_cloud_validator
 
-#from zope.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAnnotations
 #from persistent.dict import PersistentDict
 #from Products.Five import BrowserView
 # Uncomment below is single geotag field is needed
@@ -289,10 +289,12 @@ class VideoView(vid.VideoView):
     def cloudurl(self):
         """ Cloud Url
         """
-        res = ICloudUrlEdit(self.context).cloud_url
-        #res = self.context.mapping['cloud_url'].get('youtube')
-        #return res if 'iframe' in res else False
-        return res
+        mapping = IAnnotations(self.context)
+        multimedia = mapping.get('eea.mediacentre.multimedia')
+        cloud_url = ""
+        if multimedia:
+            cloud_url = multimedia.get('cloud_url')
+        return cloud_url
 
 
 class VideoUtils(object):
