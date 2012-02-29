@@ -126,7 +126,7 @@ class ICloudUrlEdit(Interface):
     """
     cloud_url = schema.Text(
             title=u"Cloud Url",
-            description=u"The external video link from Vimeo or Youtube"
+            description=u"The external video link from Vimeo or Youtube",
             required = False,
             constraint=validateCloudUrl)
 
