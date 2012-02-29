@@ -25,11 +25,9 @@
 
 <h1 tal:content="context/Title" id="video-title">Video Title</h1>
 
-            <div tal:condition="video_info/cloudurl" tal:replace="structure video_info/cloudurl" />
-
-            <tal:co tal:condition="not:video_info/cloudurl">
-                <div tal:replace="structure view/widgets/media_player"></div>
-            </tal:co>
+<metal:video_options tal:define="player_width string:640; player_height string:360;">                
+    <tal:video_players  metal:use-macro="here/@@file_view/video_players"  />
+</metal:video_options>
 
 <div style="clear:both"></div>
     <div id="tabs" style="height:148px;">
