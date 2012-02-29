@@ -110,7 +110,7 @@ class ManagementPlanCodeEdit(object):
 
 
 class InvalidCloudUrl(ValidationError, Exception):
-    "Please enter a video link from youtube or vimeo only"
+    "Please enter a video link from Youtube or Vimeo only"
     pass
 
 def validateCloudUrl(value):
@@ -126,8 +126,7 @@ class ICloudUrlEdit(Interface):
     """
     cloud_url = schema.Text(
             title=u"Cloud Url",
-            description=u"The embedding code for the video from external" \
-                    " sites eg. Vimeo or Youtube",
+            description=u"The external video link from Vimeo or Youtube"
             required = False,
             constraint=validateCloudUrl)
 
