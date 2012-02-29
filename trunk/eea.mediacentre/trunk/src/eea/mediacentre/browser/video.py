@@ -20,9 +20,9 @@ from eea.geotags.widget.location import FormlibGeotagWidget
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
 from Products.EEAContentTypes.content.validators import video_cloud_validator
 
+from zope.schema import ValidationError
 from zope.annotation.interfaces import IAnnotations
-#from persistent.dict import PersistentDict
-#from Products.Five import BrowserView
+
 # Uncomment below is single geotag field is needed
 #from Products.EEAContentTypes.subtypes import IGeotagSingleEdit
 
@@ -109,6 +109,16 @@ class ManagementPlanCodeEdit(object):
     management_plan = property(get_management, set_management)
 
 
+class InvalidCloudUrl(ValidationError):
+    "Please enter a video link from youtube or vimeo only"
+    pass
+
+def validateCloudUrl(value):
+    if value:
+        if ('youtu' not in value and 'vimeo' not in value):
+            raise InvalidCloudUrl(value)
+    return True
+
 class ICloudUrlEdit(Interface):
     """ Interface for zope.formlib edit forms of cloud url field
     """
@@ -116,7 +126,8 @@ class ICloudUrlEdit(Interface):
             title=u"Cloud Url",
             description=u"The embedding code for the video from external" \
                     " sites eg. Vimeo or Youtube",
-            required = False)
+            required = False,
+            constraint=validateCloudUrl)
 
 class CloudUrlEdit(object):
     """ Edit adapter for cloud url field which contains the embedding code
@@ -129,13 +140,6 @@ class CloudUrlEdit(object):
     def __init__(self, context):
         self.context = context
         self.context = context
-        #annotations = IAnnotations(context)
-
-        #mapping = annotations.get(KEY)
-        #if mapping is None:
-        #    cloud_url =  { 'cloud_url': PersistentDict() }
-        #    mapping = annotations[KEY] = PersistentDict(cloud_url)
-        #self.context.mapping = mapping
 
     def get_cloudUrl(self):
         """ Get cloud url embbed code for video
@@ -146,12 +150,12 @@ class CloudUrlEdit(object):
         accessor = field.getAccessor(self.context)
         return accessor()
 
-
     def set_cloudUrl(self, value):
         """ Set cloud url embedd code for video
         """
         # function from eeacontenttypes.validators which
-        # turn youtube links into iframes for embedding
+        # sanitizes youtube and vimeo links before it is 
+        # added to the cloudUrl field
         video_cloud_validator(value, self.context)
     cloud_url = property(get_cloudUrl, set_cloudUrl)
 
