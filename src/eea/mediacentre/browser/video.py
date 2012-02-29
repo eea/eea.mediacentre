@@ -109,11 +109,13 @@ class ManagementPlanCodeEdit(object):
     management_plan = property(get_management, set_management)
 
 
-class InvalidCloudUrl(ValidationError):
+class InvalidCloudUrl(ValidationError, Exception):
     "Please enter a video link from youtube or vimeo only"
     pass
 
 def validateCloudUrl(value):
+    """ formlib validator for the cloudUrl field
+    """
     if value:
         if ('youtu' not in value and 'vimeo' not in value):
             raise InvalidCloudUrl(value)
