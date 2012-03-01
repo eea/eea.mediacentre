@@ -22,6 +22,7 @@
 
 <body class="video_popup_view" tal:define="video_info context/@@video_view">
 <h1 tal:content="context/Title" id="video-title">Video Title</h1>
+
 <metal:video_options tal:define="player_width string:640; player_height string:360;">                
     <tal:video_players  metal:use-macro="here/@@file_view/video_players"  />
 </metal:video_options>
