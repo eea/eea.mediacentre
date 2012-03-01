@@ -1,11 +1,7 @@
-<div metal:define-macro="playlist"
-     id="playlist-highlights"
-     class="highlights"
+<tal:playlist metal:define-macro="playlist"
      tal:define="hide_listing python: True;
                  hide_album python: False;
                  more_href string:playlist;">
-
-    <div class="gallery-ajax">
         <div class="gallery-album">
 
         <h3 i18n:translate="">An introduction to the EEA (8)</h3>
@@ -26,5 +22,4 @@
 
         </tal:multimedia>
         </div>
-    </div>
-</div>
+</tal:playlist>
