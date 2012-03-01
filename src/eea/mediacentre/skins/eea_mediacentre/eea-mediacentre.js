@@ -1,10 +1,6 @@
 (function($) {
     $(document).ready(function() {
         
-        var iframe = $("#objmetadata_pbwidgets_wrapper").find('iframe');
-        if(iframe.length) {
-            iframe.attr({width: 600, height: 338});
-        }
         function prepareVideoLinkURLs() {
             $("#content, #vids-slider, #portal-column-two").delegate(".video-fancybox", "hover", function(){
                 var coverflow = $("#multimedia-coverflow"),
@@ -45,7 +41,9 @@
                     if (href.indexOf('multimedia_popup_view') === -1) {
                         var regex = /view|video_popup_view|multimedia_popup_view/;
                         var clean_href = href.replace(regex, ''); 
-                        this.href = clean_href + "multimedia_popup_view"; 
+                        if (href.indexOf('youtube') === -1) {
+                            this.href = clean_href + "multimedia_popup_view"; 
+                        }
                     }
 
                     var mult = coverflow.offset(),

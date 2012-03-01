@@ -152,7 +152,7 @@ h2#player-title,
 #media-player {
     width:640px;
     height:375px;
-    background-color:#FFFFFF;
+    background-color:#000000;
     position:absolute; 
     top: 0;
     z-index: 1000;
@@ -239,6 +239,11 @@ h2#player-title,
 #multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
     position: relative;
     top: -31px;
+    border: 0px;
+}
+
+#multimedia-vids #playlist-highlights .photoAlbumEntryWrapper img {
+    top: -12px;
 }
 
 /* Listing view */
@@ -399,7 +404,8 @@ ul, ul li {
 #bottomright-widgets .featured h2,
 #bottomright-widgets .featured h3,
 #bottomright-widgets .featured h2 a,
-#bottomright-widgets .featured h3 a {
+#bottomright-widgets .featured h3 a,
+#multimedia-vids #whatsnew-gallery h3  {
     color: #FFFFFF;
     text-shadow: 1px 1px 2px #000000;
     border: none !important;
