@@ -158,7 +158,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         image galleris highlights
                                     </div>
 
-                                    <div metal:use-macro="here/playlist_gallery_macro/macros/playlist">
+                                    <div metal:use-macro="here/eea_multimedia_macros/macros/playlist">
                                         playlist highlights
                                     </div>
                                 </div>
