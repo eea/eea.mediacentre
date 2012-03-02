@@ -77,15 +77,21 @@
 
                     // function that fills the info area with content from
                     // videopage on multimedia page
-                    var info_area = function(iframe) {
-                        var frame = iframe.contents();
-                        var tab_desc = frame.find("#tab-desc");
+                    var info_area = function(iframe, iframe_src, $parent) {
+                        var frame, tab_desc, video_title;
+                        if (iframe_src.indexOf('eea') !== -1) {
+                            frame = iframe.contents();
+                            tab_desc = frame.find("#tab-desc");
+                            video_title = frame.find("#video-title").text();
+                        }
+
+                        video_title = video_title || $("#fancybox-title").text();
                         var featured_item = $("#featured-items");
-                        var video_title = frame.find("#video-title").text() || $("#fancybox-title").text();
                         var featured_item_title = featured_item.find("h3");
                         featured_item_title.text(video_title);
                         var featured_description = featured_item.find(".featured-description");
                         $("#featured-films").fadeOut();
+                        tab_desc = tab_desc || $('.photoAlbumEntryDescription', $parent).text();
                         featured_description.html(tab_desc).end().fadeIn();
                         var title_height = featured_item_title.height();
                         var desc_height;
@@ -111,7 +117,7 @@
 
                     // fill info area of the multimedia page with content from the
                     // fancybox irframe with video information
-                    options.onComplete = function() {
+                    options.onComplete = function($parent) {
                         var iframe = $("#fancybox-frame"),
                             iframe_src = iframe.attr('src');
                         if (iframe_src.indexOf('youtube') !== -1) {
@@ -119,7 +125,7 @@
                             $("#fancybox-title").remove().prependTo('#fancybox-content');
                         }
                         iframe.one("load",function(){
-                            info_area(iframe);
+                            info_area(iframe, iframe_src, $parent);
                         });
                     };
                 }
