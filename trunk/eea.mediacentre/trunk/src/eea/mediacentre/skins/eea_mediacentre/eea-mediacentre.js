@@ -78,8 +78,9 @@
                     // function that fills the info area with content from
                     // videopage on multimedia page
                     var info_area = function(iframe, iframe_src, $parent) {
-                        var frame, tab_desc, video_title;
-                        if (iframe_src.indexOf('eea') !== -1) {
+                        var frame, tab_desc, video_title,
+                            iframe_eea = iframe_src.indexOf('eea');
+                        if (iframe_eea !== -1) {
                             frame = iframe.contents();
                             tab_desc = frame.find("#tab-desc");
                             video_title = frame.find("#video-title").text();
@@ -111,7 +112,8 @@
                         featured_description.css({height: desc_height});
                         // convert the link back to view from multimedia_popup_view
                         // for link button
-                        var orig_href = href.replace(/multimedia_popup_view/, 'view');
+                        var orig_href = iframe_eea !== -1 ? href.replace(/multimedia_popup_view/, 'view') : 
+                                                                    href.replace('embed/', 'watch?v=');
                         featured_item.find(".bookmark-link").attr("href", orig_href);
                     };
 
@@ -149,4 +151,4 @@
 
     });
 
-})(jQuery);
+}(jQuery));
