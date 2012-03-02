@@ -16,6 +16,7 @@
                       <img  tal:attributes="src string:http://i3.ytimg.com/vi/${video_id}/default.jpg; alt video_title; title video_title;">
                   </span>
                   <span class="photoAlbumEntryTitle" tal:content="video_title">Green tip - the log</span>
+                  <span class="photoAlbumEntryDescription"></span>
                 </a>
              </div>
         </tal:vids>
