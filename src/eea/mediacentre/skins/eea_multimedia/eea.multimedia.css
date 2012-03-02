@@ -304,6 +304,18 @@ h2#player-title,
     background: #000;
 }
 
+#fancybox-title {
+    background-color: #E8E8E8;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+    margin: 0;
+    padding: 7px 0 5px 10px;
+    border: medium none;
+    text-align: left;
+}
+
 #sliders{
     overflow:hidden;
 }

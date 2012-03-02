@@ -30,7 +30,8 @@
                         scrolling: 'no',
                         autoScale: false,
                         autoDimensions: false,
-                        centerOnScroll : false
+                        centerOnScroll : false,
+                        titlePosition: 'inside'
                 };
                 
                 // this code runs when we are inside the multimedia page
@@ -80,7 +81,7 @@
                         var frame = iframe.contents();
                         var tab_desc = frame.find("#tab-desc");
                         var featured_item = $("#featured-items");
-                        var video_title = frame.find("#video-title").text();
+                        var video_title = frame.find("#video-title").text() || $("#fancybox-title").text();
                         var featured_item_title = featured_item.find("h3");
                         featured_item_title.text(video_title);
                         var featured_description = featured_item.find(".featured-description");
@@ -111,7 +112,12 @@
                     // fill info area of the multimedia page with content from the
                     // fancybox irframe with video information
                     options.onComplete = function() {
-                        var iframe = $("#fancybox-frame");
+                        var iframe = $("#fancybox-frame"),
+                            iframe_src = iframe.attr('src');
+                        if (iframe_src.indexOf('youtube') !== -1) {
+                            iframe.attr({width: 640, height: 360}).css('height', '360px');
+                            $("#fancybox-title").remove().prependTo('#fancybox-content');
+                        }
                         iframe.one("load",function(){
                             info_area(iframe);
                         });
