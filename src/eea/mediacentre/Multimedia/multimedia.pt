@@ -138,9 +138,9 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                 <a href="#" id="tab-imagegalleries" i18n:translate="">Image galleries</a>
                                             </li>
 
-                                            <li>
-                                                <a href="#" id="tab-playlist" i18n:translate="">Playlists</a>
-                                            </li>
+                                            <!--<li>-->
+                                            <!--    <a href="#" id="tab-playlist" i18n:translate="">Playlists</a>-->
+                                            <!--</li>-->
                                         </ul>
                                         <!-- end_tabs -->
 
@@ -158,9 +158,9 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         image galleris highlights
                                     </div>
 
-                                    <div metal:use-macro="here/eea_multimedia_macros/macros/playlist">
-                                        playlist highlights
-                                    </div>
+                                    <!--<div metal:use-macro="here/eea_multimedia_macros/macros/playlist">-->
+                                    <!--    playlist highlights-->
+                                    <!--</div>-->
                                 </div>
                             </div>
                             <div id="bottomright-widgets" class="multimedia-widget">
