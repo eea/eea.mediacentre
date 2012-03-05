@@ -86,6 +86,12 @@
                 class="p4a.video.browser.video.VideoPageView"
                 permission="zope2.View" />
 
+  <browser:page name="video_playlist_view"
+                for="*"
+                class=".playlist.VideoPlaylist"
+                allowed_attributes="playlist"
+                permission="zope2.View" />
+
   <browser:page name="multimedia_popup_view"
                 template="multimedia_popup_view.pt"
                 for="p4a.video.interfaces.IVideoEnhanced"
