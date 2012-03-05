@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.10-dev - (unreleased)
------------------------
+4.10 - (2012-03-05)
+-------------------
  * Feature: added cloud url field which allows us to play videos from 
    external sites like Youtube or Vimeo for video view [ichimdav #4963]
  * Bug fix: display fullscreen video on multimedia page for 16:9 where 
