@@ -294,11 +294,13 @@ class VideoView(vid.VideoView):
     def cloudurl(self):
         """ Cloud Url
         """
-        mapping = IAnnotations(self.context)
-        multimedia = mapping.get('eea.mediacentre.multimedia')
-        cloud_url = ""
-        if multimedia:
-            cloud_url = multimedia.get('cloud_url')
+        field = ICloudUrlEdit(self.context).cloud_url
+        cloud_url = False
+        if field:
+            mapping = IAnnotations(self.context)
+            multimedia = mapping.get('eea.mediacentre.multimedia')
+            if multimedia:
+                cloud_url = multimedia.get('cloud_url')
         return cloud_url
 
 
