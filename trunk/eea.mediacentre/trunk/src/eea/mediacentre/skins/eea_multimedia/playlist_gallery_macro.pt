@@ -1,22 +1,27 @@
 <tal:playlist metal:define-macro="playlist"
      tal:define="hide_listing python: True;
                  hide_album python: False;
-                 more_href string:playlist;">
+                 more_href string:playlist;
+                 playlist nocall:context/@@video_playlist_view/playlist;
+                 items python:playlist('5A7072A58A14ED00');
+                 vid_ids python:items[0];
+                 vid_titles python: items[1];
+                 vid_descriptions python: items[2]">
         <div class="gallery-album">
 
         <h3 i18n:translate="">An introduction to the EEA (8)</h3>
-
-        <tal:multimedia metal:define-macro="playlists" tal:define="vid_ids python:['JslltUEXdZA', 'GMxztMiflSY', '9rOoSb2rsBg', '1ItWObSY-KI', 'Pr16svhkJHw', 'eFocDIyMWJ4', 'yF63gXAPMzU', 'NVnn2dsLnXI'];
-        vids_title python:['A general introduction to the EEA', 'In the EU', 'Core Ouputs', 'Strategy', 'Global Connections', 'Communication', 'New Technologies', 'Governance' ];">
+            <tal:multimedia metal:define-macro="playlists"> 
+        <!--    tal:define="vid_ids python:['JslltUEXdZA', 'GMxztMiflSY', '9rOoSb2rsBg', '1ItWObSY-KI', 'Pr16svhkJHw', 'eFocDIyMWJ4', 'yF63gXAPMzU', 'NVnn2dsLnXI'];-->
+        <!--vids_title python:['A general introduction to the EEA', 'In the EU', 'Core Ouputs', 'Strategy', 'Global Connections', 'Communication', 'New Technologies', 'Governance' ];">-->
 
         <tal:vids tal:repeat="video_id vid_ids">
-            <div class="photoAlbumEntry" tal:define="numb repeat/video_id/number; video_title python:vids_title[numb - 1]">
+            <div class="photoAlbumEntry" tal:define="numb repeat/video_id/number; video_title python:vid_titles[numb - 1]">
                 <a  tal:attributes="href string:http://www.youtube.com/embed/${video_id}?autoplay=1; title video_title" class="video-fancybox">
                   <span class="photoAlbumEntryWrapper">
                       <img  tal:attributes="src string:http://i3.ytimg.com/vi/${video_id}/default.jpg; alt video_title; title video_title;">
                   </span>
                   <span class="photoAlbumEntryTitle" tal:content="video_title">Green tip - the log</span>
-                  <span class="photoAlbumEntryDescription"></span>
+                  <span class="photoAlbumEntryDescription" tal:content="python:vid_descriptions[numb - 1]"></span>
                 </a>
              </div>
         </tal:vids>
