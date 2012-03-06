@@ -3,16 +3,13 @@
                  hide_album python: False;
                  more_href string:playlist;
                  playlist nocall:context/@@video_playlist_view/playlist;
-                 items python:playlist('5A7072A58A14ED00');
-                 vid_ids python:items[0];
-                 vid_titles python: items[1];
-                 vid_descriptions python: items[2]">
+                 items python:playlist(['5A7072A58A14ED00' ,'CA768A2FDBA259DE']);">
         <div class="gallery-album">
-
-        <h3 i18n:translate="">An introduction to the EEA (8)</h3>
-            <tal:multimedia metal:define-macro="playlists"> 
-        <!--    tal:define="vid_ids python:['JslltUEXdZA', 'GMxztMiflSY', '9rOoSb2rsBg', '1ItWObSY-KI', 'Pr16svhkJHw', 'eFocDIyMWJ4', 'yF63gXAPMzU', 'NVnn2dsLnXI'];-->
-        <!--vids_title python:['A general introduction to the EEA', 'In the EU', 'Core Ouputs', 'Strategy', 'Global Connections', 'Communication', 'New Technologies', 'Governance' ];">-->
+            <tal:items tal:repeat="item items" >
+            <tal:item tal:define="playlist_title python:item[0]; vid_ids python:item[1]; 
+            vid_titles python: item[2]; vid_descriptions python: item[3]">
+        <h3 i18n:translate="" tal:content="playlist_title">An introduction to the EEA (8)</h3>                   
+            <tal:multimedia metal:define-macro="playlists">                         
 
         <tal:vids tal:repeat="video_id vid_ids">
             <div class="photoAlbumEntry" tal:define="numb repeat/video_id/number; video_title python:vid_titles[numb - 1]">
@@ -25,7 +22,8 @@
                 </a>
              </div>
         </tal:vids>
-
         </tal:multimedia>
+        </tal:item>
+    </tal:items>
         </div>
 </tal:playlist>
