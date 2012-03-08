@@ -152,5 +152,7 @@ class SchemaExtender(object):
         # make CloudUrl Required if ICloudVideo is provided by context
         if ICloudVideo.providedBy(self.context):
             self.fields[1].required = True
+        else:
+            self.fields[1].required = False
         return self.fields
 

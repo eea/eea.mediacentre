@@ -188,6 +188,9 @@ class VideoEditForm(vid.VideoEditForm):
         
         if ICloudVideo.providedBy(self.context):
             self.form_fields['cloud_url'].field.required = True
+        else:
+            self.form_fields['cloud_url'].field.required = False
+
         self.form_fields = self.form_fields.omit('urls')
 
 class VideoListedSingle(P4AVideoListedSingle):
