@@ -3,7 +3,9 @@
                  hide_album python: False;
                  more_href string:playlist;
                  playlist nocall:context/@@video_playlist_view/playlist;
-                 items python:playlist('5A7072A58A14ED00' ,'CA768A2FDBA259DE');">
+                 frontpageProperties context/portal_properties/frontpage_properties;
+                 youtube frontpageProperties/youtubePlaylists|nothing;
+                 items python:playlist(youtube) if youtube else playlist('5A7072A58A14ED00' ,'CA768A2FDBA259DE');">
         <div class="gallery-album">
             <tal:items tal:repeat="item items" >
             <tal:item tal:define="playlist_title python:item[0]; vid_ids python:item[1]; 

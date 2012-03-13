@@ -4,6 +4,7 @@ from Products.Five import BrowserView
 import urllib2
 import json
 
+
 class VideoPlaylist(BrowserView):
     """ BrowserView which returns youtube playlists
     """
@@ -12,9 +13,19 @@ class VideoPlaylist(BrowserView):
         """ return video title, id and description as well
         as playlist title
         """
+        # received the youtube playlist id's from portal_properties
+        # which arrives as a tuple with one string item separated
+        # by a comma
+        if len(args) == 1:
+            arg_list = args[0].split(',')
+            arg_list = [i.strip() for i in arg_list]
+            args = arg_list
+
         items = []
 
         for obj in args:
+            if 'PL' in obj:
+                obj = obj[2:]
             url = 'http://gdata.youtube.com/feeds/api/playlists/' \
                     + obj + '?v=2&alt=jsonc&orderby=position'
             link = urllib2.urlopen(url)
