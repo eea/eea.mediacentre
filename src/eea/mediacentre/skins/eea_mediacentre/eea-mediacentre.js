@@ -1,6 +1,13 @@
 (function($) {
     $(document).ready(function() {
         
+        // hide unsupported video type for cloudVideo contenttype 
+        var $region_content = $("#region-content"),
+            $objmeta = $regioncontent.find('#objmetadata_pbwidgets_wrapper');
+        if ($objmeta.length) {
+            $region_content.find("dd:contains('video')").closest('dl').hide();
+        }
+
         function prepareVideoLinkURLs() {
             $("#content, #vids-slider, #portal-column-two").delegate(".video-fancybox", "click", function(){
                 var $this = $(this);
