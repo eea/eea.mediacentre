@@ -3,7 +3,7 @@
         
         // hide unsupported video type for cloudVideo contenttype 
         var $region_content = $("#region-content"),
-            $objmeta = $regioncontent.find('#objmetadata_pbwidgets_wrapper');
+            $objmeta = $region_content.find('#objmetadata_pbwidgets_wrapper');
         if ($objmeta.length) {
             $region_content.find("dd:contains('video')").closest('dl').hide();
         }
