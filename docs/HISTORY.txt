@@ -3,6 +3,7 @@ Changelog
 
 4.11-dev - (unreleased)
 -----------------------
+ * Change: use eea-tabs style for multimedia whatsnew-gallery [ichimdav #5006]
 
 4.10 - (2012-03-05)
 -------------------

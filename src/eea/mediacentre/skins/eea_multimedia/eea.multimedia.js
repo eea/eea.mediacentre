@@ -275,7 +275,7 @@
                         }
                         
 
-                        var cur_tab_highlight = $("#whatsnew-gallery").find('.highlights').filter(':visible');
+                        var cur_tab_highlight = $("#whatsnew-gallery").find('.eea-tabs-panel').filter(':visible');
                         cur_tab_highlight.find(".gallery-ajax").html(ajax_loader_img);
                         window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
                     }
