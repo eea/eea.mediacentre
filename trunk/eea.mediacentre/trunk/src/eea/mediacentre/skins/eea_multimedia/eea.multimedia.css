@@ -172,7 +172,7 @@ h2#player-title,
             border-radius: 10px;
 }
 
-#multimedia-vids .highlights {
+#multimedia-vids .eea-tabs-panel {
     height: 305px;
     -webkit-border-radius: 0 0 10px 10px;
        -moz-border-radius: 0 0 10px 10px;
@@ -181,12 +181,12 @@ h2#player-title,
             border-radius: 0 0 10px 10px;
 }
 
-#multimedia-vids .highlights .gallery-ajax {
+#multimedia-vids .eea-tabs-panel .gallery-ajax {
     height: 250px;
     overflow: auto;
 }
 
-#multimedia-vids .highlights ul.gallery-layout-selection {
+#multimedia-vids .eea-tabs-panel ul.gallery-layout-selection {
     position: relative;
     top: -26px;
     margin: 0px;
@@ -195,13 +195,13 @@ h2#player-title,
 }
 
 /* Album view */
-#multimedia-vids .highlights .gallery-album {
+#multimedia-vids .eea-tabs-panel .gallery-album {
     width: 536px;
     position: relative;
     margin: 0 auto;
 }
 
-#multimedia-vids .highlights .gallery-album .photoAlbumEntry {
+#multimedia-vids .eea-tabs-panel .gallery-album .photoAlbumEntry {
     height: 120px;
     width: 128px;
     padding: 0;
@@ -220,23 +220,23 @@ h2#player-title,
     border: none;
 }
 
-#multimedia-vids .highlights .gallery-album .photoAlbumEntry a {
+#multimedia-vids .eea-tabs-panel .gallery-album .photoAlbumEntry a {
     margin: 0;
     height: 120px;
     width: 128px;
 }
 
-#multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryTitle {
+#multimedia-vids .eea-tabs-panel .gallery-album .photoAlbumEntry .photoAlbumEntryTitle {
     color: #FFFFFF;
 }
 
-#multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper {
+#multimedia-vids .eea-tabs-panel .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper {
     overflow: hidden;
     height: 65px;
     margin: 0;
 }
 
-#multimedia-vids .highlights .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
+#multimedia-vids .eea-tabs-panel .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
     position: relative;
     top: -31px;
     border: 0px;
@@ -247,49 +247,49 @@ h2#player-title,
 }
 
 /* Listing view */
-#multimedia-vids .highlights .gallery-listing .tileItem {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem {
     width: 536px;
     position: relative;
     margin: 1em auto;
     padding: 0;
 }
 
-#multimedia-vids .highlights .gallery-listing .tileItem:first-child {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem:first-child {
     margin: 0 auto 1em auto !important;
 }
 
-#multimedia-vids .highlights .gallery-listing .tileItem .tileImage {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem .tileImage {
     overflow: hidden;
     height: 71px;
     border: none !important;
     margin: 3px 1em 0 0 !important;
 }
 
-#multimedia-vids .highlights .gallery-listing .tileItem .tileImage:hover {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem .tileImage:hover {
     border: none !important;
 }
 
-#multimedia-vids .highlights .gallery-listing .tileItem .tileImage img {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem .tileImage img {
     position: relative;
     top: -29px;
 }
 
-#multimedia-vids .highlights .gallery-listing .tileItem .tileContent .tileHeadline {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem .tileContent .tileHeadline {
     text-shadow: 1px 1px black !important;
     color: #FFFFFF;
     margin-bottom: 0;
     padding: 0 !important;
 }
 
-#multimedia-vids .highlights .gallery-listing .tileItem .tileContent .tileHeadline a {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem .tileContent .tileHeadline a {
     color: #FFFFFF !important;
 }
 
-#multimedia-vids .highlights .gallery-listing .tileItem .tileContent .date {
+#multimedia-vids .eea-tabs-panel .gallery-listing .tileItem .tileContent .date {
     color: #FFFFFF;
 }
 
-#multimedia-vids .highlights .portletFooter {
+#multimedia-vids .eea-tabs-panel .portletFooter {
     padding: 0.5em !important;
 }
 
@@ -352,6 +352,10 @@ ul, ul li {
 .featured h2 {
    color: #fff;
    text-shadow: 0 2px 2px #000;
+}
+
+.featured h2.search {
+    float: left;
 }
 
 .featured-holder {
@@ -458,7 +462,7 @@ ul#faceted-tabs {
 .multimedia-widget #tag-cloud #tag-cloud-content,
 ul#tabs li a.current, ul#tabs li a:hover,
 #multimedia-coverflow,
-#whatsnew-gallery .highlights, 
+#multimedia-vids .eea-tabs-panel, 
 .featured,
 #bottomright-widgets #tag-cloud .portletFooter
 {
@@ -543,7 +547,7 @@ ul#tabs li a.current, ul#tabs li a:hover {
    text-shadow: 1px 1px 1px #000000;
 } 
 
-#whatsnew-gallery .highlights {
+#whatsnew-gallery .eea-tabs-panel {
     color: #fff;
 }
 

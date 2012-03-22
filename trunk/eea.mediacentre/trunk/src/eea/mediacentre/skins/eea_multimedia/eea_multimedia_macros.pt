@@ -1,5 +1,5 @@
 <div metal:define-macro="videoclips"
-     class="highlights"
+     class="eea-tabs-panel"
      id="videoclips-highlights" 
      tal:define="multimedia_view multimedia_view|context/@@multimedia_logic;
                  folderContents multimedia_view/getVideos|nothing;
@@ -11,7 +11,7 @@
 
 <div metal:define-macro="videos"
      id="videos-highlights"
-     class="highlights"
+     class="eea-tabs-panel"
      tal:define="hide_listing python: True;
                  hide_album python: False;
                  more_href string:all-videos;">
@@ -20,7 +20,7 @@
 
 <div metal:define-macro="animations"
      id="greentips-highlights"
-     class="highlights"
+     class="eea-tabs-panel"
      tal:define="hide_listing python: True;
                  hide_album python: False;
                  more_href string:animations;">
@@ -29,7 +29,7 @@
 
 <div metal:define-macro="imagegalleries"
      id="imagegalleries-highlights"
-     class="highlights"
+     class="eea-tabs-panel"
      tal:define="hide_listing python: True;
                  hide_album python: False;
                  more_href string:galleries;">
@@ -38,7 +38,7 @@
 
 <div metal:define-macro="playlist"
      id="playlist-highlights"
-     class="highlights"
+     class="eea-tabs-panel"
      tal:define="hide_listing python: True;
                  hide_album python: False;
                  more_href string:playlist;">
