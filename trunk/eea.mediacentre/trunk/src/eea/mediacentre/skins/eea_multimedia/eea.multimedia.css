@@ -173,7 +173,8 @@ h2#player-title,
 }
 
 #multimedia-vids .eea-tabs-panel {
-    height: 305px;
+    height: 284px;
+    padding: 20px 15px 15px 15px;
     -webkit-border-radius: 0 0 10px 10px;
        -moz-border-radius: 0 0 10px 10px;
         -ms-border-radius: 0 0 10px 10px;
@@ -551,12 +552,12 @@ ul#tabs li a.current, ul#tabs li a:hover {
     color: #fff;
 }
 
-.filter-topic {
+#multimedia-vids .filter-topic {
     width: 77%;
     padding-top: 0px;
-    margin: 0px !important;
+    margin:-20px 0px 0px 0px !important;
     position: relative;
-    top: 283px;
+    top: 280px;
     right: -45px;
 }
 
