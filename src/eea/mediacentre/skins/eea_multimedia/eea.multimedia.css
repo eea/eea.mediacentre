@@ -52,15 +52,6 @@ h2#player-title {
     border: medium none;
 }    
 
-h2#player-title,
-#media-player {
-	-webkit-border-radius: 10px 0;
-	   -moz-border-radius: 10px 0;
-	    -ms-border-radius: 10px 0;
-	     -o-border-radius: 10px 0;
-	        border-radius: 10px 0;
-}
-
 .multimedia-widget {
     max-width:350px;
     min-width: 335px;
@@ -438,7 +429,7 @@ ul, ul li {
     text-decoration: none !important;
 }
 
-#faceted-form .faceted-widget {
+#tag-cloud #faceted-form .faceted-widget {
     color: #fff;
     background: transparent;
 }
