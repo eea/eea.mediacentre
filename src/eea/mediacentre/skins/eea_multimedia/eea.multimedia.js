@@ -255,30 +255,27 @@
                     var tabs = $("#multimedia-tabs"),
                         cur_tab_val = tabs.find('a').filter('.current')[0].id.substr(4);
                     // only refresh highlights if we are on video or greentips tabs               
-                    if (cur_tab_val.indexOf('green') !== -1 || cur_tab_val.indexOf('video') !== -1 ) {
-                        // remove previously selected item before assigning selected to
-                        // the currently clicked item
-                        var c1 = $("#c1_widget");
-                        if (c1.is(":visible")) {
-                            c1.find('li').filter('.selected').removeClass('selected');
-                        }
-                        else {
-                            $("#c3").find('li').filter('.selected').removeClass('selected');
-                        }
-                        this.className = "selected";
-                        
-                        // don't send value if tag_title is All because we don't have
-                        // a value to send
-                        if ($(this).parent().prev().text().indexOf('tags') !== -1 ) { 
-                            tag_title = this.title;
-                            sel_value = tag_title === 'All' ? '' : tag_title;
-                        }
-                        
-
-                        var cur_tab_highlight = $("#whatsnew-gallery").find('.eea-tabs-panel').filter(':visible');
-                        cur_tab_highlight.find(".gallery-ajax").html(ajax_loader_img);
-                        window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
+                    var c1 = $("#c1_widget");
+                    // remove previously selected item before assigning selected to
+                    // the currently clicked item
+                    if (c1.is(":visible")) {
+                        c1.find('li').filter('.selected').removeClass('selected');
                     }
+                    else {
+                        $("#c3").find('li').filter('.selected').removeClass('selected');
+                    }
+                    this.className = "selected";
+                    
+                    // don't send value if tag_title is All because we don't have
+                    // a value to send
+                    if ($(this).parent().prev().text().indexOf('tags') !== -1 ) { 
+                        tag_title = this.title;
+                        sel_value = tag_title === 'All' ? '' : tag_title;
+                    }
+
+                    var cur_tab_highlight = $("#whatsnew-gallery").find('.eea-tabs-panel').filter(':visible');
+                    cur_tab_highlight.find(".gallery-ajax").html(ajax_loader_img);
+                    window.whatsnew.whatsnew_func(cur_tab_val, sel_text, sel_value, index, tag_title);
                 });
             // end delay 3500
             });
