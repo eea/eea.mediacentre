@@ -3,6 +3,11 @@ Changelog
 
 4.11-dev - (unreleased)
 -----------------------
+ * Bug fix: removed topics and tags for other tabsi rather than greentips and 
+   video in multimedia page since they have logic implemented for it 
+   [ichimdav #5044]
+ * Bug fix: fixed the strikethrough points found in the description of the 
+   ticket, related to the appearence of some multimedia elements [ichimdav #5035]
  * Change: use eea-tabs style for multimedia whatsnew-gallery [ichimdav #5006]
 
 4.10 - (2012-03-05)
