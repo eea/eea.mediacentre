@@ -230,12 +230,23 @@ h2#player-title {
 
 #multimedia-vids .eea-tabs-panel .gallery-album .photoAlbumEntry .photoAlbumEntryWrapper img {
     position: relative;
-    top: -31px;
+    top: 0px;
     border: 0px;
+    max-height: 128px;
+}
+
+#multimedia-vids .photoAlbumEntry a.video-fancybox img,
+#multimedia-vids .photoAlbumEntry a.animation-fancybox img {
+    margin-top: -29px;
+    max-height: 128px;
+}
+#multimedia-vids #playlist-highlights .photoAlbumEntryWrapper {
+    width: 120px;
 }
 
 #multimedia-vids #playlist-highlights .photoAlbumEntryWrapper img {
     top: -12px;
+    margin: 0px;
 }
 
 /* Listing view */

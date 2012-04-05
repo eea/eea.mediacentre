@@ -3,6 +3,8 @@ Changelog
 
 4.12-dev - (unreleased)
 -----------------------
+ * Bug fix: consolidate album styles with the style from multimedia
+   [ichimdav #5029]
 
 4.11 - (2012-03-30)
 -------------------
