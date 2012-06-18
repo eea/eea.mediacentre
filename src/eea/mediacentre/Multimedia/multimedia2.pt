@@ -4,7 +4,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
     metal:use-macro="here/main_template/macros/master"
     i18n:domain="eea">
     <head>
-        <title>Multimedia</title>
+        <title i18n:translate="multimedia">Multimedia</title>
     </head>
     <body>
         <div metal:fill-slot="column_one_slot" />
@@ -41,7 +41,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                 </div>
 
                 <div id="multimedia-widgets">
-                    <div id="title"><b>EEA Multimedia centre</b></div>
+                    <div id="title"><b i18n:translate="">EEA Multimedia centre</b></div>
                     <div id="sliders">
                         <div id="top-widgets">
                             <div id="multimedia-coverflow" class="multimedia-widget left-widget">
@@ -53,13 +53,24 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 
                                         <div class="wrapper">
                                             <div id="coverflow">
-                                                <img class="content" id="artic" tal:attributes="src string:films/ourarcticchallenge/image_wide" rel="http://vimeo.com/moogaloop.swf?clip_id=18778572&autoplay=true" title="One degree matters" />
-                                                <img class="content selected" tal:attributes="src string:films/one-degreematters/image_wide" rel="http://vimeo.com/moogaloop.swf?clip_id=8119882&autoplay=true" title="Our arctic challenge" />
-                                                <img class="content" tal:attributes="src string:/themes/economy/multimedia/which-steps-will-bring-us/image_wide" title="Which steps will bring us forward on the road to a Green economy?" />
+                                                <img class="content" id="artic" 
+                                                     tal:attributes="src string:films/ourarcticchallenge/image_wide" 
+                                                     rel="http://vimeo.com/moogaloop.swf?clip_id=18778572&amp;autoplay=true" 
+                                                     title="One degree matters"
+                                                     i18n:attributes="title" />
+                                                <img class="content selected" 
+                                                     tal:attributes="src string:films/one-degreematters/image_wide"
+                                                     rel="http://vimeo.com/moogaloop.swf?clip_id=8119882&amp;autoplay=true" 
+                                                     title="Our arctic challenge"
+                                                     i18n:attributes="title" />
+                                                <img class="content" 
+                                                     tal:attributes="src string:/themes/economy/multimedia/which-steps-will-bring-us/image_wide" 
+                                                     title="Which steps will bring us forward on the road to a Green economy?"
+                                                     i18n:attributes="title" />
                                             </div>
                                         </div>
 
-                                        <div id="imageCaption">
+                                        <div id="imageCaption" i18n:translate="">
                                             Sample Text
                                         </div>
 
@@ -70,10 +81,10 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
 
                                 </div>
                                 <div id="media-player" style="display:none;">
-                                    <a id='fancybox-close'></a>
-                                    <h2 id='player-title'>title</h2>
-                                    <div id="media-flowplayer" class="embeddedvideo">
-                                        Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer">Flash 9+</a> to watch the video.
+                                    <a id="fancybox-close"></a>
+                                    <h2 id="player-title" i18n:translate="">title</h2>
+                                    <div id="media-flowplayer" class="embeddedvideo"  i18n:translate="">
+                                        Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer" i18n:name="flash9">Flash 9+</a> to watch the video.
                                     </div>
                                 </div>
                             </div>
@@ -81,17 +92,20 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 <!-- data and maps global search -->
                                 <div class="featured">
                                     <h2 i18n:translate="featured_global_search" style="float:left;">Search</h2>
-                                    <a href="all-videos" class="archives advanced-search-link" style="float:right;margin:5px 0px 0px 0px;" title="Go to advanced search">
-                                    <span>Advanced</span></a>
+                                    <a href="all-videos" class="archives advanced-search-link" 
+                                       style="float:right;margin:5px 0px 0px 0px;" 
+                                       title="Go to advanced search"
+                                       i18n:attributes="title">
+                                    <span i18n:translate="">Advanced</span></a>
                                     <div style="clear:both"> </div>
                                     <form tal:attributes="action string:${here/absolute_url}/all-videos"  method="get" id="faceted-text-search" class="searchforms faceted-external-search">
-                                        <input type="text" name="c12" title="Search videos, animations, image galleries" value=""/>
-                                        <input type="submit" value="Search" name="search" style="float:right"/>
+                                        <input type="text" name="c12" title="Search videos, animations, image galleries" i18n:attributes="title" value=""/>
+                                        <input type="submit" value="Search" i18n:attributes="value" name="search" style="float:right"/>
                                     </form>
                                 </div>
 
                                 <div class="featured" id="featured-location">
-                                    <h2>By location</h2>
+                                    <h2  i18n:translate="">By location</h2>
                                     <div class="featured-holder">
                                         <img src="interactive-map.png" />
                                     </div>
@@ -145,15 +159,18 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 <div id="faceted-form"> 
                                     <div id="tag-cloud"> 
                                         <ul id="faceted-tabs">
-                                            <li><a href="#" id="faceted-topics">By topics</a></li>
-                                            <li><a href="#" id="faceted-tags">By tags</a></li>
+                                            <li><a href="#" id="faceted-topics" i18n:translate="">By topics</a></li>
+                                            <li><a href="#" id="faceted-tags" i18n:translate="">By tags</a></li>
                                         </ul>
                                         <div id="tag-cloud-content" tal:define="faceted_path python:'multimedia/all-videos'"> 
                                             <metal:tags use-macro="here/portlet_faceted_tagclouds/macros/portlet" /> 
                                         </div> 
                                         <div class="portletFooter">
                                             <p>
-                                                <a href="all-videos" class="moreLink" title="Explore all tags">Explore all tags</a>
+                                                <a href="all-videos" class="moreLink" 
+                                                   i18n:attributes="title" 
+                                                   title="Explore all tags" 
+                                                   i18n:translate="">Explore all tags</a>
                                             </p>
                                         </div>
                                     </div> 

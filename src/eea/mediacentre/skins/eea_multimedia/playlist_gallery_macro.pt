@@ -17,7 +17,7 @@
             <div class="photoAlbumEntry" tal:define="numb repeat/video_id/number; video_title python:vid_titles[numb - 1]">
                 <a  tal:attributes="href string:http://www.youtube.com/embed/${video_id}?autoplay=1; title video_title" class="video-fancybox">
                   <span class="photoAlbumEntryWrapper">
-                      <img  tal:attributes="src string:http://i3.ytimg.com/vi/${video_id}/default.jpg; alt video_title; title video_title;">
+                      <img  tal:attributes="src string:http://i3.ytimg.com/vi/${video_id}/default.jpg; alt video_title; title video_title;" />
                   </span>
                   <span class="photoAlbumEntryTitle" tal:content="video_title">Green tip - the log</span>
                   <span class="photoAlbumEntryDescription" tal:content="python:vid_descriptions[numb - 1]"></span>

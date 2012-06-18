@@ -1,7 +1,11 @@
-<metal:page define-macro="master"><metal:doctype define-slot="doctype"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></metal:doctype>
+<metal:page define-macro="master">
+    <metal:doctype define-slot="doctype">
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    </metal:doctype>
+    
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
       lang="en-US"
-      i18n:domain="plone"
+      i18n:domain="eea"
       tal:define="portal_url context/@@plone_portal_state/portal_url; portal context/@@plone_portal_state/portal;">
 
 <head>
@@ -36,23 +40,30 @@
     <div class="panes">
 
 <div id="tab-desc">
-    <div class="discreet"><tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
-        Show the publishdate only (effective date)
+    <div class="discreet">
+        <tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
+            <span i18n:translate="">Show the publishdate only (effective date)</span>
         </tal:publishdate></div>
         <p id="vid-desc" tal:content="context/Description"></p>
 
         <tal:author condition="video_info/author">
-        <dt>Author:</dt>
+        <dt i18n:translate="">Author:</dt>
         <dd tal:content="video_info/author">Author</dd>
         </tal:author>
 
-        <div tal:content="structure video_info/rich_description" tal:condition="video_info/rich_description">
+        <div tal:content="structure video_info/rich_description" 
+             tal:condition="video_info/rich_description">
             Rich Description
         </div>
     </div>
 </div>
-<a href="#" id="bookmark-link" class="footer" tal:define="url context/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>
-<a href="#" id="more-vids-link" class="footer" tal:attributes="href string:$portal_url/multimedia" i18n:translate="mediacentre-link">More videos</a>
+<a href="#" id="bookmark-link" class="footer" 
+   tal:define="url context/absolute_url" 
+   tal:attributes="href string:$url/view" 
+   i18n:translate="video-bookmark-link">Link</a>
+<a href="#" id="more-vids-link" class="footer" 
+   tal:attributes="href string:$portal_url/multimedia" 
+   i18n:translate="mediacentre-link">More videos</a>
 
 <p id="vid-title" tal:content="context/Title">Video Title</p>
 <script type="text/javascript">
