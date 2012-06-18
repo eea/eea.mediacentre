@@ -1,4 +1,5 @@
-<metal:block metal:define-macro="listed_video" i18n:domain="p4a.video">
+<metal:block metal:define-macro="listed_video" 
+     i18n:domain="eea">
           <div class="media-item"
                tal:define="videoobj videoobj|options/videoobj|nothing;
                            video video|options/video|python:view.safe_video(videoobj);
@@ -14,11 +15,13 @@
                   <a href="" tal:attributes="href string:$viewurl"
                      tal:condition="video/has_image"
                     ><img tal:attributes="src video/imageurlwidget"
-                       alt="Video Album Art" /></a>
+                       alt="Video Album Art"
+                       i18n:attributes="alt" /></a>
                   <a href="" tal:attributes="href string:$viewurl"
                      tal:condition="not:video/has_image">
                      <img tal:attributes="src string:${portal_url}/video-image.jpg"
-                         alt="Video album art" />
+                          alt="Video album art"
+                          i18n:attributes="alt" />
                   </a>
                 </dd>
                 <tal:time condition="video/duration">
@@ -28,10 +31,10 @@
                 <dt class="type-video" i18n:translate="label_type">Media Type:</dt>
                 <dd class="type-video" tal:content="video/media_types">Media type</dd>
                 <tal:author condition="video/author">
-                    <dt>Author:</dt>
+                    <dt i18n:translate="">Author:</dt>
                     <dd tal:content="video/author">Author</dd>
                 </tal:author>
-                <dt>Published:</dt>
+                <dt i18n:translate="">Published:</dt>
                 <dd tal:content="video/published_date">Date</dd>
               </dl>
               <div class="visualClear"><!-- --></div>

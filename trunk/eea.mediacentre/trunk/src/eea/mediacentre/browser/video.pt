@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="p4a.video">
+      i18n:domain="eea">
 
       <head> 
       
@@ -24,10 +24,10 @@
                                                                     height player_height|string:338; 
                                                                     width player_width|string:600;"
                                                                     tal:condition="url">
-                    <iframe tal:define="option python: '&' if '?' in url else '?';
-                                        params params|string:${option}autoplay=1&playnext=1&egm=1&rel=1&fs=1&wmode=opaque" 
+                    <iframe tal:define="option python: '&amp;' if '?' in url else '?';
+                                        params params|string:${option}autoplay=1&amp;playnext=1&amp;egm=1&amp;rel=1&amp;fs=1&amp;wmode=opaque" 
                         tal:attributes="src string:http://www.youtube.com/embed/${url}${params}; width width; height height"
-                        frameborder="0" allowfullscreen></iframe>
+                        frameborder="0"></iframe>
                 </tal:youtube>
                 
                 <tal:vimeo metal:define-macro="vimeo_iframe" tal:define="cloud video_info/cloudurl; 
@@ -37,9 +37,9 @@
                                                                     width player_width|string:600"
                                                                     tal:condition="python:url and not youtube">
                 <iframe tal:define="width width|string:600; 
-                                    params params|string:?title=0&byline=0&ortrait=0&wmode=opaque&autoplay=1" 
+                                    params params|string:?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" 
                     tal:attributes="src string:http://player.vimeo.com/video/${url}${params}; width width; height height"
-                    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    frameborder="0"></iframe>
                 </tal:vimeo>
 
                 <tal:co tal:condition="not:video_info/cloudurl">
@@ -57,10 +57,10 @@
                 <dt class="type-video" i18n:translate="label_type">Media Type:</dt>
                 <dd class="type-video" tal:content="video_info/media_types">Media type</dd>
                 <tal:author condition="video_info/author">
-                    <dt>Author:</dt>
+                    <dt i18n:translate="">Author:</dt>
                     <dd tal:content="video_info/author">Author</dd>
                 </tal:author>
-                <dt>Published:</dt>
+                <dt i18n:translate="">Published:</dt>
                 <dd tal:content="video_info/published_date">Date</dd>
               </dl>
               <div>&nbsp;</div>

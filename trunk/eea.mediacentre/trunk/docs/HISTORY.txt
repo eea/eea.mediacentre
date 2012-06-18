@@ -3,6 +3,8 @@
 
 4.14-dev - (unreleased)
 -----------------------
+* Bug Fix: Fixed i18n missing tags in eea.mediacentre 
+  [prospchr refs #5162]
 
 4.13 - (2012-06-12)
 -------------------

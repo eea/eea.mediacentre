@@ -1,4 +1,5 @@
-<metal:block metal:define-macro="image_listed_video" i18n:domain="p4a.video">
+<metal:block metal:define-macro="image_listed_video" 
+   i18n:domain="eea">
 <div class="media-item"
      tal:define="image image|options/image;
                  viewurl string:${image/url};
@@ -12,7 +13,8 @@
                 <dd class="album-art">
                   <a href="" tal:attributes="href string:$viewurl">
                       <img tal:attributes="src image/preview_url"
-                           alt="Video Album Art" />
+                           alt="Video Album Art"
+                           i18n:attributes="alt" />
                   </a>
                 </dd>
                 <dt class="type-image" i18n:translate="label_type">Type:</dt>
