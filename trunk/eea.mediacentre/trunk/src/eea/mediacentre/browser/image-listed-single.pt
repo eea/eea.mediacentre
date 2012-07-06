@@ -17,7 +17,7 @@
                            i18n:attributes="alt" />
                   </a>
                 </dd>
-                <dt class="type-image" i18n:translate="label_type">Type:</dt>
+                <dt class="type-image" i18n:translate="">Type:</dt>
                 <dd class="type-image" tal:content="image/media_types">Media type</dd>
         </dl>
         <div class="visualClear"><!-- --></div>
@@ -32,7 +32,7 @@
             <span tal:replace="image/description"></span>
             &nbsp;&nbsp;<a href=""
                            tal:attributes="href viewurl"
-                           i18n:translate="label_more">More</a>
+                           i18n:translate="">More</a>
         </p>
     </div>
     <div class="visualClear"><!-- &nbsp; --></div>
