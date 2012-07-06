@@ -82,7 +82,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 </div>
                                 <div id="media-player" style="display:none;">
                                     <a id="fancybox-close"></a>
-                                    <h2 id="player-title" i18n:translate="">title</h2>
+                                    <h2 id="player-title" i18n:translate="">Title</h2>
                                     <div id="media-flowplayer" class="embeddedvideo"  i18n:translate="">
                                         Please enable javascript or upgrade to <a href="http://www.adobe.com/go/getflashplayer" i18n:name="flash9">Flash 9+</a> to watch the video.
                                     </div>
