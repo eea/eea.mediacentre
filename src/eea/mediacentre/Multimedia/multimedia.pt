@@ -4,7 +4,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
     metal:use-macro="here/main_template/macros/master"
     i18n:domain="eea">
     <head>
-        <title i18n:translate="multimedia">Multimedia</title>
+        <title i18n:translate="">Multimedia</title>
     </head>
     <body >
         <div metal:fill-slot="column_one_slot" />
@@ -88,12 +88,12 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                             <div id="topright-widgets" class="multimedia-widget">
                                 <!-- data and maps global search -->
                                 <div class="featured">
-                                    <h2 i18n:translate="featured_global_search" class="search">Search</h2>
+                                    <h2 i18n:translate="">Search</h2>
                                     <a href="all-videos" 
                                        class="archives advanced-search-link" 
                                        title="Go to advanced search"
                                        i18n:attributes="title">
-                                    <span i18n:translate="advanced">Advanced</span></a>
+                                    <span i18n:translate="">Advanced</span></a>
                                     <div class="visualClear"> </div>
                                     <form tal:attributes="action string:${here/absolute_url}/all"  method="get" id="faceted-text-search" class="searchforms faceted-external-search">
                                         <input type="text" name="c7" title="Search videos, animations, image galleries" value="" i18n:attributes="title"/>
@@ -113,7 +113,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                 <p tal:content="film/Description" class="featured-description">Description</p>
                                                 <div class="portletFooter">
                                                 <p class="links">
-                                                <a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link" target="_blank">Link</a>
+                                                <a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="">Link</a>
                                                 </p>
                                                 </div>
                                             </tal>
@@ -127,7 +127,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                             <p class="featured-description" i18n:translate=""> Featured Item Description</p>
                                                 <div class="portletFooter">
                                                 <p class="links">
-                                                <a href="#" class="bookmark-link" i18n:translate="video-bookmark-link">Link</a>
+                                                <a href="#" class="bookmark-link" i18n:translate="">Link</a>
                                                 </p>
                                             </div>
                                         

@@ -32,9 +32,9 @@
 <div style="clear:both"></div>
     <div id="tabs" style="height:148px;">
         <ul class="tabs">
-            <li><a class="tabnav" href="#" i18n:translate="videos-link">Related videos</a></li>
-            <li><a class="tabnav" href="#" i18n:translate="news-link">News and articles</a></li>
-            <li><a class="tabnav" href="#" i18n:translate="about-this-video-link">About this video</a></li>
+            <li><a class="tabnav" href="#" i18n:translate="">Related videos</a></li>
+            <li><a class="tabnav" href="#" i18n:translate="">News and articles</a></li>
+            <li><a class="tabnav" href="#" i18n:translate="">About this video</a></li>
         </ul>
     </div>
     <div class="panes">
@@ -77,8 +77,8 @@
         </div>
     </div>
 </div>
-<a href="#" id="bookmark-link" class="footer" tal:define="url context/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link">Link</a>
-<a href="#" id="more-vids-link" class="footer" tal:attributes="href string:$portal_url/multimedia/all" i18n:translate="mediacentre-link">More videos</a>
+<a href="#" id="bookmark-link" class="footer" tal:define="url context/absolute_url" tal:attributes="href string:$url/view" i18n:translate="">Link</a>
+<a href="#" id="more-vids-link" class="footer" tal:attributes="href string:$portal_url/multimedia/all" i18n:translate="">More videos</a>
 
 <p id="vid-title" tal:content="context/Title">Video Title</p>
 
