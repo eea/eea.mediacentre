@@ -10,7 +10,7 @@
             <tal:items tal:repeat="item items" >
             <tal:item tal:define="playlist_title python:item[0]; vid_ids python:item[1]; 
             vid_titles python: item[2]; vid_descriptions python: item[3]">
-        <h3 i18n:translate="" tal:content="playlist_title">An introduction to the EEA (8)</h3>                   
+        <h3 i18n:translate="">An introduction to the EEA (8)</h3>                   
             <tal:multimedia metal:define-macro="playlists">                         
 
         <tal:vids tal:repeat="video_id vid_ids">

@@ -10,7 +10,7 @@
                tal:attributes="class string:media-item $oddeven portal_type_$portal_type">
             <div class="item-left">
               <dl>
-                <dt class="album-art" i18n:translate="label_album_art">Album Art:</dt>
+                <dt class="album-art" i18n:translate="">Album Art:</dt>
                 <dd class="album-art">
                   <a href="" tal:attributes="href string:$viewurl"
                      tal:condition="video/has_image"
@@ -25,7 +25,7 @@
                   </a>
                 </dd>
                 <tal:time condition="video/duration">
-                    <dt i18n:translate="label_time">Time:</dt>
+                    <dt i18n:translate="">Time:</dt>
                     <dd tal:content="video/duration">8:30</dd>
                 </tal:time>
                 <dt class="type-video" i18n:translate="">Media Type:</dt>
@@ -52,7 +52,7 @@
               <p class="item-description">
                 <span tal:replace="video/description"></span>
                 &nbsp;&nbsp;<a href=""
-                               tal:attributes="href viewurl" i18n:translate="label_more">More</a>
+                               tal:attributes="href viewurl" i18n:translate="">More</a>
               </p>
 
         </div>

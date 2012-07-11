@@ -9,7 +9,7 @@
 
     <div class="item-left">
         <dl>
-            <dt class="album-art" i18n:translate="label_album_art">Album Art:</dt>
+            <dt class="album-art" i18n:translate="">Album Art:</dt>
                 <dd class="album-art">
                   <a href="" tal:attributes="href string:$viewurl">
                       <img tal:attributes="src image/preview_url"

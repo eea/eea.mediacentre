@@ -53,7 +53,7 @@
         <div metal:use-macro="foldermacro" />
     </tal:cond>
     <tal:nocond tal:condition="not:folderContents">
-        <div class='portalMessage informationMessage'><p i18n:translate="no-topics">No results are available for this topic</p></div>
+        <div class='portalMessage informationMessage'><p i18n:translate="">No results are available for this topic</p></div>
     </tal:nocond>
 </metal:condition>
 
