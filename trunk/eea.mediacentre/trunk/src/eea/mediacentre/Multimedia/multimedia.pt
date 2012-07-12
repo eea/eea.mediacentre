@@ -88,7 +88,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                             <div id="topright-widgets" class="multimedia-widget">
                                 <!-- data and maps global search -->
                                 <div class="featured">
-                                    <h2 i18n:translate="featured_global_search" class="search">Search</h2> 
+                                    <h2 i18n:translate="" class="search">Search</h2> 
                                     <a href="all-videos" 
                                        class="archives advanced-search-link" 
                                        title="Go to advanced search"
@@ -113,7 +113,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                 <p tal:content="film/Description" class="featured-description">Description</p>
                                                 <div class="portletFooter">
                                                 <p class="links">
-                                                <a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="video-bookmark-link" target="_blank">Link</a>
+                                                <a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="" target="_blank">Link</a>
                                                 </p>
                                                 </div>
                                             </tal>
