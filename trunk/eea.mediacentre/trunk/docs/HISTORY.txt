@@ -3,6 +3,8 @@
 
 5.1-dev - (unreleased)
 ----------------------
+* Bug fix: fix tests for Plone 4.2 by adding the Topic content type in profile
+  [tiberich refs #5346]
 
 5.0 - (2012-07-13)
 ------------------
