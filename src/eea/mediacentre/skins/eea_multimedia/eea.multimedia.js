@@ -147,7 +147,7 @@
                             var orig_href = this.href;
                             var clean_href = this.href.replace(/(view|video_popup_view)/, "");
                             var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
-                            player_title.innerHTML = $this.attr('alt');
+                            player_title.innerHTML = this.title;
                             media_flowplayer.flashembed({
                                     src: swf_href
                             });
@@ -192,8 +192,9 @@
                             scrolling: 'no',
                             autoScale: false,
                             autoDimensions: false,
-                            centerOnScroll : false,
-                            overlayShow : false, 
+                            centerOnScroll: false,
+                            overlayShow: false, 
+                            titleShow: false,
                             onStart : function() {
                                 // this function brings the fancybox to the top of
                                 // the multimedia topright-widgets

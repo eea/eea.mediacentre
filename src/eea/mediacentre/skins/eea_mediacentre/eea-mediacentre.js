@@ -53,6 +53,8 @@
                             var clean_href = href.replace(regex, ''); 
                             if (href.indexOf('youtube') === -1) {
                                 this.href = clean_href + "multimedia_popup_view"; 
+                                options.titleShow = false;
+                                $("#fancybox-title").remove();
                             }
                         }
 
@@ -83,7 +85,9 @@
                                 top: mult.top - 20
                             }, 200);   
                             window.setTimeout(function(){
-                                $("#fancybox-title").remove().prependTo('#fancybox-content');
+                                if (href.indexOf('youtube') !== -1) {
+                                    $("#fancybox-title").remove().prependTo('#fancybox-content');
+                                }
                             }, 200);
                         };
 
@@ -130,7 +134,7 @@
                         };
 
                         // fill info area of the multimedia page with content from the
-                        // fancybox irframe with video information
+                        // fancybox iframe with video information
                         options.onComplete = function($parent) {
                             var iframe = $("#fancybox-frame"),
                                 iframe_src = iframe.attr('src');
