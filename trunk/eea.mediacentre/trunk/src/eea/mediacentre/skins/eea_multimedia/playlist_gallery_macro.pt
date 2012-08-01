@@ -12,7 +12,7 @@
             vid_titles python: item[2]; vid_descriptions python: item[3]">
 
         <div class="visualClear"></div>
-        <h3 tal:content="playlist_title" i18n:name="youtube_playlist_title">An introduction to the EEA (8)</h3>                   
+        <h3 tal:content="playlist_title">An introduction to the EEA (8)</h3>                   
             <tal:multimedia metal:define-macro="playlists">                         
 
         <tal:vids tal:repeat="video_id vid_ids">

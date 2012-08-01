@@ -18,18 +18,8 @@
                     var href = this.href;
                     var isInsidePopUp = $('body').hasClass('video_popup_view');
 
-                    // if we don't have multimedia coverflow then we are in another
-                    // multimedia listing like the all faceted navigation folder
-                    // therefore we show the full video_popup_view with articles and
-                    // related items
-                    if (video_page === 0) {
-                        if (href.indexOf('video_popup_view') === -1) {
-                            this.href = href.replace(/view/, 'video_popup_view'); 
-                        }
-                    }
-                    
                     // general fancybox options, multimedia page will add or modify some
-                    // ot these
+                    // of these options
                     var options = {
                             type: 'iframe',
                             padding: 0,
@@ -40,8 +30,17 @@
                             autoScale: false,
                             autoDimensions: false,
                             centerOnScroll : false,
-                            titlePosition: 'inside'
+                            titleShow: false
                     };
+                    // if we don't have multimedia coverflow then we are in another
+                    // multimedia listing like the all faceted navigation folder
+                    // therefore we show the full video_popup_view with articles and
+                    // related items
+                    if (video_page === 0) {
+                        if (href.indexOf('video_popup_view') === -1) {
+                            this.href = href.replace(/view/, 'video_popup_view'); 
+                        }
+                    }
                     
                     // this code runs when we are inside the multimedia page
                     if (video_page) {
@@ -53,8 +52,11 @@
                             var clean_href = href.replace(regex, ''); 
                             if (href.indexOf('youtube') === -1) {
                                 this.href = clean_href + "multimedia_popup_view"; 
-                                options.titleShow = false;
                                 $("#fancybox-title").remove();
+                            }
+                            else { 
+                                options.titlePosition = 'inside';
+                                options.titleShow = true;
                             }
                         }
 
