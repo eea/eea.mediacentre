@@ -3,6 +3,8 @@
 
 5.1-dev - (unreleased)
 ----------------------
+* Bug fix: reference jquery.js in a way that is compatible also with Plone 4.2
+  [ichimdav #5398]
 * Bug fix: fix tests for Plone 4.2 by adding the Topic content type in profile
   [tiberich refs #5346]
 
