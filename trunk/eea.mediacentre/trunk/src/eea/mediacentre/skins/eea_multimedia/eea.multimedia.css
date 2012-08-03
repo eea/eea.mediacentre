@@ -620,6 +620,10 @@ h1#parent-fieldname-title {
     min-width: 995px;
 }
 
+body.section-multimedia #portal-colophon {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#478EA5', endColorstr='#346F83');
+}
+
 #globalnav-holder, #portal-globalnav {
     height: 65px;
 }
