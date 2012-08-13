@@ -54,6 +54,16 @@ class Multimedia(BrowserView):
 
         return result
 
+    def getLatestCloudVideos(self):
+        """ retrieves latest published cloudVideos
+        filtered by date and by topic """
+        #import pdb; pdb.set_trace()
+        interface = 'Products.EEAContentTypes.content.interfaces.ICloudVideo'
+        result = _getItems(self,
+                    interfaces = interface,
+                    noOfItems=self.noOfLatestMultimedia)
+        return result
+
     def getVideos(self):
         """ retrieves videos filtered by date and by topic """
         interface = 'p4a.video.interfaces.IVideoEnhanced'

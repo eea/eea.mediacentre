@@ -49,21 +49,34 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     <div class="demo">
                                         <div class="wrapper">
                                             <div id="coverflow">
+                                              <a href="http://player.vimeo.com/video/8119882" title="Our arctic challenge">
                                                 <img class="content" 
                                                      id="artic" 
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/ourarcticchallenge/image_wide" 
                                                      rel="http://vimeo.com/moogaloop.swf?clip_id=18778572&amp;autoplay=true" 
                                                      title="Our arctic challenge"
                                                      i18n:attributes="title" />
+                                              </a>
+
+                                              <a href="http://player.vimeo.com/video/8119882" title="One degree matters">
                                                 <img class="content selected" 
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/one-degreematters/image_wide" 
                                                      rel="http://vimeo.com/moogaloop.swf?clip_id=8119882&amp;autoplay=true" 
                                                      title="One degree matters"
                                                      i18n:attributes="title" />
-                                                <img class="content" 
-                                                     tal:attributes="src string:${portal_url}${local}/themes/economy/multimedia/which-steps-will-bring-us/image_wide" 
-                                                     title="Which steps will bring us forward on the road to a Green economy?"
-                                                     i18n:attributes="title" />
+                                                </a>
+
+                                            <tal:films tal:define="multimedia_view multimedia_view|context/@@multimedia_logic;
+                                                          folderContents multimedia_view/getLatestCloudVideos|nothing;
+                                                          hide_album python: False;
+                                                          hide_listing python: True;
+                                                          more_href string:all-videos;">
+                                                          <tal:items repeat="item folderContents">
+                                                          <a tal:attributes="href string:${url}/multimedia_popup_view" tal:define="url item/getURL">
+                                                            <img class="content" tal:attributes="src string:${url}/image_wide"   /> 
+                                                          </a>
+                                                          </tal:items>
+                                          </tal:films>
                                             </div>
                                         </div>
 
@@ -121,6 +134,9 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                             <div id="artic" style="display:none" tal:define="featured_film nocall:artic_challenge">
                                                 <tal  metal:use-macro="here/@@multimedia_view/featured-film"  />
                                             </div>
+
+
+
                                         </div>
                                         <div id="featured-items" style="display:none">
                                             <h3 i18n:translate="">Featured Item Title</h3>
