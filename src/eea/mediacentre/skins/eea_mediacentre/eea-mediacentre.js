@@ -7,15 +7,16 @@
         if ($objmeta.length) {
             $region_content.find("dd:contains('video')").closest('dl').hide();
         }
-
-        function prepareVideoLinkURLs() {
-            $("#content, #vids-slider, #portal-column-two").delegate(".video-fancybox", "click", function(){
-                var $this = $(this);
-                if (!$this.data('multimedia')) {
+        // add videoplayer function to EEA global object
+        window.EEA = window.EEA || { };
+        var EEA = window.EEA;
+        var playVideo = function(link) {
+                var $link = $(link);
+                if (!$link.data('multimedia')) {
                     var coverflow = $("#multimedia-coverflow"),
                         video_page = coverflow.length > 0 ? 1 : 0;
-                    var parent = this;
-                    var href = this.href;
+                    var parent = link;
+                    var href = link.href;
                     var isInsidePopUp = $('body').hasClass('video_popup_view');
 
                     // general fancybox options, multimedia page will add or modify some
@@ -38,7 +39,7 @@
                     // related items
                     if (video_page === 0) {
                         if (href.indexOf('video_popup_view') === -1) {
-                            this.href = href.replace(/view/, 'video_popup_view'); 
+                            link.href = href.replace(/view/, 'video_popup_view'); 
                         }
                     }
                     
@@ -50,8 +51,8 @@
                         if (href.indexOf('multimedia_popup_view') === -1) {
                             var regex = /view|video_popup_view|multimedia_popup_view/;
                             var clean_href = href.replace(regex, ''); 
-                            if (href.indexOf('youtube') === -1) {
-                                this.href = clean_href + "multimedia_popup_view"; 
+                            if (href.indexOf('youtube') === -1 && href.indexOf('vimeo') === -1) {
+                                link.href = clean_href + "multimedia_popup_view"; 
                                 $("#fancybox-title").remove();
                             }
                             else { 
@@ -87,7 +88,7 @@
                                 top: mult.top - 20
                             }, 200);   
                             window.setTimeout(function(){
-                                if (href.indexOf('youtube') !== -1) {
+                                if (href.indexOf('youtube') !== -1 || href.indexOf('vimeo' !== -1)) {
                                     $("#fancybox-title").remove().prependTo('#fancybox-content');
                                 }
                             }, 200);
@@ -141,23 +142,31 @@
                             var iframe = $("#fancybox-frame"),
                                 iframe_src = iframe.attr('src');
 
-                            if (iframe_src.indexOf('youtube') !== -1) {
+                            if (iframe_src.indexOf('youtube') !== -1 || iframe_src.indexOf('vimeo' !== -1)) {
                                 iframe.attr({width: 640, height: 360}).css('height', '360px');
                             }
                             iframe.one("load",function(){
                                 info_area(iframe, iframe_src, $parent);
                             });
                         };
-                        options.href = this.href;
+                        options.href = link.href;
                     }
                     if (!isInsidePopUp) {
-                            $(this).fancybox( options );
+                            $(link).fancybox( options );
                     }
-                    $this.data('multimedia', true);
-                    $this.click();
+                    $link.data('multimedia', true);
+                    $link.click();
                     return false;
                 }
                 return false;
+        };
+        
+        EEA.playVideo = playVideo;
+
+        function prepareVideoLinkURLs() {
+            $("#content, #vids-slider, #portal-column-two").delegate(".video-fancybox", "click", function(evt){
+                playVideo(this);
+                evt.preventDefault();
             });
 
         }

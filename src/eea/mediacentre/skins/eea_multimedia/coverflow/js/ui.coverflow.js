@@ -36,7 +36,7 @@
 	$.widget("ui.coverflow", {
 	
 	   options: {
-	        items: "> *",
+	        items: "img",
 			orientation: 'horizontal',
 			item: 0,
 			trigger: 'click',

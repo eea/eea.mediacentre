@@ -1,3 +1,4 @@
+// requires: whatsnew_gallery.js eea.mediacentre.js
 (function($) {
 
     jQuery.fn.delay = function(time,func){
@@ -15,10 +16,11 @@
             var multimedia_header = $("#parent-fieldname-title");
             var faceted_form = $("#faceted-form");
             faceted_form.hide();
-            window.whatsnew.multimedia = { }; 
+            window.whatsnew.multimedia = {};
             var mult = window.whatsnew.multimedia;
                  mult.bg = $("#background1");
                  mult.bg2 = $("#background2");
+            var EEA = window.EEA;
             var ajax_loader_img = '<div style="text-align: center;"><img src="++resource++faceted_images/ajax-loader.gif" /></div>';
             // add background and colophon based on cookie if present else get the
             // first background and show it
@@ -152,7 +154,7 @@
                                     src: swf_href
                             });
                             content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
-                            var mult = content_flow.offset();
+                            //var mult = content_flow.offset();
                             $body.animate({scrollTop: 0}, 600, 'linear');
                             item_info($this, orig_href, clean_href);
                             return false;
@@ -285,7 +287,7 @@
                 var thumb_url =  item.src,
                     video_url = thumb_url.substring(0, thumb_url.length - 11);
                 player_title.innerHTML = item.title;
-                if ( video_url.indexOf('films') === -1) {
+                if ( video_url.indexOf('films') !== -1) {
                     media_flowplayer.flashembed(
                     {
                         src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
@@ -320,38 +322,14 @@
             var featured_degree = featured_films.find("#degree");
             coverflow_imgs.click(function(e){
                 var $this = $(this);
+                var parent = $this.parent()[0];
                 if ( this.className === "content selected") {
-                    showMediaPlayer(this);
-                    var title = this.title;
-                    $("#featured-items").fadeOut('slow');
-                    featured_films.fadeIn('slow');
-                    if (title.indexOf('arctic') !== -1) {
-                        featured_degree.fadeOut('slow');
-                        featured_artic.fadeIn('slow');
-                    }
-                    else if (title.indexOf('degree') !== -1) {
-                        featured_degree.fadeIn('slow');
-                        featured_artic.fadeOut('slow');
-                    }
-                    else {
-                        featured_films.fadeOut();
-                        var featured_item = $("#featured-items");
-                        var featured_item_title = featured_item.find("h3");
-                            featured_item_title.text(this.title);
-                        $("#featured-location").find(".bookmark-link").attr("href", this.src.replace(/image_wide/, 'view'));
-                        featured_description = featured_item.find(".featured-description");
-                        featured_description.text('Concepts such as Green Economy, Resource efficiency and Sustainable Consumption and Production are currently discussed as pathways to reduce environmental pressures in Europe and beyond. The European Environment Agency has interviewed some selected key stakeholders  - from government, business, non-governmental organisations and academia -  and asked them which steps will bring us forward on the road to a Green economy.');
-                        featured_item.fadeIn();
-                    }
-                    // TODO refactor this code when I have brains of the featured
-                    // films and other videos that should be added as featured
-                    // else {
-                    // }
-
+                    EEA.playVideo(parent);
                 }
                 coverflow_imgs.removeClass('selected');
                 this.className = "content selected";
-            });
+                e.preventDefault();
+            }); 
             // closes the fancybox window
             $("#fancybox-close").click(function(){
                 media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
