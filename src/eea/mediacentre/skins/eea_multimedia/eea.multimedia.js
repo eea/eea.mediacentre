@@ -316,6 +316,28 @@
 
             // displays media player, changes background image to the image of the
             // played file
+            // jQuery shuffle plugin authored by James Padolsey
+            $.fn.shuffle = function() {
+        
+                var allElems = this.get(),
+                    getRandom = function(max) {
+                        return Math.floor(Math.random() * max);
+                    },
+                    shuffled = $.map(allElems, function(){
+                        var random = getRandom(allElems.length),
+                            randEl = $(allElems[random]).clone(true)[0];
+                        allElems.splice(random, 1);
+                        return randEl;
+                });
+        
+                this.each(function(i){
+                    $(this).replaceWith($(shuffled[i]));
+                });
+        
+                return $(shuffled);
+        
+            };
+
             var coverflow_imgs = $("#coverflow").find('img');
             var featured_films = $("#featured-films");
             var featured_artic = featured_films.find("#artic");
@@ -326,10 +348,11 @@
                 if ( this.className === "content selected") {
                     EEA.playVideo(parent);
                 }
-                coverflow_imgs.removeClass('selected');
+                $this.closest('div').find('img').removeClass('selected');
                 this.className = "content selected";
                 e.preventDefault();
             }); 
+            coverflow_imgs.shuffle();
             // closes the fancybox window
             $("#fancybox-close").click(function(){
                 media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
