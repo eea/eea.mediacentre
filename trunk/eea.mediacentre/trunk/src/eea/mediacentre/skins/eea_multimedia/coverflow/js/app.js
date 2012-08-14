@@ -115,12 +115,12 @@ $(function () {
                     max: $('#coverflow > *').length - 1,
                     value: coverflowApp.defaultItem,
                     slide: function (evnt, ui) {
-                        var current = $('.coverflowItem');
+                        var current = coverflowApp.coverflowImages.eq(coverflowApp.sliderCtrl.slider('value'));
                         coverflowApp.coverflowCtrl.coverflow('select', ui.value, true);
                         if ( current.length ) {
                             current.removeClass('ui-selected');
-                            current.eq(ui.value).addClass('ui-selected');
-                            coverflowApp.setCaption(current.eq(ui.value).html()); 
+                            coverflowApp.coverflowImages.eq(ui.value).addClass('ui-selected');
+                            coverflowApp.setCaption( coverflowApp.coverflowImages.eq(ui.value).attr('title'));
                         }
                         else {
                             coverflowApp.setCaption( coverflowApp.coverflowImages.eq(ui.value).attr('title'));
@@ -197,17 +197,22 @@ $(function () {
 
         init_keyboard: function () {
             $(document).keydown(function (e) {
-                var current = coverflowApp.sliderCtrl.slider('value');
+                var current_val = coverflowApp.sliderCtrl.slider('value'), 
+                    current = coverflowApp.coverflowImages.eq(current_val);
                 if (e.keyCode == 37) {
                     if (current > 0) {
-                        current--;
-                        coverflowApp.skipTo(current);
+                        current.removeClass('ui-selected');
+                        current_val--;
+                        coverflowApp.coverflowImages.eq(current_val).addClass('ui-selected');
+                        coverflowApp.skipTo(current_val);
                     }
                 } else {
                     if (e.keyCode == 39) {
-                        if (current < $('#coverflow > *').length - 1) {
-                            current++;
-                            coverflowApp.skipTo(current);
+                        if (current_val < $('#coverflow > *').length - 1) {
+                            current.removeClass('ui-selected');
+                            current_val++;
+                            coverflowApp.coverflowImages.eq(current_val).addClass('ui-selected');
+                            coverflowApp.skipTo(current_val);
                         }
                     }
                 }
