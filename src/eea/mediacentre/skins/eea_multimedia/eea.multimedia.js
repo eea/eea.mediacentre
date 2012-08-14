@@ -316,6 +316,7 @@
 
             // displays media player, changes background image to the image of the
             // played file
+
             // jQuery shuffle plugin authored by James Padolsey
             $.fn.shuffle = function() {
         
@@ -338,21 +339,23 @@
         
             };
 
-            var coverflow_imgs = $("#coverflow").find('img');
+            var coverflow_links = $("#coverflow").find("a");
             var featured_films = $("#featured-films");
             var featured_artic = featured_films.find("#artic");
             var featured_degree = featured_films.find("#degree");
-            coverflow_imgs.click(function(e){
+            coverflow_links.click(function(e){
                 var $this = $(this);
-                var parent = $this.parent()[0];
-                if ( this.className === "content selected") {
-                    EEA.playVideo(parent);
+                var $img = $this.find("img");
+                if ($img.hasClass("ui-selected")) {
+                    EEA.playVideo(this);
                 }
-                $this.closest('div').find('img').removeClass('selected');
-                this.className = "content selected";
+                $this.closest("div").find("img").removeClass("ui-selected");
+                $img.addClass("ui-selected");
                 e.preventDefault();
             }); 
-            coverflow_imgs.shuffle();
+            coverflow_links.shuffle();
+            // add selected class to the second cover image by default 
+            $("#coverflow").find("img").get(1).className = "ui-selected";
             // closes the fancybox window
             $("#fancybox-close").click(function(){
                 media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});

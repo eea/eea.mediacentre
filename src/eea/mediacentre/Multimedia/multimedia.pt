@@ -50,7 +50,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         <div class="wrapper">
                                             <div id="coverflow">
                                               <a href="http://player.vimeo.com/video/8119882?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" title="Our arctic challenge">
-                                                <img class="content" 
+                                                <img  
                                                      id="artic" 
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/ourarcticchallenge/image_wide" 
                                                      title="Our arctic challenge"
@@ -58,7 +58,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                               </a>
 
                                               <a href="http://player.vimeo.com/video/8119882?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" title="One degree matters">
-                                                <img class="content selected" 
+                                                <img  
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/one-degreematters/image_wide" 
                                                      title="One degree matters"
                                                      i18n:attributes="title" />
@@ -71,7 +71,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                           more_href string:all-videos;">
                                                           <tal:items repeat="item folderContents">
                                                           <a tal:attributes="href string:${url}/multimedia_popup_view" tal:define="url item/getURL">
-                                                            <img class="content" tal:attributes="src string:${url}/image_wide"   /> 
+                                                            <img tal:attributes="src string:${url}/image_wide; title item/Title" /> 
                                                           </a>
                                                           </tal:items>
                                           </tal:films>
