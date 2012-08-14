@@ -1,10 +1,30 @@
-// requires: whatsnew_gallery.js eea.mediacentre.js
+// requires: whatsnew_gallery.js eea.mediacentre.js sub_cookies.js
 (function($) {
-
-    jQuery.fn.delay = function(time,func){
+    // jQuery Plugins
+    jQuery.fn.delay = function(time, func){
         return this.each(function(){
-            setTimeout(func,time);
+            window.setTimeout(func, time);
         });
+    };
+
+    // jQuery shuffle plugin authored by James Padolsey
+    $.fn.shuffle = function() {
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+        });
+
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
+
+        return $(shuffled);
     };
 
     jQuery(document).ready(function($){
@@ -166,6 +186,7 @@
                     return false;
                 });
 
+                // whatsnew fancybox image galleries 
                 $("#imagegalleries-highlights").delegate(".gallery-ajax a", "click", function(){
                     var $this;
                     var href = this.href;
@@ -257,7 +278,7 @@
 
                     var tabs = $("#multimedia-tabs"),
                         cur_tab_val = tabs.find('a').filter('.current')[0].id.substr(4);
-                    // only refresh highlights if we are on video or greentips tabs               
+                    // only refresh highlights if we are on video or greentips tabs
                     var c1 = $("#c1_widget");
                     // remove previously selected item before assigning selected to
                     // the currently clicked item
@@ -283,66 +304,8 @@
             // end delay 3500
             });
 
-            var showMediaPlayer = function(item){
-                var thumb_url =  item.src,
-                    video_url = thumb_url.substring(0, thumb_url.length - 11);
-                player_title.innerHTML = item.title;
-                if ( video_url.indexOf('films') !== -1) {
-                    media_flowplayer.flashembed(
-                    {
-                        src:'%2B%2Bresource%2B%2Bflowplayer/flowplayer-3.2.2.swf'
-                    },
-                    {
-                        config:{
-                            clip: {
-                                'url' : video_url,
-                                'autoBuffering': true,
-                                'autoPlay': true,
-                                'loop': false
-                            },
-                            'useNativeFullScreen': true,
-                            'initialScale': 'fit'
-                        }
-                    });
-                }
-                else {
-                    var current = $(item);
-                    media_flowplayer.flashembed({
-                            src: current.attr('rel')
-                    });
-                }
-                content_flow.fadeOut('slow',function(){media_player.fadeIn('slow');});
-            };
-
-            // displays media player, changes background image to the image of the
-            // played file
-
-            // jQuery shuffle plugin authored by James Padolsey
-            $.fn.shuffle = function() {
-        
-                var allElems = this.get(),
-                    getRandom = function(max) {
-                        return Math.floor(Math.random() * max);
-                    },
-                    shuffled = $.map(allElems, function(){
-                        var random = getRandom(allElems.length),
-                            randEl = $(allElems[random]).clone(true)[0];
-                        allElems.splice(random, 1);
-                        return randEl;
-                });
-        
-                this.each(function(i){
-                    $(this).replaceWith($(shuffled[i]));
-                });
-        
-                return $(shuffled);
-        
-            };
-
+            // play video when clicking on coverflow links
             var coverflow_links = $("#coverflow").find("a");
-            var featured_films = $("#featured-films");
-            var featured_artic = featured_films.find("#artic");
-            var featured_degree = featured_films.find("#degree");
             coverflow_links.click(function(e){
                 var $this = $(this);
                 var $img = $this.find("img");
@@ -366,4 +329,3 @@
     // end ready state
     });
 }(jQuery));
-

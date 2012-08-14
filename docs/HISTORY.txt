@@ -3,6 +3,8 @@
 
 5.1-dev - (unreleased)
 ----------------------
+* Feature: dinamically load coverflow videos and randomize results order
+  [ichimdav #5238]
 * Bug fix: fixed title issues with multimedia page after Plone 4.2 upgrade
   [ichimdav #5398]
 * Bug fix: reference jquery.js in a way that is compatible also with Plone 4.2

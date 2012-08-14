@@ -1,3 +1,5 @@
+// requires: jquery.fancybox.js whatsnew_gallery.js 
+// optional: faceted_view.js
 (function($) {
     $(document).ready(function() {
         
