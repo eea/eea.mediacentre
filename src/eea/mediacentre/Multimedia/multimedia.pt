@@ -49,19 +49,17 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     <div class="demo">
                                         <div class="wrapper">
                                             <div id="coverflow">
-                                              <a href="http://player.vimeo.com/video/8119882" title="Our arctic challenge">
+                                              <a href="http://player.vimeo.com/video/8119882?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" title="Our arctic challenge">
                                                 <img class="content" 
                                                      id="artic" 
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/ourarcticchallenge/image_wide" 
-                                                     rel="http://vimeo.com/moogaloop.swf?clip_id=18778572&amp;autoplay=true" 
                                                      title="Our arctic challenge"
                                                      i18n:attributes="title" />
                                               </a>
 
-                                              <a href="http://player.vimeo.com/video/8119882" title="One degree matters">
+                                              <a href="http://player.vimeo.com/video/8119882?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" title="One degree matters">
                                                 <img class="content selected" 
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/one-degreematters/image_wide" 
-                                                     rel="http://vimeo.com/moogaloop.swf?clip_id=8119882&amp;autoplay=true" 
                                                      title="One degree matters"
                                                      i18n:attributes="title" />
                                                 </a>

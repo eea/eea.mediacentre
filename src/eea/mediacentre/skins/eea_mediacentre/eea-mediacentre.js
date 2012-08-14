@@ -88,7 +88,7 @@
                                 top: mult.top - 20
                             }, 200);   
                             window.setTimeout(function(){
-                                if (href.indexOf('youtube') !== -1 || href.indexOf('vimeo' !== -1)) {
+                                if (href.indexOf('youtube') !== -1 || href.indexOf('vimeo') !== -1) {
                                     $("#fancybox-title").remove().prependTo('#fancybox-content');
                                 }
                             }, 200);
@@ -142,8 +142,11 @@
                             var iframe = $("#fancybox-frame"),
                                 iframe_src = iframe.attr('src');
 
-                            if (iframe_src.indexOf('youtube') !== -1 || iframe_src.indexOf('vimeo' !== -1)) {
+                            if (iframe_src.indexOf('youtube') !== -1 || iframe_src.indexOf('vimeo') !== -1) {
                                 iframe.attr({width: 640, height: 360}).css('height', '360px');
+                            }
+                            else {
+                                iframe.attr({width: 640, height: 387});
                             }
                             iframe.one("load",function(){
                                 info_area(iframe, iframe_src, $parent);
