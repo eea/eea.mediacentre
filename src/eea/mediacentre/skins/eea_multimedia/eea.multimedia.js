@@ -28,6 +28,13 @@
     };
 
     jQuery(document).ready(function($){
+        // hide unsupported video type message on multimedia page 
+        var $region_content = $("#region-content"),
+            $objmeta = $region_content.find('.portalMessage');
+        if ($objmeta.length) {
+            $region_content.find("dd:contains('video')").closest('dl').hide();
+        }
+
         var win_href = window.location.href,
             win_lastChar = win_href.charAt([win_href.length - 1]);
         if(win_lastChar === 'a' || win_href.indexOf('view') !== -1) {
