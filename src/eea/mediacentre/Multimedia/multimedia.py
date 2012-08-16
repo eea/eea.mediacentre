@@ -46,6 +46,7 @@ class Multimedia(BrowserView):
         multimedia objects (videos/animations etc..)
         filtered by date and by topic """
         interface = 'p4a.video.interfaces.IVideoEnhanced'
+
         # querying for extra objects because Animations also implement 
         # IVideoEnhanced
         result = _getItems(self,
@@ -54,11 +55,16 @@ class Multimedia(BrowserView):
 
         return result
 
-    def getLatestCloudVideos(self):
-        """ retrieves latest published cloudVideos
+    def getLatestVideos(self):
+        """ retrieves latest published cloudVideos or videos
         filtered by date and by topic """
-        #import pdb; pdb.set_trace()
-        interface = 'Products.EEAContentTypes.content.interfaces.ICloudVideo'
+        interface = {
+              'query': [
+              'Products.EEAContentTypes.content.interfaces.ICloudVideo',
+              'p4a.video.interfaces.IVideoEnhanced',
+              ],
+              'operator': 'or'
+              }
         result = _getItems(self,
                     interfaces = interface,
                     noOfItems=self.noOfLatestMultimedia)

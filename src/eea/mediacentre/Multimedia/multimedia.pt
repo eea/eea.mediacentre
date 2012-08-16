@@ -76,12 +76,13 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                 </a>
 
                                             <tal:films tal:define="multimedia_view multimedia_view|context/@@multimedia_logic;
-                                                          folderContents multimedia_view/getLatestCloudVideos|nothing;
+                                                          folderContents multimedia_view/getLatestVideos|nothing;
                                                           hide_album python: False;
                                                           hide_listing python: True;
                                                           more_href string:all-videos;">
                                                           <tal:items repeat="item folderContents">
                                                           <a tal:attributes="href string:${url}/multimedia_popup_view" tal:define="url item/getURL">
+                                                          <p style="display:none;" tal:content="item/Description" ></p>
                                                             <img tal:attributes="src string:${url}/image_wide; title item/Title" /> 
                                                           </a>
                                                           </tal:items>
