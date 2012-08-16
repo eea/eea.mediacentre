@@ -49,7 +49,13 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     <div class="demo">
                                         <div class="wrapper">
                                             <div id="coverflow">
-                                              <a href="http://player.vimeo.com/video/8119882?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" title="Our arctic challenge">
+                                              <a href="http://player.vimeo.com/video/18778572?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" 
+                                                
+                                                title="Our arctic challenge"
+                                                i18n:attributes="title">
+                                                <p style="display:none;" i18n:translate="">
+                                                Jacqueline McGlade, Executive Director of the European Environment Agency (EEA), and three of her colleagues have chosen to be part of an extraordinary journey in East Greenland. They travel from their offices in Copenhagen to participate in a multi sport race, where they challenge themselves through 250 kilometers of the Arctic wilderness. On their way they encounter the effects of climate change and its impact on the Arctic environment. The Inuit are among the first people to experience the effects of climate change. They are in the middle of an environmental challenge that will change many parts of their culture. What is happening to the Inuit today will happen to the rest of the world tomorrow. We will all need to adapt to climate change.
+                                                </p>
                                                 <img  
                                                      id="artic" 
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/ourarcticchallenge/image_wide" 
@@ -57,7 +63,12 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                      i18n:attributes="title" />
                                               </a>
 
-                                              <a href="http://player.vimeo.com/video/8119882?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" title="One degree matters">
+                                              <a href="http://player.vimeo.com/video/8119882?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" 
+                                                title="One degree matters"
+                                                i18n:attributes="title">
+                                                <p style="display:none;" i18n:translate="">
+                                                'One degree matters' follows social and business leaders as they travel to Greenland and experience for themselves the dramatic effects of the melting of the ice cap and come to understand the planetary effects of climate change and the impacts these will have on society and the economy. The film brings to the screen the latest science from the Arctic and shows why a further rise in global temperature of one degree matters for the future of humankind. Film had premiere 13 December 2009 during COP15.
+                                                </p>
                                                 <img  
                                                      tal:attributes="src string:${portal_url}${local}/multimedia/films/one-degreematters/image_wide" 
                                                      title="One degree matters"
@@ -120,8 +131,8 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         <div id="featured-films">
                                             <div id="degree">
                                                 <tal metal:define-macro="featured-film" tal:define="film nocall:featured_film|degree_matters" tal:omit-tag="">
-                                            <h3 tal:content="film/Title">Title</h3>
-                                                <p tal:content="film/Description" class="featured-description">Description</p>
+                                            <h3>&nbsp;</h3>
+                                                <p class="featured-description">&nbsp;</p>
                                                 <div class="portletFooter">
                                                 <p class="links">
                                                 <a href="#" id="bookmark-link" class="footer" tal:define="url film/absolute_url" tal:attributes="href string:$url/view" i18n:translate="" target="_blank">Link</a>

@@ -106,6 +106,9 @@
                                 tab_desc = frame.find("#tab-desc");
                                 video_title = frame.find("#video-title").text();
                             }
+                          if (iframe_src.indexOf('8119') !== -1 || iframe_src.indexOf('187') !== -1){
+                              tab_desc = $($parent).find('p').html();
+                          }
 
                             video_title = video_title || $("#fancybox-title").text();
                             var featured_item = $("#featured-items");
