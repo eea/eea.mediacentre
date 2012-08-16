@@ -315,10 +315,14 @@
             var coverflow_links = $("#coverflow").find("a");
             coverflow_links.click(function(e){
                 var $this = $(this);
+                var data = $this.data('fancybox') || {};
                 var $img = $this.find("img");
                 if ($img.hasClass("ui-selected")) {
                     EEA.playVideo(this);
                 }
+                else if (data.href) {
+                    e.stopImmediatePropagation();
+               }
                 $this.closest("div").find("img").removeClass("ui-selected");
                 $img.addClass("ui-selected");
                 e.preventDefault();
