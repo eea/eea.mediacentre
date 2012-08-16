@@ -106,7 +106,7 @@
                                 tab_desc = frame.find("#tab-desc");
                                 video_title = frame.find("#video-title").text();
                             }
-                          if (iframe_src.indexOf('8119') !== -1 || iframe_src.indexOf('187') !== -1){
+                          if (!tab_desc){
                               tab_desc = $($parent).find('p').html();
                           }
 
