@@ -3,6 +3,9 @@
 
 5.1-dev - (unreleased)
 ----------------------
+* Bug fix: fixed styles to multimedia page after using the stock custom from 
+  sunburst
+  [ichimdav #5455]
 * Feature: dinamically load coverflow videos and randomize results order
   [ichimdav #5238]
 * Bug fix: fixed title issues with multimedia page after Plone 4.2 upgrade

@@ -62,6 +62,10 @@ h2#player-title {
     float:left;
 }
 
+#multimedia-widgets p a:link {
+    color: #FFFFFF;
+    border: 0;
+}
 #top-widgets {
     margin-top:10px;
     top:-420px;
@@ -71,12 +75,12 @@ h2#player-title {
 }
 
 #top-widgets a.moreLink,
-#bottom-widgets a.moreLink {
+#bottom-widgets a.moreLink, #topright-widgets a:hover {
     color: #FFFFFF !important;
 }
 
 #top-widgets a.moreLink:hover,
-#bottom-widgets a.moreLink:hover {
+#bottom-widgets a.moreLink:hover, #multimedia-widgets p a:hover {
     text-decoration: underline !important;
 }
 
@@ -297,7 +301,7 @@ h2#player-title {
 ul, ul li {
     margin: 0;
     padding: 0;
-    display: block;
+    /* display: block; */
     list-style-type: none;
 }
 
@@ -355,7 +359,7 @@ ul, ul li {
 #featured-location h3 {
     padding: 0px;
     margin: 0px 0px 5px 0px;
-    color: white;
+    color: #FFFFFF;
     text-shadow: 1px 1px black;
 }
 
@@ -381,7 +385,7 @@ ul, ul li {
 }
 
 #featured-items .discreet {
-    color: #FFF;
+    color: #FFFFFF;
 }
 
 #bottomright-widgets .featured {
@@ -464,14 +468,14 @@ ul#faceted-tabs {
 
 #multimedia-tabs li a.current, ul#multimedia-tabs li a:hover,
 #faceted-tabs li a.current, ul#faceted-tabs li a:hover {
-	color: #F6A800;
+	color: #F6A800 !important;
 	text-shadow: 1px 1px 1px #000000;
 }
 
 #multimedia-tabs li a,
 #faceted-tabs li a {
 	border: 0 none;
-	color: #FFFFFF;
+	color: #FFFFFF !important;
 	display: inline-block;
 	font-size: 125%;
 	height: 17px;
@@ -595,7 +599,7 @@ h1#parent-fieldname-title {
 
 #bottomright-widgets #faceted-form li.selected {
     background-color: #F6A800;
-    color: white !important;
+    color: #FFF !important;
 }
 
 
@@ -651,7 +655,7 @@ body.section-multimedia #portal-colophon {
     z-index: 300;
 }
 #portal-colophon, #portal-colophon a, .colophon-links li a {
-    color: #FFF !important;
+    color: #FFFFFF !important;
     text-decoration: none !important;
     font-size: 11px;
     line-height: 2.7;
@@ -708,7 +712,7 @@ body.section-multimedia #portal-colophon {
 }
 
 .colophon-right img.selected {
-    border: 1px solid #FFF;
+    border: 1px solid #FFFFFF;
 }
 
 /* hide items from the multimedia page */
