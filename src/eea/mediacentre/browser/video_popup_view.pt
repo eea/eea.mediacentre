@@ -17,6 +17,7 @@
     <style type="text/css" media="all" tal:condition="exists:portal/base.css" tal:content="string:@import url($portal_url/base.css);"></style>
     <style type="text/css" media="all" tal:condition="exists:portal/columns.css" tal:content="string:@import url($portal_url/columns.css);"></style>        
     <style type="text/css" media="all" tal:condition="exists:portal/public.css" tal:content="string:@import url($portal_url/public.css);"></style>
+    <style type="text/css" media="all" tal:condition="exists:portal/eea-public.css" tal:content="string:@import url($portal_url/eea-public.css);"></style>
     <style type="text/css" media="all" tal:condition="exists:portal/portlets.css" tal:content="string:@import url($portal_url/portlets.css);"></style>
 </head>
 
