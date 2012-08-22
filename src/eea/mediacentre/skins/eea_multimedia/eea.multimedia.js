@@ -104,7 +104,7 @@
                 multimedia_widgets.animate({height:"775px"},{queue:false, duration:500, easing:'easeOutCirc'});
             }).delay(3500,function(){
                 $("#top-widgets, #bottom-widgets").animate({top:"0px"},{queue:false, duration:1000, easing:'easeInOutBack'});
-                $("#cross-site-top, #portal-header, #footer-wrapper").slideUp('fast');
+                $("#cross-site-top, #portal-header, #footer-wrapper, #portal-personaltools-wrapper").slideUp('fast');
                 multimedia_header.animate({left: 0}, 1000);
                 multimedia_logo.animate({left: 0}, 1000);
                 // show faceted_form after the animation of the multimedia items to
