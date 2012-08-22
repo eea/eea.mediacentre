@@ -41,7 +41,7 @@
                     // related items
                     if (video_page === 0) {
                         if (href.indexOf('video_popup_view') === -1) {
-                            link.href = href.replace(/view/, 'video_popup_view'); 
+                            link.href = href.replace(/view$/, 'video_popup_view'); 
                         }
                     }
                     
@@ -51,7 +51,7 @@
                         // multimedia_popup_view so that this action doesn't occur
                         // every time we hover the link
                         if (href.indexOf('multimedia_popup_view') === -1) {
-                            var regex = /view|video_popup_view|multimedia_popup_view/;
+                            var regex = /view$|video_popup_view|multimedia_popup_view/;
                             var clean_href = href.replace(regex, ''); 
                             if (href.indexOf('youtube') === -1 && href.indexOf('vimeo') === -1) {
                                 link.href = clean_href + "multimedia_popup_view"; 

@@ -3,6 +3,8 @@
 
 5.1-dev - (unreleased)
 ----------------------
+* Bug fix: Fixed clipping of videos url with view characters in in their url
+  [ichimdav #5470]
 * Bug fix: hide portal-personaltools-wrapper on multimedia page
   [ichimdav #5443]
 * Bug fix: fixed styles to multimedia page after using the stock custom from 
