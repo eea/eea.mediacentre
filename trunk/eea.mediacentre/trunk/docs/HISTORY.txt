@@ -3,6 +3,8 @@
 
 5.1-dev - (unreleased)
 ----------------------
+* Bug fix: fixed playback of related videos on video_popup_view
+  [ichimdav #5483]
 * Bug fix: Fixed clipping of videos url with view characters in in their url
   [ichimdav #5470]
 * Bug fix: hide portal-personaltools-wrapper on multimedia page
