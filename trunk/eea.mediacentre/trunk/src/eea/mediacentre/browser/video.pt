@@ -54,8 +54,6 @@
                     <dt i18n:translate="">Time:</dt>
                     <dd tal:content="video_info/duration">8:30</dd>
                 </tal:time>
-                <dt class="type-video" i18n:translate="">Media Type:</dt>
-                <dd class="type-video" tal:content="video_info/media_types">Media type</dd>
                 <tal:author condition="video_info/author">
                     <dt i18n:translate="">Author:</dt>
                     <dd tal:content="video_info/author">Author</dd>
