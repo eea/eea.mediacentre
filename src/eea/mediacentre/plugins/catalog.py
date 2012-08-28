@@ -25,7 +25,7 @@ class CatalogPlugin(object):
 
         # first search for videos and then search for images
 
-        query = { 'portal_type': ['File', 'FlashFile'],
+        query = { 
                   'object_provides': 'p4a.video.interfaces.IVideoEnhanced',
                   'sort_on': 'Date',
                   'sort_order': 'reverse',
