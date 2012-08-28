@@ -1,6 +1,9 @@
 ﻿Changelog
 =========
 
+5.3-dev - (unreleased)
+----------------------
+
 5.2 - (2012-08-28)
 ------------------
  * Change: removed Media Type from displaying on multimedia templates
