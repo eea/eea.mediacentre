@@ -23,10 +23,9 @@
    text-align: left;
 }
 
-#belowContent, #viewlet-above-content {
+#belowContent, #viewlet-above-content, #related-pages, #relatedItems   {
     display:none;
 }
-
 
 #portal-column-content {
     padding: 0;
