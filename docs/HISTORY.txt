@@ -1,8 +1,8 @@
 ﻿Changelog
 =========
 
-5.2-dev - (unreleased)
-----------------------
+5.2 - (2012-08-28)
+------------------
  * Change: removed Media Type from displaying on multimedia templates
    [ichimdav #5480]
  * Bug fix: display also CloudVideo's on the multimedia page of themes
