@@ -3,6 +3,9 @@
 
 5.3-dev - (unreleased)
 ----------------------
+* Bug fix: fixed failing imports from mediacentre.txt after upgrading to 
+  Plone 4.2
+  [ichimdav]
 
 5.2 - (2012-08-28)
 ------------------
