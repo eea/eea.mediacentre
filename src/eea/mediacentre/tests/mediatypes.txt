@@ -4,7 +4,7 @@ Media types
 A media file can be one of several types, e.g. interview and map. This can be
 specified on any file object using an adapter.
 
-    >>> from zope.app.folder import Folder
+    >>> from zope.site.folder import Folder
     >>> from zope.interface import alsoProvides
     >>> from eea.mediacentre.interfaces import IMediaType
     >>> from p4a.video.interfaces import IMediaActivator, IVideoEnhanced
