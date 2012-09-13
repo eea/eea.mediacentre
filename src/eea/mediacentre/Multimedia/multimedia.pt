@@ -53,7 +53,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                 
                                                 title="Our arctic challenge"
                                                 i18n:attributes="title">
-                                                <p style="display:none;" i18n:translate="">
+                                                <p style="display:none;" i18n:translate="director-description">
                                                 Jacqueline McGlade, Executive Director of the European Environment Agency (EEA), and three of her colleagues have chosen to be part of an extraordinary journey in East Greenland. They travel from their offices in Copenhagen to participate in a multi sport race, where they challenge themselves through 250 kilometers of the Arctic wilderness. On their way they encounter the effects of climate change and its impact on the Arctic environment. The Inuit are among the first people to experience the effects of climate change. They are in the middle of an environmental challenge that will change many parts of their culture. What is happening to the Inuit today will happen to the rest of the world tomorrow. We will all need to adapt to climate change.
                                                 </p>
                                                 <img  
