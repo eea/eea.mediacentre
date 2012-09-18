@@ -3,6 +3,8 @@
 
 5.3-dev - (unreleased)
 ----------------------
+* Change: CloudVideo no longer uses any logic from p4a.video
+  [ichimdav #5480]
 * Bug fix: fixed failing imports from mediacentre.txt after upgrading to 
   Plone 4.2.1
   [ichimdav]
