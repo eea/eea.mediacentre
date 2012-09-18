@@ -18,7 +18,9 @@
 
         <div id="objmetadata_pbwidgets_wrapper">
                    
+        <metal:video_players define-macro="video_players">
             <metal:video_player use-macro="context/eea_multimedia_macros/macros/video_players" />
+        </metal:video_players>
             <!-- Display metadata about the video -->
             <div>
               <dl class="media-single-item">
