@@ -325,6 +325,15 @@ class CloudVideoView(BrowserView):
         """
         return cloudUrl(self)
 
+    def author(self):
+        """ Author info
+        """
+        pass
+
+    def rich_description(self):
+        """ Rich Description
+        """
+        pass
 
 class VideoUtils(object):
     """ A browser view for video utility methods.
