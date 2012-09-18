@@ -33,6 +33,9 @@ from eea.forms.widgets.ManagementPlanWidget import \
                                 FormlibManagementPlanWidget
 from eea.forms.widgets.ManagementPlanWidget import ManagementPlanCode
 
+from Products.Five.browser import BrowserView
+
+
 KEY = 'eea.mediacentre.multimedia'
 
 def getMediaTypes(obj):
@@ -72,6 +75,16 @@ def getPublishedDate(obj):
     tool = getToolByName(obj, 'translation_service')
     return tool.ulocalized_time(time, None, None, obj,
                                 domain='plone')
+
+def cloudUrl(obj):
+    """ Retrieve cloudUrl field information
+    """
+    cloud_url = False
+    mapping = IAnnotations(obj.context)
+    multimedia = mapping.get('eea.mediacentre.multimedia')
+    if multimedia:
+        cloud_url = multimedia.get('cloud_url')
+    return cloud_url
 
 class IManagementPlanCodeEdit(Interface):
     """ Interface for edit forms that edit management plan code
@@ -294,17 +307,23 @@ class VideoView(vid.VideoView):
         """
         return self.video.width + 35
 
-    def cloudurl(self):
+    def cloud_url(self):
         """ Cloud Url
         """
         field = ICloudUrlEdit(self.context).cloud_url
         cloud_url = False
         if field:
-            mapping = IAnnotations(self.context)
-            multimedia = mapping.get('eea.mediacentre.multimedia')
-            if multimedia:
-                cloud_url = multimedia.get('cloud_url')
+            return cloudUrl(self)
         return cloud_url
+
+
+class CloudVideoView(BrowserView):
+    """ CloudVideo BrowserView
+    """
+    def cloud_url(self):
+        """ Retrive cloudUrl entry
+        """
+        return cloudUrl(self)
 
 
 class VideoUtils(object):

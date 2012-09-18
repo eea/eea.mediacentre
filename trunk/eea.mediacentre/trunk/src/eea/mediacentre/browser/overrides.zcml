@@ -30,6 +30,12 @@
         class="p4a.video.browser.video.VideoPageView"
         permission="zope2.View" />
 
+  <page name="file_view"
+        template="video_cloud.pt"
+        for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
+        class="eea.mediacentre.browser.video.CloudVideoView"
+        permission="zope2.View" />
+
   <!-- there are fields that we don't want in the edit form, so we
        override the p4a edit form. -->
   <page name="atct_edit"
@@ -45,4 +51,8 @@
         for="p4a.video.interfaces.IVideoEnhanced"
         permission="zope2.View" />
 
+  <page name="video_cloud_view"
+        class=".video.CloudVideoView"
+        for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
+        permission="zope2.View" />
 </configure>
