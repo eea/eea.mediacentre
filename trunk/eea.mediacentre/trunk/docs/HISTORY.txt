@@ -3,6 +3,8 @@
 
 5.3-dev - (unreleased)
 ----------------------
+* Added IVideo marker interface which will be used for any kind of video
+  [ichimdav #5480]
 * Change: CloudVideo no longer uses any logic from p4a.video
   [ichimdav #5480]
 * Bug fix: fixed failing imports from mediacentre.txt after upgrading to 
