@@ -3,6 +3,8 @@
 
 5.3-dev - (unreleased)
 ----------------------
+* Change: use IVideo when searching for videos
+  [ichimdav #5480]
 * Added IVideo marker interface which will be used for any kind of video
   [ichimdav #5480]
 * Change: CloudVideo no longer uses any logic from p4a.video
