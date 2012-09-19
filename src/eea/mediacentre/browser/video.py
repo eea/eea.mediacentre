@@ -17,7 +17,6 @@ from zope.formlib.form import FormFields
 from zope.interface import Interface, implements
 from zope import schema
 from eea.geotags.widget.location import FormlibGeotagWidget
-from Products.EEAContentTypes.content.interfaces import ICloudVideo
 from Products.EEAContentTypes.content.validators import video_cloud_validator
 
 from zope.schema import ValidationError
