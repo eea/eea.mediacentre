@@ -4,7 +4,6 @@ from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from DateTime import DateTime
 
-from Products.EEAContentTypes.content.interfaces import IFlashAnimation
 from eea.design.browser.frontpage import _getItems
 
 class Multimedia(BrowserView):
@@ -45,7 +44,13 @@ class Multimedia(BrowserView):
         """ retrieves latest published
         multimedia objects (videos/animations etc..)
         filtered by date and by topic """
-        interface = 'p4a.video.interfaces.IVideoEnhanced'
+        interface = {
+              'query': [
+              'eea.mediacentre.interfaces.IVideo',
+              'Products.EEAContentTypes.content.interfaces.IFlashAnimation'
+              ],
+              'operator': 'or'
+              }
 
         # querying for extra objects because Animations also implement 
         # IVideoEnhanced
@@ -58,13 +63,7 @@ class Multimedia(BrowserView):
     def getLatestVideos(self):
         """ retrieves latest published cloudVideos or videos
         filtered by date and by topic """
-        interface = {
-              'query': [
-              'Products.EEAContentTypes.content.interfaces.ICloudVideo',
-              'p4a.video.interfaces.IVideoEnhanced',
-              ],
-              'operator': 'or'
-              }
+        interface = 'eea.mediacentre.interfaces.IVideo'
         result = _getItems(self,
                     interfaces = interface,
                     noOfItems=self.noOfLatestMultimedia)
@@ -72,14 +71,10 @@ class Multimedia(BrowserView):
 
     def getVideos(self):
         """ retrieves videos filtered by date and by topic """
-        interface = 'p4a.video.interfaces.IVideoEnhanced'
-        # querying for extra objects because Animations also implement 
-        # IVideoEnhanced
+        interface = 'eea.mediacentre.interfaces.IVideo'
         result = _getItems(self,
                     interfaces = interface,
                     noOfItems=self.noOfVideos + 20)
-        result = [i for i in result if not IFlashAnimation.providedBy(
-                                          i.getObject())][:self.noOfVideos]
         return result
 
     def getAnimations(self):

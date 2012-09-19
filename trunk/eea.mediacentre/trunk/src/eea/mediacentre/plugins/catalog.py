@@ -26,7 +26,7 @@ class CatalogPlugin(object):
         # first search for videos and then search for images
 
         query = { 
-                  'object_provides': 'p4a.video.interfaces.IVideoEnhanced',
+                  'object_provides': 'eea.mediacentre.interfaces.IVideo',
                   'sort_on': 'Date',
                   'sort_order': 'reverse',
                   'review_state': 'published' }
