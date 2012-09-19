@@ -91,10 +91,6 @@ class IInterview(IMultimedia):
     """
     pass
 
-class IVideo(IMultimedia):
-    """ Video
-    """
-    pass
 
 class IInteractiveMap(IMultimedia):
     """ Interactive Map
@@ -110,3 +106,8 @@ class IMindStretcher(IMultimedia):
     """ Mind Stretcher
     """
     pass
+
+
+class IVideo(Interface):
+    """ Marker interface for any type of videos in our portal
+    """

@@ -52,4 +52,7 @@
     <subscriber handler=".subtyper.subtype_added" />
     <subscriber handler=".subtyper.subtype_removed" />
 
+    <!-- -*- marker interfaces -*- -->
+    <interface interface=".interfaces.IVideo" />
+
 </configure>
