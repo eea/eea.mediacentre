@@ -197,12 +197,7 @@ class VideoEditForm(vid.VideoEditForm):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        # make cloud_url required field if ICloudVideo is provided by context
-        
-        if ICloudVideo.providedBy(self.context):
-            self.form_fields['cloud_url'].field.required = True
-        else:
-            self.form_fields['cloud_url'].field.required = False
+        self.form_fields['cloud_url'].field.required = False
 
         self.form_fields = self.form_fields.omit('urls')
 
