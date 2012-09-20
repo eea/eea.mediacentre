@@ -82,7 +82,13 @@
 
   <browser:page name="video_popup_view"
                 template="video_popup_view.pt"
-                for="*"
+                for="p4a.video.interfaces.IVideoEnhanced"
+                class="p4a.video.browser.video.VideoPageView"
+                permission="zope2.View" />
+
+  <browser:page name="video_popup_view"
+                template="video_popup_view.pt"
+                for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
                 permission="zope2.View" />
 
   <browser:page name="video_playlist_view"
@@ -93,7 +99,13 @@
 
   <browser:page name="multimedia_popup_view"
                 template="multimedia_popup_view.pt"
-                for="*"
+                class="p4a.video.browser.video.VideoPageView"
+                for="p4a.video.interfaces.IVideoEnhanced"
+                permission="zope2.View" />
+
+  <browser:page name="multimedia_popup_view"
+                template="multimedia_popup_view.pt"
+                for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
                 permission="zope2.View" />
 
   <adapter factory=".video.ManagementPlanCodeEdit" />

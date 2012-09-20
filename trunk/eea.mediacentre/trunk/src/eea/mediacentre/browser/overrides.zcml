@@ -51,7 +51,7 @@
         for="p4a.video.interfaces.IVideoEnhanced"
         permission="zope2.View" />
 
-  <page name="video_cloud_view"
+  <page name="video_view"
         class=".video.CloudVideoView"
         for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
         permission="zope2.View" />
