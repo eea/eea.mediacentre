@@ -26,7 +26,7 @@
     <style type="text/css" media="all" tal:condition="exists:portal/portlets.css" tal:content="string:@import url($portal_url/portlets.css);"></style>
 </head>    
 
-<body class="video_popup_view" tal:define="video_info context/@@video_view|context/@@video_cloud_view">
+<body class="video_popup_view" tal:define="video_info context/@@video_view">
 <h1 tal:content="context/Title" id="video-title">Video Title</h1>
 
 <metal:video_options tal:define="player_width string:640; player_height string:360;">                

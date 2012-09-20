@@ -20,6 +20,9 @@
                    
         <metal:video_players define-macro="video_players">
             <metal:video_player use-macro="context/eea_multimedia_macros/macros/video_players" />
+            <tal:co tal:condition="not:video_info/cloud_url">
+                <div tal:replace="structure view/widgets/media_player"></div>
+            </tal:co>
         </metal:video_players>
             <!-- Display metadata about the video -->
             <div>

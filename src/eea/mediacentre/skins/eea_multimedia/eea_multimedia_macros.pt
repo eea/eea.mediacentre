@@ -120,7 +120,4 @@
         </iframe>
     </tal:vimeo>
 
-    <tal:co tal:condition="not:video_info/cloud_url">
-        <div tal:replace="structure view/widgets/media_player"></div>
-    </tal:co>
 </metal:video_players>
