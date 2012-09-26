@@ -195,7 +195,7 @@
         }
 
         if (window.Faceted) {
-            jQuery(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function(evt) {
+            jQuery(window.Faceted.Events).bind(window.Faceted.Events.AJAX_QUERY_SUCCESS, function(evt) {
                 prepareVideoLinkURLs();
 
             });
