@@ -10,7 +10,7 @@ var ITEM_WIDTH = 120;
 (function($) {
 $(document).ready(function() {
     // Make ordinary, non video links, open in parent window.
-    ignore = ".video-fancybox, #vid-desc-link, #vid-dl-link, .tabnav";
+    var ignore = ".video-fancybox, #vid-desc-link, #vid-dl-link, .tabnav";
     $("a").not(ignore).attr("target", "_top");
 
     var caption = $("#vid-title").html();
@@ -69,6 +69,7 @@ jQuery.fn.extend({
     },
 
     slide: function(px) {
+        var obj;
         if (this.data("animating")) {
             return;
         }
@@ -99,4 +100,4 @@ jQuery.fn.extend({
     }
 });
 
-})(jQuery);
+}(jQuery));

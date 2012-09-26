@@ -52,7 +52,7 @@
             // first background and show it
             var background_imgs = $("#backgrounds").find('img');
             var colophon_imgs = $(".colophon-right").find('img');
-            var colophon_img = SubCookieUtil.get('multimedia', 'colophon-image');
+            var colophon_img = window.SubCookieUtil.get('multimedia', 'colophon-image');
             if ( colophon_img ) {
                 var index = parseInt(colophon_img, 10);
                 var bg = background_imgs[index];
@@ -90,7 +90,8 @@
                 var img = $this.children();
                 img.addClass("selected");
                 var selected_index = $this.index();
-                SubCookieUtil.set(data_page, "colophon-image", selected_index, expires = cookie_expires);
+                // params: name, subname, value, expires 
+                window.SubCookieUtil.set(data_page, "colophon-image", selected_index, cookie_expires);
                 var sel = background_imgs.filter(':visible');
                 $(background_imgs[selected_index]).css({zIndex : -1 }).fadeIn('slow', function(){ sel.fadeOut('fast');});
                 e.preventDefault(); 
@@ -132,7 +133,7 @@
                             // get the description tab from video_popup_view which contains desc,
                             // video link, title, author and other key information
                             var $this = item;
-                            var tab_desc = $this.find(".photoAlbumEntryDescription").text();                        
+                            var tab_desc = $this.find(".photoAlbumEntryDescription").text();
                             var featured_item = $("#featured-items");
                             $("#featured-films").fadeOut();
                             
