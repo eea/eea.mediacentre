@@ -35,9 +35,8 @@
             $region_content.find("dd:contains('video')").closest('dl').hide();
         }
 
-        var win_href = window.location.href,
-            win_lastChar = win_href.charAt([win_href.length - 1]);
-        if(win_lastChar === 'a' || win_href.indexOf('view') !== -1) {
+        var multimedia_page = $region_content.find('#multimedia-widgets');
+        var multimedia_logic = function() {
             var $body = $('html, body');
             var multimedia_logo = $("#multimedia-logo");
             var multimedia_header = $("#parent-fieldname-title");
@@ -335,8 +334,12 @@
                 media_player.fadeOut('fast',function(){content_flow.fadeIn('slow');});
                 $("#media-flowplayer").children().remove();
             });
-        
+
+        };
+        if(multimedia_page) {
+            multimedia_logic();
         }
+        
     // end ready state
     });
 }(jQuery));
