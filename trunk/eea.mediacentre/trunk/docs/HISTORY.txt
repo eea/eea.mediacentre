@@ -3,6 +3,8 @@
 
 5.4-dev - (unreleased)
 ----------------------
+* Bug fix: fixed video playback of videos on design_elements page
+  [ichimdav]
 
 5.3 - (2012-11-22)
 ------------------

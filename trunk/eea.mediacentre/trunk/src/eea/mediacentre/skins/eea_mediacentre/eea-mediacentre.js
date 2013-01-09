@@ -171,16 +171,14 @@
 
         function prepareVideoLinkURLs() {
             var isInsidePopUp = $('body').hasClass('video_popup_view');
-            if(isInsidePopUp){
-                $('.video-fancybox').each(function() {
+            $('.video-fancybox').each(function() {
                 var regex = /(\/$|\/view\/?$|\/video_popup_view\/?$)/;
                 var href = $(this).attr('href');
                 href = href.replace(regex, ''); // remove any trailing '/view' or '/'
                 href = href + "/video_popup_view";
                 this.href = href;
-                });
-           }
-        
+            });
+
             $("body").delegate(".video-fancybox", "click", function(evt){
                 playVideo(this);
                 if(!isInsidePopUp){
