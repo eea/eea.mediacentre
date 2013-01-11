@@ -33,6 +33,11 @@ setup_mediacentre()
 PloneTestCase.setupPloneSite(extension_profiles=(
     'eea.themecentre:default','eea.mediacentre:default'))
 
-class MediaCentreTestCase(PloneTestCase.FunctionalTestCase):
+class MediaCentrePloneTestCase(PloneTestCase.PloneTestCase):
+    """Base class for integration tests for the 'eea.mediacentre' product.
+    """
+
+class MediaCentreTestCase(MediaCentrePloneTestCase, 
+                                            PloneTestCase.FunctionalTestCase):
     """ A test case for mediacentres.
     """
