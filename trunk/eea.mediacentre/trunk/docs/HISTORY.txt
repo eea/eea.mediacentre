@@ -1,8 +1,8 @@
 ﻿Changelog
 =========
 
-5.4-dev - (unreleased)
-----------------------
+5.4 - (2013-01-15)
+------------------
 * Bug fix: fixed video playback of videos on design_elements page
   [ichimdav]
 
