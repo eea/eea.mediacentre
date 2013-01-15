@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="eea">
+
+  <include package=".browser" file="overrides.zcml" />
+
+  <adapter factory=".flv_player.FLVVideoPlayer"
+           name="video/x-flv" />
+
+  <adapter name="application/x-shockwave-flash"
+           factory=".swf.MediaPlayer" />
+
+  <adapter factory=".syndication.VideoFeedEntryWithDescription" />
+
+</configure>

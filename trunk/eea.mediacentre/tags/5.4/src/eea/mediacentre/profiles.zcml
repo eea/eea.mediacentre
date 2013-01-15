@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           i18n_domain="eea">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="EEA Media Centre"
+      directory="profiles/default"
+      description="Extension profile for EEA Media Centre"
+      provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+  <genericsetup:importStep
+      name="eea.mediatypes-install-vocabularies"
+      title="EEA Mediacentre setup vocabularies" description="Setup EEA
+      Mediacentre Vocabularies"
+      handler="eea.mediacentre.setuphandlers.installVocabularies" />
+
+
+</configure>
