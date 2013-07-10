@@ -18,8 +18,9 @@ class ViewImage(BrowserView):
                        self.request.form.get('field', '::').split(':')
 
         if not fieldname:
-            logger.warning("Could not get proper fieldname for request %s", 
-                           self.request.URL)
+            logger.warning("Could not get proper fieldname for request %s"
+                           " with query string %s",
+                           self.request.URL, self.request.get('QUERY_STRING'))
             return ""
 
         if fieldname.endswith('.jpg') or fieldname.endswith('.png'):
@@ -27,6 +28,11 @@ class ViewImage(BrowserView):
         ifpackage = __import__(ifpackagename, {}, {}, ifpackagename)
         iface = getattr(ifpackage, ifname)
         adapted = iface(self.context)
-        value = getattr(adapted, fieldname)
+        value = getattr(adapted, fieldname, '')
+        if not value:
+            logger.warn("Could not get proper fieldname for request %s"
+                        " with query string %s",
+                        self.request.URL, self.request.get('QUERY_STRING'))
+            return ""
 
         return value.index_html(self.request, self.request.response)

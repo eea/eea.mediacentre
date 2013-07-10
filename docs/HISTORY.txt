@@ -3,6 +3,11 @@ Changelog
 
 5.5-dev - (unreleased)
 ----------------------
+* Bug fix: no longer crash if we try to pass a bad value for the video image 
+  file
+  [ichimdav #14920]
+* Change: removed p4a.fileimage dependency as part of upgrading to Plone 4.3
+  [ichimdav #15234]
 
 5.4 - (2013-01-15)
 ------------------
