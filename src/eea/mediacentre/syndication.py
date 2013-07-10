@@ -1,6 +1,5 @@
 """ Syndication
 """
-from p4a.fileimage.image._widget import ImageURLWidget
 from p4a.plonevideo.syndication import VideoFeedEntry
 from p4a.video.interfaces import IVideoEnhanced, IVideo
 from zope.component import adapts
@@ -30,8 +29,8 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
         video = IVideo(self.context)
         image_url = None
         if video.video_image is not None:
-            field = IVideo['video_image'].bind(video)
-            image_url = ImageURLWidget(field, self.context.REQUEST).url or None
+            image_url = self.context.absolute_url() + \
+                "/viewimage?field=p4a.video.interfaces:IVideo:video_image"
 
         if image_url is None:
             return self.context.Description()
