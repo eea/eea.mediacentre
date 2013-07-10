@@ -1,12 +1,11 @@
 """ File image
 """
 
-from p4a.fileimage.browser import ViewImage as P4AViewImage
 import logging
-
+from Products.Five.browser import BrowserView
 logger = logging.getLogger('eea.mediacentre')
 
-class ViewImage(P4AViewImage):
+class ViewImage(BrowserView):
     """ A view for streaming image content. This overrides the
         p4a.fileimage.browser.ViewImage view because of flowplayer.
         image urls must end with .jpg or .png, otherwise flowplayer
