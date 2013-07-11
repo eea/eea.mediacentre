@@ -7,6 +7,7 @@ NAME = 'eea.mediacentre'
 PATH = NAME.split('.') + ['version.txt']
 VERSION = open(os.path.join("src/", *PATH)).read().strip()
 
+
 setup(name=NAME,
       version=VERSION,
       url='http://svn.eionet.europa.eu/projects/'
@@ -19,10 +20,10 @@ setup(name=NAME,
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          ],
       keywords='eea media centre',
       packages=find_packages('src'),
       package_dir={'': 'src'},
@@ -34,7 +35,9 @@ setup(name=NAME,
           'eea.vocab',
           "eea.themecentre",
           "p4a.video",
-          "p4a.plonevideo",
+          # "p4a.plonevideo",
+          "Products.fatsyndication",
+          "Products.basesyndication",
           "p4a.common",
           "p4a.subtyper",
           "eea.geotags",
@@ -45,8 +48,8 @@ setup(name=NAME,
           "Products.ATVocabularyManager",
           "Products.EEAPloneAdmin",
           "eea.forms"
-          ],
+      ],
       entry_points="""
       # -*- Entry points: -*-
       """,
- )
+      )
