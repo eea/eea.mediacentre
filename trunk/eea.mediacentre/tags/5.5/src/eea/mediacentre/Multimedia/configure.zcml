@@ -1,0 +1,28 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="eea">
+
+  <browser:resourceDirectory name="js"
+                             directory="js"
+                             permission="zope.Public" />
+
+  <browser:resource name="jquery.easing.1.3.js"
+                    file="js/jquery.easing.1.3.js" />
+
+  <browser:page name="multimedia_view"
+                template="multimedia.pt"
+                for="*"
+                class=".multimedia.Multimedia"
+                permission="zope2.View" />
+
+  <browser:page
+        for="*"
+        name="multimedia_logic"
+        class=".multimedia.Multimedia"
+        permission="zope.Public" />
+        
+  <browser:resource
+    name="jquery.fullbg.min.js"
+    file="js/jquery.fullbg.min.js" />
+
+</configure>
