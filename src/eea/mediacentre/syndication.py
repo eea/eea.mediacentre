@@ -1,11 +1,42 @@
 """ Syndication
 """
-from p4a.plonevideo.syndication import VideoFeedEntry
+# from p4a.plonevideo.syndication import VideoFeedEntry
+from zope import component
+from zope import interface
+from p4a.video import interfaces
+from Products.fatsyndication import adapters as fatadapters
+from Products.basesyndication import interfaces as baseinterfaces
 from p4a.video.interfaces import IVideoEnhanced, IVideo
 from zope.component import adapts
 from zope.interface import implements
 from Products.basesyndication.interfaces import IFeedEntry
 from Products.CMFCore.utils import getToolByName
+
+
+# brought from p4a.plonevideo.syndication
+class VideoFeedEntry(fatadapters.BaseFeedEntry):
+    interface.implements(baseinterfaces.IFeedEntry)
+    component.adapts(interfaces.IVideoEnhanced)
+
+    def __init__(self, context):
+        fatadapters.BaseFeedEntry.__init__(self, context)
+
+        self.video = interfaces.IVideo(self.context)
+
+    def getBody(self):
+        """See IFeedEntry.
+        """
+        return ''
+
+    def getEnclosure(self):
+        return baseinterfaces.IEnclosure(self.context)
+
+    def getTitle(self):
+        return self.video.title
+
+    def getDescription(self):
+        return self.video.description
+
 
 class VideoFeedEntryWithDescription(VideoFeedEntry):
     """ Video Feed Entry With Description

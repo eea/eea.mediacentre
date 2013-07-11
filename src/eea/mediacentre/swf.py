@@ -3,7 +3,7 @@
 from Products.EEAContentTypes.content.FlashFile import FlashFile
 from eea.mediacentre.interfaces import IMediaDisplayInfo
 from p4a.common.formatting import fancy_data_size
-from p4a.plonevideo.atct import _ATCTFileVideo
+# from p4a.plonevideo.atct import _ATCTFileVideo
 from p4a.video.interfaces import IMediaPlayer
 from p4a.video.interfaces import (
     IVideo,
@@ -18,61 +18,61 @@ from zope.interface import (
     implementer
 )
 
-@implementer(IVideo)
-@adapter(FlashFile)
-def SWFAdapter(context):
-    """ SWFAdapter
-    """
-    if not IVideoEnhanced.providedBy(context):
-        return None
-    return _SWFAdapter(context)
+# @implementer(IVideo)
+# @adapter(FlashFile)
+# def SWFAdapter(context):
+#     """ SWFAdapter
+#     """
+#     if not IVideoEnhanced.providedBy(context):
+#         return None
+#     return _SWFAdapter(context)
 
-class _SWFAdapter(_ATCTFileVideo):
-    """ We inherit attributes from ATCTFileVideo, but width
-        and height are still stored in the FlashFile schema
-    """
+# class _SWFAdapter(_ATCTFileVideo):
+#     """ We inherit attributes from ATCTFileVideo, but width
+#         and height are still stored in the FlashFile schema
+#     """
+#
+#     def _get_width(self):
+#         """ Get width
+#         """
+#         return self.context.getWidth()
+#
+#     def _set_width(self, width):
+#         """ Set width
+#         """
+#         self.context.setWidth(width)
+#
+#     width = property(_get_width, _set_width)
+#
+#     def _get_height(self):
+#         """ Get height
+#         """
+#         return self.context.getHeight()
+#
+#     def _set_height(self, height):
+#         """ Set height
+#         """
+#         self.context.setHeight(height)
+#
+#     height = property(_get_height, _set_height)
 
-    def _get_width(self):
-        """ Get width
-        """
-        return self.context.getWidth()
-
-    def _set_width(self, width):
-        """ Set width
-        """
-        self.context.setWidth(width)
-
-    width = property(_get_width, _set_width)
-
-    def _get_height(self):
-        """ Get height
-        """
-        return self.context.getHeight()
-
-    def _set_height(self, height):
-        """ Set height
-        """
-        self.context.setHeight(height)
-
-    height = property(_get_height, _set_height)
-
-class SWFDisplay(_SWFAdapter):
-    """ SWF Display
-    """
-    implements(IMediaDisplayInfo)
-
-    def __call__(self):
-        info = {}
-        info['width'] = self.width
-        info['height'] = self.height
-        info['title'] = self.title
-        info['description'] = self.context.Description()
-        info['video_type'] = self.video_type
-        info['size'] = fancy_data_size(self.context.get_size())
-        info['icon'] = self.context.getIcon()
-        info['url'] = self.context.absolute_url()
-
-        return info
+# class SWFDisplay(_SWFAdapter):
+#     """ SWF Display
+#     """
+#     implements(IMediaDisplayInfo)
+#
+#     def __call__(self):
+#         info = {}
+#         info['width'] = self.width
+#         info['height'] = self.height
+#         info['title'] = self.title
+#         info['description'] = self.context.Description()
+#         info['video_type'] = self.video_type
+#         info['size'] = fancy_data_size(self.context.get_size())
+#         info['icon'] = self.context.getIcon()
+#         info['url'] = self.context.absolute_url()
+#
+#         return info
 
 class MediaPlayer(object):
     """ Media Player
