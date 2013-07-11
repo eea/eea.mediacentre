@@ -1,6 +1,9 @@
 Changelog
 =========
 
+5.6-dev - (unreleased)
+----------------------
+
 5.5 - (2013-07-11)
 ------------------
 * Bug fix: no longer crash if we try to pass a bad value for the video image 
