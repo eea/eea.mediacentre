@@ -1,3 +1,5 @@
+""" p4a.common.at module
+"""
 from zope.app.form.browser.textwidgets import TextAreaWidget
 
 from Products.Five.browser import BrowserView
@@ -18,9 +20,11 @@ class RichTextEditWidget(BrowserView, TextAreaWidget):
         TextAreaWidget.__init__(self, *args, **kwargs)
 
     def content_context(self):
+        """ content_context
+        """
         current = aq_inner(self.context.context)
         content_context = None
-        for x in range(100):
+        for _x in range(100):
             if hasattr(current, '__of__'):
                 content_context = current
                 break
@@ -42,8 +46,12 @@ class RichTextEditWidget(BrowserView, TextAreaWidget):
         return template()
 
     def hasInput(self):
+        """ hasInput
+        """
         return 'body' in self.request.form
 
     def getInputValue(self):
+        """ getInputValue
+        """
         return self.request.form.get('body', None)
 
