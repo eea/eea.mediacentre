@@ -6,7 +6,7 @@
     <include package="p4a.video" />
     <!--<include package="p4a.plonevideo" />-->
     <include package="p4a.common" />
-    <include package="p4a.subtyper" />
+    <!--<include package="p4a.subtyper" />-->
     <include package="eea.geotags" />
 
     <include package=".browser" />
@@ -49,8 +49,8 @@
     <utility component=".mediatypes.MediaTypesVocabularyFactory"
              name="Media types" />
 
-    <subscriber handler=".subtyper.subtype_added" />
-    <subscriber handler=".subtyper.subtype_removed" />
+    <!--<subscriber handler=".subtyper.subtype_added" />-->
+    <!--<subscriber handler=".subtyper.subtype_removed" />-->
 
     <!-- -*- marker interfaces -*- -->
     <interface interface=".interfaces.IVideo" />
