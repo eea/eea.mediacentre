@@ -8,7 +8,8 @@ from archetypes.schemaextender.interfaces import ISchemaExtender
 from zope.component import getUtility
 from zope.interface import implements
 from p4a.common.formatting import fancy_time_amount, fancy_data_size
-from p4a.plonevideo.atct import _ATCTFileVideo
+# from p4a.plonevideo.atct import _ATCTFileVideo
+from eea.mediacentre.bbb.plonevideo_atct import _ATCTFileVideo
 from p4a.video.interfaces import IVideoEnhanced
 from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
