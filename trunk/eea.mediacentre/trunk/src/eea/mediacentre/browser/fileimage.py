@@ -14,9 +14,14 @@ class ViewImage(BrowserView):
     """
 
     def __call__(self):
-        ifpackagename, ifname, fieldname = \
-                       self.request.form.get('field', '::').split(':')
+        field = self.request.form.get('field', '::').split(':')
+        if len(field) < 3:
+            logger.warning("Could not get proper fieldname for request %s"
+                           " with query string %s",
+                           self.request.URL, self.request.get('QUERY_STRING'))
+            return ""
 
+        ifpackagename, ifname, fieldname = field
         if not fieldname:
             logger.warning("Could not get proper fieldname for request %s"
                            " with query string %s",
