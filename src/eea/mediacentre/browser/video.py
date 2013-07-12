@@ -5,7 +5,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from eea.mediacentre.interfaces import IMediaType
 #from p4a.common import at
-from Products.Archetypes import atapi as at
+from eea.mediacentre.bbb import common_at as at
 from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser import video as vid
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
@@ -190,8 +190,7 @@ class VideoEditForm(vid.VideoEditForm):
 
     
     form_fields = form_fields.omit('urls')
-    # form_fields['rich_description'].custom_widget = at.RichTextEditWidget
-    form_fields['rich_description'].custom_widget = at.RichWidget
+    form_fields['rich_description'].custom_widget = at.RichTextEditWidget
     form_fields['management_plan'].custom_widget = FormlibManagementPlanWidget
     form_fields['geotag'].custom_widget = FormlibGeotagWidget
 
