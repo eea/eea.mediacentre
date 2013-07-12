@@ -1,11 +1,13 @@
 """ Syndication
 """
-from p4a.plonevideo.syndication import VideoFeedEntry
+# from p4a.plonevideo.syndication import VideoFeedEntry
+from eea.mediacentre.bbb.plonevideo_syndication import VideoFeedEntry
 from p4a.video.interfaces import IVideoEnhanced, IVideo
 from zope.component import adapts
 from zope.interface import implements
 from Products.basesyndication.interfaces import IFeedEntry
 from Products.CMFCore.utils import getToolByName
+
 
 class VideoFeedEntryWithDescription(VideoFeedEntry):
     """ Video Feed Entry With Description

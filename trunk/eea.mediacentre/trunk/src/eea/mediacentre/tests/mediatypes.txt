@@ -19,7 +19,7 @@ Objects have no media type by default
     ...
     TypeError: ('Could not adapt', ...
 
-When an object is activated it automatically get's the 'other' type.
+When an object is activated it automatically gets the 'other' type.
 
     >>> activator = IMediaActivator(file)
     >>> activator.media_activated = True

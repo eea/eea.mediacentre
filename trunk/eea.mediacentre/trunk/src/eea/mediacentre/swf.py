@@ -3,7 +3,8 @@
 from Products.EEAContentTypes.content.FlashFile import FlashFile
 from eea.mediacentre.interfaces import IMediaDisplayInfo
 from p4a.common.formatting import fancy_data_size
-from p4a.plonevideo.atct import _ATCTFileVideo
+from eea.mediacentre.bbb.plonevideo_atct import _ATCTFileVideo
+# from p4a.plonevideo.atct import _ATCTFileVideo
 from p4a.video.interfaces import IMediaPlayer
 from p4a.video.interfaces import (
     IVideo,
