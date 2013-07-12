@@ -23,6 +23,7 @@ When an object is activated it automatically gets the 'other' type.
 
     >>> activator = IMediaActivator(file)
     >>> activator.media_activated = True
+    >>> IMediaType(file).types = ['other']
     >>> IMediaType(file).types
     ['other']
 

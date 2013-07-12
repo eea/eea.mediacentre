@@ -13,7 +13,7 @@ from eea.mediacentre.interfaces import (
     IMediaProvider,
     IMediaType,
 )
-from eea.mediacentre.subtyper import subtype_added, subtype_removed
+# from eea.mediacentre.subtyper import subtype_added, subtype_removed
 from eea.mediacentre.tests.base import MediaCentreTestCase
 from zope.annotation.attribute import AttributeAnnotations
 from zope.component import provideUtility, provideAdapter, provideHandler
@@ -41,10 +41,10 @@ def configurationSetUp2(test):
     provideAdapter(AttributeAnnotations)
     provideAdapter(MediaTypesAdapter)
     provideAdapter(MediaActivator)
-    provideUtility(Subtyper())
+    # provideUtility(Subtyper())
     provideUtility(VideoDescriptor(), name="p4a.video.Video")
-    provideHandler(subtype_added)
-    provideHandler(subtype_removed)
+    # provideHandler(subtype_added)
+    # provideHandler(subtype_removed)
 
 class TestMediaCentre(MediaCentreTestCase):
     """ Test Media Centre

@@ -26,7 +26,7 @@ def setup_mediacentre():
     PloneTestCase.installPackage('p4a.video')
     PloneTestCase.installPackage('eea.themcentre')
     # PloneTestCase.installPackage('p4a.plonevideo')
-    PloneTestCase.installPackage('p4a.subtyper')
+    # PloneTestCase.installPackage('p4a.subtyper')
 
 setup_mediacentre()
 PloneTestCase.setupPloneSite(extension_profiles=(
