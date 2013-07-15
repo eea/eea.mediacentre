@@ -42,11 +42,11 @@
             </div>
         </div>
 
-        <div tal:content="structure video_info/rich_description"
-             tal:condition="video_info/rich_description"
-             class="richDocumentDescription">
-            Description
-        </div>
+        <!--<div tal:content="structure video_info/rich_description"-->
+             <!--tal:condition="video_info/rich_description"-->
+             <!--class="richDocumentDescription">-->
+            <!--Description-->
+        <!--</div>-->
 
         <div class="visualClear">&nbsp;</div>
 

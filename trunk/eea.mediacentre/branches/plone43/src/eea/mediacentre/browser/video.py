@@ -9,7 +9,8 @@ from eea.mediacentre.bbb import common_at as at
 from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser import video as vid
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
-from p4a.video.interfaces import IVideo, IMediaActivator
+from p4a.video.interfaces import IMediaActivator #, IVideo
+from eea.mediacentre.interfaces import IVideo
 from p4a.video.interfaces import IVideoEnhanced
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import adapts
@@ -301,6 +302,11 @@ class VideoView(vid.VideoView):
         """ Width  incl player
         """
         return self.video.width + 35
+
+    def rich_description(self):
+        """ Width  incl player
+        """
+        return self.video.rich_description
 
     def cloud_url(self):
         """ Cloud Url

@@ -4,7 +4,8 @@ from Products.ATContentTypes.interfaces import IATImage
 
 from Products.CMFCore.utils import getToolByName
 from eea.mediacentre.interfaces import IMediaType
-from p4a.video.interfaces import IVideoEnhanced
+from eea.mediacentre.interfaces import IVideo
+# from p4a.video.interfaces import IVideoEnhanced
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
 from zope.annotation.interfaces import IAnnotations
@@ -21,7 +22,8 @@ class MediaTypesAdapter(object):
     """ Media Types Adapter
     """
     implements(IMediaType)
-    adapts(IVideoEnhanced)
+    # adapts(IVideoEnhanced)
+    adapts(IVideo)
 
     def __init__(self, context):
         self.context = context

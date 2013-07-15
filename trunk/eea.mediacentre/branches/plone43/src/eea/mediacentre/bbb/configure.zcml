@@ -8,16 +8,32 @@
         <implements interface="p4a.video.interfaces.IPossibleVideo" />
     </class>
 
+    <class class="Products.ATContentTypes.content.base.ATCTFileContent">
+        <implements interface="eea.mediacentre.interfaces.IPossibleVideo" />
+    </class>
+
     <adapter factory=".plonevideo_atct.ATCTFileVideo" />
+    <!--<subscriber-->
+            <!--for="p4a.video.interfaces.IVideo-->
+           <!--p4a.video.videoanno.VideoAnnotationAddedEvent"-->
+            <!--handler=".plonevideo_atct.load_metadata"-->
+            <!--/>-->
+
     <subscriber
-            for="p4a.video.interfaces.IVideo
+            for="eea.mediacentre.interfaces.IVideo
            p4a.video.videoanno.VideoAnnotationAddedEvent"
             handler=".plonevideo_atct.load_metadata"
             />
 
+    <!--<subscriber-->
+            <!--for="p4a.video.interfaces.IPossibleVideo-->
+           <!--zope.lifecycleevent.interfaces.IObjectCreatedEvent"-->
+            <!--handler=".plonevideo_atct.attempt_media_activation"-->
+            <!--/>-->
+
     <subscriber
-            for="p4a.video.interfaces.IPossibleVideo
-           zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+            for="eea.mediacentre.interfaces.IPossibleVideo
+                 zope.lifecycleevent.interfaces.IObjectCreatedEvent"
             handler=".plonevideo_atct.attempt_media_activation"
             />
 </configure>

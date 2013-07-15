@@ -2,14 +2,16 @@
 """
 from zope import interface
 from zope import component
-from p4a.video import interfaces
+# from p4a.video import interfaces
+from eea.mediacentre.interfaces import IMediaPlayer
 from Products.CMFCore import utils as cmfutils
 import simplejson
 
 class FLVVideoPlayer(object):
     """ FLV Video Player
     """
-    interface.implements(interfaces.IMediaPlayer)
+    # interface.implements(interfaces.IMediaPlayer)
+    interface.implements(IMediaPlayer)
     component.adapts(object)
 
     def __init__(self, context):

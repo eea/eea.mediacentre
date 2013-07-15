@@ -10,7 +10,8 @@ from zope.interface import implements
 from p4a.common.formatting import fancy_time_amount, fancy_data_size
 # from p4a.plonevideo.atct import _ATCTFileVideo
 from eea.mediacentre.bbb.plonevideo_atct import _ATCTFileVideo
-from p4a.video.interfaces import IVideoEnhanced
+# from p4a.video.interfaces import IVideoEnhanced
+from eea.mediacentre.interfaces import IVideo
 from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 from eea.themecentre.themecentre import getTheme
@@ -23,7 +24,8 @@ from Products.EEAContentTypes.content.interfaces import ICloudVideo
 def P4AVideoDisplayInfoAdapter(context):
     """ P4A Video Display Info Adapter
     """
-    if not IVideoEnhanced.providedBy(context):
+    # if not IVideoEnhanced.providedBy(context):
+    if not IVideo.providedBy(context):
         return None
     return P4AVideoDisplayInfo(context)
 
@@ -126,20 +128,20 @@ class SchemaExtender(object):
                 ),
             ),
         ExtensionVideoCloudUrlfield(
-                name='cloudUrl',
-                languageIndependent=True,
-                required = False,
-                schemata = 'default',
-                storage = AnnotationStorage(migrate=True),
-                default_content_type = 'text/plain',
-                validators = ('videoCloudUrlValidator',),
-                allowable_content_types =('text/plain',),
-                default_output_type = 'text/plain',
-                widget = TextAreaWidget(
-                    description = 'The embedding code for the video from' \
-                                    ' external sites eg. Vimeo or Youtube',
-                    label = "Cloud Url"
-                )
+            name='cloudUrl',
+            languageIndependent=True,
+            required=False,
+            schemata='default',
+            storage=AnnotationStorage(migrate=True),
+            default_content_type='text/plain',
+            validators=('videoCloudUrlValidator',),
+            allowable_content_types=('text/plain',),
+            default_output_type='text/plain',
+            widget=TextAreaWidget(
+                description='The embedding code for the video from' \
+                            ' external sites eg. Vimeo or Youtube',
+                label="Cloud Url"
+            )
         )
 
     ]

@@ -1,12 +1,17 @@
 <configure xmlns="http://namespaces.zope.org/browser"
            i18n_domain="eea">
 
-  <page name="popup-play.html"
-        for="p4a.video.interfaces.IVideoEnhanced"
-        permission="zope2.View"
-        class="p4a.video.browser.video.PopupVideoPageView"
-        template="popup-play.pt" />
+  <!--<page name="popup-play.html"-->
+        <!--for="p4a.video.interfaces.IVideoEnhanced"-->
+        <!--permission="zope2.View"-->
+        <!--class="p4a.video.browser.video.PopupVideoPageView"-->
+        <!--template="popup-play.pt" />-->
 
+    <page name="popup-play.html"
+          for="eea.mediacentre.interfaces.IVideo"
+          permission="zope2.View"
+          class="p4a.video.browser.video.PopupVideoPageView"
+          template="popup-play.pt" />
   <page for="*"
         name="viewimage"
         permission="zope2.View"
@@ -24,11 +29,17 @@
 
   <!-- we want related multimedia/pages portlets when watching video,
        so we override video.pt and put the portlets in there. -->
+  <!--<page name="file_view"-->
+        <!--template="video.pt"-->
+        <!--for="p4a.video.interfaces.IVideoEnhanced"-->
+        <!--class="p4a.video.browser.video.VideoPageView"-->
+        <!--permission="zope2.View" />-->
+
   <page name="file_view"
-        template="video.pt"
-        for="p4a.video.interfaces.IVideoEnhanced"
-        class="p4a.video.browser.video.VideoPageView"
-        permission="zope2.View" />
+          template="video.pt"
+          for="eea.mediacentre.interfaces.IVideo"
+          class="eea.mediacentre.bbb.video_video.VideoPageView"
+          permission="zope2.View" />
 
   <page name="file_view"
         template="video_cloud.pt"
@@ -38,17 +49,26 @@
 
   <!-- there are fields that we don't want in the edit form, so we
        override the p4a edit form. -->
+  <!--<page name="atct_edit"-->
+        <!--for="p4a.video.interfaces.IVideoEnhanced"-->
+        <!--permission="cmf.ModifyPortalContent"-->
+        <!--class=".video.VideoEditForm" />-->
+
   <page name="atct_edit"
-        for="p4a.video.interfaces.IVideoEnhanced"
+        for="eea.mediacentre.interfaces.IVideo"
         permission="cmf.ModifyPortalContent"
         class=".video.VideoEditForm" />
-
   <!-- we want to show some extra fields for videos so we extend
        this view with a few attributes -->
+    <!--<page name="video_view"-->
+          <!--class=".video.VideoView"-->
+          <!--allowed_interface=".video.IVideoView"-->
+          <!--for="p4a.video.interfaces.IVideoEnhanced"-->
+          <!--permission="zope2.View" />-->
   <page name="video_view"
         class=".video.VideoView"
         allowed_interface=".video.IVideoView"
-        for="p4a.video.interfaces.IVideoEnhanced"
+        for="eea.mediacentre.interfaces.IVideo"
         permission="zope2.View" />
 
   <page name="video_view"

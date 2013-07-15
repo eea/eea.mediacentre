@@ -5,7 +5,9 @@ from Products.ATContentTypes import interface as atctifaces
 from p4a.video import videoanno
 from zope import component
 from zope import interface
-from p4a.video import interfaces
+# from p4a.video import interfaces
+from eea.mediacentre import interfaces
+from p4a.video.interfaces import IMediaActivator, IVideoDataAccessor
 from p4a.common.descriptors import atfield
 from OFS import Image as ofsimage
 
@@ -56,10 +58,10 @@ class AbstractATCTVideo(videoanno.AnnotationVideo):
         """
         mime_type = self.context.get_content_type()
         adapters = component.getAdapters((self.context,),
-                                         interfaces.IVideoDataAccessor)
+                                         IVideoDataAccessor)
         if unicode(mime_type) in [adapter[0] for adapter in adapters]:
             accessor = component.getAdapter(self.context,
-                                            interfaces.IVideoDataAccessor,
+                                            IVideoDataAccessor,
                                             unicode(mime_type))
             return accessor.video_type
         else:
@@ -119,7 +121,7 @@ class _ATCTFileVideo(AbstractATCTVideo):
         """
         mime_type = self.context.get_content_type()
         accessor = component.queryAdapter(self.context,
-                                          interfaces.IVideoDataAccessor,
+                                          IVideoDataAccessor,
                                           unicode(mime_type))
         if accessor is not None:
             field = self.context.getPrimaryField()
@@ -145,7 +147,7 @@ def attempt_media_activation(obj, evt):
     """Try to activiate the media capabilities of the given object.
     """
 
-    activator = interfaces.IMediaActivator(obj)
+    activator = IMediaActivator(obj)
 
     if activator.media_activated:
         return
@@ -153,7 +155,7 @@ def attempt_media_activation(obj, evt):
     mime_type = obj.get_content_type()
     try:
         accessor = component.getAdapter(obj,
-                                        interfaces.IVideoDataAccessor,
+                                        IVideoDataAccessor,
                                         unicode(mime_type))
     except Exception:
         accessor = None

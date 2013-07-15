@@ -18,22 +18,33 @@
     <include file="profiles.zcml" />
     <include file="skins.zcml" />
 
-    <adapter for="p4a.video.interfaces.IVideoEnhanced"
+    <!--<adapter for="p4a.video.interfaces.IVideoEnhanced"-->
+             <!--provides="zope.annotation.interfaces.IAnnotations"-->
+             <!--factory="zope.annotation.attribute.AttributeAnnotations" />-->
+
+    <adapter for="eea.mediacentre.interfaces.IVideo"
              provides="zope.annotation.interfaces.IAnnotations"
              factory="zope.annotation.attribute.AttributeAnnotations" />
 
+    <!--<adapter name="eeacontentypes.video"-->
+             <!--for="p4a.video.interfaces.IVideoEnhanced"-->
+             <!--factory=".media.SchemaExtender" />-->
     <adapter name="eeacontentypes.video"
-             for="p4a.video.interfaces.IVideoEnhanced"
+             for="eea.mediacentre.interfaces.IVideo"
              factory=".media.SchemaExtender" />
 
     <adapter factory=".mediatypes.MediaTypesAdapter" />
     <adapter factory=".mediatypes.MediaTypesImageAdapter" />
     <adapter factory=".swf.SWFAdapter" />
 
-    <adapter for="p4a.video.interfaces.IVideoEnhanced"
+    <adapter for="eea.mediacentre.interfaces.IVideo"
              provides=".interfaces.IMediaDisplayInfo"
              factory=".media.P4AVideoDisplayInfoAdapter"
              name="video/x-flv" />
+    <!--<adapter for="p4a.video.interfaces.IVideoEnhanced"-->
+             <!--provides=".interfaces.IMediaDisplayInfo"-->
+             <!--factory=".media.P4AVideoDisplayInfoAdapter"-->
+             <!--name="video/x-flv" />-->
 
     <adapter for="Products.EEAContentTypes.content.FlashFile.FlashFile"
              provides=".interfaces.IMediaDisplayInfo"
