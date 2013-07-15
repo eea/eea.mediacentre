@@ -4,7 +4,7 @@ import doctest
 import unittest
 import os
 from Acquisition import aq_base
-from p4a.subtyper.engine import Subtyper
+# from p4a.subtyper.engine import Subtyper
 from p4a.video.media import MediaActivator
 from p4a.video.subtype import VideoDescriptor
 from eea.mediacentre.mediacentre import MediaCentre
@@ -16,7 +16,7 @@ from eea.mediacentre.interfaces import (
 # from eea.mediacentre.subtyper import subtype_added, subtype_removed
 from eea.mediacentre.tests.base import MediaCentreTestCase
 from zope.annotation.attribute import AttributeAnnotations
-from zope.component import provideUtility, provideAdapter, provideHandler
+from zope.component import provideUtility, provideAdapter #, provideHandler
 from zope.component.testing import setUp
 from Testing.ZopeTestCase import FunctionalDocFileSuite
 # NOTE: this is needed because when testing you get some parser
