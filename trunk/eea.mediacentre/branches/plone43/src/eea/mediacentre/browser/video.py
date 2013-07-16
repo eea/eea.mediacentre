@@ -10,6 +10,7 @@ from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser import video as vid
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from p4a.video.interfaces import IMediaActivator #, IVideo
+from eea.mediacentre.interfaces import IVideoAdapter
 from eea.mediacentre.interfaces import IVideo
 from p4a.video.interfaces import IVideoEnhanced
 from zope.schema.interfaces import IVocabularyFactory
@@ -47,7 +48,7 @@ def getMediaTypes(obj):
 
         # if obj is an IVideo it's an adapted media file, then we want to
         # use the adapter's context, otherwise we use obj as it is
-        if IVideo.providedBy(obj):
+        if IVideoAdapter.providedBy(obj):
             type_ids = IMediaType(obj.context).types
         else:
             type_ids = IMediaType(obj).types
@@ -62,7 +63,7 @@ def getMediaTypes(obj):
 def getDuration(obj):
     """ Get Duration
     """
-    video = IVideo(obj)
+    video = IVideoAdapter(obj)
     if video.duration:
         duration = int(round(video.duration or 0.0))
         return fancy_time_amount(duration, show_legend=False)
@@ -99,7 +100,7 @@ class ManagementPlanCodeEdit(object):
     """ Edit adapter for management plan code
     """
     implements(IManagementPlanCodeEdit)
-    adapts(IVideoEnhanced)
+    adapts(IVideo)
 
     def __init__(self, context):
         self.context = context
@@ -149,7 +150,7 @@ class CloudUrlEdit(object):
     for the video
     """
     implements(ICloudUrlEdit)
-    adapts(IVideoEnhanced)
+    adapts(IVideo)
 
 
     def __init__(self, context):
@@ -174,6 +175,7 @@ class CloudUrlEdit(object):
         video_cloud_validator(value, self.context)
     cloud_url = property(get_cloudUrl, set_cloudUrl)
 
+# class VideoEditForm(vid.VideoEditForm):
 class VideoEditForm(vid.VideoEditForm):
     """ Form for editing video fields.
     """
@@ -184,7 +186,7 @@ class VideoEditForm(vid.VideoEditForm):
 
     # Uncomment below is multiple geotags field is needed
     
-    form_fields = FormFields( IVideo,
+    form_fields = FormFields( IVideoAdapter,
                               IManagementPlanCodeEdit,
                               ICloudUrlEdit,
                               IGeotagMultiEdit)
@@ -218,12 +220,12 @@ class VideoListedSingle(P4AVideoListedSingle):
 
             # if obj is an IVideo it's an adapted media file, then we want to
             # use the adapter's context, otherwise we use obj as it is
-            if IVideo.providedBy(obj):
+            if IVideoAdapter.providedBy(obj):
                 videoobj = obj.context
                 adapter = obj
             else:
                 videoobj = obj
-                adapter = IVideo(obj)
+                adapter = IVideoAdapter(obj)
 
             type_ids = IMediaType(videoobj).types
 
@@ -240,7 +242,8 @@ class VideoListedSingle(P4AVideoListedSingle):
             video['author'] = adapter.video_author
         return video
 
-class IVideoView(vid.IVideoView):
+# class IVideoView(vid.IVideoView):
+class IVideoView(Interface):
     """ Video view
     """
     def media_types(self):
@@ -268,7 +271,8 @@ class IVideoView(vid.IVideoView):
         """
         pass
 
-class VideoView(vid.VideoView):
+# class VideoView(vid.VideoView):
+class VideoView(BrowserView):
     """ Video view
     """
 
@@ -276,7 +280,7 @@ class VideoView(vid.VideoView):
         super(VideoView, self).__init__(context, request)
         self.context = context
         self.request = request
-        self.video = IVideo(context)
+        self.video = IVideoAdapter(context)
 
     def media_types(self):
         """ Media types

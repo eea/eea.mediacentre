@@ -31,7 +31,7 @@ class MediaPlayerWidget(fileimage_file.FileDownloadWidget):
 
         video = self.context.context
         if video.video_image is not None:
-            field = interfaces.IVideo['video_image'].bind(video)
+            field = interfaces.IVideoAdapter['video_image'].bind(video)
             imageurl = ImageURLWidget(field, self.request).url or None
         else:
             imageurl = None

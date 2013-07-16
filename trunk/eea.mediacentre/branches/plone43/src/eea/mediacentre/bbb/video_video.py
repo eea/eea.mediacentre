@@ -9,10 +9,10 @@ class VideoPageView(media.BaseMediaDisplayView, BrowserView):
     """Page for displaying video.
     """
 
-    adapted_interface = interfaces.IVideo
+    adapted_interface = interfaces.IVideoAdapter
     media_field = 'file'
 
-    form_fields = form.FormFields(interfaces.IVideo)
+    form_fields = form.FormFields(interfaces.IVideoAdapter)
     label = u'View Video Info'
 
     @property
@@ -21,6 +21,6 @@ class VideoPageView(media.BaseMediaDisplayView, BrowserView):
 
     def update(self):
         super(VideoPageView, self).update()
-        if not interfaces.IVideo(self.context).video_type:
+        if not interfaces.IVideoAdapter(self.context).video_type:
             self.context.plone_utils.addPortalMessage(
                 _(u'Unsupported video type'))

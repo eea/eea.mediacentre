@@ -10,7 +10,6 @@ class BaseMediaDisplayView(form.PageDisplayForm):
     media_field = None
 
     def _media_player(self):
-        import pdb; pdb.set_trace()
         video = self.adapters.get(self.adapted_interface,
                                   self.adapted_interface(self.context))
         field = self.adapted_interface[self.media_field].bind(video)

@@ -108,9 +108,9 @@ class IMindStretcher(IMultimedia):
     pass
 
 
-# class IVideo(Interface):
-#     """ Marker interface for any type of videos in our portal
-#     """
+class IVideo(Interface):
+    """ Marker interface for any type of videos in our portal
+    """
 
 from zope import interface
 from zope import schema
@@ -120,7 +120,7 @@ from eea.mediacentre.bbb import fileimage_image as p4aimage
 from eea.mediacentre import EEAMessageFactory as _
 
 
-class IVideo(interface.Interface):
+class IVideoAdapter(interface.Interface):
     """Objects which have video information.
     """
 

@@ -2,7 +2,8 @@
 """
 
 from Products.ATContentTypes import interface as atctifaces
-from p4a.video import videoanno
+# from p4a.video import videoanno
+from eea.mediacentre.bbb import video_videoanno as videoanno
 from zope import component
 from zope import interface
 # from p4a.video import interfaces
@@ -18,11 +19,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+# class AbstractATCTVideo(videoanno.AnnotationVideo):
 class AbstractATCTVideo(videoanno.AnnotationVideo):
     """ AbstractATCTVideo
     """
 
-    interface.implements(interfaces.IVideo)
+    interface.implements(interfaces.IVideoAdapter)
     component.adapts(atctifaces.IFileContent)
 
     file = None
@@ -40,7 +42,7 @@ class AbstractATCTVideo(videoanno.AnnotationVideo):
     def _set_video_image(self, v):
         """ _set_video_image
         """
-        if v == interfaces.IVideo['video_image'].missing_value:
+        if v == interfaces.IVideoAdapter['video_image'].missing_value:
             return
         upload = v
         if isinstance(upload, ofsimage.Image):
@@ -86,12 +88,12 @@ class AbstractATCTVideo(videoanno.AnnotationVideo):
     __repr__ = __str__
 
 
-@interface.implementer(interfaces.IVideo)
+@interface.implementer(interfaces.IVideoAdapter)
 @component.adapter(atctifaces.IFileContent)
 def ATCTFileVideo(context):
     """ ATCTFileVideo
     """
-    if not interfaces.IVideoEnhanced.providedBy(context):
+    if not interfaces.IVideo.providedBy(context):
         return None
     return _ATCTFileVideo(context)
 
@@ -110,7 +112,7 @@ class _ATCTFileVideo(AbstractATCTVideo):
     def _set_file(self, v):
         """ _set_file
         """
-        if v != interfaces.IVideo['file'].missing_value:
+        if v != interfaces.IVideoAdapter['file'].missing_value:
             field = self.context.getPrimaryField()
             field.getMutator(self.context)(v)
     file = property(_get_file, _set_file)
@@ -170,7 +172,7 @@ def update_dublincore(obj, evt):
     """Update the dublincore properties.
     """
 
-    video = interfaces.IVideo(obj, None)
+    video = interfaces.IVideoAdapter(obj, None)
     if video is not None:
         obj.setTitle(video.title)
 

@@ -71,7 +71,7 @@
         for="eea.mediacentre.interfaces.IVideo"
         permission="zope2.View" />
 
-  <page name="video_view"
+  <page name="video_cloud_view"
         class=".video.CloudVideoView"
         for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
         permission="zope2.View" />
