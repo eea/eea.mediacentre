@@ -9,7 +9,8 @@ from zope import interface
 # from p4a.video import interfaces
 from eea.mediacentre import interfaces
 from p4a.video.interfaces import IMediaActivator, IVideoDataAccessor
-from p4a.common.descriptors import atfield
+# from p4a.common.descriptors import atfield
+from eea.mediacentre.bbb.common_descriptors import atfield
 from OFS import Image as ofsimage
 
 import os
@@ -145,27 +146,27 @@ def load_metadata(obj, evt):
     obj._load_video_metadata()
 
 
-def attempt_media_activation(obj, evt):
-    """Try to activiate the media capabilities of the given object.
-    """
-
-    activator = IMediaActivator(obj)
-
-    if activator.media_activated:
-        return
-
-    mime_type = obj.get_content_type()
-    try:
-        accessor = component.getAdapter(obj,
-                                        IVideoDataAccessor,
-                                        unicode(mime_type))
-    except Exception:
-        accessor = None
-
-    if accessor is not None:
-        activator.media_activated = True
-        update_dublincore(obj, evt)
-        update_catalog(obj, evt)
+# def attempt_media_activation(obj, evt):
+#     """Try to activate the media capabilities of the given object.
+#     """
+#
+#     activator = IMediaActivator(obj)
+#
+#     if activator.media_activated:
+#         return
+#
+#     mime_type = obj.get_content_type()
+#     try:
+#         accessor = component.getAdapter(obj,
+#                                         IVideoDataAccessor,
+#                                         unicode(mime_type))
+#     except Exception:
+#         accessor = None
+#
+#     if accessor is not None:
+#         activator.media_activated = True
+#         update_dublincore(obj, evt)
+#         update_catalog(obj, evt)
 
 
 def update_dublincore(obj, evt):
