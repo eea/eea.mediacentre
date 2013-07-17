@@ -20,6 +20,8 @@ from eea.forms.widgets.ManagementPlanWidget import ManagementPlanWidget
 from Products.Archetypes.atapi import TextAreaWidget
 from Products.Archetypes.atapi import TextField
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
+from Products.Archetypes.atapi import RichWidget
+# from Products.Archetypes.Widget import RichWidget
 
 def P4AVideoDisplayInfoAdapter(context):
     """ P4A Video Display Info Adapter
@@ -103,10 +105,15 @@ class ExtensionVideoCloudUrlfield(ExtensionField, TextField):
     """ TextField wrapped in ExtensionField for extending schemas
     """
 
+class ExtensionVideoRichField(ExtensionField, TextField):
+    """ TextField wrapped in ExtensionField for extending schemas
+    """
+
 class SchemaExtender(object):
     """ Schema Extender
     """
     implements(ISchemaExtender)
+
 
     fields = [
         ExtensionManagementPlanfield(
@@ -142,20 +149,33 @@ class SchemaExtender(object):
                             ' external sites eg. Vimeo or Youtube',
                 label="Cloud Url"
             )
+        ),
+
+        ExtensionVideoRichField(
+            name='text',
+            languageIndependent=True,
+            required=False,
+            schemata='default',
+            widget=RichWidget(
+                label="Rich Text Description",
+                label_msgid="EEAContentTypes_label_rich_description",
+                i18n_domain="eea",
+                rows=10,
+            )
         )
 
     ]
-
     def __init__(self, context):
         self.context = context
 
     def getFields(self):
         """ Get fields
         """
-        # make CloudUrl Required if ICloudVideo is provided by context
+        # CloudUrl already has these fields
         if ICloudVideo.providedBy(self.context):
-            self.fields[1].required = True
+            return []
         else:
+            # cloudUrl isn't required for File with IVideo
             self.fields[1].required = False
         return self.fields
 

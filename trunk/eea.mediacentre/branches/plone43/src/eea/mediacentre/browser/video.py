@@ -11,8 +11,9 @@ from p4a.video.browser import video as vid
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
 from p4a.video.interfaces import IMediaActivator #, IVideo
 from eea.mediacentre.interfaces import IVideoAdapter
-from eea.mediacentre.interfaces import IVideo
+from eea.mediacentre.interfaces import IVideo, IMediaPlayer
 from p4a.video.interfaces import IVideoEnhanced
+from zope.component import queryAdapter
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import adapts
 from zope.component import getUtility
@@ -321,12 +322,29 @@ class VideoView(BrowserView):
             return cloudUrl(self)
         return cloud_url
 
+    def media_player(self):
+        """ Returns the flowplayer embed string
+        """
+        media_player = queryAdapter(self.context,
+                                    interface=IMediaPlayer,
+                                    name=u"video/x-flv")
+        width = self.video.width
+        height = self.video.height
+
+        if media_player is None:
+            return None
+        # downloadUrl and ImageUrl are the params that we send as None since
+        # they are  not needed
+        s = u'<div class="media-player">%s</div>' % media_player(None, None,
+                                                                 width, height)
+        return s
+
 
 class CloudVideoView(BrowserView):
     """ CloudVideo BrowserView
     """
     def cloud_url(self):
-        """ Retrive cloudUrl entry
+        """ Retrieve cloudUrl entry
         """
         return cloudUrl(self)
 

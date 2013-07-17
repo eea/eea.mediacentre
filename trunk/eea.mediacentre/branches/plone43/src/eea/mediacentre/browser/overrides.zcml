@@ -54,10 +54,10 @@
         <!--permission="cmf.ModifyPortalContent"-->
         <!--class=".video.VideoEditForm" />-->
 
-  <page name="atct_edit"
-        for="eea.mediacentre.interfaces.IVideo"
-        permission="cmf.ModifyPortalContent"
-        class=".video.VideoEditForm" />
+  <!--<page name="atct_edit"-->
+        <!--for="eea.mediacentre.interfaces.IVideo"-->
+        <!--permission="cmf.ModifyPortalContent"-->
+        <!--class=".video.VideoEditForm" />-->
   <!-- we want to show some extra fields for videos so we extend
        this view with a few attributes -->
     <!--<page name="video_view"-->
