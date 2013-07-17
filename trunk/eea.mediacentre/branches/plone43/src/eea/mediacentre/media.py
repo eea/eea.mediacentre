@@ -20,7 +20,8 @@ from eea.forms.widgets.ManagementPlanWidget import ManagementPlanWidget
 from Products.Archetypes.atapi import TextAreaWidget
 from Products.Archetypes.atapi import TextField
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
-from Products.Archetypes.atapi import RichWidget
+from Products.Archetypes.atapi import RichWidget, ImageWidget
+from plone.app.blob.field import ImageField
 # from Products.Archetypes.Widget import RichWidget
 
 def P4AVideoDisplayInfoAdapter(context):
@@ -109,6 +110,10 @@ class ExtensionVideoRichField(ExtensionField, TextField):
     """ TextField wrapped in ExtensionField for extending schemas
     """
 
+class ExtensionVideoImageField(ExtensionField, ImageField):
+    """ ImageField wrapped in ExtensionField for extending schemas
+    """
+
 class SchemaExtender(object):
     """ Schema Extender
     """
@@ -116,6 +121,18 @@ class SchemaExtender(object):
 
 
     fields = [
+        ExtensionVideoImageField('image',
+             required=False,
+             storage=AnnotationStorage(migrate=True),
+             languageIndependent=True,
+             widget=ImageWidget(
+                 label='Image',
+                 label_msgid='EEAContentTypes_label_image',
+                 description_msgid='EEAContentTypes_help_image',
+                 i18n_domain='eea',
+                 show_content_type=False
+             )
+        ),
         ExtensionManagementPlanfield(
             name='eeaManagementPlan',
             languageIndependent=True,
@@ -163,8 +180,8 @@ class SchemaExtender(object):
                 rows=10,
             )
         )
-
     ]
+
     def __init__(self, context):
         self.context = context
 

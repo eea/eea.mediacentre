@@ -34,11 +34,11 @@ def remove_interface(ca, interface):
     log.info("ENDED %s Removal", iname)
 
 
-def set_rich_description_on_files(ca):
-    """ set rich description on the text field
+def set_fields_from_annotation(ca):
+    """ Set fields from object annotation
     """
     count = 0
-    log.info("STARTED setting rich description on text field")
+    log.info("STARTED setting rich description and image on video file")
     brains = ca.searchResults(object_provides=
                               "eea.mediacentre.interfaces.IVideo",
                               portal_type="File")
@@ -50,14 +50,21 @@ def set_rich_description_on_files(ca):
             rich_description = p4a.get('rich_description')
             if rich_description:
                 obj.getField('text').set(obj, rich_description)
-                # del info['rich_description']
                 log.info("%s rich_description migrated to text field",
                          obj.absolute_url())
+
+            image = p4a.get('video_image')
+            if image:
+                obj.getField('image').set(obj, image)
+                log.info("%s video_image migrated to image field",
+                         obj.absolute_url())
+            if rich_description or image:
                 obj.reindexObject()
                 count += 1
                 if count % 50 == 0:
                     transaction.commit()
-    log.info("ENDED setting rich description on text field")
+
+    log.info("ENDED setting rich description and image on video file")
 
 
 
@@ -74,6 +81,6 @@ def cleanup_p4a_traces(context):
     for interface in interfaces:
         remove_interface(ca, interface)
 
-    # set value of rich_description on the text field
-    set_rich_description_on_files(ca)
+    # set fields from annotation of objects
+    set_fields_from_annotation(ca)
 
