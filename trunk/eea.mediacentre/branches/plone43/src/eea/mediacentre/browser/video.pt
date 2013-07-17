@@ -10,7 +10,7 @@
 
 
 <div metal:fill-slot="content-core"
-     tal:define="video_info context/@@video_view;
+     tal:define="video_info nocall:view;
                  context_url string:${context/absolute_url};
                  mime_type context/content_type;">
     <tal:main-macro metal:define-macro="main" 

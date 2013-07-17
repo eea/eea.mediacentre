@@ -38,7 +38,7 @@
   <page name="file_view"
           template="video.pt"
           for="eea.mediacentre.interfaces.IVideo"
-          class="eea.mediacentre.bbb.video_video.VideoPageView"
+          class="eea.mediacentre.browser.video.VideoView"
           permission="zope2.View" />
 
   <page name="file_view"

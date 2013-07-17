@@ -9,10 +9,10 @@ from eea.mediacentre.bbb import common_at as at
 from p4a.common.formatting import fancy_time_amount
 from p4a.video.browser import video as vid
 from p4a.video.browser.video import VideoListedSingle as P4AVideoListedSingle
-from p4a.video.interfaces import IMediaActivator #, IVideo
+# from p4a.video.interfaces import IMediaActivator #, IVideo
 from eea.mediacentre.interfaces import IVideoAdapter
 from eea.mediacentre.interfaces import IVideo, IMediaPlayer
-from p4a.video.interfaces import IVideoEnhanced
+#from p4a.video.interfaces import IVideoEnhanced
 from zope.component import queryAdapter
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import adapts
@@ -41,35 +41,35 @@ from Products.Five.browser import BrowserView
 
 KEY = 'eea.mediacentre.multimedia'
 
-def getMediaTypes(obj):
-    """ Get Media Types
-    """
-    if obj is not None:
-        vocab = getUtility(IVocabularyFactory, name="Media types")(obj)
+# def getMediaTypes(obj):
+#     """ Get Media Types
+#     """
+#     if obj is not None:
+#         vocab = getUtility(IVocabularyFactory, name="Media types")(obj)
+#
+#         # if obj is an IVideo it's an adapted media file, then we want to
+#         # use the adapter's context, otherwise we use obj as it is
+#         if IVideoAdapter.providedBy(obj):
+#             type_ids = IMediaType(obj.context).types
+#         else:
+#             type_ids = IMediaType(obj).types
+#
+#         types = sorted([vocab.getTerm(type_id).title for type_id in type_ids
+# ])
+#         if types:
+#             return ', '.join(types)
+#         else:
+#             return 'Other'
 
-        # if obj is an IVideo it's an adapted media file, then we want to
-        # use the adapter's context, otherwise we use obj as it is
-        if IVideoAdapter.providedBy(obj):
-            type_ids = IMediaType(obj.context).types
-        else:
-            type_ids = IMediaType(obj).types
-
-        types = sorted([vocab.getTerm(type_id).title for type_id in type_ids
-])
-        if types:
-            return ', '.join(types)
-        else:
-            return 'Other'
-
-def getDuration(obj):
-    """ Get Duration
-    """
-    video = IVideoAdapter(obj)
-    if video.duration:
-        duration = int(round(video.duration or 0.0))
-        return fancy_time_amount(duration, show_legend=False)
-    else:
-        return None
+# def getDuration(obj):
+#     """ Get Duration
+#     """
+#     video = IVideoAdapter(obj)
+#     if video.duration:
+#         duration = int(round(video.duration or 0.0))
+#         return fancy_time_amount(duration, show_legend=False)
+#     else:
+#         return None
 
 def getPublishedDate(obj):
     """ Get Published Date
@@ -281,22 +281,34 @@ class VideoView(BrowserView):
         super(VideoView, self).__init__(context, request)
         self.context = context
         self.request = request
-        self.video = IVideoAdapter(context)
+        self.video = IAnnotations(context).get(
+            'p4a.plonevideo.atct.ATCTFileVideo') or {
+            "video_author": "",
+            "width": 600,
+            "height": 389,
+            "rich_description": self.context.text()
+            }
 
-    def media_types(self):
-        """ Media types
-        """
-        return getMediaTypes(self.context)
+    # def media_types(self):
+    #     """ Media types
+    #     """
+    #     return getMediaTypes(self.context)
 
     def duration(self):
         """ duration
         """
-        return getDuration(self.context)
+        time = self.video.get('duration')
+        if time:
+            time = int(round(time or 0.0))
+            return fancy_time_amount(time, show_legend=False)
+        else:
+            return None
+        # return getDuration(self.context)
 
     def author(self):
         """ Author
         """
-        return self.video.video_author
+        return self.video.get('video_author')
 
     def published_date(self):
         """ Published date
@@ -306,12 +318,12 @@ class VideoView(BrowserView):
     def width_incl_player(self):
         """ Width  incl player
         """
-        return self.video.width + 35
+        return self.video.get('width', 600) + 35
 
     def rich_description(self):
         """ Width  incl player
         """
-        return self.video.rich_description
+        return self.context.text()
 
     def cloud_url(self):
         """ Cloud Url
@@ -328,8 +340,8 @@ class VideoView(BrowserView):
         media_player = queryAdapter(self.context,
                                     interface=IMediaPlayer,
                                     name=u"video/x-flv")
-        width = self.video.width
-        height = self.video.height
+        width = self.video.get('width', 600)
+        height = self.video.get('height', 380)
 
         if media_player is None:
             return None
@@ -356,7 +368,7 @@ class CloudVideoView(BrowserView):
     def rich_description(self):
         """ Rich Description
         """
-        pass
+        return self.context.text()
 
 class VideoUtils(object):
     """ A browser view for video utility methods.
@@ -379,21 +391,21 @@ class VideoUtils(object):
         current = self.context.getLanguage()
         return current != 'en'
 
-class Activate(object):
-    """ This view activates all FlashFile objects that are not
-        already activated.
-    """
-
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-    def __call__(self):
-        catalog = getToolByName(self.context, 'portal_catalog')
-        brains = catalog.searchResults(portal_type='FlashFile')
-        for brain in brains:
-            obj = brain.getObject()
-            activator = IMediaActivator(obj)
-            if not activator.media_activated:
-                activator.media_activated = True
+# class Activate(object):
+#     """ This view activates all FlashFile objects that are not
+#         already activated.
+#     """
+#
+#     def __init__(self, context, request):
+#         self.context = context
+#         self.request = request
+#
+#     def __call__(self):
+#         catalog = getToolByName(self.context, 'portal_catalog')
+#         brains = catalog.searchResults(portal_type='FlashFile')
+#         for brain in brains:
+#             obj = brain.getObject()
+#             activator = IMediaActivator(obj)
+#             if not activator.media_activated:
+#                 activator.media_activated = True
 
