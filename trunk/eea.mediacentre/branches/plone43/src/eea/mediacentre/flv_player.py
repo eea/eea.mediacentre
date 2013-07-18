@@ -2,7 +2,6 @@
 """
 from zope import interface
 from zope import component
-# from p4a.video import interfaces
 from eea.mediacentre.interfaces import IMediaPlayer
 from Products.CMFCore import utils as cmfutils
 import simplejson
@@ -10,7 +9,6 @@ import simplejson
 class FLVVideoPlayer(object):
     """ FLV Video Player
     """
-    # interface.implements(interfaces.IMediaPlayer)
     interface.implements(IMediaPlayer)
     component.adapts(object)
 
@@ -19,7 +17,10 @@ class FLVVideoPlayer(object):
 
     def __call__(self, downloadurl, imageurl, width, height):
         if downloadurl:
-            contentobj = self.context.context.context
+            try:
+                contentobj = self.context.context.context
+            except AttributeError:
+                contentobj = self.context
         else:
             contentobj = self.context
 

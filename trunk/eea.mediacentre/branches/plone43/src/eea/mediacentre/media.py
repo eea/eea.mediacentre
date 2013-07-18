@@ -12,6 +12,10 @@ from Products.Archetypes.atapi import TextAreaWidget
 from Products.Archetypes.atapi import TextField
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
 from zope.interface import implements
+from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
+from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
+from eea.themecentre.themecentre import getTheme
+from zope.component import getUtility
 
 
 class ExtensionManagementPlanfield(ExtensionField, ManagementPlanField):
@@ -117,3 +121,29 @@ class SchemaExtender(object):
             # cloudUrl isn't required for File with IVideo interface
             self.fields[1].required = False
         return self.fields
+
+class MediaProvider(object):
+    """ Media Provider
+    """
+    implements(IMediaProvider)
+
+    def __init__(self, context):
+        self.context = context
+        # this can be changed by someone who wants a specific media type
+        self.media_type = None
+
+    @property
+    def media_items(self):
+        """ Media items
+        """
+        currentTheme = getTheme(self.context)
+        mediacentre = getUtility(IMediaCentre)
+        search = { MEDIA_SEARCH_KEY: { 'theme': currentTheme }}
+        files = mediacentre.getMedia(self.media_type, full_objects=False,
+                                     search=search)
+
+        videos = []
+        for media_dict in files:
+            videos.append(media_dict['object'])
+
+        return videos

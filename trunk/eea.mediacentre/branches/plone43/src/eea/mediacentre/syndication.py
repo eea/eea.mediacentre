@@ -1,8 +1,7 @@
 """ Syndication
 """
-# from p4a.plonevideo.syndication import VideoFeedEntry
 from eea.mediacentre.bbb.plonevideo_syndication import VideoFeedEntry
-from p4a.video.interfaces import IVideoEnhanced, IVideo
+from eea.mediacentre.interfaces import IVideo
 from zope.component import adapts
 from zope.interface import implements
 from Products.basesyndication.interfaces import IFeedEntry
@@ -13,13 +12,16 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
     """ Video Feed Entry With Description
     """
     implements(IFeedEntry)
-    adapts(IVideoEnhanced)
+    adapts(IVideo)
 
     def getAuthor(self):
         """ Get author
         """
-        video = IVideo(self.context)
-        author = video.video_author
+        try:
+            video = self.context.restrictedTraverse('@@video_view')
+        except AttributeError:
+            return ''
+        author = video.author()
         if author is None:
             return ''
         else:
@@ -28,17 +30,10 @@ class VideoFeedEntryWithDescription(VideoFeedEntry):
     def getBody(self):
         """ Get body
         """
-        video = IVideo(self.context)
-        image_url = None
-        if video.video_image is not None:
-            image_url = self.context.absolute_url() + \
-                "/viewimage?field=p4a.video.interfaces:IVideo:video_image"
-
-        if image_url is None:
-            return self.context.Description()
-        else:
-            return '<p><img src="%s" /></p><p>%s</p>' % \
-                   (image_url, self.context.Description())
+        image_url = self.context.absolute_url() + \
+            "/image_large"
+        return '<p><img src="%s" /></p><p>%s</p>' % \
+               (image_url, self.context.Description())
 
     def getWebURL(self):
         """ Get Web URL

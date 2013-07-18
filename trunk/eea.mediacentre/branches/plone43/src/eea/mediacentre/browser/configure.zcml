@@ -8,10 +8,6 @@
                                permission="zope.Public" />
 
     <!-- for="..interfaces.IPossibleMediaFile" -->
-    <!--<browser:page for="p4a.video.interfaces.IVideoEnhanced"-->
-                  <!--name="mediatype_edit.html"-->
-                  <!--class=".mediatypes.MediaTypesEditForm"-->
-                  <!--permission="cmf.ModifyPortalContent" />-->
 
     <browser:page for="eea.mediacentre.interfaces.IVideo"
                   name="mediatype_edit.html"
@@ -45,32 +41,18 @@
     <!-- when editing a translated file you get the translation form instead
          of the form with size, width, duration etc. So we need another tab
          for this -->
-    <!--<browser:page name="video_edit"-->
-                  <!--for="p4a.video.interfaces.IVideoEnhanced"-->
-                  <!--permission="cmf.ModifyPortalContent"-->
-                  <!--class="p4a.video.browser.video.VideoEditForm" />-->
 
     <browser:page name="video_edit"
                   for="eea.mediacentre.interfaces.IVideo"
                   permission="cmf.ModifyPortalContent"
                   class="p4a.video.browser.video.VideoEditForm" />
     <!-- browser view for utility methods -->
-    <!--<browser:page for="p4a.video.interfaces.IVideoEnhanced"-->
-                  <!--name="showEditVideoMetadataTab"-->
-                  <!--class=".video.VideoUtils"-->
-                  <!--attribute="showEditMetadataTab"-->
-                  <!--permission="zope.Public" />-->
 
     <browser:page for="eea.mediacentre.interfaces.IVideo"
                   name="showEditVideoMetadataTab"
                   class=".video.VideoUtils"
                   attribute="showEditMetadataTab"
                   permission="zope.Public" />
-    <!-- Activates all FlashFile objects -->
-    <browser:page for="*"
-                  name="activateAllVideos"
-                  class=".video.Activate"
-                  permission="cmf.ManagePortal" />
 
     <!-- shows a preview of an object which is meant to be in a listing. -->
     <browser:page for="*"
@@ -93,12 +75,6 @@
                   allowed_attributes="title"
                   permission="zope2.View" />
 
-    <!--<browser:page name="video_popup_view"-->
-                  <!--template="video_popup_view.pt"-->
-                  <!--for="p4a.video.interfaces.IVideoEnhanced"-->
-                  <!--class="p4a.video.browser.video.VideoPageView"-->
-                  <!--permission="zope2.View" />-->
-
     <browser:page name="video_popup_view"
                   template="video_popup_view.pt"
                   for="eea.mediacentre.interfaces.IVideo"
@@ -116,15 +92,9 @@
                   allowed_attributes="playlist"
                   permission="zope2.View" />
 
-    <!--<browser:page name="multimedia_popup_view"-->
-                  <!--template="multimedia_popup_view.pt"-->
-                  <!--class="p4a.video.browser.video.VideoPageView"-->
-                  <!--for="p4a.video.interfaces.IVideoEnhanced"-->
-                  <!--permission="zope2.View" />-->
-
     <browser:page name="multimedia_popup_view"
                   template="multimedia_popup_view.pt"
-                  class="eea.mediacentre.bbb.video_video.VideoPageView"
+                  class="eea.mediacentre.browser.video.VideoView"
                   for="eea.mediacentre.interfaces.IVideo"
                   permission="zope2.View" />
 
