@@ -2,7 +2,6 @@
 """
 from Products.Archetypes.interfaces import ISchema
 from Products.CMFCore.utils import getToolByName
-from p4a.common.formatting import fancy_time_amount
 from eea.mediacentre.interfaces import IVideo, IMediaPlayer
 from zope.component import queryAdapter
 from zope.component import adapts
@@ -18,6 +17,45 @@ from eea.forms.widgets.ManagementPlanWidget import ManagementPlanCode
 from Products.Five.browser import BrowserView
 
 KEY = 'eea.mediacentre.multimedia'
+
+
+def fancy_time_amount(v, show_legend=True):
+    """Produce a friendly representation of the given time amount.  The
+    value is expected to be in seconds as an int.
+
+      >>> fancy_time_amount(391)
+      u'06:31 (mm:ss)'
+
+      >>> fancy_time_amount(360)
+      u'06:00 (mm:ss)'
+
+      >>> fancy_time_amount(6360)
+      u'01:46:00 (hh:mm:ss)'
+
+      >>> fancy_time_amount(360, False)
+      u'06:00'
+
+    """
+
+    remainder = v
+    hours = remainder / 60 / 60
+    remainder -= hours * 60 * 60
+    mins = remainder / 60
+    secs = remainder - (mins * 60)
+
+    if hours > 0:
+        val = u'%02i:%02i:%02i' % (hours, mins, secs)
+        legend = u' (hh:mm:ss)'
+    else:
+        val = u'%02i:%02i' % (mins, secs)
+        legend = u' (mm:ss)'
+
+    if show_legend:
+        full = val + legend
+    else:
+        full = val
+
+    return full
 
 
 def getPublishedDate(obj):
@@ -189,7 +227,6 @@ class VideoView(BrowserView):
             return fancy_time_amount(time, show_legend=False)
         else:
             return None
-            # return getDuration(self.context)
 
     def author(self):
         """ Author
@@ -209,7 +246,7 @@ class VideoView(BrowserView):
     def rich_description(self):
         """ Width  incl player
         """
-        return self.context.text()
+        return self.context.getField('text').get(self.context)
 
     def cloud_url(self):
         """ Cloud Url
@@ -255,7 +292,7 @@ class CloudVideoView(BrowserView):
     def rich_description(self):
         """ Rich Description
         """
-        return self.context.text()
+        return self.context.getField('text').get(self.context)
 
 
 class VideoUtils(object):

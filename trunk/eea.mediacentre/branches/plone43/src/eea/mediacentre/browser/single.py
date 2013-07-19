@@ -3,7 +3,7 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import getMultiAdapter
 from zope.interface import Interface
-from p4a.video.interfaces import IVideo
+
 
 class IListedSingle(Interface):
     """ Listed Single
@@ -13,6 +13,7 @@ class IListedSingle(Interface):
         """ Single
         """
         pass
+
 
 class ListedSingle(object):
     """ Listed single.
@@ -82,7 +83,7 @@ class VideoListedSingle(object):
             'media_types': 'Video',
             'image_url': obj.absolute_url() + '/image_thumb',
             'portal_type': obj.portal_type
-            }
+        }
         if pos is not None:
             video['oddeven'] = ['even', 'odd'][pos % 2]
 
