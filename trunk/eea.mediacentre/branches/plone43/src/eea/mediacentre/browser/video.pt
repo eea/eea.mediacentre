@@ -36,8 +36,10 @@
                     <dt i18n:translate="">Author:</dt>
                     <dd tal:content="video_info/author">Author</dd>
                 </tal:author>
-                <dt i18n:translate="">Published:</dt>
-                <dd tal:content="video_info/published_date">Date</dd>
+                <tal:publish_date condition="video_info/published_date">
+                    <dt i18n:translate="">Published:</dt>
+                    <dd tal:content="video_info/published_date">Date</dd>
+                </tal:publish_date>
               </dl>
               <div>&nbsp;</div>
             </div>
