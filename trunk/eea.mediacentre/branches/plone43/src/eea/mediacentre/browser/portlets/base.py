@@ -5,7 +5,7 @@ from zope.interface import implements
 from eea.themecentre.browser.portlets.catalog import BasePortlet
 from eea.themecentre.themecentre import getTheme
 from eea.mediacentre.browser.interfaces import IMediaPortlet
-from p4a.video.interfaces import IMediaPlayer
+from eea.mediacentre.interfaces import IMediaPlayer
 from eea.mediacentre.interfaces import IMediaCentre
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 

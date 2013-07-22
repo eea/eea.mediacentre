@@ -22,8 +22,6 @@ def setup_mediacentre():
 
     PloneTestCase.installPackage('valentine.linguaflow')
     PloneTestCase.installPackage('ATVocabularyManager')
-    PloneTestCase.installPackage('p4a.z2utils')
-    PloneTestCase.installPackage('p4a.video')
     PloneTestCase.installPackage('eea.themcentre')
 
 setup_mediacentre()
