@@ -3,21 +3,11 @@
         xmlns:zcml="http://namespaces.zope.org/zcml"
         xmlns:five="http://namespaces.zope.org/five">
 
+      <adapter
+          factory=".plonevideo_syndication.VideoFeed"
+          provides="Products.basesyndication.interfaces.IFeed"
+          />
+     <adapter factory=".plonevideo_syndication.VideoFeedSource" />
+     <adapter factory=".plonevideo_syndication.ATFileEnclosure" />
 
-    <class class="Products.ATContentTypes.content.base.ATCTFileContent">
-        <implements interface="p4a.video.interfaces.IPossibleVideo" />
-    </class>
-
-    <adapter factory=".plonevideo_atct.ATCTFileVideo" />
-    <subscriber
-            for="p4a.video.interfaces.IVideo
-           p4a.video.videoanno.VideoAnnotationAddedEvent"
-            handler=".plonevideo_atct.load_metadata"
-            />
-
-    <subscriber
-            for="p4a.video.interfaces.IPossibleVideo
-           zope.lifecycleevent.interfaces.IObjectCreatedEvent"
-            handler=".plonevideo_atct.attempt_media_activation"
-            />
 </configure>
