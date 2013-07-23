@@ -13,15 +13,13 @@
      tal:define="video_info nocall:view;
                  context_url string:${context/absolute_url};
                  mime_type context/content_type;">
-    <tal:main-macro metal:define-macro="main" 
-           tal:define="size python:context.getObjSize(context);">
+    <tal:main-macro metal:define-macro="main">
 
         <div id="objmetadata_pbwidgets_wrapper">
                    
         <metal:video_players define-macro="video_players">
             <metal:video_player use-macro="context/eea_multimedia_macros/macros/video_players" />
             <tal:co tal:condition="not:video_info/cloud_url">
-                <!--<div tal:replace="structure view/widgets/media_player"></div>-->
                 <div tal:replace="structure video_info/media_player"></div>
             </tal:co>
         </metal:video_players>
