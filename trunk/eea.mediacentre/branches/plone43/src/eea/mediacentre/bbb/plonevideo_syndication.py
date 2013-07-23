@@ -1,6 +1,6 @@
-# """ p4a.plonevideo.syndication
-# """
-#
+""" p4a.plonevideo.syndication
+"""
+
 from zope import component
 from zope import interface
 from Products.fatsyndication import adapters as fatadapters
@@ -81,12 +81,18 @@ class ATFileEnclosure(object):
         return self.getLength()
 
     def getMajorType(self):
+        """ getMajorType
+        """
         return self.getType().split('/')[0]
 
     def getMinorType(self):
+        """ getMinorType
+        """
         return self.getType().split('/')[1]
 
     def getType(self):
+        """ getType
+        """
         return self.enclosure.getContentType()
 
 
