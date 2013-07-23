@@ -13,8 +13,6 @@
         <dependency>profile-eea.jquery:08-galleryview</dependency>
         <dependency>profile-eea.themecentre:default</dependency>
         <dependency>profile-eea.versions:default</dependency>
-        <!--<dependency>profile-p4a.subtyper:default</dependency>-->
-        <dependency>profile-p4a.video:default</dependency>
         <dependency>profile-valentine.linguaflow:default</dependency>
     </dependencies>
 </metadata>

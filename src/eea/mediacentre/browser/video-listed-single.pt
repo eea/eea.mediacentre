@@ -2,8 +2,8 @@
      i18n:domain="eea">
           <div class="media-item"
                tal:define="videoobj videoobj|options/videoobj|nothing;
-                           video video|options/video|python:view.safe_video(videoobj);
-                           viewurl string:${video/url}/view;
+                           video video|options/video|videoobj;
+                           viewurl string:${video/url};
                            oddeven oddeven|video/oddeven|string:;
                            portal_url context/@@plone_portal_state/portal_url;
                            portal_type video/portal_type"
@@ -13,27 +13,10 @@
                 <dt class="album-art" i18n:translate="">Album Art:</dt>
                 <dd class="album-art">
                   <a href="" tal:attributes="href string:$viewurl"
-                     tal:condition="video/has_image"
-                    ><img tal:attributes="src video/imageurlwidget"
+                    ><img tal:attributes="src video/image_url"
                        alt="Video Album Art"
                        i18n:attributes="alt" /></a>
-                  <a href="" tal:attributes="href string:$viewurl"
-                     tal:condition="not:video/has_image">
-                     <img tal:attributes="src string:${portal_url}/video-image.jpg"
-                          alt="Video album art"
-                          i18n:attributes="alt" />
-                  </a>
                 </dd>
-                <tal:time condition="video/duration">
-                    <dt i18n:translate="">Time:</dt>
-                    <dd tal:content="video/duration">8:30</dd>
-                </tal:time>
-                <tal:author condition="video/author">
-                    <dt i18n:translate="">Author:</dt>
-                    <dd tal:content="video/author">Author</dd>
-                </tal:author>
-                <dt i18n:translate="">Published:</dt>
-                <dd tal:content="video/published_date">Date</dd>
               </dl>
               <div class="visualClear"><!-- --></div>
             </div>
@@ -41,10 +24,6 @@
               <h2 class="item-title">
                 <a tal:content="video/title"
                    tal:attributes="href viewurl">Video Title</a>
-                <span class="relevance"
-                      tal:condition="python:video['relevance'] is not None">
-                  [<span tal:replace="video/relevance" />%]
-                </span>
               </h2>
 
               <p class="item-description">

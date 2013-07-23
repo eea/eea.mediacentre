@@ -3,7 +3,7 @@
 from zope.component import queryAdapter
 from eea.mediacentre.interfaces import IMediaProvider
 from eea.mediacentre.interfaces import IMediaDisplayInfo
-from p4a.video.interfaces import IMediaPlayer
+from eea.mediacentre.interfaces import IMediaPlayer
 
 class MediaContainerVideos(object):
     """ Media Container Videos
@@ -11,7 +11,7 @@ class MediaContainerVideos(object):
 
     def __init__(self, context, request):
         self.context = context
-        self.reqeust = request
+        self.request = request
 
     def media_items(self, media_type):
         """ Returns dicts of all media items available.
@@ -33,6 +33,7 @@ class MediaContainerVideos(object):
             items.append(info_dict)
 
         return items
+
 
 class MediaContainerView(object):
     """ Media Container View

@@ -55,14 +55,14 @@ class IMediaType(Interface):
     types = List(
         title = u"Media types",
         description = u"List of media types that this media file can tagged "
-                       "with.",
+                      "with.",
         required = False,
 
         value_type=Choice(
             title = u"Media type",
             description = u"Media type of this file",
             vocabulary = """Media types""",
-        )
+            )
     )
 
 class IMediaProvider(Interface):
@@ -110,4 +110,20 @@ class IMindStretcher(IMultimedia):
 
 class IVideo(Interface):
     """ Marker interface for any type of videos in our portal
+    """
+
+
+# BBB from p4a.video
+class IMediaPlayer(Interface):
+    """Media player represented as HTML.
+    """
+
+    def __call__(downloadurl, imageurl):
+        """Return the HTML required to play the video content located
+        at *downloadurl* with the *imageurl* representing the video.
+        """
+
+
+class IPossibleVideo(Interface):
+    """Objects which can have video information.
     """

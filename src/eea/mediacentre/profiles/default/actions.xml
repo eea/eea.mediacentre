@@ -3,7 +3,7 @@
 
     <object name="object">
         
-        <object name="mediatype_edit" meta_type="CMF Action" i18n:domain="eea">
+        <object name="mediatype_edit" meta_type="CMF Action" i18n:domain="eea" remove='True'>
             <property name="title" i18n:translate="">Media type</property>
             <property name="description" i18n:translate=""/>
             <property name="url_expr">string:${object_url}/mediatype_edit.html</property>
@@ -14,7 +14,7 @@
             <property name="visible">True</property>
         </object>
 
-        <object name="metadata_video_edit" meta_type="CMF Action" i18n:domain="eea">
+        <object name="metadata_video_edit" meta_type="CMF Action" i18n:domain="eea"  remove='True'>
             <property name="title" i18n:translate="">Edit video metadata</property>
             <property name="description" i18n:translate=""/>
             <property name="url_expr">string:${object_url}/base_edit</property>

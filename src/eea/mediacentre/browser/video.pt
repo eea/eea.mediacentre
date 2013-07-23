@@ -10,7 +10,7 @@
 
 
 <div metal:fill-slot="content-core"
-     tal:define="video_info context/@@video_view;
+     tal:define="video_info nocall:view;
                  context_url string:${context/absolute_url};
                  mime_type context/content_type;">
     <tal:main-macro metal:define-macro="main" 
@@ -21,7 +21,8 @@
         <metal:video_players define-macro="video_players">
             <metal:video_player use-macro="context/eea_multimedia_macros/macros/video_players" />
             <tal:co tal:condition="not:video_info/cloud_url">
-                <div tal:replace="structure view/widgets/media_player"></div>
+                <!--<div tal:replace="structure view/widgets/media_player"></div>-->
+                <div tal:replace="structure video_info/media_player"></div>
             </tal:co>
         </metal:video_players>
             <!-- Display metadata about the video -->
@@ -35,8 +36,10 @@
                     <dt i18n:translate="">Author:</dt>
                     <dd tal:content="video_info/author">Author</dd>
                 </tal:author>
-                <dt i18n:translate="">Published:</dt>
-                <dd tal:content="video_info/published_date">Date</dd>
+                <tal:publish_date condition="video_info/published_date">
+                    <dt i18n:translate="">Published:</dt>
+                    <dd tal:content="video_info/published_date">Date</dd>
+                </tal:publish_date>
               </dl>
               <div>&nbsp;</div>
             </div>
