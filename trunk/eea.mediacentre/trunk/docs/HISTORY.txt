@@ -3,6 +3,9 @@ Changelog
 
 5.6-dev - (unreleased)
 ----------------------
+* Upgrade step: Within "Plone > Site setup > Add-ons" click on button available 
+  for eea.mediacentre 
+  [ichimdav #15234]
 * Bug fix: fixed issue when value passed to video image is of wrong format
   [ichimdav #14920]
 
