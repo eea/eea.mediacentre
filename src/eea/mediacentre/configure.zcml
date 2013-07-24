@@ -11,6 +11,7 @@
     <!--<include package=".bbb" />-->
     <include package=".Multimedia" />
 
+    <include file="imagescales.zcml" />
     <include file="profiles.zcml" />
     <include file="skins.zcml" />
 
