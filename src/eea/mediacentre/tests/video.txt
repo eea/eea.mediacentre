@@ -16,11 +16,3 @@ Make a basic test and make sure the view tab loads successfully.
 
     >>> dummy=browser.open('http://nohost/plone/barsandtones/view')
 
-Open the edit tab and make sure it loads successfully. Also check
-that the rich_description field uses kupu.
-
-    >>> browser.open('http://nohost/plone/barsandtones/edit')
-    >>> 'rich_description' in browser.contents
-    True
-    >>> 'mce_editable' in browser.contents
-    True

@@ -214,7 +214,8 @@ class VideoView(BrowserView):
                          "video_author": "",
                          "width": 600,
                          "height": 389,
-                         "rich_description": self.context.text()
+                         "rich_description":
+                                self.context.getField('text').get(self.context)
                      }
 
 
