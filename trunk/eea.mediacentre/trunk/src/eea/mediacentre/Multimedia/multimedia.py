@@ -31,7 +31,7 @@ class Multimedia(BrowserView):
         query = {'sort_on': 'effective',
                  'sort_order': 'reverse',
                  'effectiveRange': DateTime()}
-        query['object_provides'] = 'p4a.video.interfaces.IVideoEnhanced'
+        query['object_provides'] = 'eea.mediacentre.interfaces.IVideo'
         brains = self.catalog.searchResults(query)[0:5]
         self.videos = []
         for brain in brains:
