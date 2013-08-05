@@ -3,6 +3,9 @@ Changelog
 
 5.7-dev - (unreleased)
 ----------------------
+* Change: removed p4a.* interface removal from eea.mediacentre in order for
+  this step to be done by Products.EEAPloneAdmin
+  [ichimdav #15234]
 
 5.6 - (2013-07-25)
 ------------------
