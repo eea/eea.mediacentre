@@ -1,0 +1,13 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:zcml="http://namespaces.zope.org/zcml"
+        xmlns:five="http://namespaces.zope.org/five">
+
+      <adapter
+          factory=".plonevideo_syndication.VideoFeed"
+          provides="Products.basesyndication.interfaces.IFeed"
+          />
+     <adapter factory=".plonevideo_syndication.VideoFeedSource" />
+     <adapter factory=".plonevideo_syndication.ATFileEnclosure" />
+
+</configure>
