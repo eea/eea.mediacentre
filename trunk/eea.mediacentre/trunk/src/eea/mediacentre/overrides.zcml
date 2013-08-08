@@ -6,6 +6,4 @@
   <adapter factory=".flv_player.FLVVideoPlayer"
            name="video/x-flv" />
 
-  <adapter factory=".syndication.VideoFeedEntryWithDescription" />
-
 </configure>
