@@ -1,8 +1,8 @@
 Changelog
 =========
 
-5.8-dev - (unreleased)
-----------------------
+5.8 - (2013-08-19)
+------------------
 * Bug fix: fixed non playback of green tips animations
   [ichimdav refs #14323]
 
