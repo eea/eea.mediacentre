@@ -175,7 +175,7 @@
 
                             var orig_href = this.href;
                             var clean_href = this.href.replace(/(view|video_popup_view)/, "");
-                            var swf_href = this.href.replace(/(view|video_popup_view)/, "getFile");
+                            var swf_href = clean_href + "/getFile";
                             player_title.innerHTML = this.title;
                             media_flowplayer.flashembed({
                                     src: swf_href
