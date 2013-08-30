@@ -1,8 +1,8 @@
 Changelog
 =========
 
-5.9-dev - (unreleased)
-----------------------
+5.9 - (2013-08-30)
+------------------
 * Bug fix: no longer crash the viewimage browser view if we pass in an 
   interface that can't adapt given context
   [ichimdav #16285]
