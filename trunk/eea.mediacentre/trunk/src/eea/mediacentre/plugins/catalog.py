@@ -2,7 +2,7 @@
 """
 from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 from eea.mediacentre.plugins.interfaces import ICatalogPlugin
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 
