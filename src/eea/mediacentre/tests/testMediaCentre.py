@@ -10,11 +10,6 @@ from eea.mediacentre.tests.base import MediaCentreTestCase
 from zope.component import provideUtility
 from zope.component.testing import setUp
 from Testing.ZopeTestCase import FunctionalDocFileSuite
-# NOTE: this is needed because when testing you get some parser
-# warnings which make the jenkins builds fail
-import hachoir_core.config
-
-hachoir_core.config.quiet = True
 
 optionflags = (doctest.ELLIPSIS |
                doctest.NORMALIZE_WHITESPACE |
