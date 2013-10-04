@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.1-dev - (unreleased)
-----------------------
+6.1 - (2013-10-04)
+------------------
 * Change: removed traces of hachoir packages from eea.mediacentre
   [ichimdav refs #15651]
 * Change: updated zope imports with the versions that require minimum Plone 4.1
