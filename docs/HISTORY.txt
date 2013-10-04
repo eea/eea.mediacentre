@@ -14,7 +14,7 @@ Changelog
 
 5.9 - (2013-08-30)
 ------------------
-* Bug fix: no longer crash the viewimage browser view if we pass in an 
+* Bug fix: no longer crash the viewimage browser view if we pass in an
   interface that can't adapt given context
   [ichimdav #16285]
 
@@ -31,15 +31,15 @@ Changelog
 
 5.6 - (2013-07-25)
 ------------------
-* Upgrade step: Within "Plone > Site setup > Add-ons" click on button available 
-  for eea.mediacentre 
+* Upgrade step: Within "Plone > Site setup > Add-ons" click on button available
+  for eea.mediacentre
   [ichimdav #15234]
 * Bug fix: fixed issue when value passed to video image is of wrong format
   [ichimdav #14920]
 
 5.5 - (2013-07-11)
 ------------------
-* Bug fix: no longer crash if we try to pass a bad value for the video image 
+* Bug fix: no longer crash if we try to pass a bad value for the video image
   file
   [ichimdav #14920]
 * Change: removed p4a.fileimage dependency as part of upgrading to Plone 4.3
@@ -60,7 +60,7 @@ Changelog
   [ichimdav #5480]
 * Change: CloudVideo no longer uses any logic from p4a.video
   [ichimdav #5480]
-* Bug fix: fixed failing imports from mediacentre.txt after upgrading to 
+* Bug fix: fixed failing imports from mediacentre.txt after upgrading to
   Plone 4.2.1
   [ichimdav]
 
@@ -79,7 +79,7 @@ Changelog
   [ichimdav #5470]
 * Bug fix: hide portal-personaltools-wrapper on multimedia page
   [ichimdav #5443]
-* Bug fix: fixed styles to multimedia page after using the stock custom from 
+* Bug fix: fixed styles to multimedia page after using the stock custom from
   sunburst
   [ichimdav #5455]
 * Feature: dinamically load coverflow videos and randomize results order
@@ -93,7 +93,7 @@ Changelog
 
 5.0 - (2012-07-13)
 ------------------
-* Bug Fix: Fixed i18n missing tags, i18n:domain and duplicate keys in .pt 
+* Bug Fix: Fixed i18n missing tags, i18n:domain and duplicate keys in .pt
   [prospchr refs #5162]
 
 4.13 - (2012-06-12)
@@ -108,10 +108,10 @@ Changelog
 
 4.11 - (2012-03-30)
 -------------------
-* Bug fix: removed topics and tags for other tabsi rather than greentips and 
-  video in multimedia page since they have logic implemented for it 
+* Bug fix: removed topics and tags for other tabsi rather than greentips and
+  video in multimedia page since they have logic implemented for it
   [ichimdav #5044]
-* Bug fix: fixed the strikethrough points found in the description of the 
+* Bug fix: fixed the strikethrough points found in the description of the
   ticket, related to the appearence of some multimedia elements
   [ichimdav #5035]
 * Change: use eea-tabs style for multimedia whatsnew-gallery
@@ -119,13 +119,13 @@ Changelog
 
 4.10 - (2012-03-05)
 -------------------
-* Feature: added cloud url field which allows us to play videos from 
+* Feature: added cloud url field which allows us to play videos from
   external sites like Youtube or Vimeo for video view
   [ichimdav #4963]
-* Bug fix: display fullscreen video on multimedia page for 16:9 where 
+* Bug fix: display fullscreen video on multimedia page for 16:9 where
   possible by making the fancybox width to 640px
   [ichimdav #4958]
-* Bug fix: hide the gallery layout switch icons, since only gallery view 
+* Bug fix: hide the gallery layout switch icons, since only gallery view
   enabled on multimedia. no need for switch
   [demarant]
 * Bug fix: changed the background color of the flowplayer flash to black
@@ -147,14 +147,14 @@ Changelog
 
 4.8 - (2012-02-06)
 ------------------
-* Bug fix: added width-full and position-0 customization for multimedia page 
+* Bug fix: added width-full and position-0 customization for multimedia page
   because of the extra space needed on this page, removing it at the same time
   from ploneCustom
   [ichimdav #4925]
 
 4.7 - (2012-01-03)
 ------------------
-* Bug fix: fixed globalnav for logged in users in multimedia page which had 
+* Bug fix: fixed globalnav for logged in users in multimedia page which had
   a smaller white background color than the size of background of the page
   [#4619]
 
@@ -178,7 +178,7 @@ Changelog
 4.3 - (2011-11-24)
 ------------------
 * Bug fix: change the selector for the greentips from animation which prevented the greentips pop-up from appearing
-  [ichimdav #4672] 
+  [ichimdav #4672]
 
 4.2 - (2011-11-23)
 ------------------
@@ -199,7 +199,7 @@ Changelog
 * Bug fix: enable playing of videos with spaces in their name
   [tiberich]
 * Bugfix: Fixed time format on video view
-  [szabozo0 #4549] 
+  [szabozo0 #4549]
 * Bugfix: Fixed layout of video popup view
   [szabozo0 #4510]
 * Bugfix: fixed IE js errors
