@@ -3,6 +3,8 @@ Changelog
 
 6.3-dev - (unreleased)
 ----------------------
+* Bug fix: fixed various warning triggered on Zope startup
+  [ghicaale refs #19289]
 
 6.2 - (2013-12-10)
 ------------------

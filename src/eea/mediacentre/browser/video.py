@@ -164,7 +164,7 @@ class CloudUrlEdit(object):
         """ Set cloud url embedd code for video
         """
         # function from eeacontenttypes.validators which
-        # sanitizes youtube and vimeo links before it is 
+        # sanitizes youtube and vimeo links before it is
         # added to the cloudUrl field
         video_cloud_validator(value, self.context)
 
@@ -204,6 +204,7 @@ class IVideoView(Interface):
 class VideoView(BrowserView):
     """ Video view
     """
+    media_types = None
 
     def __init__(self, context, request):
         super(VideoView, self).__init__(context, request)
@@ -217,7 +218,6 @@ class VideoView(BrowserView):
                          "rich_description":
                                 self.context.getField('text').get(self.context)
                      }
-
 
     def duration(self):
         """ duration
