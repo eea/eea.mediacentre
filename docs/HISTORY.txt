@@ -3,6 +3,8 @@ Changelog
 
 6.4-dev - (unreleased)
 ----------------------
+* Bug fix: Fixed multimedia_macros to work with Chameleon
+  [voineali refs #21919]
 
 6.3 - (2014-05-13)
 ------------------
