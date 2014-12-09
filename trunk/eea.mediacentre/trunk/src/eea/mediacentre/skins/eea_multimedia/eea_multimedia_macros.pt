@@ -1,6 +1,6 @@
 <div metal:define-macro="videoclips"
      class="eea-tabs-panel"
-     id="videoclips-highlights" 
+     id="videoclips-highlights"
      tal:define="multimedia_view multimedia_view|context/@@multimedia_logic;
                  folderContents multimedia_view/getVideos|nothing;
                  hide_album python: False;
@@ -46,11 +46,11 @@
 </div>
 
 <metal:condition metal:define-macro="gallery-condition">
-    <tal:cond tal:condition="folderContents"
-        tal:define="ajax ajax|nothing;
-        limit_display limit_display|nothing;
-        foldermacro python:context.eea_multimedia_macros.macros['ajax-items'] if ajax else context.eea_multimedia_macros.macros['gallery-layout-selection'];">
-        <div metal:use-macro="foldermacro" />
+    <tal:cond tal:condition="folderContents" tal:define="
+        ajax ajax|nothing;
+        limit_display limit_display|nothing;">
+        <tal:ajax tal:condition="ajax" metal:use-macro="context/eea_multimedia_macros/macros/ajax-items" />
+        <tal:noajax tal:condition="not:ajax" metal:use-macro="context/eea_multimedia_macros/macros/gallery-layout-selection" />
     </tal:cond>
     <tal:nocond tal:condition="not:folderContents">
         <div class='portalMessage informationMessage'><p i18n:translate="">No results are available for this topic</p></div>
@@ -95,26 +95,26 @@
 
 
 <metal:video_players define-macro="video_players" tal:define="cloud video_info/cloud_url;">
-    <tal:youtube metal:define-macro="youtube_iframe" tal:define=" 
+    <tal:youtube metal:define-macro="youtube_iframe" tal:define="
                                                         url cloud/youtube|nothing;
-                                                        height player_height|string:338; 
+                                                        height player_height|string:338;
                                                         width player_width|string:600;"
                                                         tal:condition="url">
         <iframe tal:define="option python: '&amp;' if '?' in url else '?';
-                            params params|string:${option}autoplay=1&amp;playnext=1&amp;egm=1&amp;rel=1&amp;fs=1&amp;wmode=opaque" 
+                            params params|string:${option}autoplay=1&amp;playnext=1&amp;egm=1&amp;rel=1&amp;fs=1&amp;wmode=opaque"
             tal:attributes="src string:http://www.youtube.com/embed/${url}${params}; width width; height height"
             frameborder="0">
         </iframe>
     </tal:youtube>
-    
-    <tal:vimeo metal:define-macro="vimeo_iframe" tal:define=" 
+
+    <tal:vimeo metal:define-macro="vimeo_iframe" tal:define="
                                                         url cloud/vimeo|nothing;
                                                         youtube cloud/youtube|nothing;
                                                         height player_height|string:338;
                                                         width player_width|string:600"
                                                         tal:condition="python:url and not youtube">
-        <iframe tal:define=" 
-                            params params|string:?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1" 
+        <iframe tal:define="
+                            params params|string:?title=0&amp;byline=0&amp;ortrait=0&amp;wmode=opaque&amp;autoplay=1"
             tal:attributes="src string:http://player.vimeo.com/video/${url}${params}; width width; height height"
             frameborder="0">
         </iframe>
