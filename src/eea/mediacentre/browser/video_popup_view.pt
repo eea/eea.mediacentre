@@ -15,7 +15,7 @@
     <style type="text/css" tal:content="string:@import url(${portal_url}/video_popup_view.css);"></style>
 
     <style type="text/css" media="all" tal:condition="exists:portal/base.css" tal:content="string:@import url($portal_url/base.css);"></style>
-    <style type="text/css" media="all" tal:condition="exists:portal/columns.css" tal:content="string:@import url($portal_url/columns.css);"></style>        
+    <style type="text/css" media="all" tal:condition="exists:portal/columns.css" tal:content="string:@import url($portal_url/columns.css);"></style>
     <style type="text/css" media="all" tal:condition="exists:portal/public.css" tal:content="string:@import url($portal_url/public.css);"></style>
     <style type="text/css" media="all" tal:condition="exists:portal/eea-public.css" tal:content="string:@import url($portal_url/eea-public.css);"></style>
     <style type="text/css" media="all" tal:condition="exists:portal/portlets.css" tal:content="string:@import url($portal_url/portlets.css);"></style>
@@ -25,7 +25,7 @@
 
 <h1 tal:content="context/Title" id="video-title">Video Title</h1>
 
-<metal:video_options tal:define="player_width string:640; player_height string:360;">                
+<metal:video_options tal:define="player_width string:640; player_height string:360;">
     <tal:video_players  metal:use-macro="here/@@file_view/video_players"  />
 </metal:video_options>
 
@@ -53,7 +53,6 @@
         <div id="docs-slider" class="slider" tal:define="nr_items python:25; imgsize string:image_tile; portal_type python:['Highlight', 'PressRelease', 'Article']">
 
             <div metal:use-macro="here/document_relateditems/macros/auto-context">
-
                 show auto related items if they exist
             </div>
             <img class="slidernav larrow" src="++resource++video-slider-images/larrow_on.png"/>
@@ -62,9 +61,12 @@
     </div>
 <div id="tab-desc"  style="top:430px;position:absolute;height:100px;overflow:auto;">
     <div class="discreet">
-        <tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
-            <span i18n:translate="">Show the publishdate only (effective date)</span>
-        </tal:publishdate></div>
+        <tal:publishdate tal:define="plone_view context/@@plone">
+          <tal:published  i18n:translate="">Published</tal:published>:
+          <span tal:replace="python:plone_view.toLocalizedTime(context.getEffectiveDate())">
+            Show the publishdate only (effective date)
+          </span>
+        </tal:publishdate>
         <p id="vid-desc" tal:content="context/Description"></p>
 
         <tal:author condition="video_info/author">

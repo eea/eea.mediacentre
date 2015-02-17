@@ -2,7 +2,7 @@
     <metal:doctype define-slot="doctype">
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     </metal:doctype>
-    
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
       lang="en-US"
       i18n:domain="eea"
@@ -24,15 +24,15 @@
     <style type="text/css" media="all" tal:condition="exists:portal/public.css" tal:content="string:@import url($portal_url/public.css);"></style>
     <style type="text/css" media="all" tal:condition="exists:portal/eea-public.css" tal:content="string:@import url($portal_url/eea-public.css);"></style>
     <style type="text/css" media="all" tal:condition="exists:portal/portlets.css" tal:content="string:@import url($portal_url/portlets.css);"></style>
-</head>    
+</head>
 
 <body class="video_popup_view" tal:define="video_info context/@@video_view">
 <h1 tal:content="context/Title" id="video-title">Video Title</h1>
 
-<metal:video_options tal:define="player_width string:640; player_height string:360;">                
+<metal:video_options tal:define="player_width string:640; player_height string:360;">
     <tal:video_players  metal:use-macro="here/@@file_view/video_players"  />
 </metal:video_options>
- 
+
 <div class="visualClear"></div>
     <div id="tabs">
         <ul class="tabs">
@@ -43,9 +43,13 @@
 
 <div id="tab-desc">
     <div class="discreet">
-        <tal:publishdate metal:use-macro="here/document_byline/macros/publishdate">
-            <span i18n:translate="">Show the publishdate only (effective date)</span>
-        </tal:publishdate></div>
+        <tal:publishdate tal:define="plone_view context/@@plone">
+          <tal:published  i18n:translate="">Published</tal:published>:
+          <span tal:replace="python:plone_view.toLocalizedTime(context.getEffectiveDate())">
+            Show the publishdate only (effective date)
+          </span>
+        </tal:publishdate>
+
         <p id="vid-desc" tal:content="context/Description"></p>
 
         <tal:author condition="video_info/author">
@@ -53,18 +57,18 @@
         <dd tal:content="video_info/author">Author</dd>
         </tal:author>
 
-        <div tal:content="structure video_info/rich_description" 
+        <div tal:content="structure video_info/rich_description"
              tal:condition="video_info/rich_description">
             Rich Description
         </div>
     </div>
 </div>
-<a href="#" id="bookmark-link" class="footer" 
-   tal:define="url context/absolute_url" 
-   tal:attributes="href string:$url/view" 
+<a href="#" id="bookmark-link" class="footer"
+   tal:define="url context/absolute_url"
+   tal:attributes="href string:$url/view"
    i18n:translate="">Link</a>
-<a href="#" id="more-vids-link" class="footer" 
-   tal:attributes="href string:$portal_url/multimedia" 
+<a href="#" id="more-vids-link" class="footer"
+   tal:attributes="href string:$portal_url/multimedia"
    i18n:translate="">More videos</a>
 
 <p id="vid-title" tal:content="context/Title">Video Title</p>
