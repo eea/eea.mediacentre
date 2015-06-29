@@ -124,7 +124,7 @@ def validateCloudUrl(value):
     """ formlib validator for the cloudUrl field
     """
     if value:
-        if ('youtu' not in value and 'vimeo' not in value):
+        if 'youtu' not in value and 'vimeo' not in value:
             raise InvalidCloudUrl(value)
     return True
 

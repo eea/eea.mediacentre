@@ -63,11 +63,11 @@ class SchemaExtender(object):
             languageIndependent=True,
             required=True,
             default=(datetime.now().year, ''),
-            validators = ('management_plan_code_validator',),
+            validators=('management_plan_code_validator',),
 
             vocabulary_factory="Temporal coverage",
-            storage = AnnotationStorage(migrate=True),
-            widget = ManagementPlanWidget(
+            storage=AnnotationStorage(migrate=True),
+            widget=ManagementPlanWidget(
                 format="select",
                 label="EEA Management Plan",
                 description="EEA Management plan code.",
@@ -138,7 +138,7 @@ class MediaProvider(object):
         """
         currentTheme = getTheme(self.context)
         mediacentre = getUtility(IMediaCentre)
-        search = { MEDIA_SEARCH_KEY: { 'theme': currentTheme }}
+        search = {MEDIA_SEARCH_KEY: {'theme': currentTheme}}
         files = mediacentre.getMedia(self.media_type, full_objects=False,
                                      search=search)
 

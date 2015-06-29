@@ -55,7 +55,7 @@ class FLVVideoPlayer(object):
         }
         config = simplejson.dumps(config)
 
-        # check if aspect ratio fits in 4:3 or 16:9 and fallback to 16:9 
+        # check if aspect ratio fits in 4:3 or 16:9 and fallback to 16:9
         # if the video aspect ratio is not 4:3 or 16:9
         aspect_ratio = ""
         if width and height:

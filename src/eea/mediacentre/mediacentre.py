@@ -49,5 +49,5 @@ class MediaCentre(object):
         """ Get Plugins
         """
         plugins = getAllUtilitiesRegisteredFor(IMediaCentrePlugin)
-        
+
         return plugins
