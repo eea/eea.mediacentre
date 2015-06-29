@@ -25,11 +25,11 @@ class CatalogPlugin(object):
 
         # first search for videos and then search for images
 
-        query = { 
+        query = {
                   'object_provides': 'eea.mediacentre.interfaces.IVideo',
                   'sort_on': 'Date',
                   'sort_order': 'reverse',
-                  'review_state': 'published' }
+                  'review_state': 'published'}
 
         # if search is not none, assume it's a dict and merge it with query
         if search:
@@ -52,8 +52,8 @@ class CatalogPlugin(object):
 
         for brains in [video_brains, image_brains]:
             for brain in brains:
-                data = { 'title': brain.Title,
-                         'url': brain.getURL() }
+                data = {'title': brain.Title,
+                        'url': brain.getURL()}
                 if full_objects:
                     data['object'] = brain.getObject()
                 else:
@@ -74,7 +74,7 @@ class CatalogPlugin(object):
         types = {}
         for mid in multimedia.objectIds():
             title = getattr(multimedia, mid).Title()
-            types[mid] = { 'title': title }
+            types[mid] = {'title': title}
         return types
 
     @property

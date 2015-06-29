@@ -19,8 +19,8 @@ class NavigationPortlet(BrowserView):
             return None
 
         if themecentre:
-            media = { 'title': 'Multimedia',
-                      'url': themecentre.absolute_url() + '/multimedia' }
+            media = {'title': 'Multimedia',
+                     'url': themecentre.absolute_url() + '/multimedia'}
         return media
 
     def media_types(self):
@@ -37,10 +37,10 @@ class NavigationPortlet(BrowserView):
 
         result = []
         for tid, type_info in types.items():
-            data = { 'title': type_info['title'] + 's',
-                     'url': themecentre.absolute_url() + '/multimedia/' +
+            data = {'title': type_info['title'] + 's',
+                    'url': themecentre.absolute_url() + '/multimedia/' +
                          tid + 's',
-                     'icon_url': "media_nav_icon.gif" }
+                    'icon_url': "media_nav_icon.gif"}
             result.append(data)
 
         return result

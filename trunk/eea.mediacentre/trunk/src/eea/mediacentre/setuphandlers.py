@@ -6,7 +6,7 @@ from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
 VOCABULARIES = {
   'multimedia': (
     ('animation', 'Animation'),
-    ('image' , 'Image'),
+    ('image', 'Image'),
     ('interactivemap', 'Interactive Map'),
     ('interview', 'Interview'),
     ('mindstretcher', 'Mind Stretcher'),

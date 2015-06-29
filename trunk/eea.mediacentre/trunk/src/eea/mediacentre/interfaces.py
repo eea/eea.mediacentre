@@ -53,15 +53,15 @@ class IMediaType(Interface):
     """
 
     types = List(
-        title = u"Media types",
-        description = u"List of media types that this media file can tagged "
+        title=u"Media types",
+        description=u"List of media types that this media file can tagged "
                       "with.",
-        required = False,
+        required=False,
 
         value_type=Choice(
-            title = u"Media type",
-            description = u"Media type of this file",
-            vocabulary = """Media types""",
+            title=u"Media type",
+            description=u"Media type of this file",
+            vocabulary="""Media types""",
             )
     )
 

@@ -52,10 +52,10 @@ class Multimedia(BrowserView):
               'operator': 'or'
               }
 
-        # querying for extra objects because Animations also implement 
+        # querying for extra objects because Animations also implement
         # IVideoEnhanced
         result = _getItems(self,
-                    interfaces = interface,
+                    interfaces=interface,
                     noOfItems=self.noOfLatestMultimedia)
 
         return result
@@ -65,7 +65,7 @@ class Multimedia(BrowserView):
         filtered by date and by topic """
         interface = 'eea.mediacentre.interfaces.IVideo'
         result = _getItems(self,
-                    interfaces = interface,
+                    interfaces=interface,
                     noOfItems=self.noOfLatestMultimedia)
         return result
 
@@ -73,15 +73,15 @@ class Multimedia(BrowserView):
         """ retrieves videos filtered by date and by topic """
         interface = 'eea.mediacentre.interfaces.IVideo'
         result = _getItems(self,
-                    interfaces = interface,
+                    interfaces=interface,
                     noOfItems=self.noOfVideos + 20)
         return result
 
     def getAnimations(self):
         """ retrieves multimedia swf animations filtered by date and topic """
-        result = _getItems(self, interfaces = \
+        result = _getItems(self, interfaces=\
                 'Products.EEAContentTypes.content.interfaces.IFlashAnimation',
-                noOfItems = self.noOfAnimations)
+                noOfItems=self.noOfAnimations)
         return result
 
     def getImageGalleries(self):
