@@ -2,8 +2,14 @@
 // optional: faceted_view.js
 (function($) {
     $(document).ready(function() {
-        
-        // hide unsupported video type for cloudVideo contenttype 
+
+        // #26378 disable video popup if screen size is bigger then given
+        // dimensions since video popups do not display correctly for mobile
+        if (window.innerHeight < 800 && window.innerWidth < 680) {
+            return;
+        }
+
+        // hide unsupported video type for cloudVideo contenttype
         var $region_content = $("#region-content"),
             $objmeta = $region_content.find('#objmetadata_pbwidgets_wrapper');
         if ($objmeta.length) {
