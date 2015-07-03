@@ -91,9 +91,12 @@ body.video_popup_view #docs-slider .portlet .portletItem dd a {
     font-size: 1em;
     font-weight: bold;
     width: 85px;
-    line-height: 1.1em;
+    line-height: 1.3em;
     padding:0;
     overflow: hidden;
+    border-bottom: 0;
+    text-decoration: none;
+}
 }
 
 body.video_popup_view #tabs {
