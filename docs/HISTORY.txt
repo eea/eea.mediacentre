@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.7.dev0 - (unreleased)
------------------------
+6.7 - (2015-07-06)
+------------------
 * Change: disable video_popup_view linking when we have small screens such as
   mobile devices
   [ichimdav refs #26378]
