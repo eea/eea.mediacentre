@@ -1,7 +1,7 @@
 """ Video playlists
 """
 from Products.Five import BrowserView
-import urllib2
+from eventlet.green import urllib2
 import json
 
 
