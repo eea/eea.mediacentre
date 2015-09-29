@@ -32,6 +32,7 @@ setup(name=NAME,
       zip_safe=False,
       install_requires=[
           "setuptools",
+          "eventlet",
           'eea.vocab',
           "eea.themecentre",
           "eea.geotags",

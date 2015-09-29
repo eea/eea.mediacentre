@@ -6,6 +6,8 @@ Changelog
 * Bug fix: load jquery migrate plugin for video_popup_view and
   multimedia_popup_view.js since reflect plugin uses browser checking
   [ichimdav refs #27220]
+* Bug fix: use evnetlet to prevent hanging out connection
+  [lucas refs #29063]
 
 6.7 - (2015-07-06)
 ------------------
