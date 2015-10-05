@@ -1,8 +1,8 @@
 Changelog
 =========
 
-6.8.dev0 - (unreleased)
------------------------
+6.8 - (2015-10-05)
+------------------
 * Bug fix: load jquery migrate plugin for video_popup_view and
   multimedia_popup_view.js since reflect plugin uses browser checking
   [ichimdav refs #27220]
