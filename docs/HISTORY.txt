@@ -3,6 +3,8 @@ Changelog
 
 6.9.dev0 - (unreleased)
 -----------------------
+* Change: Upgrade Google analytics to Universal Analytics
+  [chiridra refs #18653]
 
 6.8 - (2015-10-05)
 ------------------
