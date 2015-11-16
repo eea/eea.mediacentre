@@ -1,0 +1,39 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="eea">
+
+    <include package="eea.vocab" />
+    <include package="eea.themecentre" />
+    <include package="eea.geotags" />
+
+    <include package=".browser" />
+    <include package=".plugins" />
+    <include package=".upgrades" />
+    <!--<include package=".bbb" />-->
+    <include package=".Multimedia" />
+
+    <include file="imagescales.zcml" />
+    <include file="profiles.zcml" />
+    <include file="skins.zcml" />
+
+    <adapter for="eea.mediacentre.interfaces.IVideo"
+             provides="zope.annotation.interfaces.IAnnotations"
+             factory="zope.annotation.attribute.AttributeAnnotations" />
+
+    <adapter name="eeacontentypes.video"
+             for="eea.mediacentre.interfaces.IVideo"
+             factory=".media.SchemaExtender" />
+
+    <adapter factory=".mediatypes.MediaTypesAdapter" />
+    <adapter factory=".mediatypes.MediaTypesImageAdapter" />
+
+    <adapter for="*" factory=".media.MediaProvider" />
+
+    <utility factory=".mediacentre.MediaCentre" />
+
+    <utility component=".mediatypes.MediaTypesVocabularyFactory"
+             name="Media types" />
+
+    <!-- -*- marker interfaces -*- -->
+    <interface interface=".interfaces.IVideo" />
+
+</configure>

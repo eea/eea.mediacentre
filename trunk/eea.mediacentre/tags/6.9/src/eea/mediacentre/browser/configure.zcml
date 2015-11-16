@@ -1,0 +1,101 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="eea">
+
+    <!-- resourceDirectory containing images for video navigation from thickbox -->
+    <browser:resourceDirectory name="video-slider-images"
+                               directory="images"
+                               permission="zope.Public" />
+
+    <!-- for="..interfaces.IPossibleMediaFile" -->
+
+    <browser:page for="eea.mediacentre.interfaces.IVideo"
+                  name="mediatype_edit.html"
+                  class=".mediatypes.MediaTypesEditForm"
+                  permission="cmf.ModifyPortalContent" />
+    <browser:page for="*"
+                  name="mediacentre.html"
+                  class=".statistics.Info"
+                  template="statistics.pt"
+                  permission="zope2.View" />
+
+    <!-- provides data for the media portlet template -->
+    <browser:page for="*"
+                  name="media_portlet"
+                  class=".portlets.base.MediaPortlet"
+                  allowed_interface=".interfaces.IMediaPortlet"
+                  permission="zope.Public" />
+
+    <browser:page for="*"
+                  name="media_navigation"
+                  class=".portlets.navigation.NavigationPortlet"
+                  allowed_interface=".interfaces.INavigationPortlet"
+                  permission="zope.Public" />
+
+    <browser:page for="*"
+                  name="media_provider"
+                  class=".provider.MediaContainerView"
+                  allowed_attributes="media_items"
+                  permission="zope2.View" />
+
+    <!-- browser view for utility methods -->
+
+    <browser:page for="eea.mediacentre.interfaces.IVideo"
+                  name="showEditVideoMetadataTab"
+                  class=".video.VideoUtils"
+                  attribute="showEditMetadataTab"
+                  permission="zope.Public" />
+
+    <!-- shows a preview of an object which is meant to be in a listing. -->
+    <browser:page for="*"
+                  name="obj_listed_single"
+                  class=".single.ListedSingle"
+                  allowed_interface=".single.IListedSingle"
+                  permission="zope2.View" />
+
+    <!-- shows a preview of an object which is meant to be in a listing. -->
+    <browser:page for="*"
+                  name="image_listed_single"
+                  class=".single.ImageListedSingle"
+                  allowed_interface=".single.IListedSingle"
+                  permission="zope2.View" />
+
+    <!-- convenient view for accessing mediatype info -->
+    <browser:page for="*"
+                  name="mediatypes"
+                  class=".mediatypes.MediaTypes"
+                  allowed_attributes="title"
+                  permission="zope2.View" />
+
+    <browser:page name="video_popup_view"
+                  template="video_popup_view.pt"
+                  for="eea.mediacentre.interfaces.IVideo"
+                  class="eea.mediacentre.browser.video.VideoView"
+                  permission="zope2.View" />
+
+    <browser:page name="video_popup_view"
+                  template="video_popup_view.pt"
+                  for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
+                  permission="zope2.View" />
+
+    <browser:page name="video_playlist_view"
+                  for="*"
+                  class=".playlist.VideoPlaylist"
+                  allowed_attributes="playlist"
+                  permission="zope2.View" />
+
+    <browser:page name="multimedia_popup_view"
+                  template="multimedia_popup_view.pt"
+                  class="eea.mediacentre.browser.video.VideoView"
+                  for="eea.mediacentre.interfaces.IVideo"
+                  permission="zope2.View" />
+
+    <browser:page name="multimedia_popup_view"
+                  template="multimedia_popup_view.pt"
+                  for="Products.EEAContentTypes.content.interfaces.ICloudVideo"
+                  permission="zope2.View" />
+
+    <adapter factory=".video.ManagementPlanCodeEdit" />
+    <adapter factory=".video.CloudUrlEdit" />
+
+</configure>
