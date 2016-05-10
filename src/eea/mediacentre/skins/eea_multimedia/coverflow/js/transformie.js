@@ -1,4 +1,4 @@
-// jslint: disable
+// jslint:disable
 
 jQuery(function() {
 
