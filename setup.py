@@ -1,7 +1,7 @@
 """ EEA Media Centre installer
 """
-from setuptools import setup, find_packages
 import os
+from setuptools import setup, find_packages
 
 NAME = 'eea.mediacentre'
 PATH = NAME.split('.') + ['version.txt']

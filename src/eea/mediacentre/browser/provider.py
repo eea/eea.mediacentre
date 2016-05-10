@@ -1,9 +1,10 @@
 """ Provider
 """
-from zope.component import queryAdapter
-from eea.mediacentre.interfaces import IMediaProvider
 from eea.mediacentre.interfaces import IMediaDisplayInfo
 from eea.mediacentre.interfaces import IMediaPlayer
+from eea.mediacentre.interfaces import IMediaProvider
+from zope.component import queryAdapter
+
 
 class MediaContainerVideos(object):
     """ Media Container Videos

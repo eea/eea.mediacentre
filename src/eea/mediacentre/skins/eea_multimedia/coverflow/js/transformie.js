@@ -1,3 +1,5 @@
+// jslint: disable
+
 jQuery(function() {
 
 	if(!jQuery.browser.msie) return;

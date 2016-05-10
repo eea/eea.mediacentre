@@ -72,7 +72,9 @@ class IMediaProvider(Interface):
 
     def media_items(self):
         """ Returns a list of media objects this provider finds available.
+            :return list
         """
+        return []
 
 class IMediaDisplayInfo(Interface):
     """ Media Display Info
