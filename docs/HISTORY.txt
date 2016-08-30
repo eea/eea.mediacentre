@@ -3,6 +3,8 @@ Changelog
 
 7.1.dev0 - (unreleased)
 -----------------------
+* Bug fix: video_popup_view should have a white background
+  [ichim-david refs #75139 and #71710]
 
 7.0 - (2016-05-19)
 ------------------

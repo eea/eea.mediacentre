@@ -1,6 +1,7 @@
 html,
 body.video_popup_view {
    overflow: hidden;
+    background-color: #FFF;
 }
 
 body.video_popup_view h1 {
