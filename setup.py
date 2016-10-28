@@ -17,7 +17,7 @@ setup(name=NAME,
              'European Environment Agency (EEA)',
       author_email='webadmin@eea.europa.eu',
       license='GPL',
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
           "Framework :: Plone",
