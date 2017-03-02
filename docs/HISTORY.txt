@@ -3,6 +3,8 @@ Changelog
 
 7.2.dev0 - (unreleased)
 -----------------------
+* Bug fix: Get resources over https
+  [avoinea refs #82562]
 
 7.1 - (2016-09-05)
 ------------------
