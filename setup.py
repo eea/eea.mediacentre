@@ -10,21 +10,28 @@ VERSION = open(os.path.join("src/", *PATH)).read().strip()
 
 setup(name=NAME,
       version=VERSION,
-      url='http://svn.eionet.europa.eu/projects/'
-          'Zope/browser/trunk/eea.mediacentre',
+      url='https://github.com/eea/eea.mediacentre',
       description='EEA Media Centre',
-      author='Tim Terlegard, Antonio De Marinis (EEA), '
-             'European Environment Agency (EEA)',
-      author_email='webadmin@eea.europa.eu',
+      author='European Environment Agency: IDM2 A-Team',
+      author_email='eea-edw-a-team-alerts@googlegroups.com',
       license='GPL',
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
+      # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
+          "Framework :: Zope2",
           "Framework :: Plone",
+          "Framework :: Plone :: 4.0",
+          "Framework :: Plone :: 4.1",
+          "Framework :: Plone :: 4.2",
+          "Framework :: Plone :: 4.3",
+          "Programming Language :: Zope",
           "Programming Language :: Python",
+          "Programming Language :: Python :: 2.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
-          ],
-      keywords='eea media centre',
+          "License :: OSI Approved :: GNU General Public License (GPL)",
+      ],
+      keywords='EEA media centre Add-ons Plone Zope',
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=['eea'],
