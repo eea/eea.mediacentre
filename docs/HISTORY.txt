@@ -4,7 +4,7 @@ Changelog
 7.3.dev0 - (unreleased)
 -----------------------
 * Change: updated package information
-[eduard-fironda]
+  [eduard-fironda]
 
 7.2 - (2017-03-02)
 ------------------
