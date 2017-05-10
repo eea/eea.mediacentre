@@ -1,10 +1,13 @@
 """ Media
 """
+from datetime import datetime
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import ISchemaExtender
-from datetime import datetime
 from eea.forms.fields.ManagementPlanField import ManagementPlanField
 from eea.forms.widgets.ManagementPlanWidget import ManagementPlanWidget
+from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
+from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
+from eea.themecentre.themecentre import getTheme
 from plone.app.blob.field import ImageField
 from Products.Archetypes.atapi import AnnotationStorage
 from Products.Archetypes.atapi import RichWidget, ImageWidget
@@ -12,9 +15,6 @@ from Products.Archetypes.atapi import TextAreaWidget
 from Products.Archetypes.atapi import TextField
 from Products.EEAContentTypes.content.interfaces import ICloudVideo
 from zope.interface import implements
-from eea.mediacentre.interfaces import IMediaCentre, IMediaProvider
-from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
-from eea.themecentre.themecentre import getTheme
 from zope.component import getUtility
 
 

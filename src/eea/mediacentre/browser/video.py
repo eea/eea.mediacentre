@@ -2,19 +2,16 @@
 """
 from Products.Archetypes.interfaces import ISchema
 from Products.CMFCore.utils import getToolByName
+from Products.EEAContentTypes.content.validators import video_cloud_validator
+from Products.Five.browser import BrowserView
 from eea.mediacentre.interfaces import IVideo, IMediaPlayer
+from eea.forms.widgets.ManagementPlanWidget import ManagementPlanCode
 from zope.component import queryAdapter
 from zope.component import adapts
 from zope.interface import Interface, implements
 from zope import schema
-from Products.EEAContentTypes.content.validators import video_cloud_validator
-
 from zope.schema import ValidationError
 from zope.annotation.interfaces import IAnnotations
-
-from eea.forms.widgets.ManagementPlanWidget import ManagementPlanCode
-
-from Products.Five.browser import BrowserView
 
 KEY = 'eea.mediacentre.multimedia'
 

@@ -1,8 +1,8 @@
 """ p4a.* cleanup
 """
-from zope.annotation import IAnnotations
-import transaction
 import logging
+import transaction
+from zope.annotation import IAnnotations
 log = logging.getLogger(__name__)
 
 
@@ -47,4 +47,3 @@ def cleanup_p4a_traces(context):
 
     # set fields from annotation of objects
     set_fields_from_annotation(ca)
-

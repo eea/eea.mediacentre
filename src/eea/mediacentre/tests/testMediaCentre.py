@@ -3,10 +3,10 @@
 import doctest
 import unittest
 import os
-from zope.interface import alsoProvides
 from eea.mediacentre.mediacentre import MediaCentre
 from eea.mediacentre.interfaces import IVideo
 from eea.mediacentre.tests.base import MediaCentreTestCase
+from zope.interface import alsoProvides
 from zope.component import provideUtility
 from zope.component.testing import setUp
 from Testing.ZopeTestCase import FunctionalDocFileSuite

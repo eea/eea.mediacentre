@@ -3,17 +3,16 @@
 import logging
 
 from zope.interface import implements
-
+from zope.annotation.interfaces import IAnnotations
+from zope.component import adapts
+from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from Products.ATContentTypes.interfaces import IATImage
 from Products.CMFCore.utils import getToolByName
 from eea.mediacentre.interfaces import IMediaType
 from eea.mediacentre.interfaces import IVideo
 from persistent.dict import PersistentDict
 from persistent.list import PersistentList
-from zope.annotation.interfaces import IAnnotations
-from zope.component import adapts
-from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 KEY = 'eea.mediacentre.mediafile'
 logger = logging.getLogger('eea.mediacentre.mediatypes')

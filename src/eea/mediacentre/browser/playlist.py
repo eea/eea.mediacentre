@@ -1,8 +1,8 @@
 """ Video playlists
 """
+import json
 from Products.Five import BrowserView
 from eventlet.green import urllib2
-import json
 
 
 class VideoPlaylist(BrowserView):

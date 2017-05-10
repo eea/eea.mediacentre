@@ -1,14 +1,13 @@
 """ Base
 """
 from zope.interface import implements
-
+from zope.component import getAdapter, getUtility
 from eea.mediacentre.browser.interfaces import IMediaPortlet
 from eea.mediacentre.interfaces import IMediaCentre
 from eea.mediacentre.interfaces import IMediaPlayer
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 from eea.themecentre.browser.portlets.catalog import BasePortlet
 from eea.themecentre.themecentre import getTheme
-from zope.component import getAdapter, getUtility
 
 
 class MediaPortlet(BasePortlet):
