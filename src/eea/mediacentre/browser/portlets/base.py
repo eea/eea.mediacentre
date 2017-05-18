@@ -25,8 +25,7 @@ class MediaPortlet(BasePortlet):
             widget = getAdapter(media_file, IMediaPlayer, name=mime_type)
             widget.use_height_only = True
             return widget(None, None)
-        else:
-            return None
+        return None
 
     def item_to_short_dict(self, item):
         """ Item to short dict

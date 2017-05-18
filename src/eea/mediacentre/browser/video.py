@@ -223,8 +223,7 @@ class VideoView(BrowserView):
         if time:
             time = int(round(time or 0.0))
             return fancy_time_amount(time, show_legend=False)
-        else:
-            return None
+        return None
 
     def author(self):
         """ Author

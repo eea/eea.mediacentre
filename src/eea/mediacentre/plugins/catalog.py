@@ -6,6 +6,7 @@ from zope.component.hooks import getSite
 from eea.mediacentre.plugins.interfaces import ICatalogPlugin
 from eea.mediacentre.mediacentre import MEDIA_SEARCH_KEY
 
+
 class CatalogPlugin(object):
     """ Catalog Plugin
     """
@@ -26,10 +27,10 @@ class CatalogPlugin(object):
         # first search for videos and then search for images
 
         query = {
-                  'object_provides': 'eea.mediacentre.interfaces.IVideo',
-                  'sort_on': 'Date',
-                  'sort_order': 'reverse',
-                  'review_state': 'published'}
+            'object_provides': 'eea.mediacentre.interfaces.IVideo',
+            'sort_on': 'Date',
+            'sort_order': 'reverse',
+            'review_state': 'published'}
 
         # if search is not none, assume it's a dict and merge it with query
         if search:
@@ -62,8 +63,7 @@ class CatalogPlugin(object):
 
         if size:
             return result[:size]
-        else:
-            return result
+        return result
 
     def getMediaTypes(self):
         """ Get Media Types

@@ -59,7 +59,7 @@ class ImageListedSingle(object):
             'preview_url': obj.absolute_url() + '/image_thumb',
         }
         if pos is not None:
-            image['oddeven'] = ['even', 'odd'][pos % 2]
+            image['oddeven'] = 'odd' if (pos) % (2) else 'even'
 
         return self.template(image=image)
 
@@ -85,6 +85,6 @@ class VideoListedSingle(object):
             'portal_type': obj.portal_type
         }
         if pos is not None:
-            video['oddeven'] = ['even', 'odd'][pos % 2]
+            video['oddeven'] = 'odd' if (pos) % (2) else 'even'
 
         return self.template(videoobj=video)
