@@ -2,12 +2,18 @@ html,
 body.video_popup_view {
    overflow: hidden;
     background-color: #FFF;
+    margin: 0;
+    font-size: 12px;
+}
+
+a {
+    color: #346f83;
 }
 
 body.video_popup_view h1 {
     background-color:#E8E8E8;
     color: black;
-    font-size: 1em;
+    font-size: 12px;
     margin: 0;
     padding: 7px 0 5px 10px;
     border: medium none;
@@ -71,9 +77,10 @@ body.video_popup_view .slider .rarrow {
 body.video_popup_view .slider .portlet {
     width: 3000px;
     position: absolute;
-    top: 430px;
+    top: 435px;
     left: 20px;
     border: 0;
+    margin-top: 1em;
 }
 
 body.video_popup_view .slider .portlet .portletItem dd {
@@ -89,9 +96,10 @@ body.video_popup_view .slider .portlet .portletItem dd a, img, canvas { /* img r
 }
 
 body.video_popup_view #docs-slider .portlet .portletItem dd a {
-    font-size: 1em;
+    font-size: 11px;
     font-weight: bold;
-    width: 85px;
+    width: 112px;
+    display: inline-block;
     line-height: 1.3em;
     padding:0;
     overflow: hidden;

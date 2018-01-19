@@ -3,6 +3,8 @@ Changelog
 
 7.6.dev0 - (unreleased)
 -----------------------
+* Change: css optimization for video_popup_view
+  [ichim-david refs #91590]
 
 7.5 - (2017-05-22)
 ------------------
