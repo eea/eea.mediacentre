@@ -5,7 +5,9 @@
 
         // #26378 disable video popup if screen size is bigger then given
         // dimensions since video popups do not display correctly for mobile
-        if (window.innerHeight < 800 && window.innerWidth < 680) {
+        // 94263 check also if we are not inside an iframe in which case we want to modify the links to have
+        // video_popup_page for link href regardless of the size of the window
+        if (window.innerHeight < 800 && window.innerWidth < 680 && window.location === window.parent.location) {
             return;
         }
 

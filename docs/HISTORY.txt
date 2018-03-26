@@ -3,6 +3,9 @@ Changelog
 
 7.7.dev - (unreleased)
 ----------------------
+* Bug fix: fixed links for video_popup_view related videos where
+  the link took you to the view page instead of video_popup_view
+  [ichim-david refs #94263]
 * Change: css optimization for video_popup_view
   [ichim-david refs #91590]
 
