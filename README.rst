@@ -1,8 +1,12 @@
 ================
 EEA Media Centre
 ================
-.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.mediacentre/job/master/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea/job/eea.mediacentre/job/master/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.mediacentre/develop
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.mediacentre/job/develop/display/redirect
+  :alt: develop
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.mediacentre/master
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.mediacentre/job/master/display/redirect
+  :alt: master
 
 Media Centre offers an API to search for media content on the website.
 The actual content is looked up by plugins. A plugin should register
