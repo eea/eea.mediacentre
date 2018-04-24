@@ -1,13 +1,19 @@
 html,
 body.video_popup_view {
-   overflow: hidden;
+    overflow: hidden;
     background-color: #FFF;
+    margin: 0;
+    font-size: 12px;
+}
+
+a {
+    color: #346f83;
 }
 
 body.video_popup_view h1 {
-    background-color:#E8E8E8;
+    background-color: #E8E8E8;
     color: black;
-    font-size: 1em;
+    font-size: 12px;
     margin: 0;
     padding: 7px 0 5px 10px;
     border: medium none;
@@ -42,7 +48,8 @@ body.video_popup_view .media-player {
 
 body.video_popup_view .media-player .flowplayer #embeddedvideo, .embeddedvideo {
     width: 640px;
-    height: 360px; /* 640x360 == 16:9 */
+    height: 360px;
+ /* 640x360 == 16:9 */
     color: #FFF;
     background: #000;
 }
@@ -71,9 +78,10 @@ body.video_popup_view .slider .rarrow {
 body.video_popup_view .slider .portlet {
     width: 3000px;
     position: absolute;
-    top: 430px;
+    top: 435px;
     left: 20px;
     border: 0;
+    margin-top: 1em;
 }
 
 body.video_popup_view .slider .portlet .portletItem dd {
@@ -84,16 +92,18 @@ body.video_popup_view .slider .portlet .portletItem dd {
     font-size: 1.13em;
 }
 
-body.video_popup_view .slider .portlet .portletItem dd a, img, canvas { /* img reflections */
+body.video_popup_view .slider .portlet .portletItem dd a, img, canvas {
+ /* img reflections */
     margin: auto;
 }
 
 body.video_popup_view #docs-slider .portlet .portletItem dd a {
-    font-size: 1em;
+    font-size: 11px;
     font-weight: bold;
-    width: 85px;
+    width: 112px;
+    display: inline-block;
     line-height: 1.3em;
-    padding:0;
+    padding: 0;
     overflow: hidden;
     border-bottom: 0;
     text-decoration: none;
@@ -150,6 +160,7 @@ body.video_popup_view #ajax-loader {
 #tabs {
     padding: 0.2em;
 }
+
 .tabs {
     border: 1px solid #AAAAAA;
     display: block;
@@ -158,10 +169,11 @@ body.video_popup_view #ajax-loader {
     margin: 0px;
     padding: 0.2em 0.2em 0;
 }
+
 .tabnav {
     font-size: 1em;
     padding: 0.5em 1em;
-    text-decoration:none;
+    text-decoration: none;
     color: #212121 !important;
 }
 
@@ -176,34 +188,35 @@ body.video_popup_view #ajax-loader {
     -webkit-border-top-left-radius: 4px;
     -webkit-border-top-right-radius: 4px;
     position: relative;
-    float:left;
-    line-height:24px;
-    background:#DDDDDD;
+    float: left;
+    line-height: 24px;
+    background: #DDDDDD;
 }
 
 li.current_li {
     background: none repeat scroll 0 0 #FFFFFF;
 }
+
 .tabs ul.formTabs {
-  background-color: #ddd;
-  border: 0.3em solid #ddd;
+    background-color: #ddd;
+    border: 0.3em solid #ddd;
 }
 
 .tabs ul.formTabs {
-  display: block;
-  border-style: solid solid none solid;
-  margin-left: 0;
-  border-top-right-radius: 0.5em;
-  border-top-left-radius: 0.5em;
-  -webkit-border-top-right-radius: 0.5em;
-  -webkit-border-top-left-radius: 0.5em;
-  -moz-border-radius-topleft: 0.5em;
-  -moz-border-radius-topright: 0.5em;
+    display: block;
+    border-style: solid solid none solid;
+    margin-left: 0;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    -webkit-border-top-right-radius: 0.5em;
+    -webkit-border-top-left-radius: 0.5em;
+    -moz-border-radius-topleft: 0.5em;
+    -moz-border-radius-topright: 0.5em;
 }
 
 .tabs li.formTab {
     display: inline;
-    margin-right:0.25em;
+    margin-right: 0.25em;
 }
 
 .tabs li.formTab a {
@@ -259,4 +272,3 @@ li.current_li {
     line-height: 1.5em;
     margin-bottom: 1em;
 }
-
