@@ -1,6 +1,9 @@
 Changelog
 =========
 
+7.8-dev0 - (unreleased)
+---------------------
+
 7.7 - (2018-04-24)
 -----------------------
 * Bug fix: fixed links for video_popup_view related videos where
@@ -348,4 +351,3 @@ Changelog
 0.1 - (2009)
 ------------------
 * Initial creation of package
-
