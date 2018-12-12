@@ -102,7 +102,7 @@
                                                         tal:condition="url">
         <iframe tal:define="option python: '&amp;' if '?' in url else '?';
                             params params|string:${option}autoplay=1&amp;playnext=1&amp;egm=1&amp;rel=1&amp;fs=1&amp;wmode=opaque"
-            tal:attributes="src string:https://www.youtube.com/embed/${url}${params}; width width; height height"
+            tal:attributes="src string:https://www.youtube-nocookie.com/embed/${url}${params}; width width; height height"
             frameborder="0">
         </iframe>
     </tal:youtube>
