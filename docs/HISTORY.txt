@@ -1,6 +1,13 @@
 Changelog
 =========
 
+7.8 - (2019-01-10)
+---------------------
+* Change: updated URLs pointing to eea.europa.eu with https://
+  [alecghica refs #95849]
+* Feature: replaced Google Analytics tracking code with Matomo one.
+  [alecghica refs #100969]
+
 7.7 - (2018-04-24)
 -----------------------
 * Bug fix: fixed links for video_popup_view related videos where
@@ -348,4 +355,3 @@ Changelog
 0.1 - (2009)
 ------------------
 * Initial creation of package
-
