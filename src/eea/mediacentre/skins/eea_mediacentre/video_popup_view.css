@@ -1,9 +1,15 @@
 html,
 body.video_popup_view {
-    overflow: hidden;
-    background-color: #FFF;
     margin: 0;
     font-size: 12px;
+}
+
+body.video_popup_view {
+    overflow: hidden;
+    background-color: #FFF;
+    position: relative;
+    z-index: -2;
+    
 }
 
 a {
@@ -23,9 +29,6 @@ body.video_popup_view .media-player {
     overflow: hidden;
 }
 
-body.video_popup_view * {
-    overflow: hidden;
-}
 
 .ui-tabs .ui-tabs-panel {
     height: 100px;
@@ -271,4 +274,23 @@ li.current_li {
     margin-left: 3em;
     line-height: 1.5em;
     margin-bottom: 1em;
+}
+
+
+.video_player {
+    width: 640px;
+    height: 360px;
+}
+.video_player_link {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100%;
+    
+}
+
+.video_player_image {
+    position: relative;
+    filter: contrast(80%);
 }

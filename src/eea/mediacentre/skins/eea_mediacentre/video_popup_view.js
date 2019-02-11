@@ -10,7 +10,7 @@ var ITEM_WIDTH = 120;
 (function($) {
 $(document).ready(function() {
     // Make ordinary, non video links, open in parent window.
-    var ignore = ".video-fancybox, #vid-desc-link, #vid-dl-link, .tabnav";
+    var ignore = ".video-fancybox, #vid-desc-link, #vid-dl-link, .tabnav, .video_player_link";
     $("a").not(ignore).attr("target", "_top");
 
     var caption = $("#vid-title").html();
