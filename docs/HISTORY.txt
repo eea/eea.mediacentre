@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.0-dev0 - (unreleased)
+8.0 - (2019-02-11)
 ---------------------
 * Change: removed direct youtube embed play,
   opting to open youtube in new tab only if
