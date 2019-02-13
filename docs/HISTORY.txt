@@ -1,6 +1,13 @@
 Changelog
 =========
 
+8.0 - (2019-02-11)
+---------------------
+* Change: removed direct youtube embed play,
+  opting to open youtube in new tab only if
+  user clicks on the image thumbnail
+  [ichim-david refs #100747]
+
 7.9 - (2019-01-28)
 ---------------------
 * Jenkins: Add sonarqube step
