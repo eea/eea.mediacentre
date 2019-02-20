@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.1-dev0 - (unreleased)
+8.1 - (2019-02-20)
 ---------------------
 * Change: added missing Youtube_light_logo.png for youtube logo watermark
   [ichim-david refs #100747]
