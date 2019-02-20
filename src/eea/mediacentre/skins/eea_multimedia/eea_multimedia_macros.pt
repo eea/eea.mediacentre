@@ -104,7 +104,7 @@
             <a tal:attributes="href string:https://www.youtube.com/watch?v=${url}; rel string:nofollow;
             style string:background-image:url(${context/absolute_url}/image_large)"
             target="_blank" class="video_player_link">
-                <img tal:attributes="src string:${context/portal_url}/youtube_logo_white.png" class="video_player_image"></img>
+                <img tal:attributes="src string:${context/portal_url}/YouTube_light_logo.png" class="video_player_image"></img>
             </a>
 
         </div>                                                

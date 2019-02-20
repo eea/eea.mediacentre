@@ -1,6 +1,11 @@
 Changelog
 =========
 
+8.1 - (2019-02-20)
+---------------------
+* Change: added missing Youtube_light_logo.png for youtube logo watermark
+  [ichim-david refs #100747]
+
 8.0 - (2019-02-11)
 ---------------------
 * Change: removed direct youtube embed play,
