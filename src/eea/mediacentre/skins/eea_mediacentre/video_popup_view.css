@@ -84,7 +84,6 @@ body.video_popup_view .slider .portlet {
     top: 435px;
     left: 20px;
     border: 0;
-    margin-top: 1em;
 }
 
 body.video_popup_view .slider .portlet .portletItem dd {
@@ -93,6 +92,8 @@ body.video_popup_view .slider .portlet .portletItem dd {
     width: 120px;
     float: left;
     font-size: 1.13em;
+    max-height: 95px;
+    overflow: hidden;
 }
 
 body.video_popup_view .slider .portlet .portletItem dd a, img, canvas {
@@ -169,8 +170,9 @@ body.video_popup_view #ajax-loader {
     display: block;
     -moz-border-radius: 4px 4px 4px 4px;
     -webkit-border-radius: 4px 4px 4px 4px;
-    margin: 0px;
+    margin: 0;
     padding: 0.2em 0.2em 0;
+    list-style: none;
 }
 
 .tabnav {
