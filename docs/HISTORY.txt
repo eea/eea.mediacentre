@@ -1,7 +1,7 @@
 Changelog
 =========
 
-8.2-dev0 - (unreleased)
+8.2 - (2019-08-19)
 --------------------------
 * Change: font size tweaks after base font increase
   [ichim-david refs #106884]
