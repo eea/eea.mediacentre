@@ -2,29 +2,29 @@ Changelog
 =========
 
 8.2-dev0 - (unreleased)
----------------------
+--------------------------
 * Change: font size tweaks after base font increase
   [ichim-david refs #106884]
 
 8.1 - (2019-02-20)
----------------------
+--------------------------
 * Change: added missing Youtube_light_logo.png for youtube logo watermark
   [ichim-david refs #100747]
 
 8.0 - (2019-02-11)
----------------------
+--------------------------
 * Change: removed direct youtube embed play,
   opting to open youtube in new tab only if
   user clicks on the image thumbnail
   [ichim-david refs #100747]
 
 7.9 - (2019-01-28)
----------------------
+--------------------------
 * Jenkins: Add sonarqube step
   [avoinea refs #101552]
 
 7.8 - (2019-01-10)
----------------------
+--------------------------
 * Change: updated URLs pointing to eea.europa.eu with https://
   [alecghica refs #95849]
 * Feature: replaced Google Analytics tracking code with Matomo one.
