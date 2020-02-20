@@ -95,6 +95,21 @@
 
 
 <metal:video_players define-macro="video_players" tal:define="cloud video_info/cloud_url;">
+
+  <tal:cmshare metal:define-macro="cmshare_video" tal:define="
+      url cloud/cmshare|nothing;
+      obj_url cloud/obj_url|context/absolute_url;
+      height player_height|string:100%;
+      width player_width|string:100%;"
+       tal:condition="url">
+    <video  tal:attributes="width width;
+        height height;
+        poster string:${obj_url}/image_large;
+        src python:url if 'download' in url else url + '/download'"
+        controls="controls" preload="metadata" type="video/mp4"> </video>
+
+  </tal:cmshare>
+
     <tal:youtube metal:define-macro="youtube_iframe" tal:define="
                                                         url cloud/youtube|nothing;
                                                         height player_height|string:338;
