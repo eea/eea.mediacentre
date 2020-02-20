@@ -106,7 +106,7 @@
         height height;
         poster string:${obj_url}/image_large;
         src python:url if 'download' in url else url + '/download'"
-        controls="controls" preload="auto" type="video/mp4"> </video>
+        controls="controls" preload="metadata" type="video/mp4"> </video>
 
   </tal:cmshare>
 
