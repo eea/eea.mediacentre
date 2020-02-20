@@ -1,6 +1,9 @@
 Changelog
 =========
 
+8.4-dev0 - (unreleased)
+---------------------------
+
 8.3 - (2020-02-20)
 ---------------------------
 * Feature: added cmshare video url to eea_multimedia_macros
