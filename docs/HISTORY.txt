@@ -3,6 +3,8 @@ Changelog
 
 8.4-dev0 - (unreleased)
 ---------------------------
+* Change: reference jquery.js and jquery-migrate.js instead of resource variants
+  [ichim-david refs #105112]
 
 8.3 - (2020-02-20)
 ---------------------------
