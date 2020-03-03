@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet"
              tal:attributes="href string:${portal_url}/video_popup_view.css" />
 
-  <tal:jquery tal:define="simple_jquery here/jquery.js">
+  <tal:jquery tal:define="simple_jquery here/jquery.js|nothing">
     <script type="text/javascript" tal:condition="python: simple_jquery" tal:attributes="src string:${portal_url}/jquery.js"></script>
     <script type="text/javascript" tal:condition="python: not simple_jquery" tal:attributes="src string:${portal_url}/++resource++plone.app.jquery.js"></script>
   </tal:jquery>
